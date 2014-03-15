@@ -54,11 +54,11 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     //Player 1
     if(player1 == "Human")
     {
-        _player[0] = new HumanPlayer();
+        _player[0] = new HumanPlayer(this);
     }
     else if(player1 == "Random AI")
     {
-        _player[0] = new RandomAIPlayer();
+        _player[0] = new RandomAIPlayer(this);
     }
     else
     {
@@ -73,11 +73,11 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     //Player 2
     if(player2 == "Human")
     {
-        _player[1] = new HumanPlayer();
+        _player[1] = new HumanPlayer(this);
     }
     else if(player2 == "Random AI")
     {
-        _player[1] = new RandomAIPlayer();
+        _player[1] = new RandomAIPlayer(this);
     }
     else
     {

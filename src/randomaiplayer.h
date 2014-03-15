@@ -35,7 +35,7 @@
 class RandomAIPlayer : public Player
 {
 public:
-    RandomAIPlayer();
+    explicit RandomAIPlayer(QObject *parent = 0);
     virtual void doTurn();
     virtual bool isHuman();
     virtual void getBoard(Gameboard board);

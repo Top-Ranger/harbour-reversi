@@ -30,8 +30,8 @@
 #include "randomaiplayer.h"
 #include <QTime>
 
-RandomAIPlayer::RandomAIPlayer() :
-    Player()
+RandomAIPlayer::RandomAIPlayer(QObject *parent) :
+    Player(parent)
 {
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }

@@ -30,8 +30,8 @@
 #include "humanplayer.h"
 #include <QDebug>
 
-HumanPlayer::HumanPlayer() :
-    Player()
+HumanPlayer::HumanPlayer(QObject *parent) :
+    Player(parent)
 {
 }
 

@@ -35,7 +35,7 @@
 class HumanPlayer : public Player
 {
 public:
-    HumanPlayer();
+    explicit HumanPlayer(QObject *parent = 0);
     virtual void doTurn();
     virtual bool isHuman();
     virtual void getBoard(Gameboard board);
