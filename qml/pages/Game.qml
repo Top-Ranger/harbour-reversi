@@ -35,7 +35,6 @@ import harbour.reversi.Gamemaster 1.0
 
 Page {
     id: page
-    allowedOrientations: Orientation.All
 
     Connections {
         target: gamemaster
