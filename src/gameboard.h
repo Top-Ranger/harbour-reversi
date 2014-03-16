@@ -38,7 +38,7 @@ class Gameboard : public QObject
 public:
     explicit Gameboard(QObject *parent = 0);
     Gameboard(const Gameboard& other, QObject *parent = 0);
-    Gameboard operator=(const Gameboard& other);
+    Gameboard& operator=(const Gameboard& other);
     bool play(int x, int y, int player, bool test=false);
     bool isTurnPossible(int player);
     int owner(int x, int y);

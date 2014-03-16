@@ -4,6 +4,7 @@ This implementation features an easy way to implement different players.
 Currently avaiable are:
    * Human: A human player
    * Random AI: A simple AI selecting a random tile
+   * Greedy AI: Tries to get as many points as possible
 
 ---
 

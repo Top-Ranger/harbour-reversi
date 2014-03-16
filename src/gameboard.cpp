@@ -58,7 +58,7 @@ Gameboard::Gameboard(const Gameboard &other, QObject *parent) :
     }
 }
 
-Gameboard Gameboard::operator=(const Gameboard& other)
+Gameboard& Gameboard::operator=(const Gameboard& other)
 {
     for(int i=0; i<8; ++i)
     {
@@ -67,7 +67,7 @@ Gameboard Gameboard::operator=(const Gameboard& other)
             _board[i][j] = other._board[i][j];
         }
     }
-    return Gameboard(this);
+    return *this;
 }
 
 bool Gameboard::play(int x, int y, int player, bool test)

@@ -30,6 +30,7 @@
 #include "gamemaster.h"
 #include "humanplayer.h"
 #include "randomaiplayer.h"
+#include "greedyaiplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
@@ -60,6 +61,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     {
         _player[0] = new RandomAIPlayer(this);
     }
+    else if(player1 == "Greedy AI")
+    {
+        _player[0] = new GreedyAIPlayer(this);
+    }
     else
     {
         return false;
@@ -78,6 +83,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     else if(player2 == "Random AI")
     {
         _player[1] = new RandomAIPlayer(this);
+    }
+    else if(player2 == "Greedy AI")
+    {
+        _player[1] = new GreedyAIPlayer(this);
     }
     else
     {
@@ -146,7 +155,7 @@ void Gamemaster::turn(int x, int y)
         qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
         return;
     }
-    qDebug() << QString("Gamemaster is getting turn %1 + %2").arg(x).arg(y);
+    qDebug() << QString("Gamemaster is getting turn %1 + %2 from %3").arg(x).arg(y).arg(_turn);
     if(_board->play(x, y, _turn))
     {
         qDebug() << "Gamemaster: Turn possible!";
@@ -231,7 +240,7 @@ void Gamemaster::wantBoard()
         return;
     }
 
-    _player[_turn-1]->getBoard(Gameboard(_board), _turn);
+    _player[_turn-1]->getBoard(Gameboard(*_board), _turn);
 }
 
 void Gamemaster::message(QString message)

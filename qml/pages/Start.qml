@@ -106,6 +106,7 @@ Page {
                 menu: ContextMenu {
                     MenuItem { text: "Human" }
                     MenuItem { text: "Random AI"}
+                    MenuItem { text: "Greedy AI"}
                 }
             }
 
@@ -118,6 +119,7 @@ Page {
                 menu: ContextMenu {
                     MenuItem { text: "Human" }
                     MenuItem { text: "Random AI"}
+                    MenuItem { text: "Greedy AI"}
                 }
             }
 
