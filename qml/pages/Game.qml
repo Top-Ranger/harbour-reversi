@@ -281,6 +281,7 @@ Page {
                 visible: variable.gamestarted
                 text: variable.input
                 color: Theme.primaryColor
+                wrapMode: Text.Wrap
 
                 anchors {
                     left: parent.left
@@ -834,6 +835,7 @@ Page {
                 visible: variable.gamestarted
                 text: variable.message
                 color: Theme.primaryColor
+                wrapMode: Text.Wrap
 
                 anchors {
                     left: parent.left
