@@ -32,10 +32,13 @@
 #include <sailfishapp.h>
 #include "gamemaster.h"
 #include <QtQuick>
+#include "uiconnection.h"
 
 int main(int argc, char *argv[])
 {
     qmlRegisterType<Gamemaster>("harbour.reversi.Gamemaster", 1, 0, "Gamemaster");
+    qmlRegisterType<UIConnection>("harbour.reversi.UIConnection", 1, 0, "UIConnection");
+
     // SailfishApp::main() will display "qml/template.qml", if you need more
     // control over initialization, you can use:
     //
@@ -46,9 +49,17 @@ int main(int argc, char *argv[])
     // To display the view, call "show()" (will show fullscreen on device).
 
     QGuiApplication *app = SailfishApp::application(argc,argv);
+
     Gamemaster master;
+
     QQuickView *view = SailfishApp::createView();
+
     view->rootContext()->setContextProperty("gamemaster", &master);
+
+    UIConnection connection;
+
+    view->rootContext()->setContextProperty("uiconnection", &connection);
+
     view->setSource(SailfishApp::pathTo("qml/harbour-reversi.qml"));
     view->show();
 

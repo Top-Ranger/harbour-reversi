@@ -30,10 +30,58 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import harbour.reversi.UIConnection 1.0
 
 CoverBackground {
 
     id: background
+
+    Item {
+        id: message
+        property string messagestring: ""
+
+        function start()
+        {
+            messagestring = "Game started"
+        }
+        function end()
+        {
+            messagestring = "Finished"
+        }
+        function changeMessage(s)
+        {
+            messagestring = s
+        }
+    }
+
+    Connections {
+        target: uiconnection
+
+        onStarted: {
+            message.start()
+        }
+
+        onFinished: {
+            message.end()
+        }
+
+        onChangedPlayer: {
+            message.changeMessage(s)
+        }
+    }
+
+    Label {
+        id: label2
+        text: message.messagestring
+        color: Theme.primaryColor
+        anchors.top: parent.top
+        anchors.left: background.left
+        anchors.right: background.right
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: Theme.fontSizeLarge
+        wrapMode: Text.Wrap
+
+    }
 
     Image {
         id: image
@@ -44,7 +92,7 @@ CoverBackground {
     Label {
         id: label
         text: "Reversi"
-        color: Theme.primaryColor
+        color: Theme.secondaryColor
         anchors.bottom: parent.bottom
         anchors.left: background.left
         anchors.right: background.right

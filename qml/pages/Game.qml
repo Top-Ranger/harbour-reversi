@@ -31,10 +31,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.reversi.Gamemaster 1.0
+import harbour.reversi.UIConnection 1.0
 
 
 Page {
     id: page
+
+    onCanceled: {
+        uiconnection.endOfGame()
+    }
 
     Connections {
         target: gamemaster
@@ -142,11 +147,13 @@ Page {
         function getHumanInput(player)
         {
             variable.input = "Player " + player + " do your turn"
+            uiconnection.newPlayerMessage(variable.input)
         }
 
         function endOfGame(score1, score2)
         {
             variable.message = "END OF GAME!\nPoints Player1: " + score1 + "\nPoints Player2: " + score2
+            uiconnection.endOfGame()
         }
 
         function getMessage(newmessage)
@@ -157,6 +164,7 @@ Page {
         function buttonPressed(x,y)
         {
             variable.input = "Waiting..."
+            uiconnection.newPlayerMessage(variable.input)
             gamemaster.getInput(x,y)
             console.debug(x + "-" + y + " pressed")
         }

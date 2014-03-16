@@ -15,7 +15,8 @@ SOURCES += src/harbour-reversi.cpp \
     src/gameboard.cpp \
     src/player.cpp \
     src/humanplayer.cpp \
-    src/randomaiplayer.cpp
+    src/randomaiplayer.cpp \
+    src/uiconnection.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -40,5 +41,6 @@ HEADERS += \
     src/gameboard.h \
     src/player.h \
     src/humanplayer.h \
-    src/randomaiplayer.h
+    src/randomaiplayer.h \
+    src/uiconnection.h
 

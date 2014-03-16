@@ -31,6 +31,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.reversi.Gamemaster 1.0
+import harbour.reversi.UIConnection 1.0
 
 Page {
     id: page
@@ -43,6 +44,7 @@ Page {
             if(gamemaster.initialise(player1.currentItem.text, player2.currentItem.text, bonusslider.sliderValue))
             {
                 showerror = false
+                uiconnection.startOfGame()
                 pageStack.push(Qt.resolvedUrl("Game.qml"))
             }
             else
