@@ -5,6 +5,10 @@ const int TreeAIPlayer::_depth;
 const int TreeAIPlayer::_composure;
 const int TreeAIPlayer::_valueCorner;
 const float TreeAIPlayer::_factorStone;
+const int TreeAIPlayer::_valueFullBoard;
+const float TreeAIPlayer::_factorRatio;
+const float TreeAIPlayer::_factorChange;
+const float TreeAIPlayer::_factorOpponentChange;
 
 TreeAIPlayer::TreeAIPlayer(QObject *parent) :
     Player(parent)
@@ -53,7 +57,7 @@ void TreeAIPlayer::getBoard(Gameboard board, int player)
                 }
                 else
                 {
-                    float temp = buildTree(board, opponent(player), player, _depth);
+                    float temp = buildTree(board, opponent(player), player, board.points(player), board.points(opponent(player)), _depth);
                     if(temp > max)
                     {
                         max = temp;
@@ -84,7 +88,7 @@ void TreeAIPlayer::humanInput(int x, int y)
 {
 }
 
-float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int depth)
+float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int opponentOld, int depth)
 {
     --depth;
     int n = 0;
@@ -99,13 +103,13 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int depth)
                 if(depth == 0)
                 {
                     board.play(x,y,player,false);
-                    return calculateScore(board, I);
+                    return calculateScore(board, I,board.points(I)-old, board.points(opponent(I))-opponentOld);
                 }
                 else
                 {
                     Gameboard newBoard = board;
                     newBoard.play(x,y,player,false);
-                    advantage += buildTree(newBoard,opponent(player),I,depth);
+                    advantage += buildTree(newBoard,opponent(player),I,old,opponentOld,depth);
                     ++n;
                 }
             }
@@ -113,7 +117,14 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int depth)
     }
     if(n == 0)
     {
-        return 0;
+        if(board.points(I) > board.points(opponent(I)))
+        {
+            return _valueFullBoard;
+        }
+        else
+        {
+            return -_valueFullBoard;
+        }
     }
     else
     {
@@ -126,9 +137,21 @@ int inline TreeAIPlayer::opponent(int player)
     return player==1?2:1;
 }
 
-float TreeAIPlayer::calculateScore(Gameboard board, int I)
+float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int opponentChange)
 {
     float score = 0;
+
+    score += change * _factorChange;
+    score -= opponentChange * _factorOpponentChange;
+
+    if(board.points(I) > board.points(opponent(I)))
+    {
+        score += _factorRatio * (board.points(I)/board.points(opponent(I)));
+    }
+    else if(board.points(I) < board.points(opponent(I)))
+    {
+        score -= _factorRatio * (board.points(I)/board.points(opponent(I)));
+    }
 
     if(board.owner(0,0) == I)
     {
@@ -138,6 +161,7 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I)
     {
         score -= _valueCorner;
     }
+
     if(board.owner(7,0) == I)
     {
         score += _valueCorner;
@@ -146,6 +170,7 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I)
     {
         score -= _valueCorner;
     }
+
     if(board.owner(0,7) == I)
     {
         score += _valueCorner;
@@ -154,6 +179,7 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I)
     {
         score -= _valueCorner;
     }
+
     if(board.owner(7,7) == I)
     {
         score += _valueCorner;
@@ -167,17 +193,40 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I)
     {
         for(int y = 0; y < 8; y++)
         {
-            int pointsX = (x)>(7-x)?x:7-x;
-            int pointsY = (y)>(7-y)?y:7-y;
+            int valueStone;
+
+            if(x == 7 || x == 0 || y == 7 || y == 0)
+            {
+                valueStone = 7;
+            }
+            else if(x == 6 || x == 1 || y == 6 || y == 1)
+            {
+                valueStone = 3;
+            }
+            else
+            {
+                valueStone = 1;
+            }
 
             if(board.owner(x,y) == I)
             {
-                score += _factorStone * (pointsX > pointsY ? pointsX : pointsY);
+                score += _factorStone * valueStone;
             }
             else if(board.owner(x,y) == opponent(I))
             {
-                score -= _factorStone * (pointsX > pointsY ? pointsX : pointsY);
+                score -= _factorStone * valueStone;
             }
+        }
+    }
+    if(!board.isTurnPossible(opponent(I)))
+    {
+        if(board.points(I) > board.points(opponent(I)))
+        {
+            score += _valueFullBoard;
+        }
+        else
+        {
+            score += -_valueFullBoard;
         }
     }
     return score;
