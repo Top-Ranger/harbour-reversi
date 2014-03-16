@@ -1,6 +1,5 @@
 #include "greedyaiplayer.h"
 #include <QTime>
-#include <QDebug>
 
 GreedyAIPlayer::GreedyAIPlayer(QObject *parent) :
     Player(parent)
@@ -52,11 +51,6 @@ void GreedyAIPlayer::getBoard(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    if(max == old)
-    {
-        qFatal("FATAL ERROR: GreedyAIPlayer has no turn to do!");
-    }
-    qDebug() << QString("Now doing %1").arg(max-old);
     if((max-old) > 6)
     {
         emit sendMessage(QString("HA! %1 points!").arg(max-old));
