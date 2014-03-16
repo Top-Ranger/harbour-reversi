@@ -47,7 +47,7 @@ bool HumanPlayer::isHuman()
     return true;
 }
 
-void HumanPlayer::getBoard(Gameboard board)
+void HumanPlayer::getBoard(Gameboard board, int player)
 {
 }
 

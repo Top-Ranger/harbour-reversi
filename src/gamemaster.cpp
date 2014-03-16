@@ -231,7 +231,7 @@ void Gamemaster::wantBoard()
         return;
     }
 
-    _player[_turn-1]->getBoard(Gameboard(_board));
+    _player[_turn-1]->getBoard(Gameboard(_board), _turn);
 }
 
 void Gamemaster::message(QString message)

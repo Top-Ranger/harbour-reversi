@@ -41,7 +41,7 @@ public:
     virtual void doTurn() = 0;
     virtual bool isHuman() = 0;
     void isActive(bool active);
-    virtual void getBoard(Gameboard board) = 0;
+    virtual void getBoard(Gameboard board, int player) = 0;
 
 signals:
     void awaitsHuman();

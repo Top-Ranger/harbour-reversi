@@ -47,7 +47,7 @@ bool RandomAIPlayer::isHuman()
     return false;
 }
 
-void RandomAIPlayer::getBoard(Gameboard board)
+void RandomAIPlayer::getBoard(Gameboard board, int player)
 {
 }
 
