@@ -38,7 +38,21 @@ RandomAIPlayer::RandomAIPlayer(QObject *parent) :
 
 void RandomAIPlayer::doTurn()
 {
-    emit sendMessage("???");
+    int random = qrand()%10;
+
+    if(random == 0)
+    {
+        emit sendMessage("What am I doing?");
+    }
+    else
+    {
+        QString s = "";
+        for(int i = 0; i < random; --random)
+        {
+            s = QString("%1%2").arg(s).arg("?");
+        }
+        emit sendMessage(s);
+    }
     emit turn(qrand()%8, qrand()%8);
 }
 
