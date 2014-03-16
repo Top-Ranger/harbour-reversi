@@ -51,7 +51,7 @@ void GreedyAIPlayer::getBoard(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    if((max-old) > 6)
+    if((max-old) >= 6)
     {
         emit sendMessage(QString("HA! %1 points!").arg(max-old));
     }

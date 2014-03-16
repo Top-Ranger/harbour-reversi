@@ -5,6 +5,7 @@ Currently avaiable are:
    * Human: A human player
    * Random AI: A simple AI selecting a random tile
    * Greedy AI: Tries to get as many points as possible
+   * Tree AI: Builds a tree and tries to get the best possible result. Sometimes gets greedy.
 
 ---
 

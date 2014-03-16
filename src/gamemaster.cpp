@@ -31,6 +31,7 @@
 #include "humanplayer.h"
 #include "randomaiplayer.h"
 #include "greedyaiplayer.h"
+#include "treeaiplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
@@ -65,6 +66,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     {
         _player[0] = new GreedyAIPlayer(this);
     }
+    else if(player1 == "Tree AI")
+    {
+        _player[0] = new TreeAIPlayer(this);
+    }
     else
     {
         return false;
@@ -87,6 +92,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     else if(player2 == "Greedy AI")
     {
         _player[1] = new GreedyAIPlayer(this);
+    }
+    else if(player2 == "Tree AI")
+    {
+        _player[1] = new TreeAIPlayer(this);
     }
     else
     {
