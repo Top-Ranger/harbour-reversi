@@ -258,6 +258,12 @@ Page {
             }
 
             Button {
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.paddingLarge
+                }
+
                 text: "Start the Game"
                 visible: !variable.gamestarted
                 onClicked: functions.startGame()
