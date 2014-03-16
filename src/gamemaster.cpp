@@ -179,10 +179,11 @@ void Gamemaster::startGame()
 
     if(_board->isTurnPossible(1))
     {
-    qDebug() <<  "Gamemaster starts the game!";
-    _player[0]->isActive(true);
-    _player[1]->isActive(false);
-    _player[0]->doTurn();
+        _turn = 1;
+        qDebug() <<  "Gamemaster starts the game!";
+        _player[0]->isActive(true);
+        _player[1]->isActive(false);
+        _player[0]->doTurn();
     }
     else
     {
