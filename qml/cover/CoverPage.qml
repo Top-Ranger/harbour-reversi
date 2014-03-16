@@ -32,10 +32,24 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
+
+    id: background
+
+    Image {
+        id: image
+        source: "harbour-reversi.png"
+        anchors.centerIn: parent
+    }
+
     Label {
         id: label
-        anchors.centerIn: parent
         text: "Reversi"
+        color: Theme.primaryColor
+        anchors.bottom: parent.bottom
+        anchors.left: background.left
+        anchors.right: background.right
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: Theme.fontSizeLarge
     }
 }
 
