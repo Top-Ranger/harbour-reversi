@@ -108,6 +108,7 @@ Page {
                     MenuItem { text: "Random AI"}
                     MenuItem { text: "Greedy AI"}
                     MenuItem { text: "Tree AI"}
+                    MenuItem { text: "Balanced AI"}
                 }
             }
 
@@ -122,6 +123,7 @@ Page {
                     MenuItem { text: "Random AI"}
                     MenuItem { text: "Greedy AI"}
                     MenuItem { text: "Tree AI"}
+                    MenuItem { text: "Balanced AI"}
                 }
             }
 

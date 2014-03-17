@@ -6,6 +6,7 @@ Currently avaiable are:
    * Random AI: A simple AI selecting a random tile
    * Greedy AI: Tries to get as many points as possible
    * Tree AI: Builds a tree and tries to get the best possible result. Sometimes gets greedy.
+   * Balanced AI: An AI which tries to combine the more clever aspect of the "Tree AI" with the power of the "Greedy AI"
 
 ---
 

@@ -18,7 +18,8 @@ SOURCES += src/harbour-reversi.cpp \
     src/randomaiplayer.cpp \
     src/uiconnection.cpp \
     src/greedyaiplayer.cpp \
-    src/treeaiplayer.cpp
+    src/treeaiplayer.cpp \
+    src/balancedaiplayer.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -46,5 +47,6 @@ HEADERS += \
     src/randomaiplayer.h \
     src/uiconnection.h \
     src/greedyaiplayer.h \
-    src/treeaiplayer.h
+    src/treeaiplayer.h \
+    src/balancedaiplayer.h
 
