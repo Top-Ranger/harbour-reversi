@@ -48,6 +48,7 @@ private slots:
     void getTurn(int x, int y);
 
 private:
+    static const int _modifierPlaystile = -6;
     GreedyAIPlayer _greed;
     TreeAIPlayer _tree;
 };

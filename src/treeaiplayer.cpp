@@ -129,10 +129,12 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int o
         {
             if(board.play(x,y,player,true))
             {
-                if(depth == 0)
+                if(depth <= 0)
                 {
-                    board.play(x,y,player,false);
-                    return calculateScore(board, I,board.points(I)-old, board.points(opponent(I))-opponentOld);
+                    Gameboard newBoard = board;
+                    newBoard.play(x,y,player,false);
+                    advantage += calculateScore(board, I,board.points(I)-old, board.points(opponent(I))-opponentOld);
+                    ++n;
                 }
                 else
                 {
