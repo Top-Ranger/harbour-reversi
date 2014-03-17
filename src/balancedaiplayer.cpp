@@ -29,7 +29,9 @@
 
 #include "balancedaiplayer.h"
 
-const int BalancedAIPlayer::_modifierPlaystile;
+const int BalancedAIPlayer::_modifierPlaystileLow;
+const int BalancedAIPlayer::_modifierPlaystileHigh;
+const int BalancedAIPlayer::_boarderLowHigh;
 
 BalancedAIPlayer::BalancedAIPlayer(QObject *parent) :
     Player(parent),
@@ -52,7 +54,8 @@ bool BalancedAIPlayer::isHuman()
 
 void BalancedAIPlayer::getBoard(Gameboard board, int player)
 {
-    if(board.points(player) >= board.points(player==1?2:1)+_modifierPlaystile)
+    int modifierPlaystile = _boarderLowHigh >= (board.points(player)+board.points(player==1?2:1))?_modifierPlaystileLow:_modifierPlaystileHigh;
+    if(board.points(player) >= board.points(player==1?2:1)+modifierPlaystile)
     {
         emit sendMessage("Now is the time to get all tokens!");
         _greed.getBoard(board, player);
