@@ -27,32 +27,49 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef BALANCEDAIPLAYER_H
-#define BALANCEDAIPLAYER_H
-#include "greedyaiplayer.h"
-#include "treeaiplayer.h"
+#ifndef GAMEMASTER_H
+#define GAMEMASTER_H
 
-class BalancedAIPlayer : public Player
+#include <QObject>
+#include "../player/player.h"
+#include "gameboard.h"
+
+class Gamemaster : public QObject
 {
     Q_OBJECT
 public:
-    explicit BalancedAIPlayer(QObject *parent = 0);
-    virtual void doTurn();
-    virtual bool isHuman();
-    virtual void getBoard(Gameboard board, int player);
+    explicit Gamemaster(QObject *parent = 0);
+    ~Gamemaster();
+    Q_INVOKABLE bool initialise(QString player1, QString player2, int bonus);
+    Q_INVOKABLE void getInput(int x, int y);
+    Q_INVOKABLE void cleanup();
+    Q_INVOKABLE void startGame();
+    Q_INVOKABLE int getOwner(int x, int y);
+    Q_INVOKABLE int pointsPlayer1();
+    Q_INVOKABLE int pointsPlayer2();
+
+signals:
+    void humanInput(int x, int y);
+    void getHumanInput(int player);
+    void changeActivePlayer(bool isHuman);
+    void result(int player1, int player2);
+    void sendMessage(QString message);
+    void boardChanged();
 
 public slots:
-    virtual void humanInput(int x, int y);
-
-private slots:
-    void getTurn(int x, int y);
+    void awaitsHuman();
+    void turn(int x, int y);
+    void wantBoard();
+    void message(QString message);
+    void getBoardChanged();
 
 private:
-    static const int _modifierPlaystileLow = -3;
-    static const int _modifierPlaystileHigh = -8;
-    static const int _boarderLowHigh = 25;
-    GreedyAIPlayer _greed;
-    TreeAIPlayer _tree;
+    Player *_player[2];
+    int _bonus;
+    int _turn;
+    Gameboard *_board;
+    bool _initialised;
+
 };
 
-#endif // BALANCEDAIPLAYER_H
+#endif // GAMEMASTER_H

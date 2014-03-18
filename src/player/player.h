@@ -31,7 +31,7 @@
 #define PLAYER_H
 
 #include <QObject>
-#include "gameboard.h"
+#include "../core/gameboard.h"
 
 class Player : public QObject
 {

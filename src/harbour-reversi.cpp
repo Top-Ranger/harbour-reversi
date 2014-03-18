@@ -30,7 +30,7 @@
 */
 
 #include <sailfishapp.h>
-#include "gamemaster.h"
+#include "core/gamemaster.h"
 #include <QtQuick>
 #include "uiconnection.h"
 

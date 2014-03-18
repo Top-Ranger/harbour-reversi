@@ -10,16 +10,16 @@ TARGET = harbour-reversi
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-reversi.cpp \
-    src/gamemaster.cpp \
-    src/gameboard.cpp \
-    src/player.cpp \
-    src/humanplayer.cpp \
-    src/randomaiplayer.cpp \
-    src/uiconnection.cpp \
-    src/greedyaiplayer.cpp \
-    src/treeaiplayer.cpp \
-    src/balancedaiplayer.cpp
+SOURCES += src/uiconnection.cpp \
+    src/harbour-reversi.cpp \
+    src/core/gamemaster.cpp \
+    src/core/gameboard.cpp \
+    src/player/player.cpp \
+    src/player/humanplayer.cpp \
+    src/player/randomaiplayer.cpp \
+    src/player/greedyaiplayer.cpp \
+    src/player/treeaiplayer.cpp \
+    src/player/balancedaiplayer.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -40,13 +40,13 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates/0.svg
 
 HEADERS += \
-    src/gamemaster.h \
-    src/gameboard.h \
-    src/player.h \
-    src/humanplayer.h \
-    src/randomaiplayer.h \
     src/uiconnection.h \
-    src/greedyaiplayer.h \
-    src/treeaiplayer.h \
-    src/balancedaiplayer.h
+    src/core/gamemaster.h \
+    src/core/gameboard.h \
+    src/player/player.h \
+    src/player/humanplayer.h \
+    src/player/randomaiplayer.h \
+    src/player/greedyaiplayer.h \
+    src/player/treeaiplayer.h \
+    src/player/balancedaiplayer.h
 

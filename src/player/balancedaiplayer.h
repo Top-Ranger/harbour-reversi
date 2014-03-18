@@ -27,21 +27,33 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef GREEDYAIPLAYER_H
-#define GREEDYAIPLAYER_H
-#include "gameboard.h"
-#include "player.h"
+#ifndef BALANCEDAIPLAYER_H
+#define BALANCEDAIPLAYER_H
 
-class GreedyAIPlayer : public Player
+#include "greedyaiplayer.h"
+#include "treeaiplayer.h"
+
+class BalancedAIPlayer : public Player
 {
+    Q_OBJECT
 public:
-    explicit GreedyAIPlayer(QObject *parent = 0);
+    explicit BalancedAIPlayer(QObject *parent = 0);
     virtual void doTurn();
     virtual bool isHuman();
     virtual void getBoard(Gameboard board, int player);
 
 public slots:
     virtual void humanInput(int x, int y);
+
+private slots:
+    void getTurn(int x, int y);
+
+private:
+    static const int _modifierPlaystileLow = -3;
+    static const int _modifierPlaystileHigh = -8;
+    static const int _boarderLowHigh = 25;
+    GreedyAIPlayer _greed;
+    TreeAIPlayer _tree;
 };
 
-#endif // GREEDYAIPLAYER_H
+#endif // BALANCEDAIPLAYER_H

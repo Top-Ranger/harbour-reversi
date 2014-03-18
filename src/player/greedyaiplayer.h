@@ -27,49 +27,21 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef GAMEMASTER_H
-#define GAMEMASTER_H
+#ifndef GREEDYAIPLAYER_H
+#define GREEDYAIPLAYER_H
 
-#include <QObject>
 #include "player.h"
-#include "gameboard.h"
 
-class Gamemaster : public QObject
+class GreedyAIPlayer : public Player
 {
-    Q_OBJECT
 public:
-    explicit Gamemaster(QObject *parent = 0);
-    ~Gamemaster();
-    Q_INVOKABLE bool initialise(QString player1, QString player2, int bonus);
-    Q_INVOKABLE void getInput(int x, int y);
-    Q_INVOKABLE void cleanup();
-    Q_INVOKABLE void startGame();
-    Q_INVOKABLE int getOwner(int x, int y);
-    Q_INVOKABLE int pointsPlayer1();
-    Q_INVOKABLE int pointsPlayer2();
-
-signals:
-    void humanInput(int x, int y);
-    void getHumanInput(int player);
-    void changeActivePlayer(bool isHuman);
-    void result(int player1, int player2);
-    void sendMessage(QString message);
-    void boardChanged();
+    explicit GreedyAIPlayer(QObject *parent = 0);
+    virtual void doTurn();
+    virtual bool isHuman();
+    virtual void getBoard(Gameboard board, int player);
 
 public slots:
-    void awaitsHuman();
-    void turn(int x, int y);
-    void wantBoard();
-    void message(QString message);
-    void getBoardChanged();
-
-private:
-    Player *_player[2];
-    int _bonus;
-    int _turn;
-    Gameboard *_board;
-    bool _initialised;
-
+    virtual void humanInput(int x, int y);
 };
 
-#endif // GAMEMASTER_H
+#endif // GREEDYAIPLAYER_H

@@ -28,11 +28,11 @@
 */
 
 #include "gamemaster.h"
-#include "humanplayer.h"
-#include "randomaiplayer.h"
-#include "greedyaiplayer.h"
-#include "treeaiplayer.h"
-#include "balancedaiplayer.h"
+#include "../player/humanplayer.h"
+#include "../player/randomaiplayer.h"
+#include "../player/greedyaiplayer.h"
+#include "../player/treeaiplayer.h"
+#include "../player/balancedaiplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
