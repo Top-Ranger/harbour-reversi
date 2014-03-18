@@ -44,7 +44,6 @@ Page {
             if(gamemaster.initialise(player1.currentItem.text, player2.currentItem.text, bonusslider.sliderValue))
             {
                 showerror = false
-                uiconnection.startOfGame()
                 pageStack.push(Qt.resolvedUrl("Game.qml"))
             }
             else
@@ -53,6 +52,8 @@ Page {
             }
         }
     }
+
+    onVisibleChanged: uiconnection.endOfGame()
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {

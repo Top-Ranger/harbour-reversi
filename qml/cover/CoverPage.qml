@@ -38,7 +38,7 @@ CoverBackground {
 
     Item {
         id: message
-        property string messagestring: ""
+        property string messagestring: "Reversi"
 
         function start()
         {
@@ -46,7 +46,7 @@ CoverBackground {
         }
         function end()
         {
-            messagestring = "Finished"
+            messagestring = "Reversi"
         }
         function changeMessage(s)
         {

@@ -37,10 +37,6 @@ import harbour.reversi.UIConnection 1.0
 Page {
     id: page
 
-    onCanceled: {
-        uiconnection.endOfGame()
-    }
-
     Connections {
         target: gamemaster
 
@@ -246,9 +242,10 @@ Page {
 
         function startGame()
         {
-            variable.gamestarted = true
             console.debug("Starting game")
             actualiseBoard()
+            uiconnection.startOfGame()
+            variable.gamestarted = true
             gamemaster.startGame()
         }
     }

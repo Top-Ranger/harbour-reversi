@@ -47,10 +47,6 @@ public slots:
     Q_INVOKABLE void newPlayerMessage(QString s);
     Q_INVOKABLE void endOfGame();
     Q_INVOKABLE void startOfGame();
-
-private:
-    bool _running;
-
 };
 
 #endif // UICONNECTION_H
