@@ -181,8 +181,16 @@ void Gamemaster::turn(int x, int y)
         _turn = _turn==1?2:1;
         if(!_board->isTurnPossible(_turn))
         {
+             _turn = _turn==1?2:1;
+            if(_board->isTurnPossible(_turn))
+            {
+                 _player[_turn-1]->isActive(true);
+            }
+            else
+            {
             emit result(_board->points(1), _board->points(2)+_bonus);
             return;
+            }
         }
         else
         {
