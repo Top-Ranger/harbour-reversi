@@ -55,6 +55,7 @@ private:
     static const float _factorRatio = 40; // 40
     static const float _factorChange = 15.5; // 15.5
     static const float _factorOpponentChange = 25.5; // 25.5
+    static const float _valueMove = 4; // 4
 };
 
 #endif // TREEAIPLAYER_H

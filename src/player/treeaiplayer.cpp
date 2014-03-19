@@ -38,6 +38,7 @@ const int TreeAIPlayer::_valueFullBoard;
 const float TreeAIPlayer::_factorRatio;
 const float TreeAIPlayer::_factorChange;
 const float TreeAIPlayer::_factorOpponentChange;
+const float TreeAIPlayer::_valueMove;
 
 TreeAIPlayer::TreeAIPlayer(QObject *parent) :
     Player(parent)
@@ -131,6 +132,14 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int o
             {
                 if(depth <= 0)
                 {
+                    if(player == I)
+                    {
+                        advantage += _valueMove;
+                    }
+                    else
+                    {
+                        advantage -= _valueMove;
+                    }
                     Gameboard newBoard = board;
                     newBoard.play(x,y,player,false);
                     advantage += calculateScore(board, I,board.points(I)-old, board.points(opponent(I))-opponentOld);
@@ -138,6 +147,14 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int o
                 }
                 else
                 {
+                    if(player == I)
+                    {
+                        advantage += _valueMove;
+                    }
+                    else
+                    {
+                        advantage -= _valueMove;
+                    }
                     Gameboard newBoard = board;
                     newBoard.play(x,y,player,false);
                     advantage += buildTree(newBoard,opponent(player),I,old,opponentOld,depth);
