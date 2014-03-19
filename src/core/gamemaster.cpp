@@ -33,6 +33,7 @@
 #include "../player/greedyaiplayer.h"
 #include "../player/treeaiplayer.h"
 #include "../player/balancedaiplayer.h"
+#include "../player/staticruleaiplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
@@ -75,6 +76,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     {
         _player[0] = new BalancedAIPlayer(this);
     }
+    else if(player1 == "Static Rule AI")
+    {
+        _player[0] = new StaticRuleAIPlayer(this);
+    }
     else
     {
         return false;
@@ -105,6 +110,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     else if(player2 == "Balanced AI")
     {
         _player[1] = new BalancedAIPlayer(this);
+    }
+    else if(player2 == "Static Rule AI")
+    {
+        _player[1] = new StaticRuleAIPlayer(this);
     }
     else
     {
