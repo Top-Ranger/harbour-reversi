@@ -42,11 +42,16 @@ signals:
     void changedPlayer(QString s);
     void finished();
     void started();
+    void configureGameShown();
 
 public slots:
     Q_INVOKABLE void newPlayerMessage(QString s);
     Q_INVOKABLE void endOfGame();
     Q_INVOKABLE void startOfGame();
+    Q_INVOKABLE void configureGame();
+
+private:
+    bool _running;
 };
 
 #endif // UICONNECTION_H

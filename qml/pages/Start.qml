@@ -53,7 +53,7 @@ Page {
         }
     }
 
-    onVisibleChanged: uiconnection.endOfGame()
+    onVisibleChanged: uiconnection.configureGame()
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {

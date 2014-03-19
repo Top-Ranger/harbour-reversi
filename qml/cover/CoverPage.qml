@@ -46,11 +46,15 @@ CoverBackground {
         }
         function end()
         {
-            messagestring = "Reversi"
+            messagestring = "Finished"
         }
         function changeMessage(s)
         {
             messagestring = s
+        }
+        function configure()
+        {
+            messagestring = "Reversi"
         }
     }
 
@@ -67,6 +71,10 @@ CoverBackground {
 
         onChangedPlayer: {
             message.changeMessage(s)
+        }
+
+        onConfigureGameShown: {
+            message.configure()
         }
     }
 
