@@ -251,6 +251,10 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int oppon
             {
                 valueStone = 3;
             }
+            else if((x == 3 || x == 4) && (y == 3 && y == 4))
+            {
+                valueStone = 5;
+            }
             else
             {
                 valueStone = 1;
