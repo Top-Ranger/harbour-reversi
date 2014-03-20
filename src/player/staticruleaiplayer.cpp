@@ -1,10 +1,12 @@
 #include "staticruleaiplayer.h"
 #include "../rules/greedyrule.h"
+#include "../rules/openingrule.h"
 #include <QDebug>
 
 StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
     Player(parent)
 {
+    _rulelist.append(new OpeningRule(this));
     _rulelist.append(new GreedyRule(this));
 
     QList<Rule *> ::const_iterator iterator;
@@ -42,7 +44,6 @@ void StaticRuleAIPlayer::getBoard(Gameboard board, int player)
         {
             emit sendMessage(QString("Now using rule \"%1\"").arg((*iterator)->name()));
             (*iterator)->doTurn(board,player);
-            qDebug() << "11344";
             return;
         }
     }

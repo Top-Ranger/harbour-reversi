@@ -18,7 +18,7 @@ signals:
 
 public slots:
 
-private:
+protected:
     virtual int opponent(int player);
 };
 
