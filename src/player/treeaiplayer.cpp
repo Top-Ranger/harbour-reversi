@@ -29,6 +29,7 @@
 
 #include "treeaiplayer.h"
 #include <QTime>
+#include <limits>
 
 const int TreeAIPlayer::_depth;
 const int TreeAIPlayer::_composure;
@@ -58,7 +59,7 @@ bool TreeAIPlayer::isHuman()
 
 void TreeAIPlayer::getBoard(Gameboard board, int player)
 {
-    float max = -1000000;
+    float max = std::numeric_limits<float>::min();
     int x = qrand()%8;
     int y = qrand()%8;
     int xstart = x;
