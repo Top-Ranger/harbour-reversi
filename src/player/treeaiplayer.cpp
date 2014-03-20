@@ -59,7 +59,7 @@ bool TreeAIPlayer::isHuman()
 
 void TreeAIPlayer::getBoard(Gameboard board, int player)
 {
-    float max = std::numeric_limits<float>::min();
+    float max = -1048576;
     int x = qrand()%8;
     int y = qrand()%8;
     int xstart = x;
@@ -88,7 +88,7 @@ void TreeAIPlayer::getBoard(Gameboard board, int player)
                 }
                 else
                 {
-                    float temp = buildTree(board, opponent(player), player, board.points(player), board.points(opponent(player)), _depth);
+                    float temp = buildTree(testboard, opponent(player), player, board.points(player), board.points(opponent(player)), _depth);
                     if(temp > max)
                     {
                         max = temp;
@@ -210,6 +210,17 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int oppon
     {
         score -= _valueCorner;
     }
+    else if(board.owner(0,0) == 0)
+    {
+        if(board.owner(1,1) == I)
+        {
+            score -= _valueCorner;
+        }
+        else if(board.owner(1,1) == opponent(I))
+        {
+            score += _valueCorner;
+        }
+    }
 
     if(board.owner(7,0) == I)
     {
@@ -218,6 +229,17 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int oppon
     else if(board.owner(7,0) == opponent(I))
     {
         score -= _valueCorner;
+    }
+    else if(board.owner(7,0) == 0)
+    {
+        if(board.owner(6,1) == I)
+        {
+            score -= _valueCorner;
+        }
+        else if(board.owner(6,1) == opponent(I))
+        {
+            score += _valueCorner;
+        }
     }
 
     if(board.owner(0,7) == I)
@@ -228,6 +250,17 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int oppon
     {
         score -= _valueCorner;
     }
+    else if(board.owner(0,7) == 0)
+    {
+        if(board.owner(1,6) == I)
+        {
+            score -= _valueCorner;
+        }
+        else if(board.owner(1,6) == opponent(I))
+        {
+            score += _valueCorner;
+        }
+    }
 
     if(board.owner(7,7) == I)
     {
@@ -236,6 +269,17 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int oppon
     else if(board.owner(7,7) == opponent(I))
     {
         score -= _valueCorner;
+    }
+    else if(board.owner(7,7) == 0)
+    {
+        if(board.owner(6,6) == I)
+        {
+            score -= _valueCorner;
+        }
+        else if(board.owner(6,6) == opponent(I))
+        {
+            score += _valueCorner;
+        }
     }
 
     for(int x = 0; x < 8; ++x)

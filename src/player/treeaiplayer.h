@@ -48,7 +48,7 @@ private:
     int inline opponent(int player);
     float calculateScore(Gameboard board, int I, int change, int opponentChange);
     static const int _depth = 3; // 3
-    static const int _composure = 5; // 5
+    static const int _composure = 10; // 10
     static const int _valueCorner = 100; // 100
     static const float _factorStone = 0.37; // 0.37
     static const int _valueFullBoard = 500; // 500
