@@ -37,7 +37,9 @@ import harbour.reversi.UIConnection 1.0
 Page {
     id: page
 
-    Connections {
+    onVisibleChanged: functions.startGame()
+
+        Connections {
         target: gamemaster
 
         onGetHumanInput: {
@@ -242,11 +244,14 @@ Page {
 
         function startGame()
         {
-            console.debug("Starting game")
-            actualiseBoard()
-            uiconnection.startOfGame()
-            variable.gamestarted = true
-            gamemaster.startGame()
+            if(!variable.gamestarted)
+            {
+                console.debug("Starting game")
+                actualiseBoard()
+                uiconnection.startOfGame()
+                variable.gamestarted = true
+                gamemaster.startGame()
+            }
         }
     }
 
@@ -262,16 +267,16 @@ Page {
                 title: "Reversi"
             }
 
-            Button {
+            Label {
                 anchors {
                     left: parent.left
                     right: parent.right
                     margins: Theme.paddingLarge
                 }
 
-                text: "Start the Game"
+                text: "Starting the Game"
                 visible: !variable.gamestarted
-                onClicked: functions.startGame()
+                font.pixelSize: Theme.fontSizeHuge
             }
 
             Label {
