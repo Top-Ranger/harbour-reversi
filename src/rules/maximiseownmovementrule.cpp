@@ -1,5 +1,6 @@
 #include "maximiseownmovementrule.h"
 #include <QDebug>
+#include <QTime>
 
 const int MaximiseOwnMovementRule::_borderMoves;
 
@@ -9,6 +10,7 @@ MaximiseOwnMovementRule::MaximiseOwnMovementRule(QObject *parent) :
     _y(-1),
     _asked(false)
 {
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
 bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)

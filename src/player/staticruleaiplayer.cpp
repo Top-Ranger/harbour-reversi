@@ -10,9 +10,9 @@
 StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
     Player(parent)
 {
+    _rulelist.append(new CornerRule(this));
     _rulelist.append(new OpeningRule(this));
     _rulelist.append(new EndgameRule(this));
-    _rulelist.append(new CornerRule(this));
     _rulelist.append(new MinimiseOpponentMovementRule(this));
     // Stable discs
     _rulelist.append(new MaximiseOwnMovementRule(this));

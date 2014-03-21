@@ -18,7 +18,7 @@ private:
     static const int _borderDiscs = 16;
     static const int _valueCenter = 5;
     static const int _factorDistribution = 5;
-    static const int _valueFrontierDisc = 5;
+    static const int _valueFrontierDisc = 10;
 };
 
 #endif // OPENINGRULE_H

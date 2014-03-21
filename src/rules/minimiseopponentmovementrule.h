@@ -15,7 +15,7 @@ private:
     int _x;
     int _y;
     bool _asked;
-    static const int _borderMoves = 5;
+    static const int _borderMoves = 10;
 };
 
 #endif // MINIMISEOPPONENTMOVEMENTRULE_H

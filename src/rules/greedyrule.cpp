@@ -1,8 +1,10 @@
 #include "greedyrule.h"
+#include <QTime>
 
 GreedyRule::GreedyRule(QObject *parent) :
     Rule(parent)
 {
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
 bool GreedyRule::applicable(Gameboard board, int player)

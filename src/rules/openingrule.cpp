@@ -1,5 +1,6 @@
 #include "openingrule.h"
 #include <limits>
+#include <QTime>
 
 const int OpeningRule::_borderDiscs;
 const int OpeningRule::_valueCenter;
@@ -9,6 +10,7 @@ const int OpeningRule::_valueFrontierDisc;
 OpeningRule::OpeningRule(QObject *parent) :
     Rule(parent)
 {
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
 

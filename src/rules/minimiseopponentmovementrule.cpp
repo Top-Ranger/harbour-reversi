@@ -1,5 +1,6 @@
 #include "minimiseopponentmovementrule.h"
 #include <QDebug>
+#include <QTime>
 
 const int MinimiseOpponentMovementRule::_borderMoves;
 
@@ -9,6 +10,7 @@ MinimiseOpponentMovementRule::MinimiseOpponentMovementRule(QObject *parent) :
     _y(-1),
     _asked(false)
 {
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
 bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
