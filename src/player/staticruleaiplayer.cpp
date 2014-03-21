@@ -3,6 +3,7 @@
 #include "../rules/openingrule.h"
 #include "../rules/endgamerule.h"
 #include "../rules/cornerrule.h"
+#include "../rules/minimiseopponentmovementrule.h"
 #include <QDebug>
 
 StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
@@ -11,6 +12,7 @@ StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
     _rulelist.append(new OpeningRule(this));
     _rulelist.append(new EndgameRule(this));
     _rulelist.append(new CornerRule(this));
+    _rulelist.append(new MinimiseOpponentMovementRule(this));
     _rulelist.append(new GreedyRule(this));
 
     QList<Rule *> ::const_iterator iterator;

@@ -50,7 +50,6 @@ bool CornerRule::applicable(Gameboard board, int player)
 
 void CornerRule::doTurn(Gameboard board, int player)
 {
-    qDebug() << "hhh" << _x << _y;
     if(_asked)
     {
         _asked = false;
