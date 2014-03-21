@@ -5,6 +5,7 @@
 #include "../rules/cornerrule.h"
 #include "../rules/minimiseopponentmovementrule.h"
 #include "../rules/maximiseownmovementrule.h"
+#include "../rules/fewerfrontierdiscsrule.h"
 #include <QDebug>
 
 StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
@@ -16,7 +17,7 @@ StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
     _rulelist.append(new MinimiseOpponentMovementRule(this));
     // Stable discs
     _rulelist.append(new MaximiseOwnMovementRule(this));
-    _rulelist.append(new GreedyRule(this));
+    _rulelist.append(new FewerFrontierDiscsRule(this));
 
     QList<Rule *> ::const_iterator iterator;
     for(iterator=_rulelist.begin(); iterator != _rulelist.end();++iterator)

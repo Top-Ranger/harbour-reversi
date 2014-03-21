@@ -15,7 +15,7 @@ private:
     int _x;
     int _y;
     bool _asked;
-    static const int _borderMoves = 15;
+    static const int _borderMoves = 13;
 };
 
 #endif // MAXIMISEOWNMOVEMENTRULE_H
