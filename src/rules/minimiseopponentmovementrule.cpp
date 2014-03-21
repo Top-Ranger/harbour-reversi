@@ -46,7 +46,7 @@ bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
                     }
                 }
 
-                if(temp < min)
+                if(temp < min && (!canTakeCorner(testboard, opponent(player))))
                 {
                     min = temp;
                     xmin = x;
@@ -93,4 +93,28 @@ void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
 QString MinimiseOpponentMovementRule::name()
 {
     return "Minimise Opponent Movement Rule";
+}
+
+bool MinimiseOpponentMovementRule::canTakeCorner(Gameboard board, int player)
+{
+    if(board.play(0,0,player,true))
+    {
+        return true;
+    }
+    else if(board.play(0,7,player,true))
+    {
+        return true;
+    }
+    else if(board.play(7,0,player,true))
+    {
+        return true;
+    }
+    else if(board.play(7,7,player,true))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

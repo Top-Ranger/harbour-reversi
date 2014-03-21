@@ -12,10 +12,11 @@ public:
     virtual QString name();
 
 private:
+    bool canTakeCorner(Gameboard board, int player);
     int _x;
     int _y;
     bool _asked;
-    static const int _borderMoves = 13;
+    static const int _borderMoves = 15;
 };
 
 #endif // MAXIMISEOWNMOVEMENTRULE_H

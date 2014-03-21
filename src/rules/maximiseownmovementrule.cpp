@@ -45,7 +45,7 @@ bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)
                     }
                 }
 
-                if(temp > max)
+                if(temp > max && (!canTakeCorner(testboard, opponent(player))))
                 {
                     max = temp;
                     xmax = x;
@@ -92,4 +92,28 @@ void MaximiseOwnMovementRule::doTurn(Gameboard board, int player)
 QString MaximiseOwnMovementRule::name()
 {
     return "Maximise Own Movement Rule";
+}
+
+bool MaximiseOwnMovementRule::canTakeCorner(Gameboard board, int player)
+{
+    if(board.play(0,0,player,true))
+    {
+        return true;
+    }
+    else if(board.play(0,7,player,true))
+    {
+        return true;
+    }
+    else if(board.play(7,0,player,true))
+    {
+        return true;
+    }
+    else if(board.play(7,7,player,true))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
