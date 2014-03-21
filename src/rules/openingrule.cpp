@@ -1,7 +1,7 @@
 #include "openingrule.h"
 #include <limits>
 
-const int OpeningRule::_borderTokens;
+const int OpeningRule::_borderDiscs;
 const int OpeningRule::_valueCenter;
 const int OpeningRule::_factorDistribution;
 const int OpeningRule::_valueFrontierDisc;
@@ -14,7 +14,7 @@ OpeningRule::OpeningRule(QObject *parent) :
 
 bool OpeningRule::applicable(Gameboard board, int player)
 {
-    return (board.points(player) + board.points(opponent(player))) <= _borderTokens;
+    return (board.points(player) + board.points(opponent(player))) <= _borderDiscs;
 }
 
 void OpeningRule::doTurn(Gameboard board, int player)

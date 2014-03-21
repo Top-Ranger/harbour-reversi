@@ -15,7 +15,7 @@ private:
     int calculateScore(Gameboard board, int player);
     bool isFrontierDisc(Gameboard board, int x, int y);
 
-    static const int _borderTokens = 16;
+    static const int _borderDiscs = 16;
     static const int _valueCenter = 5;
     static const int _factorDistribution = 5;
     static const int _valueFrontierDisc = 5;

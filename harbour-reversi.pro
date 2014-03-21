@@ -23,7 +23,9 @@ SOURCES += src/uiconnection.cpp \
     src/player/staticruleaiplayer.cpp \
     src/rules/rule.cpp \
     src/rules/greedyrule.cpp \
-    src/rules/openingrule.cpp
+    src/rules/openingrule.cpp \
+    src/rules/endgamerule.cpp \
+    src/rules/cornerrule.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -56,5 +58,7 @@ HEADERS += \
     src/player/staticruleaiplayer.h \
     src/rules/rule.h \
     src/rules/greedyrule.h \
-    src/rules/openingrule.h
+    src/rules/openingrule.h \
+    src/rules/endgamerule.h \
+    src/rules/cornerrule.h
 
