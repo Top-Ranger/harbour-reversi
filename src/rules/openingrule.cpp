@@ -132,6 +132,11 @@ int OpeningRule::calculateScore(Gameboard board, int player)
 
 bool OpeningRule::isFrontierDisc(Gameboard board, int x, int y)
 {
+    if(board.owner(x,y) == 0)
+    {
+        return false;
+    }
+
     for(int deltax=-1; deltax<=1; ++deltax)
     {
         for(int deltay=-1; deltay<=1; ++deltay)

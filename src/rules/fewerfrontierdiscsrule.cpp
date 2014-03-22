@@ -65,7 +65,7 @@ void FewerFrontierDiscsRule::doTurn(Gameboard board, int player)
                 {
                     for(int newY = 0; newY < 8; ++newY)
                     {
-                        if(isFrontierDisc(testboard,x,y))
+                        if(testboard.owner(newX,newY) == player && isFrontierDisc(testboard,newX,newY))
                         {
                             ++temp;
                         }
@@ -96,6 +96,11 @@ QString FewerFrontierDiscsRule::name()
 
 bool FewerFrontierDiscsRule::isFrontierDisc(Gameboard board, int x, int y)
 {
+    if(board.owner(x,y) == 0)
+    {
+        return false;
+    }
+
     for(int deltax=-1; deltax<=1; ++deltax)
     {
         for(int deltay=-1; deltay<=1; ++deltay)
