@@ -39,7 +39,7 @@ Page {
 
     onVisibleChanged: functions.startGame()
 
-        Connections {
+    Connections {
         target: gamemaster
 
         onGetHumanInput: {
@@ -64,6 +64,7 @@ Page {
         property string input: "Waiting..."
         property string message: ""
         property bool gamestarted: false
+        property bool gamefinished: false
 
         property int board00: 0
         property int board10: 0
@@ -144,12 +145,17 @@ Page {
 
         function getHumanInput(player)
         {
-            variable.input = "Player " + player + " do your turn"
-            uiconnection.newPlayerMessage(variable.input)
+            if(!variable.gamefinished)
+            {
+                variable.input = "Player " + player + " do your turn"
+                uiconnection.newPlayerMessage(variable.input)
+            }
         }
 
         function endOfGame(score1, score2)
         {
+            variable.gamefinished = true
+            variable.input = "Finished!"
             variable.message = "END OF GAME!\nPoints Player1: " + score1 + "\nPoints Player2: " + score2
             uiconnection.endOfGame()
         }
@@ -161,8 +167,11 @@ Page {
 
         function buttonPressed(x,y)
         {
-            variable.input = "Waiting..."
-            uiconnection.newPlayerMessage(variable.input)
+            if(!variable.gamefinished)
+            {
+                variable.input = "Waiting..."
+                uiconnection.newPlayerMessage(variable.input)
+            }
             gamemaster.getInput(x,y)
             console.debug(x + "-" + y + " pressed")
         }
