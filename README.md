@@ -16,3 +16,11 @@ HOWTO implement an own AI/Player:
    2. Overwrite doTurn(), isHuman(), getBoard(Gameboard board), humanInput(int x, int y)
    3. Add new AI to Gamemaster::initialise(QString player1, QString player2, int bonus)
    4. Add new AI to UI
+
+---
+
+HOWTO use a rule:
+   1. Use the "applicable(Gameboard board, int player)" method
+   2. Only when you get true use the "doTurn(Gameboard board, int player)" method
+
+Failure to do so will result in undefined behaviour
