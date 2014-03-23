@@ -107,9 +107,9 @@ bool FewerFrontierDiscsRule::isFrontierDisc(Gameboard board, int x, int y)
         {
             if(deltax != 0 || deltay != 0)
             {
-                if((x-deltax >= 0) && (y-deltay >= 0) && (x+deltax <= 7) && (y+deltay <= 7))
+                if((x+deltax >= 0) && (y+deltay >= 0) && (x+deltax <= 7) && (y+deltay <= 7))
                 {
-                    if(board.owner(x,y) == 0)
+                    if(board.owner(x+deltax,y+deltay) == 0)
                     {
                         return true;
                     }

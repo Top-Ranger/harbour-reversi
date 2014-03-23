@@ -28,7 +28,6 @@
 */
 
 #include "teacherplayer.h"
-#include "QDebug"
 
 TeacherPlayer::TeacherPlayer(QObject *parent) :
     Player(parent),
@@ -59,115 +58,116 @@ void TeacherPlayer::getBoard(Gameboard board, int player)
 
 void TeacherPlayer::humanInput(int x, int y)
 {
-    if(x == _x && y == _y)
+    if(_active)
     {
-        qDebug() << "Playing turn";
-        emit turn(x,y);
-        _x = -1;
-        _y = -1;
-        return;
-    }
-    Gameboard testboard = _board;
-
-    if(testboard.play(x,y,_player))
-    {
-        QString s;
-        if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
+        if(x == _x && y == _y)
         {
-            s = QString("This is the early game\nTry to get the centre of the board\nTry to get as few discs at the border as possible\n");
-            int own = 0;
-            int opponent = 0;
-            for(int newX = 3; newX <=4; ++newX)
-            {
-                for(int newY = 3; newY <=4; ++newY)
-                {
-                    if(testboard.owner(newX,newY) == _player)
-                    {
-                        ++own;
-                    }
-                    else if(testboard.owner(newX,newY) == opponentPlayer(_player))
-                    {
-                        ++opponent;
-                    }
-                }
-            }
-            s = QString("%1Own discs in centre: %2\nOpponent discs in centre: %3\n").arg(s).arg(own).arg(opponent);
-
-            own = 0;
-            opponent = 0;
-            for(int newX = 0; newX < 8; ++newX)
-            {
-                for(int newY = 0; newY < 8; ++newY)
-                {
-                    if(testboard.owner(newX,newY) == _player)
-                    {
-                        ++own;
-                    }
-                    else if(testboard.owner(newX,newY) == opponentPlayer(_player))
-                    {
-                        ++opponent;
-                    }
-                }
-            }
-            s = QString("%1Own frontier discs: %2\nOpponent frontier discs: %3\n").arg(s).arg(own).arg(opponent);
+            emit turn(x,y);
+            _x = -1;
+            _y = -1;
+            return;
         }
-        else if((_board.points(_player) + _board.points(opponentPlayer(_player))) >= _borderEndgame)
+        Gameboard testboard = _board;
+
+        if(testboard.play(x,y,_player))
         {
-            s = QString("This is the Endgame\nTry to use all your adventages to get as many discs as possible\n");
-            int own = 0;
-            int opponent = 0;
-            for(int newX = 0; newX < 8; ++newX)
+            QString s;
+            if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
             {
-                for(int newY = 0; newY < 8; ++newY)
+                s = QString("This is the early game\nTry to get the centre of the board\nTry to get as few discs at the border as possible\n");
+                int own = 0;
+                int opponent = 0;
+                for(int newX = 3; newX <=4; ++newX)
                 {
-                    if(testboard.owner(newX,newY) == _player && isFrontierDisc(testboard,newX,newY))
+                    for(int newY = 3; newY <=4; ++newY)
                     {
-                        ++own;
-                    }
-                    else if(testboard.owner(newX,newY) == opponentPlayer(_player)  && isFrontierDisc(testboard,newX,newY))
-                    {
-                        ++opponent;
+                        if(testboard.owner(newX,newY) == _player)
+                        {
+                            ++own;
+                        }
+                        else if(testboard.owner(newX,newY) == opponentPlayer(_player))
+                        {
+                            ++opponent;
+                        }
                     }
                 }
+                s = QString("%1Own discs in centre: %2\nOpponent discs in centre: %3\n").arg(s).arg(own).arg(opponent);
+
+                own = 0;
+                opponent = 0;
+                for(int newX = 0; newX < 8; ++newX)
+                {
+                    for(int newY = 0; newY < 8; ++newY)
+                    {
+                        if(testboard.owner(newX,newY) == _player  && isFrontierDisc(testboard,newX,newY))
+                        {
+                            ++own;
+                        }
+                        else if(testboard.owner(newX,newY) == opponentPlayer(_player)  && isFrontierDisc(testboard,newX,newY))
+                        {
+                            ++opponent;
+                        }
+                    }
+                }
+                s = QString("%1Own frontier discs: %2\nOpponent frontier discs: %3\n").arg(s).arg(own).arg(opponent);
             }
-            s = QString("%1Own discs: %2\nOpponent discs: %3\n").arg(s).arg(own).arg(opponent);
+            else if((_board.points(_player) + _board.points(opponentPlayer(_player))) >= _borderEndgame)
+            {
+                s = QString("This is the Endgame\nTry to use all your adventages to get as many discs as possible\n");
+                int own = 0;
+                int opponent = 0;
+                for(int newX = 0; newX < 8; ++newX)
+                {
+                    for(int newY = 0; newY < 8; ++newY)
+                    {
+                        if(testboard.owner(newX,newY) == _player)
+                        {
+                            ++own;
+                        }
+                        else if(testboard.owner(newX,newY) == opponentPlayer(_player))
+                        {
+                            ++opponent;
+                        }
+                    }
+                }
+                s = QString("%1Own discs: %2\nOpponent discs: %3\n").arg(s).arg(own).arg(opponent);
+            }
+            else
+            {
+                s = QString("This is the Midgame\nTry to get as many possible plays while reducing the number of plays your opponent can do\n");
+                int own = 0;
+                int opponent = 0;
+                for(int newX = 0; newX < 8; ++newX)
+                {
+                    for(int newY = 0; newY < 8; ++newY)
+                    {
+                        if(testboard.play(newX, newY,_player,true))
+                        {
+                            ++own;
+                        }
+                        if(testboard.play(newX, newY,opponentPlayer(_player),true))
+                        {
+                            ++opponent;
+                        }
+                    }
+                }
+                s = QString("%1Own plays: %2\nOpponent plays: %3\n").arg(s).arg(own).arg(opponent);
+            }
+
+            emit sendMessage(QString("%1Type again to play disc here").arg(s));
+            _x = x;
+            _y = y;
+            emit awaitsHuman();
+            return;
         }
         else
         {
-            s = QString("This is the Midgame\nTry to get as many possible plays while reducing the number of plays your opponent can do\n");
-            int own = 0;
-            int opponent = 0;
-            for(int newX = 0; newX < 8; ++newX)
-            {
-                for(int newY = 0; newY < 8; ++newY)
-                {
-                    if(testboard.play(newX, newY,_player,true))
-                    {
-                        ++own;
-                    }
-                    if(testboard.play(newX, newY,opponentPlayer(_player),true))
-                    {
-                        ++opponent;
-                    }
-                }
-            }
-            s = QString("%1Own plays: %2\nOpponent plays: %3\n").arg(s).arg(own).arg(opponent);
+            emit sendMessage("You can't play a disc there!");
+            _x = -1;
+            _y = -1;
+            emit awaitsHuman();
+            return;
         }
-
-        qDebug() << "sendMessage";
-        emit sendMessage(QString("%1Type again to play disc here").arg(s));
-        qDebug() << "afterMessage";
-        _x = x;
-        _y = y;
-        return;
-    }
-    else
-    {
-        qDebug() << "notPossible";
-        emit sendMessage("You can't play a disc there!");
-        _x = -1;
-        _y = -1;
-        return;
     }
 }
 
@@ -189,9 +189,9 @@ bool TeacherPlayer::isFrontierDisc(Gameboard board, int x, int y)
         {
             if(deltax != 0 || deltay != 0)
             {
-                if((x-deltax >= 0) && (y-deltay >= 0) && (x+deltax <= 7) && (y+deltay <= 7))
+                if((x+deltax >= 0) && (y+deltay >= 0) && (x+deltax <= 7) && (y+deltay <= 7))
                 {
-                    if(board.owner(x,y) == 0)
+                    if(board.owner(x+deltax,y+deltay) == 0)
                     {
                         return true;
                     }
