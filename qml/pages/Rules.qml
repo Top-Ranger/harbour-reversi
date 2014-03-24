@@ -27,33 +27,61 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef TEACHERPLAYER_H
-#define TEACHERPLAYER_H
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
-#include "player.h"
+Page {
 
-class TeacherPlayer : public Player
-{
-public:
-    explicit TeacherPlayer(QObject *parent = 0);
-    virtual void doTurn();
-    virtual bool isHuman();
-    virtual void getBoard(Gameboard board, int player);
+    id: rules
 
-public slots:
-    virtual void humanInput(int x, int y);
+    SilicaFlickable {
 
-private:
-    int opponentPlayer(int player);
-    bool isFrontierDisc(Gameboard board, int x, int y);
+        VerticalScrollDecorator {}
 
-    Gameboard _board;
-    int _player;
-    int _x;
-    int _y;
+        contentHeight: maincolumn.height
 
-    static const int _borderEarlyGame = 16;
-    static const int _borderEndgame = 50;
-};
+        Column {
+            id: maincolumn
+            width: rules.width
 
-#endif // TEACHERPLAYER_H
+            PageHeader {
+                title: "Rules"
+            }
+
+            Text  {
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.paddingLarge
+                }
+
+                color: Theme.primaryColor
+                width: rules.width
+                wrapMode: Text.Wrap
+
+                text: "Both players take alternate turns. Black begins.
+
+In each turn a player places a disc on the board. He then captures all discs between the new placed disc and other own discs on the board without spaces (horizontal, vertical and diagonal).
+Each player has to capture at least one opponent disc - if a player can't capture a disc he has to pass.
+
+The game ends when no player can't do any turn (however, there can still be free places on the board). The player with most discs wins."
+            }
+
+            Text  {
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.paddingLarge
+                }
+
+                color: Theme.secondaryColor
+                width: rules.width
+                wrapMode: Text.Wrap
+
+                text: "New to \"Reversi\"? Try out the \"Tutorial\", it will teach you some basic strategy"
+            }
+        }
+    }
+}

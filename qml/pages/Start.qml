@@ -65,6 +65,12 @@ Page {
                 text: "About"
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
             }
+
+            MenuItem {
+                text: "Rules"
+                onClicked: pageStack.push(Qt.resolvedUrl("Rules.qml"))
+            }
+
             MenuItem {
                 text: "Start game"
                 onClicked: gamestarter.startgame()
@@ -111,7 +117,7 @@ Page {
                     MenuItem { text: "Tree AI"}
                     MenuItem { text: "Balanced AI"}
                     MenuItem { text: "Static Rule AI"}
-                    MenuItem { text: "Teacher" }
+                    MenuItem { text: "Tutorial" }
                 }
             }
 
@@ -128,7 +134,7 @@ Page {
                     MenuItem { text: "Tree AI"}
                     MenuItem { text: "Balanced AI"}
                     MenuItem { text: "Static Rule AI"}
-                    MenuItem { text: "Teacher" }
+                    MenuItem { text: "Tutorial" }
                 }
             }
 

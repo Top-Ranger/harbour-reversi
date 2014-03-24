@@ -27,9 +27,9 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "teacherplayer.h"
+#include "tutorialplayer.h"
 
-TeacherPlayer::TeacherPlayer(QObject *parent) :
+TutorialPlayer::TutorialPlayer(QObject *parent) :
     Player(parent),
     _board(),
     _player(0),
@@ -38,25 +38,25 @@ TeacherPlayer::TeacherPlayer(QObject *parent) :
 {
 }
 
-void TeacherPlayer::doTurn()
+void TutorialPlayer::doTurn()
 {
     emit wantBoard();
     emit awaitsHuman();
     emit sendMessage("Type any position to get an evaluation");
 }
 
-bool TeacherPlayer::isHuman()
+bool TutorialPlayer::isHuman()
 {
     return true;
 }
 
-void TeacherPlayer::getBoard(Gameboard board, int player)
+void TutorialPlayer::getBoard(Gameboard board, int player)
 {
     _board = board;
     _player = player;
 }
 
-void TeacherPlayer::humanInput(int x, int y)
+void TutorialPlayer::humanInput(int x, int y)
 {
     if(_active)
     {
@@ -171,12 +171,12 @@ void TeacherPlayer::humanInput(int x, int y)
     }
 }
 
-int TeacherPlayer::opponentPlayer(int player)
+int TutorialPlayer::opponentPlayer(int player)
 {
     return player==1?2:1;
 }
 
-bool TeacherPlayer::isFrontierDisc(Gameboard board, int x, int y)
+bool TutorialPlayer::isFrontierDisc(Gameboard board, int x, int y)
 {
     if(board.owner(x,y) == 0)
     {

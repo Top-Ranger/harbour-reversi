@@ -29,7 +29,7 @@ SOURCES += src/uiconnection.cpp \
     src/rules/minimiseopponentmovementrule.cpp \
     src/rules/maximiseownmovementrule.cpp \
     src/rules/fewerfrontierdiscsrule.cpp \
-    src/player/teacherplayer.cpp
+    src/player/tutorialplayer.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -47,7 +47,8 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates/harbour-reversi.svg \
     templates/2.svg \
     templates/1.svg \
-    templates/0.svg
+    templates/0.svg \
+    qml/pages/Rules.qml
 
 HEADERS += \
     src/uiconnection.h \
@@ -68,5 +69,5 @@ HEADERS += \
     src/rules/minimiseopponentmovementrule.h \
     src/rules/maximiseownmovementrule.h \
     src/rules/fewerfrontierdiscsrule.h \
-    src/player/teacherplayer.h
+    src/player/tutorialplayer.h
 
