@@ -112,12 +112,12 @@ Page {
 
                 menu: ContextMenu {
                     MenuItem { text: "Human" }
+                    MenuItem { text: "Tutorial" }
                     MenuItem { text: "Random AI"}
                     MenuItem { text: "Greedy AI"}
                     MenuItem { text: "Tree AI"}
                     MenuItem { text: "Balanced AI"}
                     MenuItem { text: "Static Rule AI"}
-                    MenuItem { text: "Tutorial" }
                 }
             }
 
@@ -129,12 +129,12 @@ Page {
 
                 menu: ContextMenu {
                     MenuItem { text: "Human" }
+                    MenuItem { text: "Tutorial" }
                     MenuItem { text: "Random AI"}
                     MenuItem { text: "Greedy AI"}
                     MenuItem { text: "Tree AI"}
                     MenuItem { text: "Balanced AI"}
                     MenuItem { text: "Static Rule AI"}
-                    MenuItem { text: "Tutorial" }
                 }
             }
 
