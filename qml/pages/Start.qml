@@ -141,9 +141,9 @@ Page {
             Slider {
                 id: bonusslider
                 width: page.width
-                minimumValue: 0
+                minimumValue: -10
                 maximumValue: 10
-                value: 3
+                value: 0
                 stepSize: 1
                 valueText: value
                 label: "Bonus for 2nd player"
