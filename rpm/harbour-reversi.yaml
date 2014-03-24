@@ -3,7 +3,7 @@ Summary: Reversi
 Version: 0.3
 Release: 1
 Group: Qt/Qt
-URL: http://example.org/
+URL: https://github.com/Top-Ranger/harbour-reversi
 License: modified BSD
 Sources:
 - '%{name}-%{version}.tar.bz2'
