@@ -16,7 +16,7 @@ Summary:    Reversi
 Version:    0.3
 Release:    1
 Group:      Qt/Qt
-License:    LICENSE
+License:    modified BSD
 URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-reversi.yaml
