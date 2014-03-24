@@ -55,6 +55,7 @@ signals:
     void result(int player1, int player2);
     void sendMessage(QString message);
     void boardChanged();
+    void lastDiscPlayed(int x, int y);
 
 public slots:
     void awaitsHuman();

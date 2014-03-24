@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Karbon, part of Calligra: http://www.calligra.org/karbon -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68.8pt" height="68.8pt">
+<defs>
+  <linearGradient id="gradient0" gradientTransform="" gradientUnits="objectBoundingBox" x1="0.50000000000" y1="0.50000000000" x2="0.50000000000" y2="0.00000000000" spreadMethod="pad">
+   <stop stop-color="#000000" offset="0.99666231871" stop-opacity="0.00000000000"/>
+   <stop stop-color="#ffffff" offset="1.00000000000" stop-opacity="0.00000000000"/>
+  </linearGradient>
+ </defs>
+<g id="Layer_2">
+  <ellipse id="shape0" transform="translate(56.025, 19.0293)" rx="4.89319206737pt" ry="4.96234718826pt" cx="4.89319206737pt" cy="4.96234718826pt" fill="#ff0000" fill-rule="evenodd" stroke="#ff0000" stroke-width="1.41732529000" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="1.98425540600"/>
+ </g><g id="Layer_1">
+  <ellipse id="shape1" transform="matrix(0.99992 0.0125877 -0.0133496 0.99991 1.43918 0.210269)" rx="33.76008900755pt" ry="33.76780828169pt" cx="33.76008900755pt" cy="33.76780828169pt" fill="url(#gradient0)" fill-rule="evenodd" stroke="#8f8f8f" stroke-width="7.01576018550" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="1.98425543308"/>
+ </g>
+</svg>

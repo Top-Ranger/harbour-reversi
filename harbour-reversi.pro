@@ -48,7 +48,13 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates/2.svg \
     templates/1.svg \
     templates/0.svg \
-    qml/pages/Rules.qml
+    qml/pages/Rules.qml \
+    templates/2changed.svg \
+    templates/1changed.svg \
+    templates/0changed.svg \
+    qml/pages/2changed.png \
+    qml/pages/1changed.png \
+    qml/pages/0changed.png
 
 HEADERS += \
     src/uiconnection.h \

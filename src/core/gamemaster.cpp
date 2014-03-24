@@ -194,6 +194,7 @@ void Gamemaster::turn(int x, int y)
     if(_board->play(x, y, _turn))
     {
         qDebug() << "Gamemaster: Turn possible!";
+        emit lastDiscPlayed(x,y);
         _player[_turn-1]->isActive(false);
         _turn = _turn==1?2:1;
         if(!_board->isTurnPossible(_turn))
