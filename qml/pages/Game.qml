@@ -282,6 +282,8 @@ Page {
 
         contentHeight: maincolumn.height
 
+        VerticalScrollDecorator {}
+
         Column {
             id: maincolumn
             width: page.width

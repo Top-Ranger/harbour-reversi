@@ -79,6 +79,7 @@ Page {
                 wrapMode: Text.Wrap
 
                 text: "Copyright (C) 2014 Marcus Soll
+Copyright (C) 2014 Johannes Preuß
 Copyright (C) 2013 Jolla Ltd.
 All rights reserved.
 

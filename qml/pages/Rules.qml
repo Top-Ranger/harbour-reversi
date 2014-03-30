@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014 Johannes Preuß
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -62,10 +63,9 @@ Page {
 
                 text: "Both players take alternate turns. Black begins.
 
-In each turn a player places a disc on the board. He then captures all discs between the new placed disc and other own discs on the board without spaces (horizontal, vertical and diagonal).
-Each player has to capture at least one opponent disc - if a player can't capture a disc he has to pass.
+The goal of the game is to capture enemy pieces, also commonly known as discs, which must be captured by trapping them between your own discs. This applies on the horizontal,vertical and diagonal axis of the playing field. Each player has to capture at least one enemy disc - if a player can't capture a disc, he has to pass.
 
-The game ends when no player can't do any turn (however, there can still be free places on the board). The player with most discs wins."
+The game ends when both players are unable to capture. (However, there can still be free places on the board). The player with most discs wins."
             }
 
             Text  {
@@ -80,7 +80,7 @@ The game ends when no player can't do any turn (however, there can still be free
                 width: rules.width
                 wrapMode: Text.Wrap
 
-                text: "New to \"Reversi\"? Try out the \"Tutorial\", it will teach you some basic strategy"
+                text: "New to \"Reversi\"? Try out the \"Tutorial\", it will teach you some basic strategies."
             }
         }
     }

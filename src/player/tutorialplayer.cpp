@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014 Johannes Preuß
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -74,7 +75,7 @@ void TutorialPlayer::humanInput(int x, int y)
             QString s;
             if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
             {
-                s = QString("This is the early game.\nTry to get the centre of the board.\nTry to get as few discs adjacent to a free field as possible (few frontier discs).\n");
+                s = QString("This is the early game.\nTry to assume control of the center of the board.\nTry to avoid the outer fields for now (few frontier discs).\n");
                 int own = 0;
                 int opponent = 0;
                 for(int newX = 3; newX <=4; ++newX)
@@ -113,7 +114,7 @@ void TutorialPlayer::humanInput(int x, int y)
             }
             else if((_board.points(_player) + _board.points(opponentPlayer(_player))) >= _borderEndgame)
             {
-                s = QString("This is the end-game.\nTry to use all your adventages to get as many discs as possible.\n");
+                s = QString("This is the end-game.\nTry to use all your advantages to get as many discs as possible.\n");
                 int own = 0;
                 int opponent = 0;
                 for(int newX = 0; newX < 8; ++newX)
@@ -154,7 +155,7 @@ void TutorialPlayer::humanInput(int x, int y)
                 s = QString("%1   Own moves: %2\n   Opponent moves: %3\n").arg(s).arg(own).arg(opponent);
             }
 
-            emit sendMessage(QString("%1Type again to play disc here.").arg(s));
+            emit sendMessage(QString("%1Type again to place a disc here.").arg(s));
             _x = x;
             _y = y;
             emit awaitsHuman();
@@ -162,7 +163,7 @@ void TutorialPlayer::humanInput(int x, int y)
         }
         else
         {
-            emit sendMessage("You can't play a disc there!");
+            emit sendMessage("You can't place a disc there!");
             _x = -1;
             _y = -1;
             emit awaitsHuman();

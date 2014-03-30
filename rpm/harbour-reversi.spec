@@ -17,7 +17,7 @@ Version:    0.3
 Release:    1
 Group:      Qt/Qt
 License:    modified BSD
-URL:        http://example.org/
+URL:        https://github.com/Top-Ranger/harbour-reversi
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-reversi.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9

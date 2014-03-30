@@ -57,7 +57,7 @@ void BalancedAIPlayer::getBoard(Gameboard board, int player)
     int modifierPlaystile = _boarderLowHigh >= (board.points(player)+board.points(player==1?2:1))?_modifierPlaystileLow:_modifierPlaystileHigh;
     if(board.points(player) >= board.points(player==1?2:1)+modifierPlaystile)
     {
-        emit sendMessage("Now is the time to get all tokens!");
+        emit sendMessage("Now is the time to get all discs!");
         _greed.getBoard(board, player);
     }
     else
