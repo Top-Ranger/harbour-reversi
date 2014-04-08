@@ -52,9 +52,12 @@ Page {
             }
         }
 
-        function changeLanguage(language) {
-            uiconnection.changeLanguage(language)
-            pageStack.replace(Qt.resolvedUrl("Start.qml"))
+        function changeLanguage(languageSelected) {
+            if(language.currentIndex != 0)
+            {
+                uiconnection.changeLanguage(languageSelected)
+                pageStack.replace(Qt.resolvedUrl("Start.qml"))
+            }
         }
     }
 

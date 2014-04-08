@@ -96,7 +96,7 @@
     <message>
         <location filename="../player/staticruleaiplayer.cpp" line="83"/>
         <source>Now using rule &quot;%1&quot;</source>
-        <translation>Folgende Regel wird benutzt &quot;%1&quot;</translation>
+        <translation>Folgende Regel wird benutzt: &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../player/staticruleaiplayer.cpp" line="94"/>
