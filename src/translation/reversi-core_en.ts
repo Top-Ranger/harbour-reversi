@@ -125,6 +125,11 @@
 <context>
     <name>TutorialPlayer</name>
     <message>
+        <location filename="../player/tutorialplayer.cpp" line="46"/>
+        <source>Type any position to get an evaluation</source>
+        <translation>Type any position to get an evaluation</translation>
+    </message>
+    <message>
         <location filename="../player/tutorialplayer.cpp" line="78"/>
         <source>This is the early game.
 Try to assume control of the center of the board.
@@ -132,7 +137,8 @@ Try to avoid the outer fields for now (few frontier discs).
 </source>
         <translation>This is the early game.
 Try to assume control of the center of the board.
-Try to avoid the outer fields for now (few frontier discs).</translation>
+Try to avoid the outer fields for now (few frontier discs).
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="95"/>
@@ -140,7 +146,8 @@ Try to avoid the outer fields for now (few frontier discs).</translation>
    Opponent discs in centre: %3
 </source>
         <translation>%1   Own discs in centre: %2
-   Opponent discs in centre: %3</translation>
+   Opponent discs in centre: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="113"/>
@@ -148,7 +155,8 @@ Try to avoid the outer fields for now (few frontier discs).</translation>
    Opponent frontier discs: %3
 </source>
         <translation>%1   Own frontier discs: %2
-   Opponent frontier discs: %3</translation>
+   Opponent frontier discs: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="117"/>
@@ -156,7 +164,8 @@ Try to avoid the outer fields for now (few frontier discs).</translation>
 Try to use all your advantages to get as many discs as possible.
 </source>
         <translation>This is the end-game.
-Try to use all your advantages to get as many discs as possible.</translation>
+Try to use all your advantages to get as many discs as possible.
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="134"/>
@@ -164,7 +173,8 @@ Try to use all your advantages to get as many discs as possible.</translation>
    Opponent discs: %3
 </source>
         <translation>%1   Own discs: %2
-   Opponent discs: %3</translation>
+   Opponent discs: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="138"/>
@@ -172,7 +182,8 @@ Try to use all your advantages to get as many discs as possible.</translation>
 Try to get as many possible moves while reducing the number of moves your opponent can do.
 </source>
         <translation>This is the mid-game.
-Try to get as many possible moves while reducing the number of moves your opponent can do.</translation>
+Try to get as many possible moves while reducing the number of moves your opponent can do.
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="155"/>
@@ -180,7 +191,8 @@ Try to get as many possible moves while reducing the number of moves your oppone
    Opponent moves: %3
 </source>
         <translation>%1   Own moves: %2
-   Opponent moves: %3</translation>
+   Opponent moves: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="158"/>

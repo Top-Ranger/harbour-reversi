@@ -43,7 +43,7 @@ void TutorialPlayer::doTurn()
 {
     emit wantBoard();
     emit awaitsHuman();
-    emit sendMessage("Type any position to get an evaluation");
+    emit sendMessage(tr("Type any position to get an evaluation"));
 }
 
 bool TutorialPlayer::isHuman()

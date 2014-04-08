@@ -125,6 +125,11 @@
 <context>
     <name>TutorialPlayer</name>
     <message>
+        <location filename="../player/tutorialplayer.cpp" line="46"/>
+        <source>Type any position to get an evaluation</source>
+        <translation>Für eine Auswertung bitte ein Feld berühren</translation>
+    </message>
+    <message>
         <location filename="../player/tutorialplayer.cpp" line="78"/>
         <source>This is the early game.
 Try to assume control of the center of the board.
@@ -132,7 +137,8 @@ Try to avoid the outer fields for now (few frontier discs).
 </source>
         <translation>Dies ist die Eröffnung.
 Versuche die Mitte einzunehmen.
-Vermeide Randfelder.</translation>
+Vermeide Randfelder.
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="95"/>
@@ -140,7 +146,8 @@ Vermeide Randfelder.</translation>
    Opponent discs in centre: %3
 </source>
         <translation>%1   Eigene Steine in der Mitte: %2
-   Gegnerische Steine in der Mitte: %3</translation>
+   Gegnerische Steine in der Mitte: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="113"/>
@@ -148,7 +155,8 @@ Vermeide Randfelder.</translation>
    Opponent frontier discs: %3
 </source>
         <translation>%1   Eigene Randfelder: %2
-   Gegnerische Randfelder: %3</translation>
+   Gegnerische Randfelder: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="117"/>
@@ -156,7 +164,8 @@ Vermeide Randfelder.</translation>
 Try to use all your advantages to get as many discs as possible.
 </source>
         <translation>Dies ist das Endspiel.
-Versuche nun die meisten Steine einzunehmen.</translation>
+Versuche nun die meisten Steine einzunehmen.
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="134"/>
@@ -164,7 +173,8 @@ Versuche nun die meisten Steine einzunehmen.</translation>
    Opponent discs: %3
 </source>
         <translation>%1   Eigene Steine: %2
-   Gegnerische Steine: %3</translation>
+   Gegnerische Steine: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="138"/>
@@ -172,7 +182,8 @@ Versuche nun die meisten Steine einzunehmen.</translation>
 Try to get as many possible moves while reducing the number of moves your opponent can do.
 </source>
         <translation>Dies ist die Mittelpartie.
-Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.</translation>
+Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="155"/>
@@ -180,7 +191,8 @@ Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.</transl
    Opponent moves: %3
 </source>
         <translation>%1   Eigene Spielzüge: %2
-   Gegnerische Spielzüge: %3</translation>
+   Gegnerische Spielzüge: %3
+</translation>
     </message>
     <message>
         <location filename="../player/tutorialplayer.cpp" line="158"/>
