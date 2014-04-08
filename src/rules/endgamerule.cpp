@@ -70,7 +70,7 @@ void EndgameRule::doTurn(Gameboard board, int player)
 
 QString EndgameRule::name()
 {
-    return "Endgame Rule";
+    return tr("Endgame Rule");
 }
 
 void EndgameRule::getTurn(int x, int y)

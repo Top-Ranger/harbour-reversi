@@ -80,7 +80,7 @@ void StaticRuleAIPlayer::getBoard(Gameboard board, int player)
     {
         if((*iterator)->applicable(board,player))
         {
-            emit sendMessage(QString("Now using rule \"%1\"").arg((*iterator)->name()));
+            emit sendMessage(QString(tr("Now using rule \"%1\"")).arg((*iterator)->name()));
             (*iterator)->doTurn(board,player);
             return;
         }
@@ -91,12 +91,12 @@ void StaticRuleAIPlayer::getBoard(Gameboard board, int player)
     GreedyRule rule;
     if(!rule.applicable(board,player))
     {
-        emit sendMessage("Static Rule AI hasn't any rules to apply...");
+        emit sendMessage(tr("Static Rule AI hasn't any rules to apply..."));
         qCritical() << "FATAL ERROR: Static Rule AI has no rule to apply";
         return;
     }
     QObject::connect(&rule,SIGNAL(turn(int,int)),this,SLOT(getTurn(int,int)));
-    emit sendMessage("Using fallback \"Greedy Rule\"");
+    emit sendMessage(tr("Using fallback \"Greedy Rule\""));
     rule.doTurn(board,player);
     QObject::disconnect(&rule,SIGNAL(turn(int,int)),this,SLOT(getTurn(int,int)));
 }

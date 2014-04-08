@@ -34,6 +34,7 @@
 
 class CornerRule : public Rule
 {
+    Q_OBJECT
 public:
     explicit CornerRule(QObject *parent = 0);
     virtual bool applicable(Gameboard board, int player);

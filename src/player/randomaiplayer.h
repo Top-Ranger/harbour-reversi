@@ -34,6 +34,7 @@
 
 class RandomAIPlayer : public Player
 {
+    Q_OBJECT
 public:
     explicit RandomAIPlayer(QObject *parent = 0);
     virtual void doTurn();

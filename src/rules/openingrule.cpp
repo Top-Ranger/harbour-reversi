@@ -87,7 +87,7 @@ void OpeningRule::doTurn(Gameboard board, int player)
 
 QString OpeningRule::name()
 {
-    return "Opening Rule";
+    return tr("Opening Rule");
 }
 
 int OpeningRule::calculateScore(Gameboard board, int player)

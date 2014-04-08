@@ -34,6 +34,7 @@
 
 class MinimiseOpponentMovementRule : public Rule
 {
+    Q_OBJECT
 public:
     explicit MinimiseOpponentMovementRule(QObject *parent = 0);
     virtual bool applicable(Gameboard board, int player);

@@ -51,6 +51,11 @@ Page {
                 showerror = true
             }
         }
+
+        function changeLanguage(language) {
+            uiconnection.changeLanguage(language)
+            pageStack.replace(Qt.resolvedUrl("Start.qml"))
+        }
     }
 
     onVisibleChanged: uiconnection.configureGame()
@@ -62,17 +67,17 @@ Page {
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
             MenuItem {
-                text: "About"
+                text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
             }
 
             MenuItem {
-                text: "Rules"
+                text: qsTr("Rules")
                 onClicked: pageStack.push(Qt.resolvedUrl("Rules.qml"))
             }
 
             MenuItem {
-                text: "Start game"
+                text: qsTr("Start game")
                 onClicked: gamestarter.startgame()
             }
 
@@ -89,7 +94,7 @@ Page {
             width: page.width
             spacing: Theme.paddingLarge
             PageHeader {
-                title: "Game Configuration"
+                title: qsTr("Game Configuration")
             }
 
             Label {
@@ -100,14 +105,14 @@ Page {
                 }
 
                 color: Theme.primaryColor
-                text: "Error starting the game"
+                text: qsTr("Error starting the game")
                 visible: gamestarter.showerror
             }
             
             ComboBox {
                 id: player1
                 width: page.width
-                label: "Player 1"
+                label: qsTr("Player 1")
                 currentIndex: 0
 
                 menu: ContextMenu {
@@ -124,7 +129,7 @@ Page {
             ComboBox {
                 id: player2
                 width: page.width
-                label: "Player 2"
+                label: qsTr("Player 2")
                 currentIndex: 0
 
                 menu: ContextMenu {
@@ -146,7 +151,20 @@ Page {
                 value: 0
                 stepSize: 1
                 valueText: value
-                label: "Bonus for 2nd player"
+                label: qsTr("Bonus for 2nd player")
+            }
+
+            ComboBox {
+                id: language
+                width: page.width
+                label: qsTr("Language")
+                currentIndex: 0
+                menu: ContextMenu {
+                    MenuItem { text: qsTr("Select Language") }
+                    MenuItem { text: "English" }
+                    MenuItem { text: "German" }
+                }
+                onCurrentIndexChanged: gamestarter.changeLanguage(currentItem.text)
             }
 
         }

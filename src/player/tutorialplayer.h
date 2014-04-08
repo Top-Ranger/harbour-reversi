@@ -34,6 +34,7 @@
 
 class TutorialPlayer : public Player
 {
+    Q_OBJECT
 public:
     explicit TutorialPlayer(QObject *parent = 0);
     virtual void doTurn();

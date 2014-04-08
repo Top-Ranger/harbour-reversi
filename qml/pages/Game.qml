@@ -66,7 +66,7 @@ Page {
 
     Item {
         id: variable
-        property string input: "Waiting..."
+        property string input: qsTr("Waiting...")
         property string message: ""
         property bool gamestarted: false
         property bool gamefinished: false
@@ -155,7 +155,7 @@ Page {
         {
             if(!variable.gamefinished)
             {
-                variable.input = "Player " + player + " do your turn"
+                variable.input = qsTr("Player ") + player + qsTr(" do your turn")
                 uiconnection.newPlayerMessage(variable.input)
             }
         }
@@ -163,8 +163,8 @@ Page {
         function endOfGame(score1, score2)
         {
             variable.gamefinished = true
-            variable.input = "Finished!"
-            variable.message = "END OF GAME!\nPoints Player1: " + score1 + "\nPoints Player2: " + score2
+            variable.input = qsTr("Finished!")
+            variable.message = qsTr("END OF GAME!\nPoints Player1: ") + score1 + qsTr("\nPoints Player2: ") + score2
             uiconnection.endOfGame()
         }
 
@@ -177,7 +177,7 @@ Page {
         {
             if(!variable.gamefinished)
             {
-                variable.input = "Waiting..."
+                variable.input = qsTr("Waiting...")
                 uiconnection.newPlayerMessage(variable.input)
             }
             gamemaster.getInput(x,y)
@@ -289,7 +289,7 @@ Page {
             width: page.width
 
             PageHeader {
-                title: "Reversi"
+                title: qsTr("Reversi")
             }
 
             Label {
@@ -299,7 +299,7 @@ Page {
                     margins: Theme.paddingLarge
                 }
 
-                text: "Starting the Game"
+                text: qsTr("Starting the Game")
                 visible: !variable.gamestarted
                 font.pixelSize: Theme.fontSizeHuge
             }

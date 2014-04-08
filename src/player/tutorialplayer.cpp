@@ -75,7 +75,7 @@ void TutorialPlayer::humanInput(int x, int y)
             QString s;
             if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
             {
-                s = QString("This is the early game.\nTry to assume control of the center of the board.\nTry to avoid the outer fields for now (few frontier discs).\n");
+                s = QString(tr("This is the early game.\nTry to assume control of the center of the board.\nTry to avoid the outer fields for now (few frontier discs).\n"));
                 int own = 0;
                 int opponent = 0;
                 for(int newX = 3; newX <=4; ++newX)
@@ -92,7 +92,7 @@ void TutorialPlayer::humanInput(int x, int y)
                         }
                     }
                 }
-                s = QString("%1   Own discs in centre: %2\n   Opponent discs in centre: %3\n").arg(s).arg(own).arg(opponent);
+                s = QString(tr("%1   Own discs in centre: %2\n   Opponent discs in centre: %3\n")).arg(s).arg(own).arg(opponent);
 
                 own = 0;
                 opponent = 0;
@@ -110,11 +110,11 @@ void TutorialPlayer::humanInput(int x, int y)
                         }
                     }
                 }
-                s = QString("%1   Own frontier discs: %2\n   Opponent frontier discs: %3\n").arg(s).arg(own).arg(opponent);
+                s = QString(tr("%1   Own frontier discs: %2\n   Opponent frontier discs: %3\n")).arg(s).arg(own).arg(opponent);
             }
             else if((_board.points(_player) + _board.points(opponentPlayer(_player))) >= _borderEndgame)
             {
-                s = QString("This is the end-game.\nTry to use all your advantages to get as many discs as possible.\n");
+                s = QString(tr("This is the end-game.\nTry to use all your advantages to get as many discs as possible.\n"));
                 int own = 0;
                 int opponent = 0;
                 for(int newX = 0; newX < 8; ++newX)
@@ -131,11 +131,11 @@ void TutorialPlayer::humanInput(int x, int y)
                         }
                     }
                 }
-                s = QString("%1   Own discs: %2\n   Opponent discs: %3\n").arg(s).arg(own).arg(opponent);
+                s = QString(tr("%1   Own discs: %2\n   Opponent discs: %3\n")).arg(s).arg(own).arg(opponent);
             }
             else
             {
-                s = QString("This is the mid-game.\nTry to get as many possible moves while reducing the number of moves your opponent can do.\n");
+                s = QString(tr("This is the mid-game.\nTry to get as many possible moves while reducing the number of moves your opponent can do.\n"));
                 int own = 0;
                 int opponent = 0;
                 for(int newX = 0; newX < 8; ++newX)
@@ -152,10 +152,10 @@ void TutorialPlayer::humanInput(int x, int y)
                         }
                     }
                 }
-                s = QString("%1   Own moves: %2\n   Opponent moves: %3\n").arg(s).arg(own).arg(opponent);
+                s = QString(tr("%1   Own moves: %2\n   Opponent moves: %3\n")).arg(s).arg(own).arg(opponent);
             }
 
-            emit sendMessage(QString("%1Type again to place a disc here.").arg(s));
+            emit sendMessage(QString(tr("%1Type again to place a disc here.")).arg(s));
             _x = x;
             _y = y;
             emit awaitsHuman();
@@ -163,7 +163,7 @@ void TutorialPlayer::humanInput(int x, int y)
         }
         else
         {
-            emit sendMessage("You can't place a disc there!");
+            emit sendMessage(tr("You can't place a disc there!"));
             _x = -1;
             _y = -1;
             emit awaitsHuman();

@@ -121,7 +121,7 @@ void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
 
 QString MinimiseOpponentMovementRule::name()
 {
-    return "Minimise Opponent Movement Rule";
+    return tr("Minimise Opponent Movement Rule");
 }
 
 bool MinimiseOpponentMovementRule::canTakeCorner(Gameboard board, int player)

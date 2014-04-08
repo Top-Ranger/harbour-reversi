@@ -91,7 +91,7 @@ void FewerFrontierDiscsRule::doTurn(Gameboard board, int player)
 
 QString FewerFrontierDiscsRule::name()
 {
-    return "Fewer Frontier Discs Rule";
+    return tr("Fewer Frontier Discs Rule");
 }
 
 bool FewerFrontierDiscsRule::isFrontierDisc(Gameboard board, int x, int y)

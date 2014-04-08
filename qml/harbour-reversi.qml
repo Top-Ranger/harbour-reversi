@@ -31,14 +31,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
-import harbour.reversi.Gamemaster 1.0
 
 ApplicationWindow
 {
-    Gamemaster {
-        id: gamemaster
-    }
-
     initialPage: Component { Start { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 

@@ -34,6 +34,7 @@
 
 class HumanPlayer : public Player
 {
+    Q_OBJECT
 public:
     explicit HumanPlayer(QObject *parent = 0);
     virtual void doTurn();

@@ -10,6 +10,10 @@ TARGET = harbour-reversi
 
 CONFIG += sailfishapp
 
+#release {
+#    DEFINES += QT_NO_DEBUG_OUTPUT
+#}
+
 SOURCES += src/uiconnection.cpp \
     src/harbour-reversi.cpp \
     src/core/gamemaster.cpp \
@@ -54,7 +58,13 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates/0changed.svg \
     qml/pages/2changed.png \
     qml/pages/1changed.png \
-    qml/pages/0changed.png
+    qml/pages/0changed.png \
+    harbour-reversi-ui_en.ts \
+    harbour-reversi-ui_de.ts \
+    harbour-reversi-ui.pro \
+    src/translation/reversi-core_de.ts \
+    src/translation/reversi-core.pro \
+    src/translation/reversi-core_en.ts
 
 HEADERS += \
     src/uiconnection.h \
@@ -76,4 +86,8 @@ HEADERS += \
     src/rules/maximiseownmovementrule.h \
     src/rules/fewerfrontierdiscsrule.h \
     src/player/tutorialplayer.h
+
+RESOURCES += \
+    src/translation/core-translation.qrc \
+    translation-ui.qrc
 

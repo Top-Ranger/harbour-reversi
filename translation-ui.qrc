@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/translation">
+        <file>harbour-reversi-ui_de.qm</file>
+        <file>harbour-reversi-ui_en.qm</file>
+    </qresource>
+</RCC>

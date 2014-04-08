@@ -34,6 +34,7 @@
 
 class FewerFrontierDiscsRule : public Rule
 {
+    Q_OBJECT
 public:
     explicit FewerFrontierDiscsRule(QObject *parent = 0);
     virtual bool applicable(Gameboard board, int player);

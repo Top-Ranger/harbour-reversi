@@ -106,11 +106,11 @@ void TreeAIPlayer::getBoard(Gameboard board, int player)
 
     if(composure == 0)
     {
-        emit sendMessage(QString("I want %1:%2! NOW!").arg(xmax).arg(ymax));
+        emit sendMessage(QString(tr("I want %1:%2! NOW!")).arg(xmax).arg(ymax));
     }
     else
     {
-        emit sendMessage(QString("I'll do %1:%2, that should be the best turn with factor %3").arg(xmax).arg(ymax).arg(max));
+        emit sendMessage(QString(tr("I'll do %1:%2, that should be the best turn with factor %3")).arg(xmax).arg(ymax).arg(max));
     }
     emit turn(xmax,ymax);
 }

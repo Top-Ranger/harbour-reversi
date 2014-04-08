@@ -42,7 +42,7 @@ void RandomAIPlayer::doTurn()
 
     if(random == 0)
     {
-        emit sendMessage("What am I doing?");
+        emit sendMessage(tr("What am I doing?"));
     }
     else
     {

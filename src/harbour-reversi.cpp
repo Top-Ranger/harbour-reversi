@@ -33,6 +33,7 @@
 #include "core/gamemaster.h"
 #include <QtQuick>
 #include "uiconnection.h"
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
@@ -50,13 +51,22 @@ int main(int argc, char *argv[])
 
     QGuiApplication *app = SailfishApp::application(argc,argv);
 
+    QTranslator *translator = new QTranslator();
+    QTranslator *coreTranslator = new QTranslator();
+
+    translator->load(QString(":translation/harbour-reversi-ui_%1").arg(QLocale::system().name()));
+    coreTranslator->load(QString(":translation/reversi-core_%1").arg(QLocale::system().name()));
+
+    app->installTranslator(translator);
+    app->installTranslator(coreTranslator);
+
     Gamemaster master;
 
     QQuickView *view = SailfishApp::createView();
 
     view->rootContext()->setContextProperty("gamemaster", &master);
 
-    UIConnection connection;
+    UIConnection connection(translator, coreTranslator);
 
     view->rootContext()->setContextProperty("uiconnection", &connection);
 

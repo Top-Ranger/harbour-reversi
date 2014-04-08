@@ -34,6 +34,7 @@
 
 class TreeAIPlayer : public Player
 {
+    Q_OBJECT
 public:
     explicit TreeAIPlayer(QObject *parent = 0);
     virtual void doTurn();

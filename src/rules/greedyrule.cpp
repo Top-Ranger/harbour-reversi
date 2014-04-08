@@ -79,5 +79,5 @@ void GreedyRule::doTurn(Gameboard board, int player)
 
 QString GreedyRule::name()
 {
-    return "Greedy Rule";
+    return tr("Greedy Rule");
 }

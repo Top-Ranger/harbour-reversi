@@ -34,6 +34,7 @@
 
 class OpeningRule : public Rule
 {
+    Q_OBJECT
 public:
     explicit OpeningRule(QObject *parent = 0);
     virtual bool applicable(Gameboard board, int player);

@@ -46,7 +46,7 @@ Page {
             width: rules.width
 
             PageHeader {
-                title: "Rules"
+                title: qsTr("Rules")
             }
 
             Text  {
@@ -61,11 +61,11 @@ Page {
                 width: rules.width
                 wrapMode: Text.Wrap
 
-                text: "Both players take alternate turns. Black begins.
+                text: qsTr("Both players take alternate turns. Black begins.
 
 The goal of the game is to capture enemy pieces, also commonly known as discs, which must be captured by trapping them between your own discs. This applies on the horizontal,vertical and diagonal axis of the playing field. Each player has to capture at least one enemy disc - if a player can't capture a disc, he has to pass.
 
-The game ends when both players are unable to capture. (However, there can still be free places on the board). The player with most discs wins."
+The game ends when both players are unable to capture. (However, there can still be free places on the board). The player with most discs wins.")
             }
 
             Text  {
@@ -80,7 +80,7 @@ The game ends when both players are unable to capture. (However, there can still
                 width: rules.width
                 wrapMode: Text.Wrap
 
-                text: "New to \"Reversi\"? Try out the \"Tutorial\", it will teach you some basic strategies."
+                text: qsTr("New to \"Reversi\"? Try out the \"Tutorial\", it will teach you some basic strategies.")
             }
         }
     }

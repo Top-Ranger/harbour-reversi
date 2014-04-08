@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/translation">
+        <file>reversi-core_de.qm</file>
+        <file>reversi-core_en.qm</file>
+    </qresource>
+</RCC>

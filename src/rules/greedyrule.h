@@ -34,6 +34,7 @@
 
 class GreedyRule : public Rule
 {
+    Q_OBJECT
 public:
     explicit GreedyRule(QObject *parent = 0);
     virtual bool applicable(Gameboard board, int player);

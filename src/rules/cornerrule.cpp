@@ -94,5 +94,5 @@ void CornerRule::doTurn(Gameboard board, int player)
 
 QString CornerRule::name()
 {
-    return "Corner Rule";
+    return tr("Corner Rule");
 }

@@ -120,7 +120,7 @@ void MaximiseOwnMovementRule::doTurn(Gameboard board, int player)
 
 QString MaximiseOwnMovementRule::name()
 {
-    return "Maximise Own Movement Rule";
+    return tr("Maximise Own Movement Rule");
 }
 
 bool MaximiseOwnMovementRule::canTakeCorner(Gameboard board, int player)

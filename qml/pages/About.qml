@@ -56,7 +56,7 @@ Page {
             }
 
             PageHeader {
-                title: "About"
+                title: qsTr("About")
             }
 
             Label {

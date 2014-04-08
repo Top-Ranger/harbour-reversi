@@ -38,15 +38,15 @@ CoverBackground {
 
     Item {
         id: message
-        property string messagestring: "Reversi"
+        property string messagestring: qsTr("Reversi")
 
         function start()
         {
-            messagestring = "Game started"
+            messagestring = qsTr("Game started")
         }
         function end()
         {
-            messagestring = "Finished"
+            messagestring = qsTr("Finished")
         }
         function changeMessage(s)
         {
@@ -54,7 +54,7 @@ CoverBackground {
         }
         function configure()
         {
-            messagestring = "Reversi"
+            messagestring = qsTr("Reversi")
         }
     }
 
@@ -99,7 +99,7 @@ CoverBackground {
 
     Label {
         id: label
-        text: "Reversi"
+        text: qsTr("Reversi")
         color: Theme.secondaryColor
         anchors.bottom: parent.bottom
         anchors.left: background.left

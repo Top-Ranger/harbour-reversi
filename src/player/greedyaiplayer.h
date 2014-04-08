@@ -34,6 +34,7 @@
 
 class GreedyAIPlayer : public Player
 {
+    Q_OBJECT
 public:
     explicit GreedyAIPlayer(QObject *parent = 0);
     virtual void doTurn();

@@ -31,12 +31,14 @@
 #define UICONNECTION_H
 
 #include <QObject>
+#include <QTranslator>
 
 class UIConnection : public QObject
 {
     Q_OBJECT
 public:
-    explicit UIConnection(QObject *parent = 0);
+    explicit UIConnection();
+    explicit UIConnection(QTranslator *translator, QTranslator *coreTranslator, QObject *parent = 0);
 
 signals:
     void changedPlayer(QString s);
@@ -49,8 +51,11 @@ public slots:
     Q_INVOKABLE void endOfGame();
     Q_INVOKABLE void startOfGame();
     Q_INVOKABLE void configureGame();
+    Q_INVOKABLE void changeLanguage(QString language);
 
 private:
+    QTranslator *_translator;
+    QTranslator *_coreTranslator;
     bool _running;
 };
 

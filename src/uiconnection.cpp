@@ -28,9 +28,16 @@
 */
 
 #include "uiconnection.h"
+#include <QDebug>
 
-UIConnection::UIConnection(QObject *parent) :
+UIConnection::UIConnection()
+{
+}
+
+UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator, QObject *parent) :
     QObject(parent),
+    _translator(translator),
+    _coreTranslator(coreTranslator),
     _running(false)
 {
 }
@@ -58,4 +65,20 @@ void UIConnection::startOfGame()
 void UIConnection::configureGame()
 {
     emit configureGameShown();
+}
+
+void UIConnection::changeLanguage(QString language)
+{
+    QString s;
+
+    if(language == "German")
+    {
+        s = "de";
+    }
+    else
+    {
+        s = "en";
+    }
+    _translator->load((QString(":translation/harbour-reversi-ui_%1").arg(s)));
+    _coreTranslator->load(QString(":translation/reversi-core_%1").arg(s));
 }
