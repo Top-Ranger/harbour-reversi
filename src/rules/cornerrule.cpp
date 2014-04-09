@@ -88,7 +88,7 @@ void CornerRule::doTurn(Gameboard board, int player)
     }
     else
     {
-        qCritical() << "FATAL ERROR: CornerRule::applicable(Gameboard board, int player) was not called";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": CornerRule::applicable(Gameboard board, int player) was not called";
     }
 }
 

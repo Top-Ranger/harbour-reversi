@@ -72,10 +72,17 @@ Gameboard& Gameboard::operator=(const Gameboard& other)
 
 bool Gameboard::play(int x, int y, int player, bool test)
 {
+    if(!checkCoordinates(x,y))
+    {
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": x or y value out of range";
+        return false;
+    }
+
     if(_board[x][y] != 0)
     {
         return false;
     }
+
     bool isPlayable = false;
     _board[x][y] = player;
     for(int deltax=-1; deltax<=1; ++deltax)
@@ -136,11 +143,23 @@ int Gameboard::points(int player)
 
 int Gameboard::owner(int x, int y)
 {
+    if(!checkCoordinates(x,y))
+    {
+        qCritical() << "FATAL ERROR in " __FILE__ << __LINE__ << ": x or y value out of range";
+        return -1;
+    }
+
     return _board[x][y];
 }
 
 bool Gameboard::testLine(int x, int y, int deltax, int deltay, int player, bool test)
 {
+    if(!checkCoordinates(x,y))
+    {
+        qCritical() << "FATAL ERROR in " __FILE__ << __LINE__ << ": x or y value out of range";
+        return false;
+    }
+
     x += deltax;
     y += deltay;
     if(!checkCoordinates(x,y) || _board[x][y] != opponent(player))

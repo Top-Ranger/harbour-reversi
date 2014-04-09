@@ -148,7 +148,7 @@ void Gamemaster::getInput(int x, int y)
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return;
     }
 
@@ -187,7 +187,7 @@ void Gamemaster::turn(int x, int y)
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return;
     }
     qDebug() << QString("Gamemaster is getting turn %1 + %2 from %3").arg(x).arg(y).arg(_turn);
@@ -226,7 +226,7 @@ void Gamemaster::startGame()
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return;
     }
 
@@ -248,7 +248,7 @@ int Gamemaster::getOwner(int x, int y)
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return 0;
     }
     return _board->owner(x, y);
@@ -258,7 +258,7 @@ int Gamemaster::pointsPlayer1()
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return 0;
     }
 
@@ -269,7 +269,7 @@ int Gamemaster::pointsPlayer2()
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return 0;
     }
 
@@ -280,7 +280,7 @@ void Gamemaster::wantBoard()
 {
     if(!_initialised)
     {
-        qCritical() << "Critical ERROR: Using Gamemaster without initialising it";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return;
     }
 

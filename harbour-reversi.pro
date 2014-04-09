@@ -10,9 +10,9 @@ TARGET = harbour-reversi
 
 CONFIG += sailfishapp
 
-#release {
-#    DEFINES += QT_NO_DEBUG_OUTPUT
-#}
+release {
+    DEFINES += QT_NO_DEBUG_OUTPUT
+}
 
 SOURCES += src/uiconnection.cpp \
     src/harbour-reversi.cpp \

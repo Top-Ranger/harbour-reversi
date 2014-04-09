@@ -114,7 +114,7 @@ void MaximiseOwnMovementRule::doTurn(Gameboard board, int player)
     }
     else
     {
-        qCritical() << "FATAL ERROR: MaximiseOwnMovementRule::applicable(Gameboard board, int player) was not called";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": MaximiseOwnMovementRule::applicable(Gameboard board, int player) was not called";
     }
 }
 

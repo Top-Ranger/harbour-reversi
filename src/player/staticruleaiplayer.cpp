@@ -92,7 +92,7 @@ void StaticRuleAIPlayer::getBoard(Gameboard board, int player)
     if(!rule.applicable(board,player))
     {
         emit sendMessage(tr("Static Rule AI hasn't any rules to apply..."));
-        qCritical() << "FATAL ERROR: Static Rule AI has no rule to apply";
+        qCritical() << "CRITICAL ERROR in " __FILE__ << " " << __LINE__ << ": Static Rule AI has no rule to apply";
         return;
     }
     QObject::connect(&rule,SIGNAL(turn(int,int)),this,SLOT(getTurn(int,int)));
