@@ -28,6 +28,7 @@
 */
 
 #include "gameboard.h"
+#include <QDebug>
 
 Gameboard::Gameboard(QObject *parent) :
     QObject(parent)
