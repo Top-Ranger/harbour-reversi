@@ -181,7 +181,6 @@ Page {
                 uiconnection.newPlayerMessage(variable.input)
             }
             gamemaster.getInput(x,y)
-            console.debug(x + "-" + y + " pressed")
         }
 
         function actualiseBoard()
@@ -263,7 +262,6 @@ Page {
         {
             if(!variable.gamestarted)
             {
-                console.debug("Starting game")
                 actualiseBoard()
                 uiconnection.startOfGame()
                 variable.gamestarted = true
