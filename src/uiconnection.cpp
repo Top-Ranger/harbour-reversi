@@ -79,6 +79,14 @@ void UIConnection::changeLanguage(QString language)
     {
         s = "en";
     }
-    _translator->load((QString(":translation/harbour-reversi-ui_%1").arg(s)));
-    _coreTranslator->load(QString(":translation/reversi-core_%1").arg(s));
+
+    if(_coreTranslator != NULL && _translator != NULL)
+    {
+        _translator->load((QString(":translation/harbour-reversi-ui_%1").arg(s)));
+        _coreTranslator->load(QString(":translation/reversi-core_%1").arg(s));
+    }
+    else
+    {
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Trying to change language with NULL-Translator";
+    }
 }

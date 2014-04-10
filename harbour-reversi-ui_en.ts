@@ -54,18 +54,23 @@
     </message>
     <message>
         <location filename="qml/pages/Game.qml" line="167"/>
+        <source>Points Player2: </source>
+        <translation>Points Player2: </translation>
+    </message>
+    <message>
+        <location filename="qml/pages/Game.qml" line="167"/>
         <source>END OF GAME!
 Points Player1: </source>
         <translation>END OF GAME!
 Points Player1: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="292"/>
+        <location filename="qml/pages/Game.qml" line="290"/>
         <source>Reversi</source>
         <translation>Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="302"/>
+        <location filename="qml/pages/Game.qml" line="300"/>
         <source>Starting the Game</source>
         <translation>Starting the Game</translation>
     </message>
@@ -84,7 +89,7 @@ Points Player1: </translation>
 The goal of the game is to capture enemy pieces, also commonly known as discs, which must be captured by trapping them between your own discs. This applies on the horizontal,vertical and diagonal axis of the playing field. Each player has to capture at least one enemy disc - if a player can&apos;t capture a disc, he has to pass.
 
 The game ends when both players are unable to capture. (However, there can still be free places on the board). The player with most discs wins.</source>
-        <translation>Both players take alternate turns. Black begins.
+        <translation type="unfinished">Both players take alternate turns. Black begins.
 
 The goal of the game is to capture enemy pieces, also commonly known as discs, which must be captured by trapping them between your own discs. This applies on the horizontal,vertical and diagonal axis of the playing field. Each player has to capture at least one enemy disc - if a player can&apos;t capture a disc, he has to pass.
 
@@ -99,52 +104,52 @@ The game ends when both players are unable to capture. (However, there can still
 <context>
     <name>Start</name>
     <message>
-        <location filename="qml/pages/Start.qml" line="70"/>
+        <location filename="qml/pages/Start.qml" line="73"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="75"/>
+        <location filename="qml/pages/Start.qml" line="78"/>
         <source>Rules</source>
         <translation>Rules</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="80"/>
+        <location filename="qml/pages/Start.qml" line="83"/>
         <source>Start game</source>
         <translation>Start game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="97"/>
+        <location filename="qml/pages/Start.qml" line="100"/>
         <source>Game Configuration</source>
         <translation>Game Configuration</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="108"/>
+        <location filename="qml/pages/Start.qml" line="111"/>
         <source>Error starting the game</source>
         <translation>Error starting the game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="115"/>
+        <location filename="qml/pages/Start.qml" line="118"/>
         <source>Player 1</source>
         <translation>Player 1</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="132"/>
+        <location filename="qml/pages/Start.qml" line="135"/>
         <source>Player 2</source>
         <translation>Player 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="154"/>
+        <location filename="qml/pages/Start.qml" line="157"/>
         <source>Bonus for 2nd player</source>
         <translation>Bonus for 2nd player</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="160"/>
+        <location filename="qml/pages/Start.qml" line="163"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="163"/>
+        <location filename="qml/pages/Start.qml" line="166"/>
         <source>Select Language</source>
         <translation>Select Language</translation>
     </message>

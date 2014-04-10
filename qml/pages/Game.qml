@@ -164,7 +164,7 @@ Page {
         {
             variable.gamefinished = true
             variable.input = qsTr("Finished!")
-            variable.message = qsTr("END OF GAME!\nPoints Player1: ") + score1 + qsTr("\nPoints Player2: ") + score2
+            variable.message = qsTr("END OF GAME!\nPoints Player1: ") + score1 + "\n" + qsTr("Points Player2: ") + score2
             uiconnection.endOfGame()
         }
 

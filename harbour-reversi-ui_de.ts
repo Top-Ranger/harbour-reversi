@@ -54,18 +54,23 @@
     </message>
     <message>
         <location filename="qml/pages/Game.qml" line="167"/>
+        <source>Points Player2: </source>
+        <translation>Punkte Spieler 1: </translation>
+    </message>
+    <message>
+        <location filename="qml/pages/Game.qml" line="167"/>
         <source>END OF GAME!
 Points Player1: </source>
         <translation>Spiel beendet!
 Punkte Spieler 1: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="292"/>
+        <location filename="qml/pages/Game.qml" line="290"/>
         <source>Reversi</source>
         <translation>Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="302"/>
+        <location filename="qml/pages/Game.qml" line="300"/>
         <source>Starting the Game</source>
         <translation>Starte das Spiel</translation>
     </message>
@@ -86,7 +91,7 @@ The goal of the game is to capture enemy pieces, also commonly known as discs, w
 The game ends when both players are unable to capture. (However, there can still be free places on the board). The player with most discs wins.</source>
         <translation>Beide Spieler spielen abwechselnd - Schwarz beginnt.
 
-Das Ziel des Spieles ist es am Ende mehr Steine als der Gegner zu haben. Man nimmt diejenigen Steine ein, welche sich zwischen einen bereits gelegten und dem neu platzierten Stein liegen. In jeder Runde muss mindestens ein gegnerischer Stein eingenommen werden, ansonsten muss man passen.
+Das Ziel des Spieles ist es am Ende mehr Steine als der Gegner zu haben. Man nimmt diejenigen Steine ein, welche sich zwischen einen bereits gelegten und dem neu platzierten Stein befinden. In jeder Runde muss mindestens ein gegnerischer Stein eingenommen werden, ansonsten muss man passen.
 
 Das Spiel endet, wenn kein Spieler mehr einen Stein plazieren kann (es können noch freie Felder existieren). Der Spieler mit den meisten Steinen gewinnt.</translation>
     </message>
@@ -99,52 +104,52 @@ Das Spiel endet, wenn kein Spieler mehr einen Stein plazieren kann (es können n
 <context>
     <name>Start</name>
     <message>
-        <location filename="qml/pages/Start.qml" line="70"/>
+        <location filename="qml/pages/Start.qml" line="73"/>
         <source>About</source>
         <translation>Über Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="75"/>
+        <location filename="qml/pages/Start.qml" line="78"/>
         <source>Rules</source>
         <translation>Regeln</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="80"/>
+        <location filename="qml/pages/Start.qml" line="83"/>
         <source>Start game</source>
         <translation>Starte das Spiel</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="97"/>
+        <location filename="qml/pages/Start.qml" line="100"/>
         <source>Game Configuration</source>
         <translation>Spieleigenschaften</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="108"/>
+        <location filename="qml/pages/Start.qml" line="111"/>
         <source>Error starting the game</source>
         <translation>Fehler: Kann das Spiel nicht starten</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="115"/>
+        <location filename="qml/pages/Start.qml" line="118"/>
         <source>Player 1</source>
         <translation>Spieler 1</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="132"/>
+        <location filename="qml/pages/Start.qml" line="135"/>
         <source>Player 2</source>
         <translation>Spieler 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="154"/>
+        <location filename="qml/pages/Start.qml" line="157"/>
         <source>Bonus for 2nd player</source>
         <translation>Bonuspunkte Spieler 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="160"/>
+        <location filename="qml/pages/Start.qml" line="163"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="163"/>
+        <location filename="qml/pages/Start.qml" line="166"/>
         <source>Select Language</source>
         <translation>Sprache wählen</translation>
     </message>
