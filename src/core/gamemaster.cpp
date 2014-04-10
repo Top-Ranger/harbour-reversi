@@ -190,8 +190,12 @@ void Gamemaster::turn(int x, int y)
         qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
         return;
     }
+
     if((x < 0) || (x > 7) || (y < 0) || (y > 7))
+    {
     qDebug() << QString("Gamemaster is getting turn %1 + %2 from %3").arg(x).arg(y).arg(_turn);
+    }
+
     if(_board->play(x, y, _turn))
     {
         qDebug() << "Gamemaster: Turn possible!";
