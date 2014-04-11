@@ -69,21 +69,10 @@ void UIConnection::configureGame()
 
 void UIConnection::changeLanguage(QString language)
 {
-    QString s;
-
-    if(language == "German")
-    {
-        s = "de";
-    }
-    else
-    {
-        s = "en";
-    }
-
     if(_coreTranslator != NULL && _translator != NULL)
     {
-        _translator->load((QString(":translation/harbour-reversi-ui_%1").arg(s)));
-        _coreTranslator->load(QString(":translation/reversi-core_%1").arg(s));
+        _translator->load((QString(":translation/harbour-reversi-ui_%1").arg(language)));
+        _coreTranslator->load(QString(":translation/reversi-core_%1").arg(language));
     }
     else
     {

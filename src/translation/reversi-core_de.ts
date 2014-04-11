@@ -48,7 +48,7 @@
     <message>
         <location filename="../player/greedyaiplayer.cpp" line="89"/>
         <source>OH NO! Only %1 points</source>
-        <translation>Nein! Warum nut %1 Punkte?</translation>
+        <translation>Nein! Warum nur %1 Punkte?</translation>
     </message>
 </context>
 <context>

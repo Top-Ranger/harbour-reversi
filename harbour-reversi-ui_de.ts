@@ -8,6 +8,11 @@
         <source>About</source>
         <translation>Über Reversi</translation>
     </message>
+    <message>
+        <location filename="qml/pages/About.qml" line="85"/>
+        <source>Translation</source>
+        <translation>Übersetzung</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -55,7 +60,7 @@
     <message>
         <location filename="qml/pages/Game.qml" line="167"/>
         <source>Points Player2: </source>
-        <translation>Punkte Spieler 1: </translation>
+        <translation>Punkte Spieler 2: </translation>
     </message>
     <message>
         <location filename="qml/pages/Game.qml" line="167"/>

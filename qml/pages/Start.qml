@@ -164,8 +164,8 @@ Page {
                 currentIndex: 0
                 menu: ContextMenu {
                     MenuItem { text: qsTr("Select Language") }
-                    MenuItem { text: "English" }
-                    MenuItem { text: "German" }
+                    MenuItem { text: "de" }
+                    MenuItem { text: "en" }
                 }
                 onCurrentIndexChanged: gamestarter.changeLanguage(currentItem.text)
             }
