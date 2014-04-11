@@ -50,6 +50,9 @@ void FewerFrontierDiscsRule::doTurn(Gameboard board, int player)
     int ystart = y;
     int xmax = -1;
     int ymax = -1;
+    int xmaxbad = -1;
+    int ymaxbad = -1;
+    int maxbad = 100;
     Gameboard testboard;
 
     do
@@ -72,11 +75,23 @@ void FewerFrontierDiscsRule::doTurn(Gameboard board, int player)
                     }
                 }
 
-                if(temp < max)
+                if(canTakeCorner(testboard,opponent(player)))
                 {
-                    max = temp;
-                    xmax = x;
-                    ymax = y;
+                    if(temp < maxbad)
+                    {
+                        maxbad = temp;
+                        xmaxbad = x;
+                        ymaxbad = y;
+                    }
+                }
+                else
+                {
+                    if(temp < max)
+                    {
+                        max = temp;
+                        xmax = x;
+                        ymax = y;
+                    }
                 }
             }
 
@@ -86,7 +101,14 @@ void FewerFrontierDiscsRule::doTurn(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    emit turn(xmax, ymax);
+    if((xmax != -1) && (ymax != -1))
+    {
+        emit turn(xmax, ymax);
+    }
+    else
+    {
+        emit turn(xmaxbad, ymaxbad);
+    }
 }
 
 QString FewerFrontierDiscsRule::name()
@@ -118,4 +140,28 @@ bool FewerFrontierDiscsRule::isFrontierDisc(Gameboard board, int x, int y)
         }
     }
     return false;
+}
+
+bool FewerFrontierDiscsRule::canTakeCorner(Gameboard board, int player)
+{
+    if(board.play(0,0,player,true))
+    {
+        return true;
+    }
+    else if(board.play(0,7,player,true))
+    {
+        return true;
+    }
+    else if(board.play(7,0,player,true))
+    {
+        return true;
+    }
+    else if(board.play(7,7,player,true))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
