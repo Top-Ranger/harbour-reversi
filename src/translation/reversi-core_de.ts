@@ -35,7 +35,7 @@
     <message>
         <location filename="../rules/fewerfrontierdiscsrule.cpp" line="94"/>
         <source>Fewer Frontier Discs Rule</source>
-        <translation>Weniger Randsteine-Regel</translation>
+        <translation>Weniger Frontsteine-Regel</translation>
     </message>
 </context>
 <context>
@@ -137,7 +137,7 @@ Try to avoid the outer fields for now (few frontier discs).
 </source>
         <translation>Dies ist die Eröffnung.
 Versuche die Mitte einzunehmen.
-Vermeide Randfelder.
+Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
@@ -154,8 +154,8 @@ Vermeide Randfelder.
         <source>%1   Own frontier discs: %2
    Opponent frontier discs: %3
 </source>
-        <translation>%1   Eigene Randfelder: %2
-   Gegnerische Randfelder: %3
+        <translation>%1   Eigene Frontsteine: %2
+   Gegnerische Frontsteine: %3
 </translation>
     </message>
     <message>
