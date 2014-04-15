@@ -37,7 +37,7 @@ import harbour.reversi.UIConnection 1.0
 Page {
     id: page
 
-    onVisibleChanged: functions.startGame()
+    Component.onCompleted: functions.startGame()
 
     Connections {
         target: gamemaster
