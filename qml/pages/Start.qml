@@ -55,6 +55,9 @@ Page {
         function changeLanguage(languageSelected) {
             if(language.currentIndex != 0)
             {
+                uiconnection.setIndexPlayer1(player1.currentIndex)
+                uiconnection.setIndexPlayer2(player2.currentIndex)
+                uiconnection.setBonus(bonusslider.sliderValue)
                 uiconnection.changeLanguage(languageSelected)
                 pageStack.replace(Qt.resolvedUrl("Start.qml"))
             }
@@ -116,7 +119,7 @@ Page {
                 id: player1
                 width: page.width
                 label: qsTr("Player 1")
-                currentIndex: 0
+                currentIndex: uiconnection.indexPlayer1()
 
                 menu: ContextMenu {
                     MenuItem { text: "Human" }
@@ -133,7 +136,7 @@ Page {
                 id: player2
                 width: page.width
                 label: qsTr("Player 2")
-                currentIndex: 0
+                currentIndex: uiconnection.indexPlayer2()
 
                 menu: ContextMenu {
                     MenuItem { text: "Human" }
@@ -151,7 +154,7 @@ Page {
                 width: page.width
                 minimumValue: -10
                 maximumValue: 10
-                value: 0
+                value: uiconnection.bonus()
                 stepSize: 1
                 valueText: value
                 label: qsTr("Bonus for 2nd player")

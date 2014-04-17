@@ -38,7 +38,10 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     QObject(parent),
     _translator(translator),
     _coreTranslator(coreTranslator),
-    _running(false)
+    _running(false),
+    _indexPlayer1(0),
+    _indexPlayer2(0),
+    _bonus(0)
 {
 }
 
@@ -78,4 +81,34 @@ void UIConnection::changeLanguage(QString language)
     {
         qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Trying to change language with NULL-Translator";
     }
+}
+
+int UIConnection::indexPlayer1()
+{
+    return _indexPlayer1;
+}
+
+int UIConnection::indexPlayer2()
+{
+    return _indexPlayer2;
+}
+
+void UIConnection::setIndexPlayer1(int index)
+{
+    _indexPlayer1 = index;
+}
+
+void UIConnection::setIndexPlayer2(int index)
+{
+    _indexPlayer2 = index;
+}
+
+int UIConnection::bonus()
+{
+    return _bonus;
+}
+
+void UIConnection::setBonus(int bonus)
+{
+    _bonus = bonus;
 }

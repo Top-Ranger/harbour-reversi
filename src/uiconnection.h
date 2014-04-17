@@ -52,11 +52,20 @@ public slots:
     Q_INVOKABLE void startOfGame();
     Q_INVOKABLE void configureGame();
     Q_INVOKABLE void changeLanguage(QString language);
+    Q_INVOKABLE int indexPlayer1();
+    Q_INVOKABLE int indexPlayer2();
+    Q_INVOKABLE void setIndexPlayer1(int index);
+    Q_INVOKABLE void setIndexPlayer2(int index);
+    Q_INVOKABLE int bonus();
+    Q_INVOKABLE void setBonus(int bonus);
 
 private:
     QTranslator *_translator;
     QTranslator *_coreTranslator;
     bool _running;
+    int _indexPlayer1;
+    int _indexPlayer2;
+    int _bonus;
 };
 
 #endif // UICONNECTION_H
