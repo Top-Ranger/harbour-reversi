@@ -36,8 +36,6 @@ ApplicationWindow
 {
     initialPage: Component { Start { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-
-    Component.onDestruction: gamemaster.cleanup()
 }
 
 

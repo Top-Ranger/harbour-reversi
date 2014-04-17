@@ -37,9 +37,6 @@
 
 int main(int argc, char *argv[])
 {
-    qmlRegisterType<Gamemaster>("harbour.reversi.Gamemaster", 1, 0, "Gamemaster");
-    qmlRegisterType<UIConnection>("harbour.reversi.UIConnection", 1, 0, "UIConnection");
-
     // SailfishApp::main() will display "qml/template.qml", if you need more
     // control over initialization, you can use:
     //

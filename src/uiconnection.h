@@ -37,7 +37,6 @@ class UIConnection : public QObject
 {
     Q_OBJECT
 public:
-    explicit UIConnection();
     explicit UIConnection(QTranslator *translator, QTranslator *coreTranslator, QObject *parent = 0);
 
 signals:

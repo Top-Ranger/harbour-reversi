@@ -30,10 +30,6 @@
 #include "uiconnection.h"
 #include <QDebug>
 
-UIConnection::UIConnection()
-{
-}
-
 UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator, QObject *parent) :
     QObject(parent),
     _translator(translator),
