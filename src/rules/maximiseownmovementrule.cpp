@@ -74,7 +74,7 @@ bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)
                     }
                 }
 
-                if(temp > max && (!canTakeCorner(testboard, opponent(player))))
+                if(temp > max && (!canTakeCorner(testboard, opponent(player))) && (!canGetZeroDiscs(testboard,player)))
                 {
                     max = temp;
                     xmax = x;
@@ -145,4 +145,23 @@ bool MaximiseOwnMovementRule::canTakeCorner(Gameboard board, int player)
     {
         return false;
     }
+}
+
+bool MaximiseOwnMovementRule::canGetZeroDiscs(Gameboard board, int player)
+{
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            Gameboard testboard = board;
+            if(testboard.play(x,y,opponent(player)))
+            {
+                if(testboard.points(player) == 0)
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }

@@ -57,6 +57,9 @@ void OpeningRule::doTurn(Gameboard board, int player)
     int ystart = y;
     int xmax = -1;
     int ymax = -1;
+    int xbad = -1;
+    int ybad = -1;
+    int badmax = std::numeric_limits<int>::min();
     Gameboard testboard;
 
     do
@@ -68,11 +71,23 @@ void OpeningRule::doTurn(Gameboard board, int player)
             if(testboard.play(x,y,player))
             {
                 int temp = calculateScore(testboard, player);
-                if(temp > max)
+                if(canGetZeroDiscs(testboard,player))
                 {
-                    max = temp;
-                    xmax = x;
-                    ymax = y;
+                    if(temp > badmax)
+                    {
+                        badmax = temp;
+                        xbad = x;
+                        ybad = y;
+                    }
+                }
+                else
+                {
+                    if(temp > max)
+                    {
+                        max = temp;
+                        xmax = x;
+                        ymax = y;
+                    }
                 }
             }
 
@@ -82,7 +97,14 @@ void OpeningRule::doTurn(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    emit turn(xmax, ymax);
+    if(xmax == -1 || ymax == -1)
+    {
+        emit turn(xbad, ybad);
+    }
+    else
+    {
+        emit turn(xmax, ymax);
+    }
 }
 
 QString OpeningRule::name()
@@ -149,6 +171,25 @@ bool OpeningRule::isFrontierDisc(Gameboard board, int x, int y)
                     {
                         return true;
                     }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool OpeningRule::canGetZeroDiscs(Gameboard board, int player)
+{
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            Gameboard testboard = board;
+            if(testboard.play(x,y,opponent(player)))
+            {
+                if(testboard.points(player) == 0)
+                {
+                    return true;
                 }
             }
         }

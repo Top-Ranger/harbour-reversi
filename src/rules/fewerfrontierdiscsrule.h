@@ -44,6 +44,7 @@ public:
 private:
     bool isFrontierDisc(Gameboard board, int x, int y);
     bool canTakeCorner(Gameboard board, int player);
+    bool canGetZeroDiscs(Gameboard board, int player);
 };
 
 #endif // FEWERFRONTIERDISCSRULE_H

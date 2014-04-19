@@ -43,6 +43,7 @@ public:
 
 private:
     bool canTakeCorner(Gameboard board, int player);
+    bool canGetZeroDiscs(Gameboard board, int player);
     int _x;
     int _y;
     bool _asked;
