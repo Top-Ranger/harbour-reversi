@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de_DE">
 <context>
+    <name>AdaptiveTreeAIPlayer</name>
+    <message>
+        <location filename="../player/adaptivetreeaiplayer.cpp" line="137"/>
+        <source>Let&apos;s get %1:%2! NOW!</source>
+        <translation>Und nun %1:%2!</translation>
+    </message>
+    <message>
+        <location filename="../player/adaptivetreeaiplayer.cpp" line="141"/>
+        <source>If you do that... I&apos;ll do %1:%2, for %3 points</source>
+        <translation>Hmm... Du machst das... Ich mache%1:%2 mit einer Wertung von %3</translation>
+    </message>
+</context>
+<context>
     <name>BalancedAIPlayer</name>
     <message>
         <location filename="../player/balancedaiplayer.cpp" line="60"/>
@@ -33,7 +46,7 @@
 <context>
     <name>FewerFrontierDiscsRule</name>
     <message>
-        <location filename="../rules/fewerfrontierdiscsrule.cpp" line="94"/>
+        <location filename="../rules/fewerfrontierdiscsrule.cpp" line="116"/>
         <source>Fewer Frontier Discs Rule</source>
         <translation>Weniger Frontsteine-Regel</translation>
     </message>
@@ -78,7 +91,7 @@
 <context>
     <name>OpeningRule</name>
     <message>
-        <location filename="../rules/openingrule.cpp" line="90"/>
+        <location filename="../rules/openingrule.cpp" line="112"/>
         <source>Opening Rule</source>
         <translation>Eröffnungs-Regel</translation>
     </message>

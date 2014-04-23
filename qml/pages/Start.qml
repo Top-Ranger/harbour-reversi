@@ -127,6 +127,7 @@ Page {
                     MenuItem { text: "Tree AI"}
                     MenuItem { text: "Balanced AI"}
                     MenuItem { text: "Static Rule AI"}
+                    MenuItem { text: "Adaptive Tree AI"}
                 }
             }
 
@@ -144,6 +145,7 @@ Page {
                     MenuItem { text: "Tree AI"}
                     MenuItem { text: "Balanced AI"}
                     MenuItem { text: "Static Rule AI"}
+                    MenuItem { text: "Adaptive Tree AI"}
                 }
             }
 

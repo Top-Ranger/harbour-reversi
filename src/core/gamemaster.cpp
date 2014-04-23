@@ -35,6 +35,7 @@
 #include "../player/balancedaiplayer.h"
 #include "../player/staticruleaiplayer.h"
 #include "../player/tutorialplayer.h"
+#include "../player/adaptivetreeaiplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
@@ -85,6 +86,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     {
         _player[0] = new TutorialPlayer(this);
     }
+    else if(player1 == "Adaptive Tree AI")
+    {
+        _player[0] = new AdaptiveTreeAIPlayer(this);
+    }
     else
     {
         return false;
@@ -123,6 +128,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     else if(player2 == "Tutorial")
     {
         _player[1] = new TutorialPlayer(this);
+    }
+    else if(player2 == "Adaptive Tree AI")
+    {
+        _player[1] = new AdaptiveTreeAIPlayer(this);
     }
     else
     {

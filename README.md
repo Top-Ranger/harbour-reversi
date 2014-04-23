@@ -9,6 +9,7 @@ Currently avaiable are:
    * Balanced AI: An AI which tries to combine the more clever aspect of the "Tree AI" with the power of the "Greedy AI"
    * Static Rule AI: An AI which determines the best turn by applying different static rules
    * Tutorial: A player that tries to teach basic strategies
+   * Adaptive Tree AI: A variant of the Tree AI which tries to guess your next moves
 
 ---
 
