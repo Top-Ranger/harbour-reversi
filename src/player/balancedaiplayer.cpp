@@ -29,10 +29,6 @@
 
 #include "balancedaiplayer.h"
 
-const int BalancedAIPlayer::_modifierPlaystileLow;
-const int BalancedAIPlayer::_modifierPlaystileHigh;
-const int BalancedAIPlayer::_boarderLowHigh;
-
 BalancedAIPlayer::BalancedAIPlayer(QObject *parent) :
     Player(parent),
     _greed(parent),

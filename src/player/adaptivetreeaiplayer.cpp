@@ -32,16 +32,6 @@
 #include <limits>
 #include <QDebug>
 
-const int AdaptiveTreeAIPlayer::_depth;
-const int AdaptiveTreeAIPlayer::_composure;
-const int AdaptiveTreeAIPlayer::_valueCorner;
-const float AdaptiveTreeAIPlayer::_factorStone;
-const int AdaptiveTreeAIPlayer::_valueFullBoard;
-const float AdaptiveTreeAIPlayer::_factorRatio;
-const float AdaptiveTreeAIPlayer::_factorChange;
-const float AdaptiveTreeAIPlayer::_factorOpponentChange;
-const float AdaptiveTreeAIPlayer::_valueMove;
-
 AdaptiveTreeAIPlayer::AdaptiveTreeAIPlayer(QObject *parent) :
     Player(parent),
     _firstBoard(true),

@@ -31,16 +31,6 @@
 #include <QTime>
 #include <limits>
 
-const int TreeAIPlayer::_depth;
-const int TreeAIPlayer::_composure;
-const int TreeAIPlayer::_valueCorner;
-const float TreeAIPlayer::_factorStone;
-const int TreeAIPlayer::_valueFullBoard;
-const float TreeAIPlayer::_factorRatio;
-const float TreeAIPlayer::_factorChange;
-const float TreeAIPlayer::_factorOpponentChange;
-const float TreeAIPlayer::_valueMove;
-
 TreeAIPlayer::TreeAIPlayer(QObject *parent) :
     Player(parent)
 {
