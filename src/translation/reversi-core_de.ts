@@ -11,7 +11,7 @@
     <message>
         <location filename="../player/adaptivetreeaiplayer.cpp" line="141"/>
         <source>If you do that... I&apos;ll do %1:%2, for %3 points</source>
-        <translation>Hmm... Du machst das... Ich mache%1:%2 mit einer Wertung von %3</translation>
+        <translation>Hmm... Du machst das... Ich mache %1:%2 mit einer Wertung von %3</translation>
     </message>
 </context>
 <context>
