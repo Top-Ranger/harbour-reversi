@@ -929,6 +929,17 @@ void AdaptiveTreeAIPlayer::adjustFactors(Gameboard board, int x, int y, int oppo
 
 float AdaptiveTreeAIPlayer::calculateFactor(Gameboard board, int x, int y, int opponentValue)
 {
+    // It is hard to find out if the opponent wants to place discs in corners. Because corners are
+    // really important we will assume the opponent want to capture it.
+
+    if((x == 0 || x == 7) && (y == 0 || y == 7))
+    {
+        if(board.owner(x,y) == 0 && board.play(x,y,opponentValue,true))
+        {
+            return _upperBound;
+        }
+    }
+
     int n = 0;
     float factor = 0;
 
