@@ -1,0 +1,30 @@
+Current development:
+   * Added "Adaptive Tree AI"
+   * Added translation framework
+   * Added German translation
+   * Bux fixes
+
+Version 0.4:
+   * Added rules
+   * Added Tutorial
+   * Changed board appearance again
+   * Last played disc is now highlighted
+   * Bug fixes
+
+Version 0.3:
+
+   * Added "Static Rule AI"
+   * Fixed a bug where "Tree AI" would not work properly
+   * Changed board appearance again
+   * Removed "Start the game" button
+
+Version 0.2:
+
+   * Added "Balanced AI"
+   * Changed visual appearance of the board - it should be better visible on dark backgrounds
+   * Tweaked "Tree AI" so it hopefully is more powerful
+   * Minor changes / bug fixes
+
+Version 0.1:
+
+   * Initial release

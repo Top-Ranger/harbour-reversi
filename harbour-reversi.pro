@@ -65,7 +65,8 @@ OTHER_FILES += qml/harbour-reversi.qml \
     harbour-reversi-ui.pro \
     src/translation/reversi-core_de.ts \
     src/translation/reversi-core.pro \
-    src/translation/reversi-core_en.ts
+    src/translation/reversi-core_en.ts \
+    ChangeLog.txt
 
 HEADERS += \
     src/uiconnection.h \
