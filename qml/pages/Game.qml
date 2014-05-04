@@ -74,6 +74,8 @@ Page {
         property int lastClickedX: -1
         property int lastClickedY: -1
 
+        property int currentPlayer: 0
+
         property int board00: 0
         property int board10: 0
         property int board20: 0
@@ -156,6 +158,7 @@ Page {
             if(!variable.gamefinished)
             {
                 variable.input = qsTr("Player ") + player + qsTr(" do your turn")
+                variable.currentPlayer = player
                 uiconnection.newPlayerMessage(variable.input)
             }
         }
@@ -181,6 +184,7 @@ Page {
             if(!variable.gamefinished)
             {
                 variable.input = qsTr("Waiting...")
+                variable.currentPlayer = 0
                 uiconnection.newPlayerMessage(variable.input)
             }
             gamemaster.getInput(x,y)
@@ -305,16 +309,25 @@ Page {
                 font.pixelSize: Theme.fontSizeHuge
             }
 
-            Label {
-                visible: variable.gamestarted
-                text: variable.input
-                color: Theme.primaryColor
-                wrapMode: Text.Wrap
-
+            Row {
                 anchors {
                     left: parent.left
                     right: parent.right
                     margins: Theme.paddingLarge
+                }
+
+                Image {
+                    height: Theme.fontSizeMedium
+                    width: height
+                    visible: !variable.gamefinished
+                    source: variable.currentPlayer + ".png"
+                }
+
+                Label {
+                    visible: variable.gamestarted
+                    text: variable.input
+                    color: Theme.primaryColor
+                    wrapMode: Text.Wrap
                 }
             }
 

@@ -113,39 +113,65 @@ Page {
                 visible: gamestarter.showerror
             }
             
-            ComboBox {
-                id: player1
-                width: page.width
-                label: qsTr("Player 1")
-                currentIndex: uiconnection.indexPlayer1()
+            Row {
 
-                menu: ContextMenu {
-                    MenuItem { text: "Human" }
-                    MenuItem { text: "Tutorial" }
-                    MenuItem { text: "Random AI"}
-                    MenuItem { text: "Greedy AI"}
-                    MenuItem { text: "Tree AI"}
-                    MenuItem { text: "Balanced AI"}
-                    MenuItem { text: "Static Rule AI"}
-                    MenuItem { text: "Adaptive Tree AI"}
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.paddingLarge
+                }
+
+                Image{
+                    source: "1.png"
+                }
+
+                ComboBox {
+                    id: player1
+                    width: page.width
+                    label: qsTr("Player 1")
+                    currentIndex: uiconnection.indexPlayer1()
+
+                    menu: ContextMenu {
+                        MenuItem { text: "Human" }
+                        MenuItem { text: "Tutorial" }
+                        MenuItem { text: "Random AI"}
+                        MenuItem { text: "Greedy AI"}
+                        MenuItem { text: "Tree AI"}
+                        MenuItem { text: "Balanced AI"}
+                        MenuItem { text: "Static Rule AI"}
+                        MenuItem { text: "Adaptive Tree AI"}
+                    }
                 }
             }
 
-            ComboBox {
-                id: player2
-                width: page.width
-                label: qsTr("Player 2")
-                currentIndex: uiconnection.indexPlayer2()
+            Row {
 
-                menu: ContextMenu {
-                    MenuItem { text: "Human" }
-                    MenuItem { text: "Tutorial" }
-                    MenuItem { text: "Random AI"}
-                    MenuItem { text: "Greedy AI"}
-                    MenuItem { text: "Tree AI"}
-                    MenuItem { text: "Balanced AI"}
-                    MenuItem { text: "Static Rule AI"}
-                    MenuItem { text: "Adaptive Tree AI"}
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.paddingLarge
+                }
+
+                Image{
+                    source: "2.png"
+                }
+
+                ComboBox {
+                    id: player2
+                    width: page.width
+                    label: qsTr("Player 2")
+                    currentIndex: uiconnection.indexPlayer2()
+
+                    menu: ContextMenu {
+                        MenuItem { text: "Human" }
+                        MenuItem { text: "Tutorial" }
+                        MenuItem { text: "Random AI"}
+                        MenuItem { text: "Greedy AI"}
+                        MenuItem { text: "Tree AI"}
+                        MenuItem { text: "Balanced AI"}
+                        MenuItem { text: "Static Rule AI"}
+                        MenuItem { text: "Adaptive Tree AI"}
+                    }
                 }
             }
 
