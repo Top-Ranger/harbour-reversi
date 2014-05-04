@@ -66,7 +66,19 @@ OTHER_FILES += qml/harbour-reversi.qml \
     src/translation/reversi-core_de.ts \
     src/translation/reversi-core.pro \
     src/translation/reversi-core_en.ts \
-    ChangeLog.txt
+    ChangeLog.txt \
+    qml/pages/clicked2changed.png \
+    qml/pages/clicked2.png \
+    qml/pages/clicked1changed.png \
+    qml/pages/clicked1.png \
+    qml/pages/clicked0changed.png \
+    qml/pages/clicked0.png \
+    templates/clicked2changed.svg \
+    templates/clicked2.svg \
+    templates/clicked1changed.svg \
+    templates/clicked1.svg \
+    templates/clicked0changed.svg \
+    templates/clicked0.svg
 
 HEADERS += \
     src/uiconnection.h \

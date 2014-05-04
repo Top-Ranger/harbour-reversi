@@ -38,44 +38,44 @@
     <name>Game</name>
     <message>
         <location filename="qml/pages/Game.qml" line="66"/>
-        <location filename="qml/pages/Game.qml" line="177"/>
+        <location filename="qml/pages/Game.qml" line="183"/>
         <source>Waiting...</source>
         <translation>Bitte warten</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="155"/>
+        <location filename="qml/pages/Game.qml" line="158"/>
         <source>Player </source>
         <translation>Spieler </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="155"/>
+        <location filename="qml/pages/Game.qml" line="158"/>
         <source> do your turn</source>
         <translation> am Zug</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="163"/>
+        <location filename="qml/pages/Game.qml" line="166"/>
         <source>Finished!</source>
         <translation>Spiel beendet</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="164"/>
+        <location filename="qml/pages/Game.qml" line="167"/>
         <source>Points Player2: </source>
         <translation>Punkte Spieler 2: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="164"/>
+        <location filename="qml/pages/Game.qml" line="167"/>
         <source>END OF GAME!
 Points Player1: </source>
         <translation>Spiel beendet!
 Punkte Spieler 1: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="287"/>
+        <location filename="qml/pages/Game.qml" line="293"/>
         <source>Reversi</source>
         <translation>Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="297"/>
+        <location filename="qml/pages/Game.qml" line="303"/>
         <source>Starting the Game</source>
         <translation>Starte das Spiel</translation>
     </message>
