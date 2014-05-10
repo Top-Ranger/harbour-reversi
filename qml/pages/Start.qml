@@ -122,6 +122,7 @@ Page {
                 }
 
                 Image{
+                    y: parent.height / 2 - height/2
                     source: "1.png"
                 }
 
@@ -153,6 +154,7 @@ Page {
                 }
 
                 Image{
+                    y: parent.height / 2 - height/2
                     source: "2.png"
                 }
 
