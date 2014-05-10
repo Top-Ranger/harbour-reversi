@@ -35,15 +35,32 @@ TutorialPlayer::TutorialPlayer(QObject *parent) :
     _board(),
     _player(0),
     _x(-1),
-    _y(-1)
+    _y(-1),
+    _currentRound(0)
 {
 }
 
 void TutorialPlayer::doTurn()
 {
+    ++_currentRound;
+    if(_currentRound == 1)
+    {
+        emit sendMessage(tr("Welcome to Reversi!\nYou can place a disc on an empty field, however you have to conquer at least one opponent disc.\nYou can do this by trapping it between the currently played disc and an already existing one."));
+    }
+    else if(_currentRound == 2)
+    {
+        emit sendMessage(tr("The goal of the game is to capture more discs than your opponent at the end of the game.\nThe game ends when neither player can place a disc on the gameboard.\nHaving a lot of discs on the board (before the end) does not automatically mean that you win."));
+    }
+    else if(_currentRound == 3)
+    {
+        emit sendMessage(tr("In the following part of the tutorial you will get some hints on how to play more efficiently.\nReversi is a game of many strategies so it is hard to tell whether you made the right move or not.\nType any position to get an evaluation of that move"));
+    }
+    else
+    {
+        emit sendMessage(tr("Type any position to get an evaluation"));
+    }
     emit wantBoard();
     emit awaitsHuman();
-    emit sendMessage(tr("Type any position to get an evaluation"));
 }
 
 bool TutorialPlayer::isHuman()
@@ -72,6 +89,12 @@ void TutorialPlayer::humanInput(int x, int y)
 
         if(testboard.play(x,y,_player))
         {
+            if(_currentRound < 3)
+            {
+                emit turn(x,y);
+                return;
+            }
+
             QString s;
             if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
             {

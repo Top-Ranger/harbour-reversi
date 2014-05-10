@@ -4,12 +4,12 @@
 <context>
     <name>AdaptiveTreeAIPlayer</name>
     <message>
-        <location filename="../player/adaptivetreeaiplayer.cpp" line="137"/>
+        <location filename="../player/adaptivetreeaiplayer.cpp" line="127"/>
         <source>Let&apos;s get %1:%2! NOW!</source>
         <translation>Und nun %1:%2!</translation>
     </message>
     <message>
-        <location filename="../player/adaptivetreeaiplayer.cpp" line="141"/>
+        <location filename="../player/adaptivetreeaiplayer.cpp" line="131"/>
         <source>If you do that... I&apos;ll do %1:%2, for %3 points</source>
         <translation>Hmm... Du machst das... Ich mache %1:%2 mit einer Wertung von %3</translation>
     </message>
@@ -17,12 +17,12 @@
 <context>
     <name>BalancedAIPlayer</name>
     <message>
-        <location filename="../player/balancedaiplayer.cpp" line="60"/>
+        <location filename="../player/balancedaiplayer.cpp" line="56"/>
         <source>Now is the time to get all discs!</source>
         <translation>Jetzt hole ich mir alle Steine!</translation>
     </message>
     <message>
-        <location filename="../player/balancedaiplayer.cpp" line="65"/>
+        <location filename="../player/balancedaiplayer.cpp" line="61"/>
         <source>Maybe I should be a bit defensive</source>
         <translation>Ich sollte etwas vorsichtiger spielen...</translation>
     </message>
@@ -125,12 +125,12 @@
 <context>
     <name>TreeAIPlayer</name>
     <message>
-        <location filename="../player/treeaiplayer.cpp" line="109"/>
+        <location filename="../player/treeaiplayer.cpp" line="99"/>
         <source>I want %1:%2! NOW!</source>
         <translation>Jetzt hole ich mir %1:%2!</translation>
     </message>
     <message>
-        <location filename="../player/treeaiplayer.cpp" line="113"/>
+        <location filename="../player/treeaiplayer.cpp" line="103"/>
         <source>I&apos;ll do %1:%2, that should be the best turn with factor %3</source>
         <translation>Der Beste Zug wäre %1:%2 mit %3 Punkten</translation>
     </message>
@@ -138,12 +138,39 @@
 <context>
     <name>TutorialPlayer</name>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="46"/>
+        <location filename="../player/tutorialplayer.cpp" line="48"/>
+        <source>Welcome to Reversi!
+You can place a disc on an empty field, however you have to conquer at least one opponent disc.
+You can do this by trapping it between the currently played disc and an already existing one.</source>
+        <translation>Willkommen bei Reversi!
+Ein Spielstein kann auf einem leeren Feld gespielt werden, jedoch muss mindestens ein gegnerischer Stein eingenommen werden.
+Dies geschieht, in dem man gegnerische Steine zwischen den neuen und einem bereits liegendem eigenen Stein einfängt.</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="52"/>
+        <source>The goal of the game is to capture more discs than your opponent at the end of the game.
+The game ends when neither player can place a disc on the gameboard.
+Having a lot of discs on the board (before the end) does not automatically mean that you win.</source>
+        <translation>Das Ziel des Spieles ist es, am Ende die meisten Steine auf dem Feld zu haben.
+Das Spiel endet, wenn kein Spieler mehr einen Stein spielen kann.
+Viele Steine vor dem Ende zu besitzen bedeutet nicht automatisch den Sieg.</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="56"/>
+        <source>In the following part of the tutorial you will get some hints on how to play more efficiently.
+Reversi is a game of many strategies so it is hard to tell whether you made the right move or not.
+Type any position to get an evaluation of that move</source>
+        <translation>Von nun an bekommst du Hinweise darauf, wie du deine Steine effizient spielen kannst.
+Da es in Reversi viele verschiedene Strategien gibt ist es schwer zu sagen, ob ein Zug gut war oder nicht.
+Für die Auswertung eines Spielzuges bitte ein Feld berühren</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="60"/>
         <source>Type any position to get an evaluation</source>
         <translation>Für eine Auswertung bitte ein Feld berühren</translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="78"/>
+        <location filename="../player/tutorialplayer.cpp" line="101"/>
         <source>This is the early game.
 Try to assume control of the center of the board.
 Try to avoid the outer fields for now (few frontier discs).
@@ -154,7 +181,7 @@ Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="95"/>
+        <location filename="../player/tutorialplayer.cpp" line="118"/>
         <source>%1   Own discs in centre: %2
    Opponent discs in centre: %3
 </source>
@@ -163,7 +190,7 @@ Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="113"/>
+        <location filename="../player/tutorialplayer.cpp" line="136"/>
         <source>%1   Own frontier discs: %2
    Opponent frontier discs: %3
 </source>
@@ -172,7 +199,7 @@ Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="117"/>
+        <location filename="../player/tutorialplayer.cpp" line="140"/>
         <source>This is the end-game.
 Try to use all your advantages to get as many discs as possible.
 </source>
@@ -181,7 +208,7 @@ Versuche nun die meisten Steine einzunehmen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="134"/>
+        <location filename="../player/tutorialplayer.cpp" line="157"/>
         <source>%1   Own discs: %2
    Opponent discs: %3
 </source>
@@ -190,7 +217,7 @@ Versuche nun die meisten Steine einzunehmen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="138"/>
+        <location filename="../player/tutorialplayer.cpp" line="161"/>
         <source>This is the mid-game.
 Try to get as many possible moves while reducing the number of moves your opponent can do.
 </source>
@@ -199,7 +226,7 @@ Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="155"/>
+        <location filename="../player/tutorialplayer.cpp" line="178"/>
         <source>%1   Own moves: %2
    Opponent moves: %3
 </source>
@@ -208,12 +235,12 @@ Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="158"/>
+        <location filename="../player/tutorialplayer.cpp" line="181"/>
         <source>%1Type again to place a disc here.</source>
         <translation>%1Zum Spielen Feld erneut berühren.</translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="166"/>
+        <location filename="../player/tutorialplayer.cpp" line="189"/>
         <source>You can&apos;t place a disc there!</source>
         <translation>Hier kann kein Stein gespielt werden!</translation>
     </message>

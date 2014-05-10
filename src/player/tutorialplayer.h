@@ -52,6 +52,7 @@ private:
     int _player;
     int _x;
     int _y;
+    int _currentRound;
 
     static const int _borderEarlyGame = 16;
     static const int _borderEndgame = 50;
