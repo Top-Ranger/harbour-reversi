@@ -100,7 +100,7 @@ void TutorialPlayer::humanInput(int x, int y)
             {
                 s = QString(tr("This is a corner.\nDiscs played in a corner are normally considered valuable because your opponent can't conquer it.\n"));
             }
-            else if(testboard.play(0,0,_player,true) || testboard.play(0,7,_player,true) || testboard.play(7,0,_player,true) || testboard.play(7,7,_player,true))
+            else if(_board.play(0,0,_player,true) || _board.play(0,7,_player,true) || _board.play(7,0,_player,true) || _board.play(7,7,_player,true))
             {
                 s = QString(tr("You can play a disc into a corner.\nBecause these discs are considered valuable you might consider playing your disc there.\n"));
             }
