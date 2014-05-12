@@ -170,7 +170,25 @@ Type any position to get an evaluation of that move</translation>
         <translation>Type any position to get an evaluation</translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="101"/>
+        <location filename="../player/tutorialplayer.cpp" line="103"/>
+        <source>This is a corner.
+Discs played in a corner are normally considered valuable because your opponent can&apos;t conquer it.
+</source>
+        <translation>This is a corner.
+Discs played in a corner are normally considered valuable because your opponent can&apos;t conquer it.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="107"/>
+        <source>You can play a disc into a corner.
+Because these discs are considered valuable you might consider playing your disc there.
+</source>
+        <translation>You can play a disc into a corner.
+Because these discs are considered valuable you might consider playing your disc there.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="112"/>
         <source>This is the early game.
 Try to assume control of the center of the board.
 Try to avoid the outer fields for now (few frontier discs).
@@ -181,7 +199,7 @@ Try to avoid the outer fields for now (few frontier discs).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="118"/>
+        <location filename="../player/tutorialplayer.cpp" line="129"/>
         <source>%1   Own discs in centre: %2
    Opponent discs in centre: %3
 </source>
@@ -190,7 +208,7 @@ Try to avoid the outer fields for now (few frontier discs).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="136"/>
+        <location filename="../player/tutorialplayer.cpp" line="147"/>
         <source>%1   Own frontier discs: %2
    Opponent frontier discs: %3
 </source>
@@ -199,7 +217,7 @@ Try to avoid the outer fields for now (few frontier discs).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="140"/>
+        <location filename="../player/tutorialplayer.cpp" line="151"/>
         <source>This is the end-game.
 Try to use all your advantages to get as many discs as possible.
 </source>
@@ -208,7 +226,7 @@ Try to use all your advantages to get as many discs as possible.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="157"/>
+        <location filename="../player/tutorialplayer.cpp" line="168"/>
         <source>%1   Own discs: %2
    Opponent discs: %3
 </source>
@@ -217,7 +235,7 @@ Try to use all your advantages to get as many discs as possible.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="161"/>
+        <location filename="../player/tutorialplayer.cpp" line="172"/>
         <source>This is the mid-game.
 Try to get as many possible moves while reducing the number of moves your opponent can do.
 </source>
@@ -226,7 +244,7 @@ Try to get as many possible moves while reducing the number of moves your oppone
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="178"/>
+        <location filename="../player/tutorialplayer.cpp" line="189"/>
         <source>%1   Own moves: %2
    Opponent moves: %3
 </source>
@@ -235,12 +253,12 @@ Try to get as many possible moves while reducing the number of moves your oppone
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="181"/>
+        <location filename="../player/tutorialplayer.cpp" line="192"/>
         <source>%1Type again to place a disc here.</source>
         <translation>%1Type again to place a disc here.</translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="189"/>
+        <location filename="../player/tutorialplayer.cpp" line="200"/>
         <source>You can&apos;t place a disc there!</source>
         <translation>You can&apos;t place a disc there!</translation>
     </message>

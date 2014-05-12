@@ -96,7 +96,15 @@ void TutorialPlayer::humanInput(int x, int y)
             }
 
             QString s;
-            if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
+            if((x == 0 || x == 7) && (y == 0 || y == 7))
+            {
+                s = QString(tr("This is a corner.\nDiscs played in a corner are normally considered valuable because your opponent can't conquer it.\n"));
+            }
+            else if(testboard.play(0,0,_player,true) || testboard.play(0,7,_player,true) || testboard.play(7,0,_player,true) || testboard.play(7,7,_player,true))
+            {
+                s = QString(tr("You can play a disc into a corner.\nBecause these discs are considered valuable you might consider playing your disc there.\n"));
+            }
+            else if((_board.points(_player) + _board.points(opponentPlayer(_player))) <= _borderEarlyGame)
             {
                 s = QString(tr("This is the early game.\nTry to assume control of the center of the board.\nTry to avoid the outer fields for now (few frontier discs).\n"));
                 int own = 0;

@@ -170,7 +170,25 @@ Für die Auswertung eines Spielzuges bitte ein Feld berühren</translation>
         <translation>Für eine Auswertung bitte ein Feld berühren</translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="101"/>
+        <location filename="../player/tutorialplayer.cpp" line="103"/>
+        <source>This is a corner.
+Discs played in a corner are normally considered valuable because your opponent can&apos;t conquer it.
+</source>
+        <translation>Dies ist ein Eckfeld.
+Es ist meist sinvoll, seine eigenen Steine in Ecken zu plazieren, da der Gegner diese Steine unter keinen Umständen einnehmen kann.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="107"/>
+        <source>You can play a disc into a corner.
+Because these discs are considered valuable you might consider playing your disc there.
+</source>
+        <translation>Du kannst einen Spielstein in eine Ecke spielen.
+Da Ecken meist als Wertvoll angesehen werden solltest du überlegen, ob du diese Ecke nicht einnehmen möchtest.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/tutorialplayer.cpp" line="112"/>
         <source>This is the early game.
 Try to assume control of the center of the board.
 Try to avoid the outer fields for now (few frontier discs).
@@ -181,7 +199,7 @@ Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="118"/>
+        <location filename="../player/tutorialplayer.cpp" line="129"/>
         <source>%1   Own discs in centre: %2
    Opponent discs in centre: %3
 </source>
@@ -190,7 +208,7 @@ Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="136"/>
+        <location filename="../player/tutorialplayer.cpp" line="147"/>
         <source>%1   Own frontier discs: %2
    Opponent frontier discs: %3
 </source>
@@ -199,7 +217,7 @@ Vermeide Randfelder (Wenige Frontsteine).
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="140"/>
+        <location filename="../player/tutorialplayer.cpp" line="151"/>
         <source>This is the end-game.
 Try to use all your advantages to get as many discs as possible.
 </source>
@@ -208,7 +226,7 @@ Versuche nun die meisten Steine einzunehmen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="157"/>
+        <location filename="../player/tutorialplayer.cpp" line="168"/>
         <source>%1   Own discs: %2
    Opponent discs: %3
 </source>
@@ -217,7 +235,7 @@ Versuche nun die meisten Steine einzunehmen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="161"/>
+        <location filename="../player/tutorialplayer.cpp" line="172"/>
         <source>This is the mid-game.
 Try to get as many possible moves while reducing the number of moves your opponent can do.
 </source>
@@ -226,7 +244,7 @@ Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="178"/>
+        <location filename="../player/tutorialplayer.cpp" line="189"/>
         <source>%1   Own moves: %2
    Opponent moves: %3
 </source>
@@ -235,12 +253,12 @@ Versuche die meisten Möglichkeiten zum Spielen von Steinen zu bekommen.
 </translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="181"/>
+        <location filename="../player/tutorialplayer.cpp" line="192"/>
         <source>%1Type again to place a disc here.</source>
         <translation>%1Zum Spielen Feld erneut berühren.</translation>
     </message>
     <message>
-        <location filename="../player/tutorialplayer.cpp" line="189"/>
+        <location filename="../player/tutorialplayer.cpp" line="200"/>
         <source>You can&apos;t place a disc there!</source>
         <translation>Hier kann kein Stein gespielt werden!</translation>
     </message>
