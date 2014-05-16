@@ -122,13 +122,14 @@ Page {
                 }
 
                 Image{
+                    id: blackDisc
                     y: parent.height / 2 - height/2
                     source: "1.png"
                 }
 
                 ComboBox {
                     id: player1
-                    width: page.width
+                    width: page.width - blackDisc.width
                     label: qsTr("Player 1")
                     currentIndex: uiconnection.indexPlayer1()
 
@@ -154,13 +155,14 @@ Page {
                 }
 
                 Image{
+                    id: whiteDisc
                     y: parent.height / 2 - height/2
                     source: "2.png"
                 }
 
                 ComboBox {
                     id: player2
-                    width: page.width
+                    width: page.width - whiteDisc.width
                     label: qsTr("Player 2")
                     currentIndex: uiconnection.indexPlayer2()
 
