@@ -1,4 +1,6 @@
 Current development:
+
+Version 1.0:
    * Added "Adaptive Tree AI"
    * Added translation framework
    * Added German translation
