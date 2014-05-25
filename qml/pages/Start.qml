@@ -41,6 +41,11 @@ Page {
         function startgame() {
             if(gamemaster.initialise(player1.currentItem.text, player2.currentItem.text, bonusslider.sliderValue))
             {
+                uiconnection.setStringPlayer1(player1.currentItem.text)
+                uiconnection.setStringPlayer2(player2.currentItem.text)
+                uiconnection.setIndexPlayer1(player1.currentIndex)
+                uiconnection.setIndexPlayer2(player2.currentIndex)
+                uiconnection.setBonus(bonusslider.sliderValue)
                 showerror = false
                 pageStack.push(Qt.resolvedUrl("Game.qml"))
             }

@@ -57,6 +57,10 @@ public slots:
     Q_INVOKABLE void setIndexPlayer2(int index);
     Q_INVOKABLE int bonus();
     Q_INVOKABLE void setBonus(int bonus);
+    Q_INVOKABLE void setStringPlayer1(QString s);
+    Q_INVOKABLE void setStringPlayer2(QString s);
+    Q_INVOKABLE QString stringPlayer1();
+    Q_INVOKABLE QString stringPlayer2();
 
 private:
     QTranslator *_translator;
@@ -65,6 +69,8 @@ private:
     int _indexPlayer1;
     int _indexPlayer2;
     int _bonus;
+    QString _stringPlayer1;
+    QString _stringPlayer2;
 };
 
 #endif // UICONNECTION_H

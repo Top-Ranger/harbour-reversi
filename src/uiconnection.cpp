@@ -37,7 +37,9 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     _running(false),
     _indexPlayer1(0),
     _indexPlayer2(0),
-    _bonus(0)
+    _bonus(0),
+    _stringPlayer1("Human"),
+    _stringPlayer2("Human")
 {
 }
 
@@ -107,4 +109,24 @@ int UIConnection::bonus()
 void UIConnection::setBonus(int bonus)
 {
     _bonus = bonus;
+}
+
+void UIConnection::setStringPlayer1(QString s)
+{
+    _stringPlayer1 = s;
+}
+
+void UIConnection::setStringPlayer2(QString s)
+{
+    _stringPlayer2 = s;
+}
+
+QString UIConnection::stringPlayer1()
+{
+    return _stringPlayer1;
+}
+
+QString UIConnection::stringPlayer2()
+{
+    return _stringPlayer2;
 }

@@ -165,15 +165,21 @@ Page {
 
         function endOfGame(score1, score2)
         {
-            variable.gamefinished = true
-            variable.input = qsTr("Finished!")
-            variable.message = qsTr("END OF GAME!\nPoints Player1: ") + score1 + "\n" + qsTr("Points Player2: ") + score2
-            uiconnection.endOfGame()
+            if(!variable.gamefinished)
+            {
+                variable.gamefinished = true
+                variable.input = qsTr("Finished!")
+                variable.message = qsTr("END OF GAME!\nPoints Player1: ") + score1 + "\n" + qsTr("Points Player2: ") + score2
+                uiconnection.endOfGame()
+            }
         }
 
         function getMessage(newmessage)
         {
-            variable.message = newmessage
+            if(!variable.gamefinished)
+            {
+                variable.message = newmessage
+            }
         }
 
         function buttonPressed(x,y)
@@ -192,77 +198,80 @@ Page {
 
         function actualiseBoard()
         {
-            variable.board00 = gamemaster.getOwner(0,0)
-            variable.board10 = gamemaster.getOwner(1,0)
-            variable.board20 = gamemaster.getOwner(2,0)
-            variable.board30 = gamemaster.getOwner(3,0)
-            variable.board40 = gamemaster.getOwner(4,0)
-            variable.board50 = gamemaster.getOwner(5,0)
-            variable.board60 = gamemaster.getOwner(6,0)
-            variable.board70 = gamemaster.getOwner(7,0)
+            if(!variable.gamefinished)
+            {
+                variable.board00 = gamemaster.getOwner(0,0)
+                variable.board10 = gamemaster.getOwner(1,0)
+                variable.board20 = gamemaster.getOwner(2,0)
+                variable.board30 = gamemaster.getOwner(3,0)
+                variable.board40 = gamemaster.getOwner(4,0)
+                variable.board50 = gamemaster.getOwner(5,0)
+                variable.board60 = gamemaster.getOwner(6,0)
+                variable.board70 = gamemaster.getOwner(7,0)
 
-            variable.board01 = gamemaster.getOwner(0,1)
-            variable.board11 = gamemaster.getOwner(1,1)
-            variable.board21 = gamemaster.getOwner(2,1)
-            variable.board31 = gamemaster.getOwner(3,1)
-            variable.board41 = gamemaster.getOwner(4,1)
-            variable.board51 = gamemaster.getOwner(5,1)
-            variable.board61 = gamemaster.getOwner(6,1)
-            variable.board71 = gamemaster.getOwner(7,1)
+                variable.board01 = gamemaster.getOwner(0,1)
+                variable.board11 = gamemaster.getOwner(1,1)
+                variable.board21 = gamemaster.getOwner(2,1)
+                variable.board31 = gamemaster.getOwner(3,1)
+                variable.board41 = gamemaster.getOwner(4,1)
+                variable.board51 = gamemaster.getOwner(5,1)
+                variable.board61 = gamemaster.getOwner(6,1)
+                variable.board71 = gamemaster.getOwner(7,1)
 
-            variable.board02 = gamemaster.getOwner(0,2)
-            variable.board12 = gamemaster.getOwner(1,2)
-            variable.board22 = gamemaster.getOwner(2,2)
-            variable.board32 = gamemaster.getOwner(3,2)
-            variable.board42 = gamemaster.getOwner(4,2)
-            variable.board52 = gamemaster.getOwner(5,2)
-            variable.board62 = gamemaster.getOwner(6,2)
-            variable.board72 = gamemaster.getOwner(7,2)
+                variable.board02 = gamemaster.getOwner(0,2)
+                variable.board12 = gamemaster.getOwner(1,2)
+                variable.board22 = gamemaster.getOwner(2,2)
+                variable.board32 = gamemaster.getOwner(3,2)
+                variable.board42 = gamemaster.getOwner(4,2)
+                variable.board52 = gamemaster.getOwner(5,2)
+                variable.board62 = gamemaster.getOwner(6,2)
+                variable.board72 = gamemaster.getOwner(7,2)
 
-            variable.board03 = gamemaster.getOwner(0,3)
-            variable.board13 = gamemaster.getOwner(1,3)
-            variable.board23 = gamemaster.getOwner(2,3)
-            variable.board33 = gamemaster.getOwner(3,3)
-            variable.board43 = gamemaster.getOwner(4,3)
-            variable.board53 = gamemaster.getOwner(5,3)
-            variable.board63 = gamemaster.getOwner(6,3)
-            variable.board73 = gamemaster.getOwner(7,3)
+                variable.board03 = gamemaster.getOwner(0,3)
+                variable.board13 = gamemaster.getOwner(1,3)
+                variable.board23 = gamemaster.getOwner(2,3)
+                variable.board33 = gamemaster.getOwner(3,3)
+                variable.board43 = gamemaster.getOwner(4,3)
+                variable.board53 = gamemaster.getOwner(5,3)
+                variable.board63 = gamemaster.getOwner(6,3)
+                variable.board73 = gamemaster.getOwner(7,3)
 
-            variable.board04 = gamemaster.getOwner(0,4)
-            variable.board14 = gamemaster.getOwner(1,4)
-            variable.board24 = gamemaster.getOwner(2,4)
-            variable.board34 = gamemaster.getOwner(3,4)
-            variable.board44 = gamemaster.getOwner(4,4)
-            variable.board54 = gamemaster.getOwner(5,4)
-            variable.board64 = gamemaster.getOwner(6,4)
-            variable.board74 = gamemaster.getOwner(7,4)
+                variable.board04 = gamemaster.getOwner(0,4)
+                variable.board14 = gamemaster.getOwner(1,4)
+                variable.board24 = gamemaster.getOwner(2,4)
+                variable.board34 = gamemaster.getOwner(3,4)
+                variable.board44 = gamemaster.getOwner(4,4)
+                variable.board54 = gamemaster.getOwner(5,4)
+                variable.board64 = gamemaster.getOwner(6,4)
+                variable.board74 = gamemaster.getOwner(7,4)
 
-            variable.board05 = gamemaster.getOwner(0,5)
-            variable.board15 = gamemaster.getOwner(1,5)
-            variable.board25 = gamemaster.getOwner(2,5)
-            variable.board35 = gamemaster.getOwner(3,5)
-            variable.board45 = gamemaster.getOwner(4,5)
-            variable.board55 = gamemaster.getOwner(5,5)
-            variable.board65 = gamemaster.getOwner(6,5)
-            variable.board75 = gamemaster.getOwner(7,5)
+                variable.board05 = gamemaster.getOwner(0,5)
+                variable.board15 = gamemaster.getOwner(1,5)
+                variable.board25 = gamemaster.getOwner(2,5)
+                variable.board35 = gamemaster.getOwner(3,5)
+                variable.board45 = gamemaster.getOwner(4,5)
+                variable.board55 = gamemaster.getOwner(5,5)
+                variable.board65 = gamemaster.getOwner(6,5)
+                variable.board75 = gamemaster.getOwner(7,5)
 
-            variable.board06 = gamemaster.getOwner(0,6)
-            variable.board16 = gamemaster.getOwner(1,6)
-            variable.board26 = gamemaster.getOwner(2,6)
-            variable.board36 = gamemaster.getOwner(3,6)
-            variable.board46 = gamemaster.getOwner(4,6)
-            variable.board56 = gamemaster.getOwner(5,6)
-            variable.board66 = gamemaster.getOwner(6,6)
-            variable.board76 = gamemaster.getOwner(7,6)
+                variable.board06 = gamemaster.getOwner(0,6)
+                variable.board16 = gamemaster.getOwner(1,6)
+                variable.board26 = gamemaster.getOwner(2,6)
+                variable.board36 = gamemaster.getOwner(3,6)
+                variable.board46 = gamemaster.getOwner(4,6)
+                variable.board56 = gamemaster.getOwner(5,6)
+                variable.board66 = gamemaster.getOwner(6,6)
+                variable.board76 = gamemaster.getOwner(7,6)
 
-            variable.board07 = gamemaster.getOwner(0,7)
-            variable.board17 = gamemaster.getOwner(1,7)
-            variable.board27 = gamemaster.getOwner(2,7)
-            variable.board37 = gamemaster.getOwner(3,7)
-            variable.board47 = gamemaster.getOwner(4,7)
-            variable.board57 = gamemaster.getOwner(5,7)
-            variable.board67 = gamemaster.getOwner(6,7)
-            variable.board77 = gamemaster.getOwner(7,7)
+                variable.board07 = gamemaster.getOwner(0,7)
+                variable.board17 = gamemaster.getOwner(1,7)
+                variable.board27 = gamemaster.getOwner(2,7)
+                variable.board37 = gamemaster.getOwner(3,7)
+                variable.board47 = gamemaster.getOwner(4,7)
+                variable.board57 = gamemaster.getOwner(5,7)
+                variable.board67 = gamemaster.getOwner(6,7)
+                variable.board77 = gamemaster.getOwner(7,7)
+            }
         }
 
         function startGame()
@@ -278,8 +287,11 @@ Page {
 
         function lastDiscPlayed(x, y)
         {
-            variable.lastChangedX = x
-            variable.lastChangedY = y
+            if(!variable.gamefinished)
+            {
+                variable.lastChangedX = x
+                variable.lastChangedY = y
+            }
         }
     }
 
@@ -882,6 +894,26 @@ Page {
                     left: parent.left
                     right: parent.right
                     margins: Theme.paddingLarge
+                }
+            }
+
+            Button {
+                width: parent.width
+                visible: variable.gamefinished
+                text: qsTr("Restart game")
+
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.paddingLarge
+                }
+
+                onClicked: {
+                    if(variable.gamefinished && gamemaster.initialise(uiconnection.stringPlayer1(), uiconnection.stringPlayer1(), uiconnection.bonus))
+                    {
+                        pageStack.replace(Qt.resolvedUrl("Game.qml"))
+                    }
                 }
             }
         }
