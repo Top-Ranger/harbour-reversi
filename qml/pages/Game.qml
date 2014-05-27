@@ -910,7 +910,7 @@ Page {
                 }
 
                 onClicked: {
-                    if(variable.gamefinished && gamemaster.initialise(uiconnection.stringPlayer1(), uiconnection.stringPlayer1(), uiconnection.bonus))
+                    if(variable.gamefinished && gamemaster.initialise(uiconnection.stringPlayer1(), uiconnection.stringPlayer2(), uiconnection.bonus()))
                     {
                         pageStack.replace(Qt.resolvedUrl("Game.qml"))
                     }
