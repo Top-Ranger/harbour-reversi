@@ -149,7 +149,7 @@ void UIConnection::setStringPlayer1(QString s)
 void UIConnection::setStringPlayer2(QString s)
 {
     _stringPlayer2 = s;
-    _save.saveString("StringPlayer1",s);
+    _save.saveString("StringPlayer2",s);
 }
 
 QString UIConnection::stringPlayer1()
