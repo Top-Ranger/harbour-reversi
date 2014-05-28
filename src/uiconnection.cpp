@@ -39,8 +39,33 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     _indexPlayer2(0),
     _bonus(0),
     _stringPlayer1("Human"),
-    _stringPlayer2("Human")
+    _stringPlayer2("Human"),
+    _save()
 {
+    if(!(_save.getString("Language") == QString()))
+    {
+        changeLanguage(_save.getString("Language"));
+    }
+    if(!(_save.getString("IndexPlayer1") == QString()))
+    {
+        _indexPlayer1 = _save.getString("IndexPlayer1").toInt();
+    }
+    if(!(_save.getString("IndexPlayer2") == QString()))
+    {
+        _indexPlayer2 = _save.getString("IndexPlayer2").toInt();
+    }
+    if(!(_save.getString("Bonus") == QString()))
+    {
+        _bonus = _save.getString("Bonus").toInt();
+    }
+    if(!(_save.getString("StringPlayer1") == QString()))
+    {
+        _stringPlayer1 = _save.getString("StringPlayer1");
+    }
+    if(!(_save.getString("StringPlayer2") == QString()))
+    {
+        _stringPlayer1 = _save.getString("StringPlayer2");
+    }
 }
 
 void UIConnection::newPlayerMessage(QString s)
@@ -70,6 +95,7 @@ void UIConnection::configureGame()
 
 void UIConnection::changeLanguage(QString language)
 {
+    _save.saveString("Language",language);
     if(_coreTranslator != NULL && _translator != NULL)
     {
         _translator->load((QString(":translation/harbour-reversi-ui_%1").arg(language)));
@@ -94,11 +120,13 @@ int UIConnection::indexPlayer2()
 void UIConnection::setIndexPlayer1(int index)
 {
     _indexPlayer1 = index;
+    _save.saveString("IndexPlayer1",QString("%1").arg(index));
 }
 
 void UIConnection::setIndexPlayer2(int index)
 {
     _indexPlayer2 = index;
+    _save.saveString("IndexPlayer2",QString("%1").arg(index));
 }
 
 int UIConnection::bonus()
@@ -109,16 +137,19 @@ int UIConnection::bonus()
 void UIConnection::setBonus(int bonus)
 {
     _bonus = bonus;
+    _save.saveString("Bonus",QString("%1").arg(bonus));
 }
 
 void UIConnection::setStringPlayer1(QString s)
 {
     _stringPlayer1 = s;
+    _save.saveString("StringPlayer1",s);
 }
 
 void UIConnection::setStringPlayer2(QString s)
 {
     _stringPlayer2 = s;
+    _save.saveString("StringPlayer1",s);
 }
 
 QString UIConnection::stringPlayer1()

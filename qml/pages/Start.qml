@@ -38,14 +38,24 @@ Page {
         id: gamestarter
         property bool showerror: false
 
+        function saveAll() {
+            if(player1.currentItem !== null)
+            {
+                uiconnection.setStringPlayer1(player1.currentItem.text)
+                uiconnection.setIndexPlayer1(player1.currentIndex)
+            }
+            if(player2.currentItem !== null)
+            {
+                uiconnection.setStringPlayer2(player2.currentItem.text)
+                uiconnection.setIndexPlayer2(player2.currentIndex)
+            }
+            uiconnection.setBonus(bonusslider.sliderValue)
+        }
+
         function startgame() {
             if(gamemaster.initialise(player1.currentItem.text, player2.currentItem.text, bonusslider.sliderValue))
             {
-                uiconnection.setStringPlayer1(player1.currentItem.text)
-                uiconnection.setStringPlayer2(player2.currentItem.text)
-                uiconnection.setIndexPlayer1(player1.currentIndex)
-                uiconnection.setIndexPlayer2(player2.currentIndex)
-                uiconnection.setBonus(bonusslider.sliderValue)
+                saveAll()
                 showerror = false
                 pageStack.push(Qt.resolvedUrl("Game.qml"))
             }
@@ -58,9 +68,7 @@ Page {
         function changeLanguage(languageSelected) {
             if(language.currentIndex != 0)
             {
-                uiconnection.setIndexPlayer1(player1.currentIndex)
-                uiconnection.setIndexPlayer2(player2.currentIndex)
-                uiconnection.setBonus(bonusslider.sliderValue)
+                saveAll()
                 uiconnection.changeLanguage(languageSelected)
                 pageStack.replace(Qt.resolvedUrl("Start.qml"))
             }
@@ -138,6 +146,8 @@ Page {
                     label: qsTr("Player 1")
                     currentIndex: uiconnection.indexPlayer1()
 
+                    onCurrentItemChanged: gamestarter.saveAll()
+
                     menu: ContextMenu {
                         MenuItem { text: "Human" }
                         MenuItem { text: "Tutorial" }
@@ -171,6 +181,8 @@ Page {
                     label: qsTr("Player 2")
                     currentIndex: uiconnection.indexPlayer2()
 
+                    onCurrentItemChanged: gamestarter.saveAll()
+
                     menu: ContextMenu {
                         MenuItem { text: "Human" }
                         MenuItem { text: "Tutorial" }
@@ -193,6 +205,8 @@ Page {
                 stepSize: 1
                 valueText: value
                 label: qsTr("Bonus for 2nd player")
+
+                onValueChanged: gamestarter.saveAll()
             }
 
             ComboBox {

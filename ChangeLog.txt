@@ -1,4 +1,6 @@
 Current development:
+   * Added "Restart game" button
+   * Now saving game configuration
 
 Version 1.0:
    * Added "Adaptive Tree AI"

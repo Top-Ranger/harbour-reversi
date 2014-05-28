@@ -32,6 +32,7 @@
 
 #include <QObject>
 #include <QTranslator>
+#include "persistenceclass.h"
 
 class UIConnection : public QObject
 {
@@ -71,6 +72,7 @@ private:
     int _bonus;
     QString _stringPlayer1;
     QString _stringPlayer2;
+    PersistenceClass _save;
 };
 
 #endif // UICONNECTION_H

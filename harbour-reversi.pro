@@ -34,7 +34,8 @@ SOURCES += src/uiconnection.cpp \
     src/rules/maximiseownmovementrule.cpp \
     src/rules/fewerfrontierdiscsrule.cpp \
     src/player/tutorialplayer.cpp \
-    src/player/adaptivetreeaiplayer.cpp
+    src/player/adaptivetreeaiplayer.cpp \
+    src/persistenceclass.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -102,7 +103,8 @@ HEADERS += \
     src/rules/maximiseownmovementrule.h \
     src/rules/fewerfrontierdiscsrule.h \
     src/player/tutorialplayer.h \
-    src/player/adaptivetreeaiplayer.h
+    src/player/adaptivetreeaiplayer.h \
+    src/persistenceclass.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
