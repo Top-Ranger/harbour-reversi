@@ -33,7 +33,8 @@
 #include "player.h"
 #include <QList>
 
-typedef void(*function)(Gameboard, int);
+class ControlAIPlayer;
+typedef  void (ControlAIPlayer::*function)(Gameboard, int);
 
 class ControlAIPlayer : public Player
 {
@@ -44,18 +45,20 @@ public:
     virtual bool isHuman();
     virtual void getBoard(Gameboard board, int player);
 
-    static void dummy(Gameboard board, int player);
-    static void dummy2(Gameboard board, int player);
-
 public slots:
     virtual void humanInput(int x, int y);
 
 private:
-    static const int _sizeAvailableFunctions = 2;
+    int inline opponent(int player);
+    void DEBUG_FUNCTION();
+
+    void functionFindSleepers(Gameboard board, int player);
+
+    static const int _sizeAvailableFunctions = 1;
     static const int _sizeCurrentFunctions = 3;
 
-    void (*_availableFunctions[_sizeAvailableFunctions])(Gameboard, int);
-    void (* _currentFunctions[_sizeCurrentFunctions])(Gameboard, int);
+    function _availableFunctions[_sizeAvailableFunctions];
+    function _currentFunctions[_sizeCurrentFunctions];
     int _priority[8][8];
 };
 
