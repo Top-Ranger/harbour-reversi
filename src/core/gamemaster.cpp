@@ -36,6 +36,7 @@
 #include "../player/staticruleaiplayer.h"
 #include "../player/tutorialplayer.h"
 #include "../player/adaptivetreeaiplayer.h"
+#include "../player/controlaiplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
@@ -90,6 +91,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     {
         _player[0] = new AdaptiveTreeAIPlayer(this);
     }
+    else if(player1 == "Control AI")
+    {
+        _player[0] = new ControlAIPlayer(this);
+    }
     else
     {
         return false;
@@ -132,6 +137,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     else if(player2 == "Adaptive Tree AI")
     {
         _player[1] = new AdaptiveTreeAIPlayer(this);
+    }
+    else if(player2 == "Control AI")
+    {
+        _player[1] = new ControlAIPlayer(this);
     }
     else
     {
@@ -202,7 +211,7 @@ void Gamemaster::turn(int x, int y)
 
     if((x < 0) || (x > 7) || (y < 0) || (y > 7))
     {
-    qDebug() << QString("Gamemaster is getting turn %1 + %2 from %3").arg(x).arg(y).arg(_turn);
+        qDebug() << QString("Gamemaster is getting turn %1 + %2 from %3").arg(x).arg(y).arg(_turn);
     }
 
     if(_board->play(x, y, _turn))
@@ -213,15 +222,15 @@ void Gamemaster::turn(int x, int y)
         _turn = _turn==1?2:1;
         if(!_board->isTurnPossible(_turn))
         {
-             _turn = _turn==1?2:1;
+            _turn = _turn==1?2:1;
             if(_board->isTurnPossible(_turn))
             {
-                 _player[_turn-1]->isActive(true);
+                _player[_turn-1]->isActive(true);
             }
             else
             {
-            emit result(_board->points(1), _board->points(2)+_bonus);
-            return;
+                emit result(_board->points(1), _board->points(2)+_bonus);
+                return;
             }
         }
         else
