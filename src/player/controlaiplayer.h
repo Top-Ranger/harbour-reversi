@@ -53,8 +53,9 @@ private:
     void DEBUG_FUNCTION();
 
     void functionFindSleepers(Gameboard board, int player);
+    void functionControlArea(Gameboard board, int player);
 
-    static const int _sizeAvailableFunctions = 1;
+    static const int _sizeAvailableFunctions = 2;
     static const int _sizeCurrentFunctions = 3;
 
     function _availableFunctions[_sizeAvailableFunctions];
