@@ -136,6 +136,8 @@ Page {
 
                 Image{
                     id: blackDisc
+                    height: 50
+                    width: 50
                     y: parent.height / 2 - height/2
                     source: "1.png"
                 }
@@ -172,6 +174,8 @@ Page {
 
                 Image{
                     id: whiteDisc
+                    height: 50
+                    width: 50
                     y: parent.height / 2 - height/2
                     source: "2.png"
                 }

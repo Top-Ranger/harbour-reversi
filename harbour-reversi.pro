@@ -82,7 +82,8 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates/clicked0changed.svg \
     templates/clicked0.svg \
     qml/cover/harbour-reversi.png \
-    .gitignore
+    .gitignore \
+    qml/pages/OwnIconButton.qml
 
 HEADERS += \
     src/uiconnection.h \
