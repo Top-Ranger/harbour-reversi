@@ -92,6 +92,9 @@ void ControlAIPlayer::getBoard(Gameboard board, int player)
     int ystart = y;
     int xmax = -1;
     int ymax = -1;
+    int xmaxbad = -1;
+    int ymaxbad = -1;
+    int maxbad = std::numeric_limits<int>::min();
     Gameboard testboard;
 
     for(int i = 0; i < _sizeCurrentFunctions; ++i)
@@ -118,11 +121,24 @@ void ControlAIPlayer::getBoard(Gameboard board, int player)
                         }
                     }
                 }
-                if(temp > max)
+                if(filter(x,y,testboard,player))
                 {
-                    max = temp;
-                    xmax = x;
-                    ymax = y;
+                    if(temp > max)
+                    {
+                        max = temp;
+                        xmax = x;
+                        ymax = y;
+                    }
+                }
+                else
+                {
+                    qDebug() << "bad";
+                    if(temp > maxbad)
+                    {
+                        maxbad = temp;
+                        xmaxbad = x;
+                        ymaxbad = y;
+                    }
                 }
             }
 
@@ -134,7 +150,14 @@ void ControlAIPlayer::getBoard(Gameboard board, int player)
 
     DEBUG_FUNCTION();
 
-    emit turn(xmax, ymax);
+    if((xmax != -1) && (ymax != -1))
+    {
+        emit turn(xmax, ymax);
+    }
+    else
+    {
+        emit turn(xmaxbad, ymaxbad);
+    }
 }
 
 void ControlAIPlayer::humanInput(int x, int y)
@@ -152,6 +175,91 @@ void ControlAIPlayer::DEBUG_FUNCTION()
     {
         qDebug() << _priority[0][y] << _priority[1][y] << _priority[2][y] << _priority[3][y] << _priority[4][y] << _priority[5][y] << _priority[6][y] << _priority[7][y];
     }
+}
+
+bool ControlAIPlayer::filter(int x, int y, Gameboard board, int player)
+{
+    // This function should the AI prevent from doing stupid things
+    // Prevent the opponent from playing a sleeper
+    if((x == 0) || (x == 7))
+    {
+        if(y != 0 && board.owner(x,y-1) == 0)
+        {
+            int tempy = y-2;
+            {
+                while(tempy >= 0)
+                {
+                    if(board.owner(x,tempy) == player)
+                    {
+                        return false;
+                    }
+                    else if(board.owner(x,tempy) == opponent(player))
+                    {
+                        break;
+                    }
+                    --tempy;
+                }
+            }
+        }
+        if(y != 7 && board.owner(x,y+1) == 0)
+        {
+            int tempy = y+2;
+            {
+                while(tempy <= 7)
+                {
+                    if(board.owner(x,tempy) == player)
+                    {
+                        return false;
+                    }
+                    else if(board.owner(x,tempy) == opponent(player))
+                    {
+                        break;
+                    }
+                    ++tempy;
+                }
+            }
+        }
+    }
+    else if((y == 0) || (y == 7))
+    {
+        if(x != 0 && board.owner(x-1,y) == 0)
+        {
+            int tempx = x-2;
+            {
+                while(tempx >= 0)
+                {
+                    if(board.owner(tempx,y) == player)
+                    {
+                        return false;
+                    }
+                    else if(board.owner(tempx,y) == opponent(player))
+                    {
+                        break;
+                    }
+                    --tempx;
+                }
+            }
+        }
+        if(x != 7 && board.owner(x+1,y) == 0)
+        {
+            int tempx = x+2;
+            {
+                while(tempx <= 7)
+                {
+                    if(board.owner(tempx,y) == player)
+                    {
+                        return false;
+                    }
+                    else if(board.owner(tempx,y) == opponent(player))
+                    {
+                        break;
+                    }
+                    ++tempx;
+                }
+            }
+        }
+    }
+    return true;
 }
 
 void ControlAIPlayer::functionFindSleepers(Gameboard board, int player)

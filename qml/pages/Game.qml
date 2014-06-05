@@ -152,7 +152,6 @@ Page {
 
     Item {
         id: functions
-         visible: false
 
         function getHumanInput(player)
         {
