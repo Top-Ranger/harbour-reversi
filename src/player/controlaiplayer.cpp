@@ -42,6 +42,8 @@ ControlAIPlayer::ControlAIPlayer(QObject *parent) :
     // Fill _availableFunctions
     _availableFunctions[0] = &ControlAIPlayer::functionFindSleepers;
     _availableFunctions[1] = &ControlAIPlayer::functionControlArea;
+    _availableFunctions[2] = &ControlAIPlayer::functionEdge;
+    _availableFunctions[3] = &ControlAIPlayer::functionAvoidCluster;
 
     // Fill _currentFunctions
     _currentFunctions[0] = _availableFunctions[qrand() % _sizeAvailableFunctions];
@@ -181,80 +183,83 @@ bool ControlAIPlayer::filter(int x, int y, Gameboard board, int player)
 {
     // This function should the AI prevent from doing stupid things
     // Prevent the opponent from playing a sleeper
-    if((x == 0) || (x == 7))
+    if(!(((x == 0) || (x == 7)) && ((y == 0) || (y == 7))))
     {
-        if(y != 0 && board.owner(x,y-1) == 0)
+        if((x == 0) || (x == 7))
         {
-            int tempy = y-2;
+            if(y != 0 && board.owner(x,y-1) == 0)
             {
-                while(tempy >= 0)
+                int tempy = y-2;
                 {
-                    if(board.owner(x,tempy) == player)
+                    while(tempy >= 0)
                     {
-                        return false;
+                        if(board.owner(x,tempy) == player)
+                        {
+                            return false;
+                        }
+                        else if(board.owner(x,tempy) == 0)
+                        {
+                            break;
+                        }
+                        --tempy;
                     }
-                    else if(board.owner(x,tempy) == opponent(player))
+                }
+            }
+            if(y != 7 && board.owner(x,y+1) == 0)
+            {
+                int tempy = y+2;
+                {
+                    while(tempy <= 7)
                     {
-                        break;
+                        if(board.owner(x,tempy) == player)
+                        {
+                            return false;
+                        }
+                        else if(board.owner(x,tempy) == 0)
+                        {
+                            break;
+                        }
+                        ++tempy;
                     }
-                    --tempy;
                 }
             }
         }
-        if(y != 7 && board.owner(x,y+1) == 0)
+        else if((y == 0) || (y == 7))
         {
-            int tempy = y+2;
+            if(x != 0 && board.owner(x-1,y) == 0)
             {
-                while(tempy <= 7)
+                int tempx = x-2;
                 {
-                    if(board.owner(x,tempy) == player)
+                    while(tempx >= 0)
                     {
-                        return false;
+                        if(board.owner(tempx,y) == player)
+                        {
+                            return false;
+                        }
+                        else if(board.owner(tempx,y) == 0)
+                        {
+                            break;
+                        }
+                        --tempx;
                     }
-                    else if(board.owner(x,tempy) == opponent(player))
-                    {
-                        break;
-                    }
-                    ++tempy;
                 }
             }
-        }
-    }
-    else if((y == 0) || (y == 7))
-    {
-        if(x != 0 && board.owner(x-1,y) == 0)
-        {
-            int tempx = x-2;
+            if(x != 7 && board.owner(x+1,y) == 0)
             {
-                while(tempx >= 0)
+                int tempx = x+2;
                 {
-                    if(board.owner(tempx,y) == player)
+                    while(tempx <= 7)
                     {
-                        return false;
+                        if(board.owner(tempx,y) == player)
+                        {
+                            return false;
+                        }
+                        else if(board.owner(tempx,y) == 0)
+                        {
+                            break;
+                        }
+                        ++tempx;
                     }
-                    else if(board.owner(tempx,y) == opponent(player))
-                    {
-                        break;
-                    }
-                    --tempx;
-                }
-            }
-        }
-        if(x != 7 && board.owner(x+1,y) == 0)
-        {
-            int tempx = x+2;
-            {
-                while(tempx <= 7)
-                {
-                    if(board.owner(tempx,y) == player)
-                    {
-                        return false;
-                    }
-                    else if(board.owner(tempx,y) == opponent(player))
-                    {
-                        break;
-                    }
-                    ++tempx;
                 }
             }
         }
@@ -551,6 +556,172 @@ void ControlAIPlayer::functionControlArea(Gameboard board, int player)
                 }
             }
             _priority[x][y] += (result/2);
+        }
+    }
+}
+
+void ControlAIPlayer::functionEdge(Gameboard board, int player)
+{
+    for(int i = 0; i < 8; ++i)
+    {
+        _priority[i][0] += 2;
+        _priority[i][7] += 2;
+        _priority[0][i] += 2;
+        _priority[0][i] += 2;
+    }
+}
+
+void ControlAIPlayer::functionAvoidCluster(Gameboard board, int player)
+{
+    // Initialize temp priority - so we can give a min priority
+    int newPriority[8][8];
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            newPriority[x][y] = 0;
+        }
+    }
+
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            // Find all own cluster
+            int result = 0;
+            bool test = true;
+
+            while(test && result < 8)
+            {
+                int tempx = x-result;
+                int tempy = y-result;
+
+                while(test && (tempx <= (x+result)))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(!(board.owner(tempx,tempy) == player))
+                        {
+                            test = false;
+                        }
+                    }
+                    ++tempx;
+                }
+                --tempx;
+
+                while(test && (tempy <= (x+result)))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(!(board.owner(tempx,tempy) == player))
+                        {
+                            test = false;
+                        }
+                    }
+                    ++tempy;
+                }
+                --tempy;
+
+                while(test && (tempx >= (x-result)))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(!(board.owner(tempx,tempy) == player))
+                        {
+                            test = false;
+                        }
+                    }
+                    --tempx;
+                }
+                ++tempx;
+
+                while(test && (tempy >= (x-result)))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(!(board.owner(tempx,tempy) == player))
+                        {
+                            test = false;
+                        }
+                    }
+                    --tempy;
+                }
+
+                if(test)
+                {
+                    ++result;
+                }
+            }
+
+            qDebug() << "result = " << result;
+
+            if(result != 0)
+            {
+
+                // Now set all priority
+                ++result;
+                int tempx = x-result;
+                int tempy = y-result;
+
+                while(tempx <= (x+result))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(newPriority[x][y] > -4)
+                        {
+                            --newPriority[x][y];
+                        }
+                    }
+                    ++tempx;
+                }
+                --tempx;
+
+                while(test && (x+result))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(newPriority[x][y] > -4)
+                        {
+                            --newPriority[x][y];
+                        }
+                    }
+                    ++tempy;
+                }
+                --tempy;
+
+                while(test && (x-result))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(newPriority[x][y] > -4)
+                        {
+                            --newPriority[x][y];
+                        }
+                    }
+                    --tempx;
+                }
+                ++tempx;
+
+                while(test && (x-result))
+                {
+                    if((tempx >= 0) && (tempx <= 7) && (tempy >= 0) && (tempy <= 7))
+                    {
+                        if(newPriority[x][y] > -4)
+                        {
+                            --newPriority[x][y];
+                        }
+                    }
+                    --tempy;
+                }
+            }
+        }
+    }
+    // Now add the priority
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            _priority[x][y] += newPriority[x][y];
         }
     }
 }

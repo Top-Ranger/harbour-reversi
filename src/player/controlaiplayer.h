@@ -56,8 +56,10 @@ private:
 
     void functionFindSleepers(Gameboard board, int player);
     void functionControlArea(Gameboard board, int player);
+    void functionEdge(Gameboard board, int player);
+    void functionAvoidCluster(Gameboard board, int player);
 
-    static const int _sizeAvailableFunctions = 2;
+    static const int _sizeAvailableFunctions = 4;
     static const int _sizeCurrentFunctions = 3;
 
     function _availableFunctions[_sizeAvailableFunctions];
