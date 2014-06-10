@@ -29,7 +29,7 @@
 
 #include "controlaiplayer.h"
 #include <QTime>
-#include <QDebug>
+#include <limits>
 
 ControlAIPlayer::ControlAIPlayer(QObject *parent) :
     Player(parent),
@@ -134,7 +134,6 @@ void ControlAIPlayer::getBoard(Gameboard board, int player)
                 }
                 else
                 {
-                    qDebug() << "bad";
                     if(temp > maxbad)
                     {
                         maxbad = temp;
@@ -149,8 +148,6 @@ void ControlAIPlayer::getBoard(Gameboard board, int player)
 
         x = (x+1)%8;
     }while(x != xstart);
-
-    DEBUG_FUNCTION();
 
     if((xmax != -1) && (ymax != -1))
     {
@@ -169,14 +166,6 @@ void ControlAIPlayer::humanInput(int x, int y)
 int inline ControlAIPlayer::opponent(int player)
 {
     return player==1?2:1;
-}
-
-void ControlAIPlayer::DEBUG_FUNCTION()
-{
-    for(int y = 0; y < 8; ++y)
-    {
-        qDebug() << _priority[0][y] << _priority[1][y] << _priority[2][y] << _priority[3][y] << _priority[4][y] << _priority[5][y] << _priority[6][y] << _priority[7][y];
-    }
 }
 
 bool ControlAIPlayer::filter(int x, int y, Gameboard board, int player)
@@ -263,6 +252,11 @@ bool ControlAIPlayer::filter(int x, int y, Gameboard board, int player)
                 }
             }
         }
+    }
+    // Prevent the opponent from getting a corner
+    if(board.play(0,0,opponent(player),true) || board.play(0,7,opponent(player),true) || board.play(7,0,opponent(player),true) || board.play(7,7,opponent(player),true))
+    {
+        return false;
     }
     return true;
 }
@@ -652,8 +646,6 @@ void ControlAIPlayer::functionAvoidCluster(Gameboard board, int player)
                     ++result;
                 }
             }
-
-            qDebug() << "result = " << result;
 
             if(result != 0)
             {

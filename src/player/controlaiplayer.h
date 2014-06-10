@@ -50,7 +50,6 @@ public slots:
 
 private:
     int inline opponent(int player);
-    void DEBUG_FUNCTION();
 
     bool filter(int x, int y, Gameboard board, int player);
 

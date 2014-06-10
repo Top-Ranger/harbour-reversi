@@ -3,6 +3,7 @@ Current development:
    * Now saving game configuration
    * Added "Control AI"
    * Updated UI
+   * Small bug fixes
 
 Version 1.0:
    * Added "Adaptive Tree AI"

@@ -133,7 +133,7 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int o
                     }
                     Gameboard newBoard = board;
                     newBoard.play(x,y,player,false);
-                    advantage += calculateScore(board, I,board.points(I)-old, board.points(opponent(I))-opponentOld);
+                    advantage += calculateScore(newBoard, I,newBoard.points(I)-old, newBoard.points(opponent(I))-opponentOld);
                     ++n;
                 }
                 else
