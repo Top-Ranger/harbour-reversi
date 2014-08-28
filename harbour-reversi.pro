@@ -25,18 +25,20 @@ SOURCES += src/uiconnection.cpp \
     src/player/treeaiplayer.cpp \
     src/player/balancedaiplayer.cpp \
     src/player/staticruleaiplayer.cpp \
-    src/rules/rule.cpp \
-    src/rules/greedyrule.cpp \
-    src/rules/openingrule.cpp \
-    src/rules/endgamerule.cpp \
-    src/rules/cornerrule.cpp \
-    src/rules/minimiseopponentmovementrule.cpp \
-    src/rules/maximiseownmovementrule.cpp \
-    src/rules/fewerfrontierdiscsrule.cpp \
+    src/player/rules/rule.cpp \
+    src/player/rules/greedyrule.cpp \
+    src/player/rules/openingrule.cpp \
+    src/player/rules/endgamerule.cpp \
+    src/player/rules/cornerrule.cpp \
+    src/player/rules/minimiseopponentmovementrule.cpp \
+    src/player/rules/maximiseownmovementrule.cpp \
+    src/player/rules/fewerfrontierdiscsrule.cpp \
     src/player/tutorialplayer.cpp \
     src/player/adaptivetreeaiplayer.cpp \
     src/persistenceclass.cpp \
-    src/player/controlaiplayer.cpp
+    src/player/controlaiplayer.cpp \
+    src/player/assemblyaiplayer.cpp \
+    src/player/AssemblyAIPlayer/core.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -96,18 +98,20 @@ HEADERS += \
     src/player/treeaiplayer.h \
     src/player/balancedaiplayer.h \
     src/player/staticruleaiplayer.h \
-    src/rules/rule.h \
-    src/rules/greedyrule.h \
-    src/rules/openingrule.h \
-    src/rules/endgamerule.h \
-    src/rules/cornerrule.h \
-    src/rules/minimiseopponentmovementrule.h \
-    src/rules/maximiseownmovementrule.h \
-    src/rules/fewerfrontierdiscsrule.h \
+    src/player/rules/rule.h \
+    src/player/rules/greedyrule.h \
+    src/player/rules/openingrule.h \
+    src/player/rules/endgamerule.h \
+    src/player/rules/cornerrule.h \
+    src/player/rules/minimiseopponentmovementrule.h \
+    src/player/rules/maximiseownmovementrule.h \
+    src/player/rules/fewerfrontierdiscsrule.h \
     src/player/tutorialplayer.h \
     src/player/adaptivetreeaiplayer.h \
     src/persistenceclass.h \
-    src/player/controlaiplayer.h
+    src/player/controlaiplayer.h \
+    src/player/assemblyaiplayer.h \
+    src/player/AssemblyAIPlayer/core.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \

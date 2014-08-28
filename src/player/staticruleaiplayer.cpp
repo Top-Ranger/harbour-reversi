@@ -28,13 +28,13 @@
 */
 
 #include "staticruleaiplayer.h"
-#include "../rules/greedyrule.h"
-#include "../rules/openingrule.h"
-#include "../rules/endgamerule.h"
-#include "../rules/cornerrule.h"
-#include "../rules/minimiseopponentmovementrule.h"
-#include "../rules/maximiseownmovementrule.h"
-#include "../rules/fewerfrontierdiscsrule.h"
+#include "rules/greedyrule.h"
+#include "rules/openingrule.h"
+#include "rules/endgamerule.h"
+#include "rules/cornerrule.h"
+#include "rules/minimiseopponentmovementrule.h"
+#include "rules/maximiseownmovementrule.h"
+#include "rules/fewerfrontierdiscsrule.h"
 #include <QDebug>
 
 StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :

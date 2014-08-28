@@ -13,14 +13,14 @@ SOURCES += ../uiconnection.cpp \
     ../player/staticruleaiplayer.cpp \
     ../player/tutorialplayer.cpp \
     ../player/adaptivetreeaiplayer.cpp \
-    ../rules/rule.cpp \
-    ../rules/greedyrule.cpp \
-    ../rules/openingrule.cpp \
-    ../rules/endgamerule.cpp \
-    ../rules/cornerrule.cpp \
-    ../rules/minimiseopponentmovementrule.cpp \
-    ../rules/maximiseownmovementrule.cpp \
-    ../rules/fewerfrontierdiscsrule.cpp
+    ../player/rules/rule.cpp \
+    ../player/rules/greedyrule.cpp \
+    ../player/rules/openingrule.cpp \
+    ../player/rules/endgamerule.cpp \
+    ../player/rules/cornerrule.cpp \
+    ../player/rules/minimiseopponentmovementrule.cpp \
+    ../player/rules/maximiseownmovementrule.cpp \
+    ../player/rules/fewerfrontierdiscsrule.cpp
 
 HEADERS += \
     ../core/gamemaster.h \
@@ -34,12 +34,12 @@ HEADERS += \
     ../player/staticruleaiplayer.h \
     ../player/tutorialplayer.h \
     ../player/adaptivetreeaiplayer.cpp \
-    ../rules/rule.h \
-    ../rules/greedyrule.h \
-    ../rules/openingrule.h \
-    ../rules/endgamerule.h \
-    ../rules/cornerrule.h \
-    ../rules/minimiseopponentmovementrule.h \
-    ../rules/maximiseownmovementrule.h \
-    ../rules/fewerfrontierdiscsrule.h 
+    ../player/rules/rule.h \
+    ../player/rules/greedyrule.h \
+    ../player/rules/openingrule.h \
+    ../player/rules/endgamerule.h \
+    ../player/rules/cornerrule.h \
+    ../player/rules/minimiseopponentmovementrule.h \
+    ../player/rules/maximiseownmovementrule.h \
+    ../player/rules/fewerfrontierdiscsrule.h 
 

@@ -27,28 +27,32 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef RULE_H
-#define RULE_H
+#ifndef ASSEMBLYAIPLAYER_H
+#define ASSEMBLYAIPLAYER_H
 
-#include <QObject>
-#include "../core/gameboard.h"
+#include "player.h"
+#include "AssemblyAIPlayer/core.h"
+#include <QList>
 
-class Rule : public QObject
+class AssemblyAIPlayer : public Player
 {
-    Q_OBJECT
 public:
-    explicit Rule(QObject *parent = 0);
-    virtual bool applicable(Gameboard board, int player) = 0;
-    virtual void doTurn(Gameboard board, int player) = 0;
-    virtual QString name() = 0;
-
-signals:
-    void turn(int x, int y);
+    explicit AssemblyAIPlayer(QObject *parent = 0);
+    ~AssemblyAIPlayer();
+    virtual void doTurn();
+    virtual bool isHuman();
+    virtual void getBoard(Gameboard board, int player);
 
 public slots:
+    virtual void humanInput(int x, int y);
 
-protected:
-    virtual int opponent(int player);
+private:
+    QList<Core *> _inactiveCores;
+    Core * _activeCore;
+    float **_vote;
+
+    static const int _maxChanges = 5;
+    static const int _neededToChange = 2;
 };
 
-#endif // RULE_H
+#endif // ASSEMBLYAIPLAYER_H

@@ -27,29 +27,28 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef STATICRULEAIPLAYER_H
-#define STATICRULEAIPLAYER_H
+#ifndef RULE_H
+#define RULE_H
 
-#include <QList>
-#include "player.h"
-#include "rules/rule.h"
+#include <QObject>
+#include "../../core/gameboard.h"
 
-class StaticRuleAIPlayer : public Player
+class Rule : public QObject
 {
     Q_OBJECT
 public:
-    explicit StaticRuleAIPlayer(QObject *parent = 0);
-    ~StaticRuleAIPlayer();
-    virtual void doTurn();
-    virtual bool isHuman();
-    virtual void getBoard(Gameboard board, int player);
+    explicit Rule(QObject *parent = 0);
+    virtual bool applicable(Gameboard board, int player) = 0;
+    virtual void doTurn(Gameboard board, int player) = 0;
+    virtual QString name() = 0;
+
+signals:
+    void turn(int x, int y);
 
 public slots:
-    virtual void humanInput(int x, int y);
-    virtual void getTurn(int x, int y);
 
-private:
-    QList<Rule *> _rulelist;
+protected:
+    virtual int opponent(int player);
 };
 
-#endif // STATICRULEAIPLAYER_H
+#endif // RULE_H

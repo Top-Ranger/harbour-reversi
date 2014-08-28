@@ -30,7 +30,7 @@
 <context>
     <name>CornerRule</name>
     <message>
-        <location filename="../rules/cornerrule.cpp" line="97"/>
+        <location filename="rules/cornerrule.cpp" line="97"/>
         <source>Corner Rule</source>
         <translation>Eck-Regel</translation>
     </message>
@@ -38,7 +38,7 @@
 <context>
     <name>EndgameRule</name>
     <message>
-        <location filename="../rules/endgamerule.cpp" line="73"/>
+        <location filename="rules/endgamerule.cpp" line="73"/>
         <source>Endgame Rule</source>
         <translation>Endgame-Regel</translation>
     </message>
@@ -46,7 +46,7 @@
 <context>
     <name>FewerFrontierDiscsRule</name>
     <message>
-        <location filename="../rules/fewerfrontierdiscsrule.cpp" line="116"/>
+        <location filename="rules/fewerfrontierdiscsrule.cpp" line="116"/>
         <source>Fewer Frontier Discs Rule</source>
         <translation>Weniger Frontsteine-Regel</translation>
     </message>
@@ -67,7 +67,7 @@
 <context>
     <name>GreedyRule</name>
     <message>
-        <location filename="../rules/greedyrule.cpp" line="82"/>
+        <location filename="rules/greedyrule.cpp" line="82"/>
         <source>Greedy Rule</source>
         <translation>Geiz-Regel</translation>
     </message>
@@ -75,7 +75,7 @@
 <context>
     <name>MaximiseOwnMovementRule</name>
     <message>
-        <location filename="../rules/maximiseownmovementrule.cpp" line="123"/>
+        <location filename="rules/maximiseownmovementrule.cpp" line="123"/>
         <source>Maximise Own Movement Rule</source>
         <translation>Mehr eigene Züge-Regel</translation>
     </message>
@@ -83,7 +83,7 @@
 <context>
     <name>MinimiseOpponentMovementRule</name>
     <message>
-        <location filename="../rules/minimiseopponentmovementrule.cpp" line="124"/>
+        <location filename="rules/minimiseopponentmovementrule.cpp" line="124"/>
         <source>Minimise Opponent Movement Rule</source>
         <translation>Weniger gegnerische Züge-Regel</translation>
     </message>
@@ -91,7 +91,7 @@
 <context>
     <name>OpeningRule</name>
     <message>
-        <location filename="../rules/openingrule.cpp" line="112"/>
+        <location filename="rules/openingrule.cpp" line="112"/>
         <source>Opening Rule</source>
         <translation>Eröffnungs-Regel</translation>
     </message>
