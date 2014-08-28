@@ -91,15 +91,21 @@ bool AssemblyAIPlayer::isHuman()
 
 void AssemblyAIPlayer::getBoard(Gameboard board, int player)
 {
+    QString message;
     int changes = 0;
     bool test = true;
+    message = QString();
+
     do {
+        message.append(QString(tr("%1 is the current active core.\n")).arg(_activeCore->name()));
         if(_activeCore->retirement(board, player))
         {
+            message.append(QString(tr("%1 retires.\n")).arg(_activeCore->name()));
             Core * temp = _activeCore;
             int newCore = qrand()%_inactiveCores.length();
             _activeCore = _inactiveCores[newCore];
             _inactiveCores[newCore] = temp;
+            message.append(QString(tr("Electing a new active core.\n")));
         }
         else
         {
@@ -114,18 +120,25 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             }
 
             _activeCore->propose(_vote, board, player);
+            message.append(QString(tr("%1 makes a proposal.\n")).arg(_activeCore->name()));
 
             for(int i = 0; i < _inactiveCores.length(); ++i)
             {
                 if(_inactiveCores[i]->mistrust(_vote, board, player))
                 {
+                    message.append(QString(tr("%1 doesn't agree.\n")).arg(_inactiveCores[i]->name()));
                     wantChange.append(_inactiveCores[i]);
+                }
+                else
+                {
+                    message.append(QString(tr("%1 agrees.\n")).arg(_inactiveCores[i]->name()));
                 }
             }
 
             test = wantChange.length() >= _neededToChange;
             if(test)
             {
+                message.append(QString(tr("To many have disagreed. Electing a new active core.\n")));
                 Core * temp = _activeCore;
                 int newCore = qrand()%wantChange.length();
                 _activeCore = wantChange[newCore];
@@ -164,7 +177,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             }
         }
     }
-
+    emit sendMessage(message);
     emit turn(xTurn, yTurn);
 }
 
