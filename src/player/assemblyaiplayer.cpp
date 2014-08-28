@@ -95,11 +95,22 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
     int changes = 0;
     bool test = true;
     message = QString();
+    bool proposal = false;
+
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            _vote[x][y] = 0;
+        }
+    }
 
     do {
+        proposal = false;
         message.append(QString(tr("%1 is the current active core.\n")).arg(_activeCore->name()));
         if(_activeCore->retirement(board, player))
         {
+            ++changes;
             message.append(QString(tr("%1 retires.\n")).arg(_activeCore->name()));
             Core * temp = _activeCore;
             int newCore = qrand()%_inactiveCores.length();
@@ -120,6 +131,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             }
 
             _activeCore->propose(_vote, board, player);
+            proposal = true;
             message.append(QString(tr("%1 makes a proposal.\n")).arg(_activeCore->name()));
 
             for(int i = 0; i < _inactiveCores.length(); ++i)
@@ -138,6 +150,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             test = wantChange.length() >= _neededToChange;
             if(test)
             {
+                ++changes;
                 message.append(QString(tr("To many have disagreed. Electing a new active core.\n")));
                 Core * temp = _activeCore;
                 int newCore = qrand()%wantChange.length();
@@ -156,14 +169,26 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
         }
     } while(test && (changes < _maxChanges));
 
+    if(!proposal)
+    {
+        for(int x = 0; x < 8; ++x)
+        {
+            for(int y = 0; y < 8; ++y)
+            {
+                _vote[x][y] = 0;
+            }
+        }
+        _activeCore->propose(_vote, board, player);
+    }
+
     for(int i = 0; i < _inactiveCores.length(); ++i)
     {
         _inactiveCores[i]->correct(_vote, board, player);
     }
 
-    int xTurn = 0;
-    int yTurn = 0;
-    float max = -1048576;
+    int xTurn = -1;
+    int yTurn = -1;
+    float max = 0;
 
     for(int x = 0; x < 8; ++x)
     {
@@ -177,8 +202,45 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             }
         }
     }
-    emit sendMessage(message);
-    emit turn(xTurn, yTurn);
+
+    if(changes < _maxChanges)
+    {
+        message.append(tr("A solution has been found."));
+    }
+    else
+    {
+        message.append(tr("Too many new elections, now using %1 to find a solution.\nNo good solution has been found, using the next available.").arg(_activeCore->name()));
+    }
+
+    if(xTurn == -1 || yTurn == -1 || board.play(xTurn, yTurn, player, true) == false)
+    {
+        message.append(tr("\nSomething went wrong - using emergancy plan."));
+        int x = qrand()%8;
+        int y = qrand()%8;
+        int xstart = x;
+        int ystart = y;
+
+        do
+        {
+            do
+            {
+                if(board.play(x,y,player,true))
+                {
+                    emit sendMessage(message);
+                    emit turn(x,y);
+                    return;
+                }
+                y = (y+1)%8;
+            }while(y != ystart);
+
+            x = (x+1)%8;
+        }while(x != xstart);
+    }
+    else
+    {
+        emit sendMessage(message);
+        emit turn(xTurn, yTurn);
+    }
 }
 
 void AssemblyAIPlayer::humanInput(int x, int y)
