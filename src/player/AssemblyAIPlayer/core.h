@@ -42,6 +42,10 @@ public:
     virtual void propose(float ** const vote, Gameboard board, int player) = 0;
     virtual void correct(float ** const vote, Gameboard board, int player) = 0;
     virtual QString name() const = 0;
+
+protected:
+    static const float _factorSmall = 1.1;
+    static const float _factorLarge = 1.2;
 };
 
 inline bool operator==(const Core& core1, const Core& core2) {return core1.name() == core2.name();}

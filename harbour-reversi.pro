@@ -38,7 +38,8 @@ SOURCES += src/uiconnection.cpp \
     src/persistenceclass.cpp \
     src/player/controlaiplayer.cpp \
     src/player/assemblyaiplayer.cpp \
-    src/player/AssemblyAIPlayer/core.cpp
+    src/player/AssemblyAIPlayer/core.cpp \
+    src/player/AssemblyAIPlayer/insanecore.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -111,7 +112,8 @@ HEADERS += \
     src/persistenceclass.h \
     src/player/controlaiplayer.h \
     src/player/assemblyaiplayer.h \
-    src/player/AssemblyAIPlayer/core.h
+    src/player/AssemblyAIPlayer/core.h \
+    src/player/AssemblyAIPlayer/insanecore.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
