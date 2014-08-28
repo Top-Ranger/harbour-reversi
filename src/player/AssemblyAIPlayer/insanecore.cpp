@@ -22,20 +22,19 @@ bool InsaneCore::mistrust(float const* const* const vote, Gameboard board, int p
 
 void InsaneCore::propose(float ** const vote, Gameboard board, int player)
 {
-    for(int i = 0; i < 3; ++i)
-    {
-        bool test = false;
-        while(!test)
+    int count = 0;
+    do{
+        for(int i = 0; i < 10 && count < 3; ++i)
         {
             int x = qrand()%8;
             int y = qrand()%8;
             if(board.play(x,y,player,true))
             {
                 vote[x][y] = 1;
-                test = true;
+                ++count;
             }
         }
-    }
+    }while(count == 0);
 }
 
 void InsaneCore::correct(float ** const vote, Gameboard board, int player)
