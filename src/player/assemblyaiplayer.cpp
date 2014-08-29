@@ -28,6 +28,7 @@
 */
 
 #include "assemblyaiplayer.h"
+#include "AssemblyAIPlayer/assemblyaihelper.h"
 
 //Cores
 #include "AssemblyAIPlayer/insanecore.h"
@@ -185,6 +186,8 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
     {
         _inactiveCores[i]->correct(_vote, board, player);
     }
+
+    AssemblyAI::ensureNoIllegalMove(_vote, board, player);
 
     int xTurn = -1;
     int yTurn = -1;
