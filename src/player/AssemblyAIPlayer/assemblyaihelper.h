@@ -34,6 +34,7 @@
 
 namespace AssemblyAI {
     void ensureOnePossibleMove(float ** const vote, Gameboard board, int player);
+    void ensureNoIllegalMove(float ** const vote, Gameboard board, int player);
 }
 
 #endif // ASSEMBLYAIHELPER_H

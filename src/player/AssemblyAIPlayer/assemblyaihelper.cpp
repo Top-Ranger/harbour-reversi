@@ -28,6 +28,7 @@
 */
 
 #include "assemblyaihelper.h"
+#include <QDebug>
 
 void AssemblyAI::ensureOnePossibleMove(float ** const vote, Gameboard board, int player)
 {
@@ -63,4 +64,19 @@ void AssemblyAI::ensureOnePossibleMove(float ** const vote, Gameboard board, int
     }while(x != xstart);
 
     qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move!";
+}
+
+void AssemblyAI::ensureNoIllegalMove(float ** const vote, Gameboard board, int player)
+{
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            if(vote[x][y] > 0 && !board.play(x,y,player,true))
+            {
+                vote[x][y] = 0;
+            }
+        }
+    }
+    ensureOnePossibleMove(vote, board, player);
 }
