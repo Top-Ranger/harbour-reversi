@@ -32,6 +32,7 @@
 
 //Cores
 #include "AssemblyAIPlayer/insanecore.h"
+#include "AssemblyAIPlayer/cornercore.h"
 
 #include <QDebug>
 #include <QTime>
@@ -47,30 +48,24 @@ AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     {
         _vote[i] = new float[8];
     }
-    qCritical() << "111";
     _inactiveCores.append(new InsaneCore());
-    _inactiveCores.append(new InsaneCore());
-    qCritical() << "222";
+    _inactiveCores.append(new CornerCore());
 
     int activeCoreIndex = qrand()%_inactiveCores.length();
     _activeCore = _inactiveCores[activeCoreIndex];
     _inactiveCores.removeAt(activeCoreIndex);
-    qCritical() << "333";
 }
 
 AssemblyAIPlayer::~AssemblyAIPlayer()
 {
-    qCritical() << "444";
     for(int i = 0; i < 8; ++i)
     {
         delete [] _vote[i];
     }
     delete [] _vote;
-    qCritical() << "555";
 
     for(int i = 0; i < _inactiveCores.length(); ++i)
     {
-        qCritical() << "666" << i;
         delete _inactiveCores[i];
     }
 

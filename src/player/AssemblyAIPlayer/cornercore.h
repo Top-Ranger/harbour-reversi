@@ -27,35 +27,20 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef ASSEMBLYAIPLAYER_H
-#define ASSEMBLYAIPLAYER_H
+#ifndef CORNERCORE_H
+#define CORNERCORE_H
 
-#include "player.h"
-#include "AssemblyAIPlayer/core.h"
-#include <QList>
+#include "core.h"
 
-class AssemblyAIPlayer : public Player
+class CornerCore : public Core
 {
 public:
-    explicit AssemblyAIPlayer(QObject *parent = 0);
-    ~AssemblyAIPlayer();
-    virtual void doTurn();
-    virtual bool isHuman();
-    virtual void getBoard(Gameboard board, int player);
-
-public slots:
-    virtual void humanInput(int x, int y);
-
-private:
-    QList<Core *> _inactiveCores;
-    Core * _activeCore;
-
-    // A core can propose a value between 0-1
-    // A core can correct a value by Core::_factorSmall or Core::_factorLarge
-    float **_vote;
-
-    static const int _maxChanges = 5;
-    static const int _neededToChange = 1;
+    CornerCore();
+    virtual bool retirement(Gameboard board, int player);
+    virtual bool mistrust(float const* const* const vote, Gameboard board, int player);
+    virtual void propose(float ** const vote, Gameboard board, int player);
+    virtual void correct(float ** const vote, Gameboard board, int player);
+    virtual QString name() const;
 };
 
-#endif // ASSEMBLYAIPLAYER_H
+#endif // CORNERCORE_H

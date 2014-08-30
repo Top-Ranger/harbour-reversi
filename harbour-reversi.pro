@@ -40,7 +40,8 @@ SOURCES += src/uiconnection.cpp \
     src/player/assemblyaiplayer.cpp \
     src/player/AssemblyAIPlayer/core.cpp \
     src/player/AssemblyAIPlayer/insanecore.cpp \
-    src/player/AssemblyAIPlayer/assemblyaihelper.cpp
+    src/player/AssemblyAIPlayer/assemblyaihelper.cpp \
+    src/player/AssemblyAIPlayer/cornercore.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -115,7 +116,8 @@ HEADERS += \
     src/player/assemblyaiplayer.h \
     src/player/AssemblyAIPlayer/core.h \
     src/player/AssemblyAIPlayer/insanecore.h \
-    src/player/AssemblyAIPlayer/assemblyaihelper.h
+    src/player/AssemblyAIPlayer/assemblyaihelper.h \
+    src/player/AssemblyAIPlayer/cornercore.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
