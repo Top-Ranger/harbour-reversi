@@ -33,6 +33,7 @@
 //Cores
 #include "AssemblyAIPlayer/insanecore.h"
 #include "AssemblyAIPlayer/cornercore.h"
+#include "AssemblyAIPlayer/centercore.h"
 
 #include <QDebug>
 #include <QTime>
@@ -48,8 +49,12 @@ AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     {
         _vote[i] = new float[8];
     }
+
+    // To include a new Core you simply have to append it here to the list
+    // Please keep in mind: You should never have more than one of each cores in the list - or else you might get problems with the way the cores do comparison
     _inactiveCores.append(new InsaneCore());
     _inactiveCores.append(new CornerCore());
+    _inactiveCores.append(new CenterCore());
 
     int activeCoreIndex = qrand()%_inactiveCores.length();
     _activeCore = _inactiveCores[activeCoreIndex];

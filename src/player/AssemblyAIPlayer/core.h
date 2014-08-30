@@ -48,5 +48,6 @@ protected:
     static const float _factorLarge = 1.2;
 };
 
+// Two cores are the same if they have the same name. As there should only be one core of every type in AssemblyAIPlayer, this is a easy and cheap way of comparing cores.
 inline bool operator==(const Core& core1, const Core& core2) {return core1.name() == core2.name();}
 #endif // CORE_H

@@ -69,7 +69,7 @@ bool CornerCore::mistrust(float const* const* const vote, Gameboard board, int p
     {
         for(int y = 0; y < 8; ++y)
         {
-            if(vote[x][y] < 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
+            if(vote[x][y] > 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
             {
                 Gameboard testboard = board;
                 testboard.play(x,y,opponent(player),false);
@@ -108,7 +108,7 @@ void CornerCore::propose(float ** const vote, Gameboard board, int player)
     {
         for(int y = 0; y < 8; ++y)
         {
-            if(vote[x][y] < 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
+            if(vote[x][y] > 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
             {
                 Gameboard testboard = board;
                 testboard.play(x,y,opponent(player),false);
@@ -135,7 +135,7 @@ void CornerCore::correct(float ** const vote, Gameboard board, int player)
     {
         for(int y = 0; y < 8; ++y)
         {
-            if(vote[x][y] < 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
+            if(vote[x][y] > 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
             {
                 Gameboard testboard = board;
                 testboard.play(x,y,opponent(player),false);
