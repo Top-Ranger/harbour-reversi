@@ -66,7 +66,7 @@ void CenterCore::propose(float ** const vote, Gameboard board, int player)
                 }
                 else if(count > 0)
                 {
-                    vote[x][y] = 1 / (4-count);
+                    vote[x][y] = 1 / (5-count);
                 }
             }
         }
