@@ -27,35 +27,26 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef ASSEMBLYAIPLAYER_H
-#define ASSEMBLYAIPLAYER_H
+#ifndef GREEDYCORE_H
+#define GREEDYCORE_H
 
-#include "player.h"
-#include "AssemblyAIPlayer/core.h"
-#include <QList>
+#include "core.h"
 
-class AssemblyAIPlayer : public Player
+class GreedyCore : public Core
 {
 public:
-    explicit AssemblyAIPlayer(QObject *parent = 0);
-    ~AssemblyAIPlayer();
-    virtual void doTurn();
-    virtual bool isHuman();
-    virtual void getBoard(Gameboard board, int player);
-
-public slots:
-    virtual void humanInput(int x, int y);
+    GreedyCore();
+    virtual bool retirement(Gameboard board, int player);
+    virtual bool mistrust(float const* const* const vote, Gameboard board, int player);
+    virtual void propose(float ** const vote, Gameboard board, int player);
+    virtual void correct(float ** const vote, Gameboard board, int player);
+    virtual QString name() const;
 
 private:
-    QList<Core *> _inactiveCores;
-    Core * _activeCore;
-
-    // A core can propose a value between 0-1
-    // A core can correct a value by Core::_factorSmall or Core::_factorLarge
-    float **_vote;
-
-    static const int _maxChanges = 5;
-    static const int _neededToChange = 2;
+    // Used in retrirement, mistrust and _factorSmall
+    static const int _lowerBorder = 4;
+    // Used for _factorSmall
+    static const int _upperBorder = 8;
 };
 
-#endif // ASSEMBLYAIPLAYER_H
+#endif // GREEDYCORE_H

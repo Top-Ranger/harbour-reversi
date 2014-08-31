@@ -72,7 +72,7 @@ bool CornerCore::mistrust(float const* const* const vote, Gameboard board, int p
             if(vote[x][y] > 0 && ((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
             {
                 Gameboard testboard = board;
-                testboard.play(x,y,opponent(player),false);
+                testboard.play(x,y,player,false);
                 if(!(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true)))
                 {
                     return true;
