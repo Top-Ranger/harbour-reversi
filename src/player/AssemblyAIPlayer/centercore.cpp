@@ -1,6 +1,5 @@
 #include "centercore.h"
 #include "assemblyaihelper.h"
-#include "QDebug"
 
 CenterCore::CenterCore()
 {
