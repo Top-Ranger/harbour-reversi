@@ -25,18 +25,37 @@ bool CenterCore::retirement(Gameboard board, int player)
 bool CenterCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     int count = 0;
-    for(int x = 2; x <=5; ++x)
+    int n = 0;
+    for(int x = 0; x < 8; ++x)
     {
-        for(int y = 2; y <= 5; ++y)
+        for(int y = 0; y < 8; ++y)
         {
-            if(board.owner(x,y) == player)
+            if(vote[x][y] > 0 && board.play(x,y,player,true))
             {
-                ++count;
+                ++n;
+                Gameboard testboard = board;
+                testboard.play(x,y,player,false);
+                for(int xi = 2; xi <=5; ++xi)
+                {
+                    for(int yi = 2; yi <= 5; ++yi)
+                    {
+                        if(testboard.owner(xi,yi) == player)
+                        {
+                            ++count;
+                        }
+                    }
+                }
             }
         }
     }
-
-    return count <= 2;
+    if(n > 0)
+    {
+        return (count/n) <= 2;
+    }
+    else
+    {
+        return true;
+    }
 }
 
 void CenterCore::propose(float ** const vote, Gameboard board, int player)
