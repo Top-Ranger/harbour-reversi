@@ -35,6 +35,7 @@
 #include "AssemblyAIPlayer/cornercore.h"
 #include "AssemblyAIPlayer/centercore.h"
 #include "AssemblyAIPlayer/greedycore.h"
+#include "AssemblyAIPlayer/edgecore.h"
 
 #include <QDebug>
 #include <QTime>
@@ -57,6 +58,7 @@ AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     _inactiveCores.append(new CornerCore());
     _inactiveCores.append(new CenterCore());
     _inactiveCores.append(new GreedyCore());
+    _inactiveCores.append(new EdgeCore());
 
     int activeCoreIndex = qrand()%_inactiveCores.length();
     _activeCore = _inactiveCores[activeCoreIndex];
