@@ -30,11 +30,7 @@
 <context>
     <name>CornerRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/cornerrule.cpp" line="97"/>
-=======
         <location filename="../player/rules/cornerrule.cpp" line="97"/>
->>>>>>> master
         <source>Corner Rule</source>
         <translation>Eck-Regel</translation>
     </message>
@@ -42,11 +38,7 @@
 <context>
     <name>EndgameRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/endgamerule.cpp" line="73"/>
-=======
         <location filename="../player/rules/endgamerule.cpp" line="76"/>
->>>>>>> master
         <source>Endgame Rule</source>
         <translation>Endgame-Regel</translation>
     </message>
@@ -54,11 +46,7 @@
 <context>
     <name>FewerFrontierDiscsRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/fewerfrontierdiscsrule.cpp" line="116"/>
-=======
         <location filename="../player/rules/fewerfrontierdiscsrule.cpp" line="122"/>
->>>>>>> master
         <source>Fewer Frontier Discs Rule</source>
         <translation>Weniger Frontsteine-Regel</translation>
     </message>
@@ -79,11 +67,7 @@
 <context>
     <name>GreedyRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/greedyrule.cpp" line="82"/>
-=======
         <location filename="../player/rules/greedyrule.cpp" line="82"/>
->>>>>>> master
         <source>Greedy Rule</source>
         <translation>Geiz-Regel</translation>
     </message>
@@ -91,11 +75,7 @@
 <context>
     <name>MaximiseOwnMovementRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/maximiseownmovementrule.cpp" line="123"/>
-=======
         <location filename="../player/rules/maximiseownmovementrule.cpp" line="128"/>
->>>>>>> master
         <source>Maximise Own Movement Rule</source>
         <translation>Mehr eigene Züge-Regel</translation>
     </message>
@@ -103,11 +83,7 @@
 <context>
     <name>MinimiseOpponentMovementRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/minimiseopponentmovementrule.cpp" line="124"/>
-=======
         <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="129"/>
->>>>>>> master
         <source>Minimise Opponent Movement Rule</source>
         <translation>Weniger gegnerische Züge-Regel</translation>
     </message>
@@ -115,11 +91,7 @@
 <context>
     <name>OpeningRule</name>
     <message>
-<<<<<<< HEAD
-        <location filename="rules/openingrule.cpp" line="112"/>
-=======
         <location filename="../player/rules/openingrule.cpp" line="117"/>
->>>>>>> master
         <source>Opening Rule</source>
         <translation>Eröffnungs-Regel</translation>
     </message>
