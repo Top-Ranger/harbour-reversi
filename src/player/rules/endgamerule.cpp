@@ -27,27 +27,56 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef MAXIMISEOWNMOVEMENTRULE_H
-#define MAXIMISEOWNMOVEMENTRULE_H
+#include "endgamerule.h"
+#include "greedyrule.h"
+#include "rulehelper.h"
 
-#include "rule.h"
+using RuleHelper::opponent;
 
-class MaximiseOwnMovementRule : public Rule
+const int EndgameRule::_borderDiscs;
+
+EndgameRule::EndgameRule(QObject *parent) :
+    Rule(parent)
 {
-    Q_OBJECT
-public:
-    explicit MaximiseOwnMovementRule(QObject *parent = 0);
-    virtual bool applicable(Gameboard board, int player);
-    virtual void doTurn(Gameboard board, int player);
-    virtual QString name();
+}
 
-private:
-    bool canTakeCorner(Gameboard board, int player);
-    bool canGetZeroDiscs(Gameboard board, int player);
-    int _x;
-    int _y;
-    bool _asked;
-    static const int _borderMoves = 15;
-};
+bool EndgameRule::applicable(Gameboard board, int player)
+{
+    return (board.points(player) + board.points(opponent(player))) >= _borderDiscs;
+}
 
-#endif // MAXIMISEOWNMOVEMENTRULE_H
+void EndgameRule::doTurn(Gameboard board, int player)
+{
+    // Find plays where the opponent can't do anything after that
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            Gameboard temp = board;
+            if(temp.play(x,y,player) && temp.isTurnPossible(opponent(player)))
+            {
+                emit turn(x,y);
+                return;
+            }
+        }
+    }
+
+    //TODO: BETTER RULES
+
+    //If everything fails do a greedy rule
+    GreedyRule fallback;
+    QObject::connect(&fallback,SIGNAL(turn(int,int)),this,SLOT(getTurn(int,int)));
+    fallback.doTurn(board,player);
+    QObject::disconnect(&fallback,SIGNAL(turn(int,int)),this,SLOT(getTurn(int,int)));
+
+}
+
+QString EndgameRule::name()
+{
+    return tr("Endgame Rule");
+}
+
+void EndgameRule::getTurn(int x, int y)
+{
+    emit turn(x,y);
+}

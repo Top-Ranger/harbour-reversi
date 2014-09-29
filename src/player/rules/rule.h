@@ -27,27 +27,23 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef MINIMISEOPPONENTMOVEMENTRULE_H
-#define MINIMISEOPPONENTMOVEMENTRULE_H
+#ifndef RULE_H
+#define RULE_H
 
-#include "rule.h"
+#include <QObject>
+#include "../../core/gameboard.h"
 
-class MinimiseOpponentMovementRule : public Rule
+class Rule : public QObject
 {
     Q_OBJECT
 public:
-    explicit MinimiseOpponentMovementRule(QObject *parent = 0);
-    virtual bool applicable(Gameboard board, int player);
-    virtual void doTurn(Gameboard board, int player);
-    virtual QString name();
+    explicit Rule(QObject *parent = 0);
+    virtual bool applicable(Gameboard board, int player) = 0;
+    virtual void doTurn(Gameboard board, int player) = 0;
+    virtual QString name() = 0;
 
-private:
-    bool canTakeCorner(Gameboard board, int player);
-    bool canGetZeroDiscs(Gameboard board, int player);
-    int _x;
-    int _y;
-    bool _asked;
-    static const int _borderMoves = 8; // 8
+signals:
+    void turn(int x, int y);
 };
 
-#endif // MINIMISEOPPONENTMOVEMENTRULE_H
+#endif // RULE_H

@@ -27,28 +27,25 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef RULE_H
-#define RULE_H
+#ifndef MAXIMISEOWNMOVEMENTRULE_H
+#define MAXIMISEOWNMOVEMENTRULE_H
 
-#include <QObject>
-#include "../core/gameboard.h"
+#include "rule.h"
 
-class Rule : public QObject
+class MaximiseOwnMovementRule : public Rule
 {
     Q_OBJECT
 public:
-    explicit Rule(QObject *parent = 0);
-    virtual bool applicable(Gameboard board, int player) = 0;
-    virtual void doTurn(Gameboard board, int player) = 0;
-    virtual QString name() = 0;
+    explicit MaximiseOwnMovementRule(QObject *parent = 0);
+    virtual bool applicable(Gameboard board, int player);
+    virtual void doTurn(Gameboard board, int player);
+    virtual QString name();
 
-signals:
-    void turn(int x, int y);
-
-public slots:
-
-protected:
-    virtual int opponent(int player);
+private:
+    int _x;
+    int _y;
+    bool _asked;
+    static const int _borderMoves = 15;
 };
 
-#endif // RULE_H
+#endif // MAXIMISEOWNMOVEMENTRULE_H

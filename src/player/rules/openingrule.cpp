@@ -28,8 +28,13 @@
 */
 
 #include "openingrule.h"
+#include "rulehelper.h"
 #include <limits>
 #include <QTime>
+
+using RuleHelper::isFrontierDisc;
+using RuleHelper::canGetZeroDiscs;
+using RuleHelper::opponent;
 
 const int OpeningRule::_borderDiscs;
 const int OpeningRule::_valueCenter;
@@ -150,49 +155,4 @@ int OpeningRule::calculateScore(Gameboard board, int player)
     }
 
     return score;
-}
-
-bool OpeningRule::isFrontierDisc(Gameboard board, int x, int y)
-{
-    if(board.owner(x,y) == 0)
-    {
-        return false;
-    }
-
-    for(int deltax=-1; deltax<=1; ++deltax)
-    {
-        for(int deltay=-1; deltay<=1; ++deltay)
-        {
-            if(deltax != 0 || deltay != 0)
-            {
-                if((x+deltax >= 0) && (y+deltay >= 0) && (x+deltax <= 7) && (y+deltay <= 7))
-                {
-                    if(board.owner(x+deltax,y+deltay) == 0)
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-    return false;
-}
-
-bool OpeningRule::canGetZeroDiscs(Gameboard board, int player)
-{
-    for(int x = 0; x < 8; ++x)
-    {
-        for(int y = 0; y < 8; ++y)
-        {
-            Gameboard testboard = board;
-            if(testboard.play(x,y,opponent(player)))
-            {
-                if(testboard.points(player) == 0)
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
 }

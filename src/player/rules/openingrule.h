@@ -27,14 +27,27 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#ifndef OPENINGRULE_H
+#define OPENINGRULE_H
+
 #include "rule.h"
 
-Rule::Rule(QObject *parent) :
-    QObject(parent)
+class OpeningRule : public Rule
 {
-}
+    Q_OBJECT
+public:
+    explicit OpeningRule(QObject *parent = 0);
+    virtual bool applicable(Gameboard board, int player);
+    virtual void doTurn(Gameboard board, int player);
+    virtual QString name();
 
-int Rule::opponent(int player)
-{
-    return player==1?2:1;
-}
+private:
+    int calculateScore(Gameboard board, int player);
+
+    static const int _borderDiscs = 16;
+    static const int _valueCenter = 5;
+    static const int _factorDistribution = 5;
+    static const int _valueFrontierDisc = 10;
+};
+
+#endif // OPENINGRULE_H

@@ -27,13 +27,18 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "maximiseownmovementrule.h"
+#include "minimiseopponentmovementrule.h"
+#include "rulehelper.h"
 #include <QDebug>
 #include <QTime>
 
-const int MaximiseOwnMovementRule::_borderMoves;
+using RuleHelper::canTakeCorner;
+using RuleHelper::canGetZeroDiscs;
+using RuleHelper::opponent;
 
-MaximiseOwnMovementRule::MaximiseOwnMovementRule(QObject *parent) :
+const int MinimiseOpponentMovementRule::_borderMoves;
+
+MinimiseOpponentMovementRule::MinimiseOpponentMovementRule(QObject *parent) :
     Rule(parent),
     _x(-1),
     _y(-1),
@@ -42,15 +47,16 @@ MaximiseOwnMovementRule::MaximiseOwnMovementRule(QObject *parent) :
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
-bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)
+bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
 {
-    int max = -1;
+    int min = 100;
     int x = qrand()%8;
     int y = qrand()%8;
     int xstart = x;
     int ystart = y;
-    int xmax = -1;
-    int ymax = -1;
+    int xmin = -1;
+    int ymin = -1;
+    int opponentPlayer = opponent(player);
     Gameboard testboard;
 
     do
@@ -63,22 +69,22 @@ bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)
             {
                 int temp = 0;
 
-                for(int newX = 0; newX < 8; ++newX)
+                for(int opponentX = 0; opponentX < 8; ++opponentX)
                 {
-                    for(int newY = 0; newY < 8; ++newY)
+                    for(int opponentY = 0; opponentY < 8; ++opponentY)
                     {
-                        if(testboard.play(newX, newY,player,true))
+                        if(testboard.play(opponentX, opponentY,opponentPlayer,true))
                         {
                             ++temp;
                         }
                     }
                 }
 
-                if(temp > max && (!canTakeCorner(testboard, opponent(player))) && (!canGetZeroDiscs(testboard,player)))
+                if(temp < min && (!canTakeCorner(testboard, opponent(player))) && (!canGetZeroDiscs(testboard,player)))
                 {
-                    max = temp;
-                    xmax = x;
-                    ymax = y;
+                    min = temp;
+                    xmin = x;
+                    ymin = y;
                 }
             }
 
@@ -88,10 +94,10 @@ bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    if(max >= _borderMoves)
+    if(min <= _borderMoves)
     {
-        _x = xmax;
-        _y = ymax;
+        _x = xmin;
+        _y = ymin;
         _asked = true;
     }
     else
@@ -103,7 +109,7 @@ bool MaximiseOwnMovementRule::applicable(Gameboard board, int player)
     return _asked;
 }
 
-void MaximiseOwnMovementRule::doTurn(Gameboard board, int player)
+void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
 {
     if(_asked)
     {
@@ -114,54 +120,11 @@ void MaximiseOwnMovementRule::doTurn(Gameboard board, int player)
     }
     else
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": MaximiseOwnMovementRule::applicable(Gameboard board, int player) was not called";
+        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": MinimiseOpponentMovementRule::applicable(Gameboard board, int player) was not called";
     }
 }
 
-QString MaximiseOwnMovementRule::name()
+QString MinimiseOpponentMovementRule::name()
 {
-    return tr("Maximise Own Movement Rule");
-}
-
-bool MaximiseOwnMovementRule::canTakeCorner(Gameboard board, int player)
-{
-    if(board.play(0,0,player,true))
-    {
-        return true;
-    }
-    else if(board.play(0,7,player,true))
-    {
-        return true;
-    }
-    else if(board.play(7,0,player,true))
-    {
-        return true;
-    }
-    else if(board.play(7,7,player,true))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-bool MaximiseOwnMovementRule::canGetZeroDiscs(Gameboard board, int player)
-{
-    for(int x = 0; x < 8; ++x)
-    {
-        for(int y = 0; y < 8; ++y)
-        {
-            Gameboard testboard = board;
-            if(testboard.play(x,y,opponent(player)))
-            {
-                if(testboard.points(player) == 0)
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
+    return tr("Minimise Opponent Movement Rule");
 }
