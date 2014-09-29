@@ -29,6 +29,9 @@
 
 #include "endgamerule.h"
 #include "greedyrule.h"
+#include "rulehelper.h"
+
+using RuleHelper::opponent;
 
 const int EndgameRule::_borderDiscs;
 

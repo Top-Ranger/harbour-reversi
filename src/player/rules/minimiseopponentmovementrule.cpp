@@ -28,8 +28,13 @@
 */
 
 #include "minimiseopponentmovementrule.h"
+#include "rulehelper.h"
 #include <QDebug>
 #include <QTime>
+
+using RuleHelper::canTakeCorner;
+using RuleHelper::canGetZeroDiscs;
+using RuleHelper::opponent;
 
 const int MinimiseOpponentMovementRule::_borderMoves;
 
@@ -122,47 +127,4 @@ void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
 QString MinimiseOpponentMovementRule::name()
 {
     return tr("Minimise Opponent Movement Rule");
-}
-
-bool MinimiseOpponentMovementRule::canTakeCorner(Gameboard board, int player)
-{
-    if(board.play(0,0,player,true))
-    {
-        return true;
-    }
-    else if(board.play(0,7,player,true))
-    {
-        return true;
-    }
-    else if(board.play(7,0,player,true))
-    {
-        return true;
-    }
-    else if(board.play(7,7,player,true))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-bool MinimiseOpponentMovementRule::canGetZeroDiscs(Gameboard board, int player)
-{
-    for(int x = 0; x < 8; ++x)
-    {
-        for(int y = 0; y < 8; ++y)
-        {
-            Gameboard testboard = board;
-            if(testboard.play(x,y,opponent(player)))
-            {
-                if(testboard.points(player) == 0)
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
 }

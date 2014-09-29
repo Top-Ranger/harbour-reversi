@@ -32,7 +32,11 @@
 
 #include <QList>
 #include "player.h"
+<<<<<<< HEAD
 #include "rules/rule.h"
+=======
+#include "../player/rules/rule.h"
+>>>>>>> master
 
 class StaticRuleAIPlayer : public Player
 {

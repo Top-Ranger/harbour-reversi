@@ -40,11 +40,6 @@ public:
     virtual bool applicable(Gameboard board, int player);
     virtual void doTurn(Gameboard board, int player);
     virtual QString name();
-
-private:
-    bool isFrontierDisc(Gameboard board, int x, int y);
-    bool canTakeCorner(Gameboard board, int player);
-    bool canGetZeroDiscs(Gameboard board, int player);
 };
 
 #endif // FEWERFRONTIERDISCSRULE_H

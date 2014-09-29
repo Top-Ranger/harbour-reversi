@@ -43,8 +43,6 @@ public:
 
 private:
     int calculateScore(Gameboard board, int player);
-    bool isFrontierDisc(Gameboard board, int x, int y);
-    bool canGetZeroDiscs(Gameboard board, int player);
 
     static const int _borderDiscs = 16;
     static const int _valueCenter = 5;

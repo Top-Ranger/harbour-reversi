@@ -44,11 +44,6 @@ public:
 
 signals:
     void turn(int x, int y);
-
-public slots:
-
-protected:
-    virtual int opponent(int player);
 };
 
 #endif // RULE_H

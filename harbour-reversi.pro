@@ -37,6 +37,7 @@ SOURCES += src/uiconnection.cpp \
     src/player/adaptivetreeaiplayer.cpp \
     src/persistenceclass.cpp \
     src/player/controlaiplayer.cpp \
+<<<<<<< HEAD
     src/player/assemblyaiplayer.cpp \
     src/player/AssemblyAIPlayer/core.cpp \
     src/player/AssemblyAIPlayer/insanecore.cpp \
@@ -45,6 +46,9 @@ SOURCES += src/uiconnection.cpp \
     src/player/AssemblyAIPlayer/centercore.cpp \
     src/player/AssemblyAIPlayer/greedycore.cpp \
     src/player/AssemblyAIPlayer/edgecore.cpp
+=======
+    src/player/rules/rulehelper.cpp
+>>>>>>> master
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -116,6 +120,7 @@ HEADERS += \
     src/player/adaptivetreeaiplayer.h \
     src/persistenceclass.h \
     src/player/controlaiplayer.h \
+<<<<<<< HEAD
     src/player/assemblyaiplayer.h \
     src/player/AssemblyAIPlayer/core.h \
     src/player/AssemblyAIPlayer/insanecore.h \
@@ -124,6 +129,9 @@ HEADERS += \
     src/player/AssemblyAIPlayer/centercore.h \
     src/player/AssemblyAIPlayer/greedycore.h \
     src/player/AssemblyAIPlayer/edgecore.h
+=======
+    src/player/rules/rulehelper.h
+>>>>>>> master
 
 RESOURCES += \
     src/translation/core-translation.qrc \
