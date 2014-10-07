@@ -35,6 +35,37 @@ using RuleHelper::opponent;
 
 const int EndgameRule::_borderDiscs;
 
+namespace {
+int amountDiscsCanGet(Gameboard board, int player, int x_orig, int y_orig)
+{
+    int count = 0;
+
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            if(board.owner(x,y) == player)
+            {
+                --count;
+            }
+        }
+    }
+
+    board.play(x_orig,y_orig,player);
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            if(board.owner(x,y) == player)
+            {
+                ++count;
+            }
+        }
+    }
+    return count;
+}
+}
+
 EndgameRule::EndgameRule(QObject *parent) :
     Rule(parent)
 {
@@ -53,7 +84,7 @@ void EndgameRule::doTurn(Gameboard board, int player)
         for(int y = 0; y < 8; ++y)
         {
             Gameboard temp = board;
-            if(temp.play(x,y,player) && temp.isTurnPossible(opponent(player)))
+            if(temp.play(x,y,player) && !temp.isTurnPossible(opponent(player)))
             {
                 emit turn(x,y);
                 return;
@@ -61,7 +92,50 @@ void EndgameRule::doTurn(Gameboard board, int player)
         }
     }
 
-    //TODO: BETTER RULES
+    //Get the most discs while letting the opponent get few discs
+    int max = -1000;
+    int x_turn = -1;
+    int y_turn = -1;
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            if(board.play(x,y,player,true))
+            {
+                int count = amountDiscsCanGet(board,player,x,y);
+                Gameboard testboard = board;
+                testboard.play(x,y,player,false);
+                int countOpponent = -1;
+                for(int xi = 0; xi < 8; ++xi)
+                {
+                    for(int yi = 0; yi < 8; ++yi)
+                    {
+                        if(testboard.play(xi,yi,opponent(player),true))
+                        {
+                            int temp = amountDiscsCanGet(testboard,opponent(player),xi,yi);
+                            if(temp > countOpponent)
+                            {
+                                countOpponent = temp;
+                            }
+                        }
+                    }
+                }
+                count -= countOpponent;
+                if(count > max)
+                {
+                    max = count;
+                    x_turn = x;
+                    y_turn = y;
+                }
+            }
+        }
+    }
+
+    if(!(max == -1000 || x_turn == -1 || y_turn == -1))
+    {
+        emit turn(x_turn,y_turn);
+        return;
+    }
 
     //If everything fails do a greedy rule
     GreedyRule fallback;
