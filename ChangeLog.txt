@@ -1,5 +1,6 @@
 Current development:
    * Improved "Static Rule AI"
+   * Internal cleanup
 
 Version 1.1:
    * Added "Restart game" button
