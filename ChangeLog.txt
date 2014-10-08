@@ -1,5 +1,6 @@
 Current development:
    * Improved "Static Rule AI"
+   * Fixed a bug in "Tree AI" and "Adaptive Tree AI"
    * Internal cleanup
 
 Version 1.1:

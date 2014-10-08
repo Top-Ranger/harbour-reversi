@@ -185,11 +185,11 @@ float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int oppon
 
     if(board.points(I) > board.points(opponent(I)))
     {
-        score += _factorRatio * (board.points(I)/board.points(opponent(I)));
+        score += _factorRatio * (board.points(I)/(board.points(opponent(I))+1));
     }
     else if(board.points(I) < board.points(opponent(I)))
     {
-        score -= _factorRatio * (board.points(I)/board.points(opponent(I)));
+        score -= _factorRatio * (board.points(I)/(board.points(opponent(I))+1));
     }
 
     if(board.owner(0,0) == I)
