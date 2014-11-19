@@ -54,7 +54,7 @@ private:
     // A core can correct a value by Core::_factorSmall or Core::_factorLarge
     float **_vote;
 
-    static const int _maxChanges = 5;
+    static const int _maxChanges = 10;
     static const int _neededToChange = 1;
 };
 
