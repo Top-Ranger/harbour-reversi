@@ -133,7 +133,6 @@ void CenterCore::correct(float ** const vote, Gameboard board, int player)
             }
         }
     }
-    AssemblyAI::ensureOnePossibleMove(vote,board,player);
 }
 
 QString CenterCore::name() const
