@@ -102,14 +102,16 @@ void MovementCore::correct(float ** const vote, Gameboard board, int player)
                     break;
                 case 3:
                 case 4:
+                case 5:
                     vote[x][y] /= Core::_factorSmall;
                     break;
-                case 5:
                 case 6:
                 case 7:
-                    break;
                 case 8:
+                    break;
                 case 9:
+                case 10:
+                case 11:
                     vote[x][y] *= Core::_factorSmall;
                     break;
                 default:
