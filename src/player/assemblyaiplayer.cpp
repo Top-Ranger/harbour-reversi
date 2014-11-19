@@ -37,6 +37,7 @@
 #include "AssemblyAIPlayer/greedycore.h"
 #include "AssemblyAIPlayer/edgecore.h"
 #include "AssemblyAIPlayer/frontierdiscscore.h"
+#include "AssemblyAIPlayer/movementcore.h"
 
 #include <QDebug>
 #include <QTime>
@@ -61,6 +62,7 @@ AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     _inactiveCores.append(new GreedyCore());
     _inactiveCores.append(new EdgeCore());
     _inactiveCores.append(new FrontierDiscsCore());
+    _inactiveCores.append(new MovementCore());
 
     int activeCoreIndex = qrand()%_inactiveCores.length();
     _activeCore = _inactiveCores[activeCoreIndex];

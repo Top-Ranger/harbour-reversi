@@ -46,7 +46,8 @@ SOURCES += src/uiconnection.cpp \
     src/player/AssemblyAIPlayer/greedycore.cpp \
     src/player/AssemblyAIPlayer/edgecore.cpp \
     src/player/rules/rulehelper.cpp \
-    src/player/AssemblyAIPlayer/frontierdiscscore.cpp
+    src/player/AssemblyAIPlayer/frontierdiscscore.cpp \
+    src/player/AssemblyAIPlayer/movementcore.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -127,7 +128,8 @@ HEADERS += \
     src/player/AssemblyAIPlayer/greedycore.h \
     src/player/AssemblyAIPlayer/edgecore.h \
     src/player/rules/rulehelper.h \
-    src/player/AssemblyAIPlayer/frontierdiscscore.h
+    src/player/AssemblyAIPlayer/frontierdiscscore.h \
+    src/player/AssemblyAIPlayer/movementcore.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
