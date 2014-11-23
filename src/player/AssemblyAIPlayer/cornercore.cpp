@@ -47,19 +47,19 @@ bool CornerCore::mistrust(float const* const* const vote, Gameboard board, int p
 {
     // Mistrust if you can get a corner but the proposal doesn't consider it
 
-    if(!(vote[0][0] < 0) && board.play(0,0,player,true))
+    if(!(vote[0][0] <= 0) && board.play(0,0,player,true))
     {
         return true;
     }
-    else if(!(vote[0][7] < 0) && board.play(0,7,player,true))
+    else if(!(vote[0][7] <= 0) && board.play(0,7,player,true))
     {
         return true;
     }
-    else if(!(vote[7][0] < 0) && board.play(7,0,player,true))
+    else if(!(vote[7][0] <= 0) && board.play(7,0,player,true))
     {
         return true;
     }
-    else if(!(vote[7][7] < 0) && board.play(7,7,player,true))
+    else if(!(vote[7][7] <= 0) && board.play(7,7,player,true))
     {
         return true;
     }
