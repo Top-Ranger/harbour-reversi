@@ -29,7 +29,6 @@
 
 #include "freemovecore.h"
 #include "assemblyaihelper.h"
-#include <QDebug>
 
 namespace {
 bool isFreeMovement(Gameboard board, int player, int x, int y)
