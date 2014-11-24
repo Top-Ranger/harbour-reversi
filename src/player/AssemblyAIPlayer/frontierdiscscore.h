@@ -14,10 +14,10 @@ public:
     virtual QString name() const;
 
 private:
-    static const int _borderRetirement = 10;
-    static const int _borderMistrust = 14;
-    static const int _borderSmall = 6;
-    static const int _borderLarge = 10;
+    static const int _borderRetirement = 8;
+    static const int _borderMistrust = 12;
+    static const int _borderSmall = 4;
+    static const int _borderLarge = 6;
 };
 
 #endif // FRONTIERDISCSCORE_H

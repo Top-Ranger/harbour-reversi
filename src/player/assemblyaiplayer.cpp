@@ -127,7 +127,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             int newCore = qrand()%_inactiveCores.length();
             _activeCore = _inactiveCores[newCore];
             _inactiveCores[newCore] = temp;
-            message.append(QString(tr("Electing a new active core.\n")));
+            message.append(QString(tr("Electing a new active core.\n\n")));
         }
         else
         {
@@ -162,7 +162,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
             if(test)
             {
                 ++changes;
-                message.append(QString(tr("To many have disagreed. Electing a new active core.\n")));
+                message.append(QString(tr("To many have disagreed. Electing a new active core.\n\n")));
                 Core * temp = _activeCore;
                 int newCore = qrand()%wantChange.length();
                 _activeCore = wantChange[newCore];

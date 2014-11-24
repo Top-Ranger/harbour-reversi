@@ -18,20 +18,20 @@ bool CenterCore::retirement(Gameboard board, int player)
             }
         }
     }
-    return count >= 3;
+    return count >= 2;
 }
 
 bool CenterCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
+    bool noDisc = false;
     int count = 0;
-    int n = 0;
-    for(int x = 0; x < 8; ++x)
+    for(int x = 0; x < 8 && !noDisc; ++x)
     {
-        for(int y = 0; y < 8; ++y)
+        for(int y = 0; y < 8 && !noDisc; ++y)
         {
             if(vote[x][y] > 0 && board.play(x,y,player,true))
             {
-                ++n;
+                count = 0;
                 Gameboard testboard = board;
                 testboard.play(x,y,player,false);
                 for(int xi = 2; xi <=5; ++xi)
@@ -44,17 +44,11 @@ bool CenterCore::mistrust(float const* const* const vote, Gameboard board, int p
                         }
                     }
                 }
+                noDisc = count == 0;
             }
         }
     }
-    if(n > 0)
-    {
-        return (count/n) <= 2;
-    }
-    else
-    {
-        return true;
-    }
+    return !noDisc;
 }
 
 void CenterCore::propose(float ** const vote, Gameboard board, int player)
