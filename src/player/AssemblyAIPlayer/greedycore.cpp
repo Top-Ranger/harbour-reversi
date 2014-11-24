@@ -30,6 +30,8 @@
 #include "greedycore.h"
 #include "assemblyaihelper.h"
 
+#include <QDebug>
+
 GreedyCore::GreedyCore()
 {
 }
@@ -58,6 +60,7 @@ bool GreedyCore::retirement(Gameboard board, int player)
 bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     int discsOwned = board.points(player);
+    bool canGetManyDiscs = false;
     for(int x = 0; x < 8; ++x)
     {
         for(int y = 0; y < 8; ++y)
@@ -68,12 +71,26 @@ bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int p
                 testboard.play(x,y,player,false);
                 if(testboard.points(player) >= discsOwned + _upperBorder)
                 {
-                    return true;
+                    canGetManyDiscs = true;
+                    if(vote[x][y] > 0)
+                    {
+                        qDebug() << "Plays good";
+                        return false;
+                    }
                 }
             }
         }
     }
-    return false;
+    if(canGetManyDiscs)
+    {
+        qDebug() << "plays bad";
+        return true;
+    }
+    else
+    {
+        qDebug() << "no good play";
+        return false;
+    }
 }
 
 void GreedyCore::propose(float ** const vote, Gameboard board, int player)
