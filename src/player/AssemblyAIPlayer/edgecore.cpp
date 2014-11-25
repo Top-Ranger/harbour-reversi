@@ -34,7 +34,7 @@ int countEdgeTokens(Gameboard board, int player)
     return count;
 }
 
-bool canPlayCorner(Gameboard board, int player)
+bool canPlayEdge(Gameboard board, int player)
 {
     for(int x = 0; x < 8; ++x)
     {
@@ -72,7 +72,7 @@ EdgeCore::EdgeCore()
 
 bool EdgeCore::retirement(Gameboard board, int player)
 {
-    return !canPlayCorner(board,player);
+    return !canPlayEdge(board,player);
 }
 
 bool EdgeCore::mistrust(float const* const* const vote, Gameboard board, int player)
