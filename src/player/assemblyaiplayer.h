@@ -36,6 +36,7 @@
 
 class AssemblyAIPlayer : public Player
 {
+    Q_OBJECT
 public:
     explicit AssemblyAIPlayer(QObject *parent = 0);
     ~AssemblyAIPlayer();

@@ -13,6 +13,7 @@ SOURCES += ../uiconnection.cpp \
     ../player/staticruleaiplayer.cpp \
     ../player/tutorialplayer.cpp \
     ../player/adaptivetreeaiplayer.cpp \
+    ../player/assemblyaiplayer.cpp \
     ../player/rules/rule.cpp \
     ../player/rules/greedyrule.cpp \
     ../player/rules/openingrule.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     ../player/staticruleaiplayer.h \
     ../player/tutorialplayer.h \
     ../player/adaptivetreeaiplayer.cpp \
+    ../player/assemblyaiplayer.cpp \
     ../player/rules/rule.h \
     ../player/rules/greedyrule.h \
     ../player/rules/openingrule.h \
