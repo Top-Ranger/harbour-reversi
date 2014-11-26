@@ -44,6 +44,64 @@
 #include <QDebug>
 #include <QTime>
 
+namespace {
+void clearVote(float ** const vote)
+{
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            vote[x][y] = 0;
+        }
+    }
+
+}
+
+void cornerAlert(Gameboard board, int player, float ** const vote)
+{
+    if(board.play(0,0,player,true))
+    {
+        clearVote(vote);
+        vote[0][0] = 1;
+        return;
+    }
+    else if(board.play(0,7,player,true))
+    {
+        clearVote(vote);
+        vote[0][0] = 1;
+        return;
+    }
+    else if(board.play(7,0,player,true))
+    {
+        clearVote(vote);
+        vote[0][0] = 1;
+        return;
+    }
+    else if(board.play(7,7,player,true))
+    {
+        clearVote(vote);
+        vote[0][0] = 1;
+        return;
+    }
+
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
+        {
+            if(vote[x][y] > 0 && !((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
+            {
+                Gameboard testboard = board;
+                testboard.play(x,y,player,false);
+                if(testboard.play(0,0,AssemblyAI::opponent(player),true) || testboard.play(0,7,AssemblyAI::opponent(player),true) || testboard.play(7,0,AssemblyAI::opponent(player),true) || testboard.play(7,7,AssemblyAI::opponent(player),true))
+                {
+                    vote[x][y] = 0;
+                }
+            }
+        }
+    }
+    AssemblyAI::ensureNoIllegalMove(vote, board, player);
+}
+}
 AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     Player(parent),
     _activeCore(NULL)
@@ -110,13 +168,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
     message = QString();
     bool proposal = false;
 
-    for(int x = 0; x < 8; ++x)
-    {
-        for(int y = 0; y < 8; ++y)
-        {
-            _vote[x][y] = 0;
-        }
-    }
+    clearVote(_vote);
 
     do {
         proposal = false;
@@ -135,13 +187,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
         {
             QList<Core *> wantChange;
 
-            for(int x = 0; x < 8; ++x)
-            {
-                for(int y = 0; y < 8; ++y)
-                {
-                    _vote[x][y] = 0;
-                }
-            }
+            clearVote(_vote);
 
             _activeCore->propose(_vote, board, player);
             proposal = true;
@@ -184,13 +230,8 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
 
     if(!proposal)
     {
-        for(int x = 0; x < 8; ++x)
-        {
-            for(int y = 0; y < 8; ++y)
-            {
-                _vote[x][y] = 0;
-            }
-        }
+        clearVote(_vote);
+
         _activeCore->propose(_vote, board, player);
     }
 
@@ -205,6 +246,16 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
     int yTurn = -1;
     float max = 0;
 
+    if(changes < _maxChanges)
+    {
+        message.append(tr("A solution has been found."));
+    }
+    else
+    {
+        message.append(tr("Too many new elections, now using %1 to find a solution.\nNo good solution has been found, using the next available.").arg(_activeCore->name()));
+        cornerAlert(board, player, _vote);
+    }
+
     for(int x = 0; x < 8; ++x)
     {
         for(int y = 0; y < 8; ++y)
@@ -216,15 +267,6 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
                 yTurn = y;
             }
         }
-    }
-
-    if(changes < _maxChanges)
-    {
-        message.append(tr("A solution has been found."));
-    }
-    else
-    {
-        message.append(tr("Too many new elections, now using %1 to find a solution.\nNo good solution has been found, using the next available.").arg(_activeCore->name()));
     }
 
     if(xTurn == -1 || yTurn == -1 || board.play(xTurn, yTurn, player, true) == false)
