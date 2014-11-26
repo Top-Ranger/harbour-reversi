@@ -20,13 +20,15 @@
         <location filename="../player/assemblyaiplayer.cpp" line="123"/>
         <source>%1 is the current active core.
 </source>
-        <translation>%1 is the current active core.</translation>
+        <translation>%1 is the current active core.
+</translation>
     </message>
     <message>
         <location filename="../player/assemblyaiplayer.cpp" line="127"/>
         <source>%1 retires.
 </source>
-        <translation>%1 retires.</translation>
+        <translation>%1 retires.
+</translation>
     </message>
     <message>
         <location filename="../player/assemblyaiplayer.cpp" line="132"/>
@@ -34,25 +36,29 @@
 
 </source>
         <translation>Electing a new active core.
+
 </translation>
     </message>
     <message>
         <location filename="../player/assemblyaiplayer.cpp" line="148"/>
         <source>%1 makes a proposal.
 </source>
-        <translation>%1 makes a proposal.</translation>
+        <translation>%1 makes a proposal.
+</translation>
     </message>
     <message>
         <location filename="../player/assemblyaiplayer.cpp" line="154"/>
         <source>%1 doesn&apos;t agree.
 </source>
-        <translation>%1 doesn&apos;t agree.</translation>
+        <translation>%1 doesn&apos;t agree.
+</translation>
     </message>
     <message>
         <location filename="../player/assemblyaiplayer.cpp" line="159"/>
         <source>%1 agrees.
 </source>
-        <translation>%1 agrees.</translation>
+        <translation>%1 agrees.
+</translation>
     </message>
     <message>
         <location filename="../player/assemblyaiplayer.cpp" line="167"/>
@@ -60,6 +66,7 @@
 
 </source>
         <translation>To many have disagreed. Electing a new active core.
+
 </translation>
     </message>
     <message>
