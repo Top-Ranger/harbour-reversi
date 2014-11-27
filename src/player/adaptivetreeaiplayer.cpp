@@ -30,7 +30,6 @@
 #include "adaptivetreeaiplayer.h"
 #include <QTime>
 #include <limits>
-#include <QDebug>
 
 AdaptiveTreeAIPlayer::AdaptiveTreeAIPlayer(QObject *parent) :
     Player(parent),
@@ -908,13 +907,6 @@ void AdaptiveTreeAIPlayer::adjustFactors(Gameboard board, int x, int y, int oppo
     {
         _lonely = _lowerBound;
     }
-
-    qDebug() << "_fewerFrontierDiscs = " << _fewerFrontierDiscs;
-    qDebug() << "_fewerMoves = " << _fewerMoves;
-    qDebug() << "_moreOwnMoves = " << _moreOwnMoves;
-    qDebug() << "_greedy = " << _greedy;
-    qDebug() << "_edge = " << _edge;
-    qDebug() << "_lonely = " << _lonely;
 }
 
 float AdaptiveTreeAIPlayer::calculateFactor(Gameboard board, int x, int y, int opponentValue)

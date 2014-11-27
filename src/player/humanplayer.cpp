@@ -28,7 +28,6 @@
 */
 
 #include "humanplayer.h"
-#include <QDebug>
 
 HumanPlayer::HumanPlayer(QObject *parent) :
     Player(parent)
@@ -38,7 +37,6 @@ HumanPlayer::HumanPlayer(QObject *parent) :
 
 void HumanPlayer::doTurn()
 {
-    qDebug() << QString("HumanPlayer waiting for input, active is %1").arg(_active);
     emit awaitsHuman();
 }
 
@@ -53,10 +51,8 @@ void HumanPlayer::getBoard(Gameboard board, int player)
 
 void HumanPlayer::humanInput(int x, int y)
 {
-    qDebug() << QString("HumanPlayer is getting %1 + %2").arg(x).arg(y);
     if(Player::_active)
     {
-        qDebug() << QString("HumanPlayer is playing %1 + %2").arg(x).arg(y);
         emit turn(x,y);
     }
 }
