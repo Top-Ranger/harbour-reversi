@@ -30,8 +30,6 @@
 #include "greedycore.h"
 #include "assemblyaihelper.h"
 
-#include <QDebug>
-
 GreedyCore::GreedyCore()
 {
 }
@@ -74,7 +72,6 @@ bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int p
                     canGetManyDiscs = true;
                     if(vote[x][y] > 0)
                     {
-                        qDebug() << "Plays good";
                         return false;
                     }
                 }
@@ -83,12 +80,10 @@ bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int p
     }
     if(canGetManyDiscs)
     {
-        qDebug() << "plays bad";
         return true;
     }
     else
     {
-        qDebug() << "no good play";
         return false;
     }
 }
