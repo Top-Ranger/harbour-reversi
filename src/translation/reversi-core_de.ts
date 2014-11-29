@@ -17,21 +17,21 @@
 <context>
     <name>AssemblyAIPlayer</name>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="123"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="175"/>
         <source>%1 is the current active core.
 </source>
         <translation>%1 ist aktiv.
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="127"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="179"/>
         <source>%1 retires.
 </source>
         <translation>%1 zieht sich zurück.
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="132"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="184"/>
         <source>Electing a new active core.
 
 </source>
@@ -40,28 +40,28 @@
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="148"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="194"/>
         <source>%1 makes a proposal.
 </source>
         <translation>%1 macht einen Vorschlag.
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="154"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="200"/>
         <source>%1 doesn&apos;t agree.
 </source>
         <translation>%1 stimmt nicht zu.
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="159"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="205"/>
         <source>%1 agrees.
 </source>
         <translation>%1 stimmt zu.
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="167"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="213"/>
         <source>To many have disagreed. Electing a new active core.
 
 </source>
@@ -70,19 +70,19 @@
 </translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="223"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="251"/>
         <source>A solution has been found.</source>
         <translation>Es gab eine Einigung.</translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="227"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="255"/>
         <source>Too many new elections, now using %1 to find a solution.
 No good solution has been found, using the next available.</source>
         <translation>Zu viele Neuwahlen, daher wird %1 die Lösung bestimmen.
 Keine gute Lösung gefunden, nutze die bestmögliche.</translation>
     </message>
     <message>
-        <location filename="../player/assemblyaiplayer.cpp" line="232"/>
+        <location filename="../player/assemblyaiplayer.cpp" line="274"/>
         <source>
 Something went wrong - using emergancy plan.</source>
         <translation>
