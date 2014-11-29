@@ -30,6 +30,45 @@
 #include "assemblyaihelper.h"
 #include <QDebug>
 
+namespace {
+bool findOneFreePlace(float ** const vote, Gameboard board, int player, bool ignoreOpponentCanGetCorner=true)
+{
+    int x = qrand()%8;
+    int y = qrand()%8;
+    int xstart = x;
+    int ystart = y;
+
+    do
+    {
+        do
+        {
+            if(board.play(x,y,player,true))
+            {
+                if(ignoreOpponentCanGetCorner)
+                {
+                    vote[x][y] = 1;
+                    return true;
+                }
+                else
+                {
+                    Gameboard testboard = board;
+                    board.play(x,y,player,false);
+                    if(!(testboard.play(0,0,AssemblyAI::opponent(player),true) || testboard.play(0,7,AssemblyAI::opponent(player),true) || testboard.play(7,0,AssemblyAI::opponent(player),true) || testboard.play(7,7,AssemblyAI::opponent(player),true)))
+                    {
+                        vote[x][y] = 1;
+                        return true;
+                    }
+                }
+            }
+            y = (y+1)%8;
+        }while(y != ystart);
+
+        x = (x+1)%8;
+    }while(x != xstart);
+    return false;
+}
+}
+
 void AssemblyAI::ensureOnePossibleMove(float ** const vote, Gameboard board, int player)
 {
     for(int x = 0; x < 8; ++x)
@@ -43,26 +82,35 @@ void AssemblyAI::ensureOnePossibleMove(float ** const vote, Gameboard board, int
         }
     }
 
-    int x = qrand()%8;
-    int y = qrand()%8;
-    int xstart = x;
-    int ystart = y;
-
-    do
+    if(board.play(0,0,player,true))
     {
-        do
-        {
-            if(board.play(x,y,player,true))
-            {
-                vote[x][y] = 1;
-                return;
-            }
-            y = (y+1)%8;
-        }while(y != ystart);
+        vote[0][0] = 1;
+        return;
+    }
+    else if(board.play(0,7,player,true))
+    {
+        vote[0][7] = 1;
+        return;
+    }
+    else if(board.play(7,0,player,true))
+    {
+        vote[7][0] = 1;
+        return;
+    }
+    else if(board.play(7,7,player,true))
+    {
+        vote[7][7] = 1;
+        return;
+    }
 
-        x = (x+1)%8;
-    }while(x != xstart);
-
+    if(findOneFreePlace(vote,board,player,false))
+    {
+        return;
+    }
+    if(findOneFreePlace(vote,board,player,true))
+    {
+        return;
+    }
     qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move!";
 }
 
