@@ -68,19 +68,19 @@ void cornerAlert(Gameboard board, int player, float ** const vote)
     else if(board.play(0,7,player,true))
     {
         clearVote(vote);
-        vote[0][0] = 1;
+        vote[0][7] = 1;
         return;
     }
     else if(board.play(7,0,player,true))
     {
         clearVote(vote);
-        vote[0][0] = 1;
+        vote[7][0] = 1;
         return;
     }
     else if(board.play(7,7,player,true))
     {
         clearVote(vote);
-        vote[0][0] = 1;
+        vote[7][7] = 1;
         return;
     }
 
