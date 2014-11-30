@@ -56,7 +56,7 @@ private:
     float **_vote;
 
     static const int _maxChanges = 10;
-    static const int _neededToChange = 1;
+    static const int _neededToChange = 2;
 };
 
 #endif // ASSEMBLYAIPLAYER_H

@@ -253,8 +253,9 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
     else
     {
         message.append(tr("Too many new elections, now using %1 to find a solution.\nNo good solution has been found, using the next available.").arg(_activeCore->name()));
-        cornerAlert(board, player, _vote);
     }
+
+    cornerAlert(board, player, _vote);
 
     for(int x = 0; x < 8; ++x)
     {
