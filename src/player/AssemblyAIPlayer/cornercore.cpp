@@ -138,6 +138,32 @@ void CornerCore::propose(float ** const vote, Gameboard board, int player)
         vote[7][7] = 1;
     }
 
+    // Plays around the corner are bad if the core is empty
+    if(board.owner(0,0) == 0)
+    {
+        vote[0][1] /= Core::_factorLarge;
+        vote[1][0] /= Core::_factorLarge;
+        vote[1][1] /= Core::_factorLarge;
+    }
+    if(board.owner(0,7) == 0)
+    {
+        vote[0][6] /= Core::_factorLarge;
+        vote[1][7] /= Core::_factorLarge;
+        vote[1][6] /= Core::_factorLarge;
+    }
+    if(board.owner(7,0) == 0)
+    {
+        vote[7][1] /= Core::_factorLarge;
+        vote[6][0] /= Core::_factorLarge;
+        vote[6][1] /= Core::_factorLarge;
+    }
+    if(board.owner(7,7) == 0)
+    {
+        vote[7][6] /= Core::_factorLarge;
+        vote[6][7] /= Core::_factorLarge;
+        vote[6][6] /= Core::_factorLarge;
+    }
+
     // Propose plays where the opponent can't get a corner
     for(int x = 0; x < 8; ++x)
     {

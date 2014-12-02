@@ -51,6 +51,26 @@ bool findOneFreePlace(float ** const vote, Gameboard board, int player, bool ign
                 }
                 else
                 {
+                    if(board.owner(0,0) == 0 && (( x==0 && y==1 ) || ( x==1 && y==0 ) || ( x==1 && y==1 )))
+                    {
+                        y = (y+1)%8;
+                        continue;
+                    }
+                    if(board.owner(0,7) == 0 && (( x==0 && y==6 ) || ( x==1 && y==7 ) || ( x==1 && y==6 )))
+                    {
+                        y = (y+1)%8;
+                        continue;
+                    }
+                    if(board.owner(7,0) == 0 && (( x==7 && y==1 ) || ( x==6 && y==0 ) || ( x==6 && y==1 )))
+                    {
+                        y = (y+1)%8;
+                        continue;
+                    }
+                    if(board.owner(7,7) == 0 && (( x==7 && y==6 ) || ( x==6 && y==7 ) || ( x==6 && y==6 )))
+                    {
+                        y = (y+1)%8;
+                        continue;
+                    }
                     Gameboard testboard = board;
                     board.play(x,y,player,false);
                     if(!(testboard.play(0,0,AssemblyAI::opponent(player),true) || testboard.play(0,7,AssemblyAI::opponent(player),true) || testboard.play(7,0,AssemblyAI::opponent(player),true) || testboard.play(7,7,AssemblyAI::opponent(player),true)))
