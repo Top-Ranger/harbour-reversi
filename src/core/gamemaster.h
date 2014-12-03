@@ -60,7 +60,6 @@ signals:
 public slots:
     void awaitsHuman();
     void turn(int x, int y);
-    void wantBoard();
     void message(QString message);
     void getBoardChanged();
 

@@ -1,4 +1,6 @@
 Current development:
+   * Added "Assembly AI"
+   * Internal cleanup
 
 Version 1.2:
    * Improved "Static Rule AI"

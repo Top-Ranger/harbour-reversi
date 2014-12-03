@@ -40,7 +40,12 @@ TutorialPlayer::TutorialPlayer(QObject *parent) :
 {
 }
 
-void TutorialPlayer::doTurn()
+bool TutorialPlayer::isHuman()
+{
+    return true;
+}
+
+void TutorialPlayer::doTurn(Gameboard board, int player)
 {
     ++_currentRound;
     if(_currentRound == 1)
@@ -59,19 +64,11 @@ void TutorialPlayer::doTurn()
     {
         emit sendMessage(tr("Type any position to get an evaluation"));
     }
-    emit wantBoard();
-    emit awaitsHuman();
-}
 
-bool TutorialPlayer::isHuman()
-{
-    return true;
-}
-
-void TutorialPlayer::getBoard(Gameboard board, int player)
-{
     _board = board;
     _player = player;
+
+    emit awaitsHuman();
 }
 
 void TutorialPlayer::humanInput(int x, int y)

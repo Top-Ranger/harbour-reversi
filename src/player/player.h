@@ -38,15 +38,13 @@ class Player : public QObject
     Q_OBJECT
 public:
     explicit Player(QObject *parent = 0);
-    virtual void doTurn() = 0;
     virtual bool isHuman() = 0;
     void isActive(bool active);
-    virtual void getBoard(Gameboard board, int player) = 0;
+    virtual void doTurn(Gameboard board, int player) = 0;
 
 signals:
     void awaitsHuman();
     void turn(int x, int y);
-    void wantBoard();
     void sendMessage(QString message);
 
 public slots:

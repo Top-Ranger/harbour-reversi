@@ -107,7 +107,6 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     QObject::connect(_player[0], SIGNAL(awaitsHuman()), this, SLOT(awaitsHuman()));
     QObject::connect(_player[0], SIGNAL(sendMessage(QString)), this, SLOT(message(QString)));
     QObject::connect(_player[0], SIGNAL(turn(int,int)), this, SLOT(turn(int,int)));
-    QObject::connect(_player[0], SIGNAL(wantBoard()), this, SLOT(wantBoard()));
     QObject::connect(this,SIGNAL(humanInput(int,int)),_player[0],SLOT(humanInput(int,int)));
 
     //Player 2
@@ -159,7 +158,6 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     QObject::connect(_player[1], SIGNAL(awaitsHuman()), this, SLOT(awaitsHuman()));
     QObject::connect(_player[1], SIGNAL(sendMessage(QString)), this, SLOT(message(QString)));
     QObject::connect(_player[1], SIGNAL(turn(int,int)), this, SLOT(turn(int,int)));
-    QObject::connect(_player[1], SIGNAL(wantBoard()), this, SLOT(wantBoard()));
     QObject::connect(this,SIGNAL(humanInput(int,int)),_player[1],SLOT(humanInput(int,int)));
 
     _bonus = bonus;
@@ -239,7 +237,7 @@ void Gamemaster::turn(int x, int y)
             _player[_turn-1]->isActive(true);
         }
     }
-    _player[_turn-1]->doTurn();
+    _player[_turn-1]->doTurn(*_board,_turn);
 }
 
 void Gamemaster::startGame()
@@ -255,7 +253,7 @@ void Gamemaster::startGame()
         _turn = 1;
         _player[0]->isActive(true);
         _player[1]->isActive(false);
-        _player[0]->doTurn();
+        _player[0]->doTurn(*_board,_turn);
     }
     else
     {
@@ -293,17 +291,6 @@ int Gamemaster::pointsPlayer2()
     }
 
     return _board->points(2)+_bonus;
-}
-
-void Gamemaster::wantBoard()
-{
-    if(!_initialised)
-    {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
-        return;
-    }
-
-    _player[_turn-1]->getBoard(Gameboard(*_board), _turn);
 }
 
 void Gamemaster::message(QString message)

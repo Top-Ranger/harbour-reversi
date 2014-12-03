@@ -45,17 +45,12 @@ AdaptiveTreeAIPlayer::AdaptiveTreeAIPlayer(QObject *parent) :
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
-void AdaptiveTreeAIPlayer::doTurn()
-{
-    emit wantBoard();
-}
-
 bool AdaptiveTreeAIPlayer::isHuman()
 {
     return false;
 }
 
-void AdaptiveTreeAIPlayer::getBoard(Gameboard board, int player)
+void AdaptiveTreeAIPlayer::doTurn(Gameboard board, int player)
 {
     float max = -1048576;
     int x = qrand()%8;

@@ -37,17 +37,12 @@ TreeAIPlayer::TreeAIPlayer(QObject *parent) :
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
-void TreeAIPlayer::doTurn()
-{
-    emit wantBoard();
-}
-
 bool TreeAIPlayer::isHuman()
 {
     return false;
 }
 
-void TreeAIPlayer::getBoard(Gameboard board, int player)
+void TreeAIPlayer::doTurn(Gameboard board, int player)
 {
     float max = -1048576;
     int x = qrand()%8;

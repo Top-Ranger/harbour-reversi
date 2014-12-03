@@ -51,8 +51,12 @@ ControlAIPlayer::ControlAIPlayer(QObject *parent) :
     _currentFunctions[2] = _availableFunctions[qrand() % _sizeAvailableFunctions];
 }
 
+bool ControlAIPlayer::isHuman()
+{
+    return false;
+}
 
-void ControlAIPlayer::doTurn()
+void ControlAIPlayer::doTurn(Gameboard board, int player)
 {
     // Change function
     _currentFunctions[qrand() % _sizeCurrentFunctions] = _availableFunctions[qrand() % _sizeAvailableFunctions];
@@ -77,16 +81,8 @@ void ControlAIPlayer::doTurn()
         }
     }
 
-    emit wantBoard();
-}
+    // Do actual turn
 
-bool ControlAIPlayer::isHuman()
-{
-    return false;
-}
-
-void ControlAIPlayer::getBoard(Gameboard board, int player)
-{
     int max = std::numeric_limits<int>::min();
     int x = qrand()%8;
     int y = qrand()%8;

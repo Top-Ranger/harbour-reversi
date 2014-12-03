@@ -36,7 +36,12 @@ RandomAIPlayer::RandomAIPlayer(QObject *parent) :
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
-void RandomAIPlayer::doTurn()
+bool RandomAIPlayer::isHuman()
+{
+    return false;
+}
+
+void RandomAIPlayer::doTurn(Gameboard board, int player)
 {
     int random = qrand()%10;
 
@@ -54,15 +59,6 @@ void RandomAIPlayer::doTurn()
         emit sendMessage(s);
     }
     emit turn(qrand()%8, qrand()%8);
-}
-
-bool RandomAIPlayer::isHuman()
-{
-    return false;
-}
-
-void RandomAIPlayer::getBoard(Gameboard board, int player)
-{
 }
 
 void RandomAIPlayer::humanInput(int x, int y)

@@ -38,28 +38,23 @@ BalancedAIPlayer::BalancedAIPlayer(QObject *parent) :
     QObject::connect(&_tree, SIGNAL(turn(int,int)), this, SLOT(getTurn(int,int)));
 }
 
-void BalancedAIPlayer::doTurn()
-{
-    emit wantBoard();
-}
-
 bool BalancedAIPlayer::isHuman()
 {
     return false;
 }
 
-void BalancedAIPlayer::getBoard(Gameboard board, int player)
+void BalancedAIPlayer::doTurn(Gameboard board, int player)
 {
     int modifierPlaystile = _boarderLowHigh >= (board.points(player)+board.points(player==1?2:1))?_modifierPlaystileLow:_modifierPlaystileHigh;
     if(board.points(player) >= board.points(player==1?2:1)+modifierPlaystile)
     {
         emit sendMessage(tr("Now is the time to get all discs!"));
-        _greed.getBoard(board, player);
+        _greed.doTurn(board, player);
     }
     else
     {
         emit sendMessage(tr("Maybe I should be a bit defensive"));
-        _tree.getBoard(board, player);
+        _tree.doTurn(board, player);
     }
 }
 

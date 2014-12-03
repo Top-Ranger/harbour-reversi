@@ -63,17 +63,12 @@ StaticRuleAIPlayer::~StaticRuleAIPlayer()
     }
 }
 
-void StaticRuleAIPlayer::doTurn()
-{
-    emit wantBoard();
-}
-
 bool StaticRuleAIPlayer::isHuman()
 {
     return false;
 }
 
-void StaticRuleAIPlayer::getBoard(Gameboard board, int player)
+void StaticRuleAIPlayer::doTurn(Gameboard board, int player)
 {
     QList<Rule *> ::const_iterator iterator;
     for(iterator=_rulelist.begin(); iterator != _rulelist.end();++iterator)

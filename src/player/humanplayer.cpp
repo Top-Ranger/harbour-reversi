@@ -34,19 +34,14 @@ HumanPlayer::HumanPlayer(QObject *parent) :
 {
 }
 
-
-void HumanPlayer::doTurn()
-{
-    emit awaitsHuman();
-}
-
 bool HumanPlayer::isHuman()
 {
     return true;
 }
 
-void HumanPlayer::getBoard(Gameboard board, int player)
+void HumanPlayer::doTurn(Gameboard board, int player)
 {
+    emit awaitsHuman();
 }
 
 void HumanPlayer::humanInput(int x, int y)

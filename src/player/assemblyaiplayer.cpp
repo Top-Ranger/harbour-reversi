@@ -150,17 +150,12 @@ AssemblyAIPlayer::~AssemblyAIPlayer()
     }
 }
 
-void AssemblyAIPlayer::doTurn()
-{
-    emit wantBoard();
-}
-
 bool AssemblyAIPlayer::isHuman()
 {
     return false;
 }
 
-void AssemblyAIPlayer::getBoard(Gameboard board, int player)
+void AssemblyAIPlayer::doTurn(Gameboard board, int player)
 {
     QString message;
     int changes = 0;

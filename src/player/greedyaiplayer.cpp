@@ -36,17 +36,12 @@ GreedyAIPlayer::GreedyAIPlayer(QObject *parent) :
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
-void GreedyAIPlayer::doTurn()
-{
-    emit wantBoard();
-}
-
 bool GreedyAIPlayer::isHuman()
 {
     return false;
 }
 
-void GreedyAIPlayer::getBoard(Gameboard board, int player)
+void GreedyAIPlayer::doTurn(Gameboard board, int player)
 {
     int max = -1;
     int old = board.points(player);

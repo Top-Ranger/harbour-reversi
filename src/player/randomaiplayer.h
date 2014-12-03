@@ -37,9 +37,8 @@ class RandomAIPlayer : public Player
     Q_OBJECT
 public:
     explicit RandomAIPlayer(QObject *parent = 0);
-    virtual void doTurn();
     virtual bool isHuman();
-    virtual void getBoard(Gameboard board, int player);
+    virtual void doTurn(Gameboard board, int player);
 
 public slots:
     virtual void humanInput(int x, int y);
