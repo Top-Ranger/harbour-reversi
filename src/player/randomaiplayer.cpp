@@ -58,6 +58,27 @@ void RandomAIPlayer::doTurn(Gameboard board, int player)
         }
         emit sendMessage(s);
     }
+
+    int x = qrand()%8;
+    int y = qrand()%8;
+    int xstart = x;
+    int ystart = y;
+
+    do
+    {
+        do
+        {
+            if(board.play(x,y,player,true))
+            {
+                emit turn(x,y);
+                return;
+            }
+            y = (y+1)%8;
+        }while(y != ystart);
+
+        x = (x+1)%8;
+    }while(x != xstart);
+
     emit turn(qrand()%8, qrand()%8);
 }
 
