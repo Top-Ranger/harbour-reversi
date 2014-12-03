@@ -75,7 +75,7 @@ bool EdgeCore::retirement(Gameboard board, int player)
     return !canPlayEdge(board,player);
 }
 
-bool EdgeCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int EdgeCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     int edgeOpponentNow = countEdgeTokens(board,opponent(player));
 
@@ -97,7 +97,7 @@ bool EdgeCore::mistrust(float const* const* const vote, Gameboard board, int pla
                             opponentBoard.play(xi,yi,opponent(player),false);
                             if((countEdgeTokens(opponentBoard,opponent(player)) - edgeOpponentNow) >= _boarderTokens)
                             {
-                                return true;
+                                return Core::_factorLarge;
                             }
                         }
                     }
@@ -106,7 +106,7 @@ bool EdgeCore::mistrust(float const* const* const vote, Gameboard board, int pla
         }
     }
 
-    return false;
+    return Core::_noMistrust;
 }
 
 void EdgeCore::propose(float ** const vote, Gameboard board, int player)

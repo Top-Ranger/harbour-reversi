@@ -56,7 +56,7 @@ bool FrontierDiscsCore::retirement(Gameboard board, int player)
     return countFrontierDiscs(board,player) <= _borderRetirement;
 }
 
-bool FrontierDiscsCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int FrontierDiscsCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     for(int x = 0; x < 8; ++x)
     {
@@ -68,12 +68,12 @@ bool FrontierDiscsCore::mistrust(float const* const* const vote, Gameboard board
                 testboard.play(x,y,player,false);
                 if(countFrontierDiscs(testboard, player) >= _borderMistrust)
                 {
-                    return true;
+                    return Core::_mistrustSmall;
                 }
             }
         }
     }
-    return false;
+    return Core::_noMistrust;
 }
 
 void FrontierDiscsCore::propose(float ** const vote, Gameboard board, int player)

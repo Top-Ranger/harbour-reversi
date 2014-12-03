@@ -120,7 +120,7 @@ bool AreaControlCore::retirement(Gameboard board, int player)
     return true;
 }
 
-bool AreaControlCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int AreaControlCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     for(int x = 0; x < 8; ++x)
     {
@@ -128,11 +128,11 @@ bool AreaControlCore::mistrust(float const* const* const vote, Gameboard board, 
         {
             if(vote[x][y] > 0 && countUncontrolledAreaLayer(board,player,x,y) >=1)
             {
-                return false;
+                return Core::_noMistrust;
             }
         }
     }
-    return true;
+    return Core::_mistrustSmall;
 }
 
 void AreaControlCore::propose(float ** const vote, Gameboard board, int player)

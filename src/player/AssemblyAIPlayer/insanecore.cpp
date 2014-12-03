@@ -15,9 +15,9 @@ bool InsaneCore::retirement(Gameboard board, int player)
     return (qrand()%2 == 0);
 }
 
-bool InsaneCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int InsaneCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
-    return (qrand()%60 == 0);
+    return (qrand()%60 == 0)?Core::_factorSmall:Core::_noMistrust;
 }
 
 void InsaneCore::propose(float ** const vote, Gameboard board, int player)

@@ -55,7 +55,7 @@ bool GreedyCore::retirement(Gameboard board, int player)
     return true;
 }
 
-bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int GreedyCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     int discsOwned = board.points(player);
     bool canGetManyDiscs = false;
@@ -72,7 +72,7 @@ bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int p
                     canGetManyDiscs = true;
                     if(vote[x][y] > 0)
                     {
-                        return false;
+                        return Core::_noMistrust;
                     }
                 }
             }
@@ -80,11 +80,11 @@ bool GreedyCore::mistrust(float const* const* const vote, Gameboard board, int p
     }
     if(canGetManyDiscs)
     {
-        return true;
+        return Core::_mistrustSmall;
     }
     else
     {
-        return false;
+        return Core::_noMistrust;
     }
 }
 

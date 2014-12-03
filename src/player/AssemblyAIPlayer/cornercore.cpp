@@ -78,25 +78,25 @@ bool CornerCore::retirement(Gameboard board, int player)
         return true;
 }
 
-bool CornerCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int CornerCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     // Mistrust if you can get a corner but the proposal doesn't consider it
 
     if(!(vote[0][0] <= 0) && board.play(0,0,player,true))
     {
-        return true;
+        return Core::_mistrustEmergency;
     }
     else if(!(vote[0][7] <= 0) && board.play(0,7,player,true))
     {
-        return true;
+        return Core::_mistrustEmergency;
     }
     else if(!(vote[7][0] <= 0) && board.play(7,0,player,true))
     {
-        return true;
+        return Core::_mistrustEmergency;
     }
     else if(!(vote[7][7] <= 0) && board.play(7,7,player,true))
     {
-        return true;
+        return Core::_mistrustEmergency;
     }
 
     // Mistrust if a play is proposed where the opponent could get a corner
@@ -110,12 +110,12 @@ bool CornerCore::mistrust(float const* const* const vote, Gameboard board, int p
                 testboard.play(x,y,player,false);
                 if(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true))
                 {
-                    return true;
+                    return Core::_mistrustEmergency;
                 }
             }
         }
     }
-    return false;
+    return Core::_noMistrust;
 }
 
 void CornerCore::propose(float ** const vote, Gameboard board, int player)

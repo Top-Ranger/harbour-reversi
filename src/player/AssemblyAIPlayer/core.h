@@ -38,7 +38,7 @@ class Core
 public:
     Core();
     virtual bool retirement(Gameboard board, int player) = 0;
-    virtual bool mistrust(float const* const* const vote, Gameboard board, int player) = 0;
+    virtual int mistrust(float const* const* const vote, Gameboard board, int player) = 0;
     virtual void propose(float ** const vote, Gameboard board, int player) = 0;
     virtual void correct(float ** const vote, Gameboard board, int player) = 0;
     virtual QString name() const = 0;
@@ -46,6 +46,11 @@ public:
 protected:
     static const float _factorSmall = 1.1;
     static const float _factorLarge = 1.2;
+
+    static const int _mistrustSmall = 1;
+    static const int _mistrustLarge = 3;
+    static const int _mistrustEmergency = 100;
+    static const int _noMistrust = 0;
 };
 
 // Two cores are the same if they have the same name. As there should only be one core of every type in AssemblyAIPlayer, this is a easy and cheap way of comparing cores.

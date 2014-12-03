@@ -72,7 +72,7 @@ bool FreeMoveCore::retirement(Gameboard board, int player)
     return true;
 }
 
-bool FreeMoveCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int FreeMoveCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     for(int x = 0; x < 8; ++x)
     {
@@ -80,11 +80,11 @@ bool FreeMoveCore::mistrust(float const* const* const vote, Gameboard board, int
         {
             if(vote[x][y] <= 0 && isFreeMovement(board,player,x,y))
             {
-                return true;
+                return Core::_mistrustEmergency;
             }
         }
     }
-    return false;
+    return Core::_noMistrust;
 }
 
 void FreeMoveCore::propose(float ** const vote, Gameboard board, int player)

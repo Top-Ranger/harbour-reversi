@@ -21,7 +21,7 @@ bool CenterCore::retirement(Gameboard board, int player)
     return count >= 2;
 }
 
-bool CenterCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int CenterCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     bool noDisc = false;
     int count = 0;
@@ -48,7 +48,14 @@ bool CenterCore::mistrust(float const* const* const vote, Gameboard board, int p
             }
         }
     }
-    return !noDisc;
+    if(!noDisc)
+    {
+        return Core::_mistrustLarge;
+    }
+    else
+    {
+        return Core::_noMistrust;
+    }
 }
 
 void CenterCore::propose(float ** const vote, Gameboard board, int player)

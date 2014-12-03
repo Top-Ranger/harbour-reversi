@@ -75,7 +75,7 @@ bool MovementCore::retirement(Gameboard board, int player)
     return true;
 }
 
-bool MovementCore::mistrust(float const* const* const vote, Gameboard board, int player)
+int MovementCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
     for(int x = 0; x < 8; ++x)
     {
@@ -86,12 +86,12 @@ bool MovementCore::mistrust(float const* const* const vote, Gameboard board, int
                 int count = countPossiblePlays(board,player,x,y);
                 if(count == -1 || count == 0)
                 {
-                    return true;
+                    return Core::_mistrustLarge;
                 }
             }
         }
     }
-    return false;
+    return Core::_noMistrust;
 }
 
 void MovementCore::propose(float ** const vote, Gameboard board, int player)

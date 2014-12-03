@@ -186,6 +186,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
         else
         {
             QList<Core *> wantChange;
+            int mistrustValueAll = 0;
 
             clearVote(_vote);
 
@@ -195,10 +196,12 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
 
             for(int i = 0; i < _inactiveCores.length(); ++i)
             {
-                if(_inactiveCores[i]->mistrust(_vote, board, player))
+                int mistrustValue = _inactiveCores[i]->mistrust(_vote, board, player);
+                if(mistrustValue)
                 {
                     message.append(QString(tr("%1 doesn't agree.\n")).arg(_inactiveCores[i]->name()));
                     wantChange.append(_inactiveCores[i]);
+                    mistrustValueAll += mistrustValue;
                 }
                 else
                 {
@@ -206,7 +209,7 @@ void AssemblyAIPlayer::getBoard(Gameboard board, int player)
                 }
             }
 
-            test = wantChange.length() >= _neededToChange;
+            test = mistrustValueAll >= _neededToChange;
             if(test)
             {
                 ++changes;
