@@ -15,6 +15,81 @@
     </message>
 </context>
 <context>
+    <name>AssemblyAIPlayer</name>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="175"/>
+        <source>%1 is the current active core.
+</source>
+        <translation>%1 is the current active core.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="179"/>
+        <source>%1 retires.
+</source>
+        <translation>%1 retires.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="184"/>
+        <source>Electing a new active core.
+
+</source>
+        <translation>Electing a new active core.
+
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="194"/>
+        <source>%1 makes a proposal.
+</source>
+        <translation>%1 makes a proposal.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="200"/>
+        <source>%1 doesn&apos;t agree.
+</source>
+        <translation>%1 doesn&apos;t agree.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="205"/>
+        <source>%1 agrees.
+</source>
+        <translation>%1 agrees.
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="213"/>
+        <source>To many have disagreed. Electing a new active core.
+
+</source>
+        <translation>To many have disagreed. Electing a new active core.
+
+</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="251"/>
+        <source>A solution has been found.</source>
+        <translation>A solution has been found.</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="255"/>
+        <source>Too many new elections, now using %1 to find a solution.
+No good solution has been found, using the next available.</source>
+        <translation>Too many new elections, now using %1 to find a solution.
+No good solution has been found, using the next available.</translation>
+    </message>
+    <message>
+        <location filename="../player/assemblyaiplayer.cpp" line="274"/>
+        <source>
+Something went wrong - using emergancy plan.</source>
+        <translation>
+Something went wrong - using emergancy plan.</translation>
+    </message>
+</context>
+<context>
     <name>BalancedAIPlayer</name>
     <message>
         <location filename="../player/balancedaiplayer.cpp" line="56"/>
@@ -38,7 +113,7 @@
 <context>
     <name>EndgameRule</name>
     <message>
-        <location filename="../player/rules/endgamerule.cpp" line="76"/>
+        <location filename="../player/rules/endgamerule.cpp" line="150"/>
         <source>Endgame Rule</source>
         <translation>Endgame Rule</translation>
     </message>

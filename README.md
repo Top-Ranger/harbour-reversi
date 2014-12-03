@@ -11,6 +11,7 @@ Currently avaiable are:
    * Tutorial: A player that tries to teach basic strategies
    * Adaptive Tree AI: A variant of the Tree AI which tries to guess your next moves
    * Control AI: An AI that tries to control the board by conquering key positions
+   * Assembly AI: An AI which uses several small entities to determine the best play
 
 ---
 

@@ -160,6 +160,7 @@ Page {
                         MenuItem { text: "Static Rule AI"}
                         MenuItem { text: "Adaptive Tree AI"}
                         MenuItem { text: "Control AI"}
+                        MenuItem { text: "Assembly AI"}
                     }
                 }
             }
@@ -198,6 +199,7 @@ Page {
                         MenuItem { text: "Static Rule AI"}
                         MenuItem { text: "Adaptive Tree AI"}
                         MenuItem { text: "Control AI"}
+                        MenuItem { text: "Assembly AI"}
                     }
                 }
             }

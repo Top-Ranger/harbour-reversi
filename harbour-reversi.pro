@@ -37,7 +37,19 @@ SOURCES += src/uiconnection.cpp \
     src/player/adaptivetreeaiplayer.cpp \
     src/persistenceclass.cpp \
     src/player/controlaiplayer.cpp \
-    src/player/rules/rulehelper.cpp
+    src/player/assemblyaiplayer.cpp \
+    src/player/AssemblyAIPlayer/core.cpp \
+    src/player/AssemblyAIPlayer/insanecore.cpp \
+    src/player/AssemblyAIPlayer/assemblyaihelper.cpp \
+    src/player/AssemblyAIPlayer/cornercore.cpp \
+    src/player/AssemblyAIPlayer/centercore.cpp \
+    src/player/AssemblyAIPlayer/greedycore.cpp \
+    src/player/AssemblyAIPlayer/edgecore.cpp \
+    src/player/rules/rulehelper.cpp \
+    src/player/AssemblyAIPlayer/frontierdiscscore.cpp \
+    src/player/AssemblyAIPlayer/movementcore.cpp \
+    src/player/AssemblyAIPlayer/freemovecore.cpp \
+    src/player/AssemblyAIPlayer/areacontrolcore.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -109,7 +121,19 @@ HEADERS += \
     src/player/adaptivetreeaiplayer.h \
     src/persistenceclass.h \
     src/player/controlaiplayer.h \
-    src/player/rules/rulehelper.h
+    src/player/assemblyaiplayer.h \
+    src/player/AssemblyAIPlayer/core.h \
+    src/player/AssemblyAIPlayer/insanecore.h \
+    src/player/AssemblyAIPlayer/assemblyaihelper.h \
+    src/player/AssemblyAIPlayer/cornercore.h \
+    src/player/AssemblyAIPlayer/centercore.h \
+    src/player/AssemblyAIPlayer/greedycore.h \
+    src/player/AssemblyAIPlayer/edgecore.h \
+    src/player/rules/rulehelper.h \
+    src/player/AssemblyAIPlayer/frontierdiscscore.h \
+    src/player/AssemblyAIPlayer/movementcore.h \
+    src/player/AssemblyAIPlayer/freemovecore.h \
+    src/player/AssemblyAIPlayer/areacontrolcore.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
