@@ -70,17 +70,17 @@ Points Player1: </source>
 Points Player1: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="309"/>
+        <location filename="qml/pages/Game.qml" line="311"/>
         <source>Reversi</source>
         <translation>Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="319"/>
+        <location filename="qml/pages/Game.qml" line="321"/>
         <source>Starting the Game</source>
         <translation>Starting the Game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="903"/>
+        <location filename="qml/pages/Game.qml" line="906"/>
         <source>Restart game</source>
         <translation>Restart game</translation>
     </message>
@@ -114,52 +114,52 @@ The game ends when both players are unable to capture. (However, there can still
 <context>
     <name>Start</name>
     <message>
-        <location filename="qml/pages/Start.qml" line="79"/>
+        <location filename="qml/pages/Start.qml" line="87"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="84"/>
+        <location filename="qml/pages/Start.qml" line="92"/>
         <source>Rules</source>
         <translation>Rules</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="89"/>
+        <location filename="qml/pages/Start.qml" line="97"/>
         <source>Start game</source>
         <translation>Start game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="106"/>
+        <location filename="qml/pages/Start.qml" line="114"/>
         <source>Game Configuration</source>
         <translation>Game Configuration</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="117"/>
+        <location filename="qml/pages/Start.qml" line="125"/>
         <source>Error starting the game</source>
         <translation>Error starting the game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="138"/>
+        <location filename="qml/pages/Start.qml" line="148"/>
         <source>Player 1</source>
         <translation>Player 1</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="171"/>
+        <location filename="qml/pages/Start.qml" line="187"/>
         <source>Player 2</source>
         <translation>Player 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="195"/>
+        <location filename="qml/pages/Start.qml" line="215"/>
         <source>Bonus for 2nd player</source>
         <translation>Bonus for 2nd player</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="201"/>
+        <location filename="qml/pages/Start.qml" line="223"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="204"/>
+        <location filename="qml/pages/Start.qml" line="226"/>
         <source>Select Language</source>
         <translation>Select Language</translation>
     </message>
