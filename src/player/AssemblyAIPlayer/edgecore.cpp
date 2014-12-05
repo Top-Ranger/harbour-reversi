@@ -173,7 +173,7 @@ void EdgeCore::correct(float ** const vote, Gameboard board, int player)
     {
         for(int y = 0; y < 8; ++y)
         {
-            if(vote > 0 && board.play(x,y,player,true))
+            if(vote[x][y] > 0 && board.play(x,y,player,true))
             {
                 Gameboard testboard = board;
                 testboard.play(x,y,player,false);
