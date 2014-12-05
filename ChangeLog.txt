@@ -1,4 +1,5 @@
 Current development:
+   * Fixed memory leak
 
 Version 1.3:
    * Added "Assembly AI"

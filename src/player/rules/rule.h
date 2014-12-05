@@ -38,6 +38,7 @@ class Rule : public QObject
     Q_OBJECT
 public:
     explicit Rule(QObject *parent = 0);
+    virtual ~Rule();
     virtual bool applicable(Gameboard board, int player) = 0;
     virtual void doTurn(Gameboard board, int player) = 0;
     virtual QString name() = 0;

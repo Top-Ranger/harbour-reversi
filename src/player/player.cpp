@@ -35,6 +35,10 @@ Player::Player(QObject *parent) :
 {
 }
 
+Player::~Player()
+{
+}
+
 void Player::isActive(bool active)
 {
     _active = active;

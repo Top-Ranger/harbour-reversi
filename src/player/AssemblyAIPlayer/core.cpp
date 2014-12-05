@@ -32,3 +32,7 @@
 Core::Core()
 {
 }
+
+Core::~Core()
+{
+}

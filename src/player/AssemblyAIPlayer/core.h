@@ -37,6 +37,7 @@ class Core
 {
 public:
     Core();
+    virtual ~Core();
     virtual bool retirement(Gameboard board, int player) = 0;
     virtual int mistrust(float const* const* const vote, Gameboard board, int player) = 0;
     virtual void propose(float ** const vote, Gameboard board, int player) = 0;

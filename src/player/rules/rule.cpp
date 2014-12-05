@@ -33,3 +33,7 @@ Rule::Rule(QObject *parent) :
     QObject(parent)
 {
 }
+
+Rule::~Rule()
+{
+}
