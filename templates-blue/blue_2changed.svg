@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created using Karbon, part of Calligra: http://www.calligra.org/karbon -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="68.8pt"
+   height="68.8pt"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="2changed.svg">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="2.744186"
+     inkscape:cx="43"
+     inkscape:cy="43"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4" />
+  <g
+     id="Layer_1">
+    <ellipse
+       id="shape1"
+       transform="matrix(0.99992,0.0125877,-0.0133496,0.99991,1.33638,5.13447e-8)"
+       rx="42.200111"
+       ry="42.209759"
+       cx="42.200111"
+       cy="42.209759"
+       stroke-miterlimit="1.98425540600"
+       style="fill:#00ffff;fill-rule:evenodd;stroke:#000080;stroke-width:7.08662653;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:1.98425543"
+       sodipodi:cx="42.200111"
+       sodipodi:cy="42.209759"
+       sodipodi:rx="42.200111"
+       sodipodi:ry="42.209759" />
+  </g>
+  <g
+     id="Layer_2">
+    <ellipse
+       id="shape0"
+       transform="translate(56.025, 19.0293)"
+       rx="4.89319206737pt"
+       ry="4.96234718826pt"
+       cx="4.89319206737pt"
+       cy="4.96234718826pt"
+       fill="#ff0000"
+       fill-rule="evenodd"
+       stroke="#ff0000"
+       stroke-width="1.41732529000"
+       stroke-linecap="square"
+       stroke-linejoin="miter"
+       stroke-miterlimit="1.98425543308" />
+  </g>
+</svg>

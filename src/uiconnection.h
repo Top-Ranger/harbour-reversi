@@ -54,14 +54,18 @@ public slots:
     Q_INVOKABLE void changeLanguage(QString language);
     Q_INVOKABLE int indexPlayer1();
     Q_INVOKABLE int indexPlayer2();
+    Q_INVOKABLE int indexColourPrefix();
     Q_INVOKABLE void setIndexPlayer1(int index);
     Q_INVOKABLE void setIndexPlayer2(int index);
+    Q_INVOKABLE void setIndexColourPrefix(int index);
     Q_INVOKABLE int bonus();
     Q_INVOKABLE void setBonus(int bonus);
     Q_INVOKABLE void setStringPlayer1(QString s);
     Q_INVOKABLE void setStringPlayer2(QString s);
+    Q_INVOKABLE void setColourPrefix(QString s);
     Q_INVOKABLE QString stringPlayer1();
     Q_INVOKABLE QString stringPlayer2();
+    Q_INVOKABLE QString colourPrefix();
 
 private:
     QTranslator *_translator;
@@ -69,9 +73,11 @@ private:
     bool _running;
     int _indexPlayer1;
     int _indexPlayer2;
+    int _indexColourPrefix;
     int _bonus;
     QString _stringPlayer1;
     QString _stringPlayer2;
+    QString _colourPrefix;
     PersistenceClass _save;
 };
 

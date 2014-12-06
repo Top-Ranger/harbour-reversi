@@ -49,6 +49,23 @@ Page {
                 uiconnection.setStringPlayer2(player2.currentItem.text)
                 uiconnection.setIndexPlayer2(player2.currentIndex)
             }
+            if(colour.currentItem !== null)
+            {
+                switch(colour.currentIndex) {
+                case 1:
+                    uiconnection.setColourPrefix("blue_")
+                    break
+                case 2:
+                    uiconnection.setColourPrefix("red_")
+                    break
+                default:
+                    uiconnection.setColourPrefix("")
+                    break
+                }
+                blackDisc.source = uiconnection.colourPrefix() + "1.png"
+                whiteDisc.source = uiconnection.colourPrefix() + "2.png"
+                uiconnection.setIndexColourPrefix(colour.currentIndex)
+            }
             uiconnection.setBonus(bonusslider.sliderValue)
         }
 
@@ -139,7 +156,7 @@ Page {
                     height: 50
                     width: 50
                     y: parent.height / 2 - height/2
-                    source: "1.png"
+                    source: uiconnection.colourPrefix() + "1.png"
                 }
 
                 ComboBox {
@@ -178,7 +195,7 @@ Page {
                     height: 50
                     width: 50
                     y: parent.height / 2 - height/2
-                    source: "2.png"
+                    source: uiconnection.colourPrefix() + "2.png"
                 }
 
                 ComboBox {
@@ -215,6 +232,21 @@ Page {
                 label: qsTr("Bonus for 2nd player")
 
                 onValueChanged: gamestarter.saveAll()
+            }
+
+            ComboBox {
+                id: colour
+                width: page.width
+                label: qsTr("Disc Colour")
+                currentIndex: uiconnection.indexColourPrefix()
+
+                onCurrentItemChanged: gamestarter.saveAll()
+
+                menu: ContextMenu {
+                    MenuItem { text: qsTr("Normal") }
+                    MenuItem { text: qsTr("Blue") }
+                    MenuItem { text: qsTr("Red")}
+                }
             }
 
             ComboBox {

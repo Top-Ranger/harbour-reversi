@@ -37,9 +37,11 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     _running(false),
     _indexPlayer1(0),
     _indexPlayer2(0),
+    _indexColourPrefix(0),
     _bonus(0),
     _stringPlayer1("Human"),
     _stringPlayer2("Human"),
+    _colourPrefix(""),
     _save()
 {
     if(!(_save.getString("Language") == QString()))
@@ -54,6 +56,10 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     {
         _indexPlayer2 = _save.getString("IndexPlayer2").toInt();
     }
+    if(!(_save.getString("IndexColourPrefix") == QString()))
+    {
+        _indexColourPrefix = _save.getString("IndexColourPrefix").toInt();
+    }
     if(!(_save.getString("Bonus") == QString()))
     {
         _bonus = _save.getString("Bonus").toInt();
@@ -65,6 +71,10 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     if(!(_save.getString("StringPlayer2") == QString()))
     {
         _stringPlayer1 = _save.getString("StringPlayer2");
+    }
+    if(!(_save.getString("colourPrefix") == QString()))
+    {
+        _colourPrefix = _save.getString("colourPrefix");
     }
 }
 
@@ -117,6 +127,11 @@ int UIConnection::indexPlayer2()
     return _indexPlayer2;
 }
 
+int UIConnection::indexColourPrefix()
+{
+    return _indexColourPrefix;
+}
+
 void UIConnection::setIndexPlayer1(int index)
 {
     _indexPlayer1 = index;
@@ -127,6 +142,12 @@ void UIConnection::setIndexPlayer2(int index)
 {
     _indexPlayer2 = index;
     _save.saveString("IndexPlayer2",QString("%1").arg(index));
+}
+
+void UIConnection::setIndexColourPrefix(int index)
+{
+    _indexColourPrefix = index;
+    _save.saveString("IndexColourPrefix",QString("%1").arg(index));
 }
 
 int UIConnection::bonus()
@@ -152,6 +173,12 @@ void UIConnection::setStringPlayer2(QString s)
     _save.saveString("StringPlayer2",s);
 }
 
+void UIConnection::setColourPrefix(QString s)
+{
+    _colourPrefix = s;
+    _save.saveString("colourPrefix",s);
+}
+
 QString UIConnection::stringPlayer1()
 {
     return _stringPlayer1;
@@ -160,4 +187,9 @@ QString UIConnection::stringPlayer1()
 QString UIConnection::stringPlayer2()
 {
     return _stringPlayer2;
+}
+
+QString UIConnection::colourPrefix()
+{
+    return _colourPrefix;
 }

@@ -96,7 +96,55 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates/clicked0.svg \
     qml/cover/harbour-reversi.png \
     .gitignore \
-    qml/pages/OwnIconButton.qml
+    qml/pages/OwnIconButton.qml \
+    qml/pages/blue_clicked2changed.png \
+    qml/pages/blue_clicked2.png \
+    qml/pages/blue_clicked1changed.png \
+    qml/pages/blue_clicked1.png \
+    qml/pages/blue_clicked0changed.png \
+    qml/pages/blue_clicked0.png \
+    qml/pages/blue_2changed.png \
+    qml/pages/blue_2.png \
+    qml/pages/blue_1changed.png \
+    qml/pages/blue_1.png \
+    qml/pages/blue_0changed.png \
+    qml/pages/blue_0.png \
+    qml/pages/red_clicked2changed.png \
+    qml/pages/red_clicked2.png \
+    qml/pages/red_clicked1changed.png \
+    qml/pages/red_clicked1.png \
+    qml/pages/red_clicked0changed.png \
+    qml/pages/red_clicked0.png \
+    qml/pages/red_2changed.png \
+    qml/pages/red_2.png \
+    qml/pages/red_1changed.png \
+    qml/pages/red_1.png \
+    qml/pages/red_0changed.png \
+    qml/pages/red_0.png \
+    templates-blue/blue_clicked2changed.svg \
+    templates-blue/blue_clicked2.svg \
+    templates-blue/blue_clicked1changed.svg \
+    templates-blue/blue_clicked1.svg \
+    templates-blue/blue_clicked0changed.svg \
+    templates-blue/blue_clicked0.svg \
+    templates-blue/blue_2changed.svg \
+    templates-blue/blue_2.svg \
+    templates-blue/blue_1changed.svg \
+    templates-blue/blue_1.svg \
+    templates-blue/blue_0changed.svg \
+    templates-blue/blue_0.svg \
+    templates-red/red_clicked2changed.svg \
+    templates-red/red_clicked2.svg \
+    templates-red/red_clicked1changed.svg \
+    templates-red/red_clicked1.svg \
+    templates-red/red_clicked0changed.svg \
+    templates-red/red_clicked0.svg \
+    templates-red/red_2changed.svg \
+    templates-red/red_2.svg \
+    templates-red/red_1changed.svg \
+    templates-red/red_1.svg \
+    templates-red/red_0changed.svg \
+    templates-red/red_0.svg
 
 HEADERS += \
     src/uiconnection.h \
