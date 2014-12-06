@@ -1,4 +1,5 @@
 Current development:
+   * Colour of discs can now be changed
    * Fixed memory leak
    * Fixed a bug in "Edge Core"
 
