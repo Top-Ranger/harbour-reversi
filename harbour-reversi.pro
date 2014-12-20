@@ -49,7 +49,8 @@ SOURCES += src/uiconnection.cpp \
     src/player/AssemblyAIPlayer/frontierdiscscore.cpp \
     src/player/AssemblyAIPlayer/movementcore.cpp \
     src/player/AssemblyAIPlayer/freemovecore.cpp \
-    src/player/AssemblyAIPlayer/areacontrolcore.cpp
+    src/player/AssemblyAIPlayer/areacontrolcore.cpp \
+    src/player/neuralnetworkaiplayer.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -144,7 +145,9 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates-red/red_1changed.svg \
     templates-red/red_1.svg \
     templates-red/red_0changed.svg \
-    templates-red/red_0.svg
+    templates-red/red_0.svg \
+    src/player/NeuralNetworkAIPlayer/inputToHidden.txt \
+    src/player/NeuralNetworkAIPlayer/hiddenToOutput.txt
 
 HEADERS += \
     src/uiconnection.h \
@@ -181,9 +184,11 @@ HEADERS += \
     src/player/AssemblyAIPlayer/frontierdiscscore.h \
     src/player/AssemblyAIPlayer/movementcore.h \
     src/player/AssemblyAIPlayer/freemovecore.h \
-    src/player/AssemblyAIPlayer/areacontrolcore.h
+    src/player/AssemblyAIPlayer/areacontrolcore.h \
+    src/player/neuralnetworkaiplayer.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
-    translation-ui.qrc
+    translation-ui.qrc \
+    src/player/NeuralNetworkAIPlayer/NNData.qrc
 

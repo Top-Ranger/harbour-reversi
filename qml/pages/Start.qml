@@ -178,6 +178,7 @@ Page {
                         MenuItem { text: "Adaptive Tree AI"}
                         MenuItem { text: "Control AI"}
                         MenuItem { text: "Assembly AI"}
+                        MenuItem { text: "Neural Network AI"}
                     }
                 }
             }
@@ -217,6 +218,7 @@ Page {
                         MenuItem { text: "Adaptive Tree AI"}
                         MenuItem { text: "Control AI"}
                         MenuItem { text: "Assembly AI"}
+                        MenuItem { text: "Neural Network AI"}
                     }
                 }
             }
