@@ -51,9 +51,9 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     QFile ith(_pathInputToHidden);
     ith.open(QIODevice::ReadOnly);
     QTextStream ithStream(&ith);
-    for(int i = 0; i < 16*128; ++i)
+    for(int i = 0; i < _hiddenSize*128; ++i)
     {
-        ithStream >> _inputToHidden(i/16, i%16);
+        ithStream >> _inputToHidden(i/_hiddenSize, i%_hiddenSize);
     }
     ith.close();
 
@@ -61,9 +61,9 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     QFile hto(_pathHiddenToOutput);
     hto.open(QIODevice::ReadOnly);
     QTextStream htoStream(&ith);
-    for(int i = 0; i < 16*128; ++i)
+    for(int i = 0; i < _hiddenSize*128; ++i)
     {
-        htoStream >> _inputToHidden(i/16, i%16);
+        htoStream >> _inputToHidden(i/_hiddenSize, i%_hiddenSize);
     }
     ith.close();
 }
@@ -95,11 +95,6 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
     {
         input(0,i) = _lastboard[i-64];
         _lastboard[i-64] = input(0,i-64);
-    }
-
-    for(int i = 0; i < 128; ++i)
-    {
-        qWarning() << input(0,i);
     }
 
     QGenericMatrix<64,1,float> output = (input * _inputToHidden) * _hiddenToOutput;
