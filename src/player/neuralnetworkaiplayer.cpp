@@ -34,38 +34,50 @@
 #include <QTextStream>
 #include "neuralnetworkaiplayer.h"
 
-const char *NeuralNetworkAIPlayer::_pathInputToHidden = ":NeuralNetworkAIPlayer/inputToHidden.txt";
-const char *NeuralNetworkAIPlayer::_pathHiddenToOutput = ":NeuralNetworkAIPlayer/hiddenToOutput.txt";
+const char *NeuralNetworkAIPlayer::_pathInputToHidden1 = ":NeuralNetworkAIPlayer/inputToHidden1.txt";
+const char *NeuralNetworkAIPlayer::_pathHidden1ToHidden2 = ":NeuralNetworkAIPlayer/hidden1ToHidden2.txt";
+const char *NeuralNetworkAIPlayer::_pathHidden2ToOutput = ":NeuralNetworkAIPlayer/hidden2ToOutput.txt";
 
 NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     Player(parent),
-    _inputToHidden(),
-    _hiddenToOutput()
+    _inputToHidden1(),
+    _hidden1ToHidden2(),
+    _hidden2ToOutput()
 {
     for(int i = 0; i < 64; ++i)
     {
         _lastboard[i] = 0;
     }
 
-    // Initialize _inputToHidden
-    QFile ith(_pathInputToHidden);
-    ith.open(QIODevice::ReadOnly);
-    QTextStream ithStream(&ith);
+    // Initialize _inputToHidden1
+    QFile ith1(_pathInputToHidden1);
+    ith1.open(QIODevice::ReadOnly);
+    QTextStream ith1Stream(&ith1);
     for(int i = 0; i < _hiddenSize*128; ++i)
     {
-        ithStream >> _inputToHidden(i/_hiddenSize, i%_hiddenSize);
+        ith1Stream >> _inputToHidden1(i/_hiddenSize, i%_hiddenSize);
     }
-    ith.close();
+    ith1.close();
 
-    // Initialize _hiddenToOutput
-    QFile hto(_pathHiddenToOutput);
-    hto.open(QIODevice::ReadOnly);
-    QTextStream htoStream(&hto);
+    // Initialize _hidden1ToHidden2
+    QFile h1th2(_pathHidden1ToHidden2);
+    h1th2.open(QIODevice::ReadOnly);
+    QTextStream h1th2Stream(&h1th2);
+    for(int i = 0; i < _hiddenSize*_hiddenSize; ++i)
+    {
+        h1th2Stream >> _hidden1ToHidden2(i/_hiddenSize, i%_hiddenSize);
+    }
+    h1th2.close();
+
+    // Initialize _hidden2ToOutput
+    QFile h2to(_pathHidden2ToOutput);
+    h2to.open(QIODevice::ReadOnly);
+    QTextStream hto2Stream(&h2to);
     for(int i = 0; i < _hiddenSize*64; ++i)
     {
-        htoStream >> _hiddenToOutput(i/64, i%64);
+        hto2Stream >> _hidden2ToOutput(i/64, i%64);
     }
-    hto.close();
+    h2to.close();
 }
 
 bool NeuralNetworkAIPlayer::isHuman()
@@ -97,7 +109,7 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
         _lastboard[i-64] = input(0,i-64);
     }
 
-    QGenericMatrix<64,1,float> output = (input * _inputToHidden) * _hiddenToOutput;
+    QGenericMatrix<64,1,float> output = ((input * _inputToHidden1) * _hidden1ToHidden2) *_hidden2ToOutput;
 
     float max = -1000000000;
     int turn_save = -1;

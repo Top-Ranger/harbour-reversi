@@ -45,14 +45,17 @@ public slots:
     virtual void humanInput(int x, int y);
 
 private:
-    static const char *_pathInputToHidden;
-    static const char *_pathHiddenToOutput;
+    static const char *_pathInputToHidden1;
+    static const char *_pathHidden1ToHidden2;
+    static const char *_pathHidden2ToOutput;
+
     static const int _hiddenSize = 64;
 
     int _lastboard[64];
 
-    QGenericMatrix<_hiddenSize,128,float> _inputToHidden;
-    QGenericMatrix<64,_hiddenSize,float> _hiddenToOutput;
+    QGenericMatrix<_hiddenSize,128,float> _inputToHidden1;
+    QGenericMatrix<_hiddenSize,_hiddenSize,float> _hidden1ToHidden2;
+    QGenericMatrix<64,_hiddenSize,float> _hidden2ToOutput;
 };
 
 #endif // NEURALNETWORKPLAYER_H

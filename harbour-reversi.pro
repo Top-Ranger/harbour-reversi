@@ -146,8 +146,9 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates-red/red_1.svg \
     templates-red/red_0changed.svg \
     templates-red/red_0.svg \
-    src/player/NeuralNetworkAIPlayer/inputToHidden.txt \
-    src/player/NeuralNetworkAIPlayer/hiddenToOutput.txt
+    src/player/NeuralNetworkAIPlayer/hidden2ToOutput.txt \
+    src/player/NeuralNetworkAIPlayer/inputToHidden1.txt \
+    src/player/NeuralNetworkAIPlayer/hidden1ToHidden2.txt
 
 HEADERS += \
     src/uiconnection.h \
