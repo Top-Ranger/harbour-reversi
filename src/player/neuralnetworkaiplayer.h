@@ -49,11 +49,11 @@ private:
     static const char *_pathHidden1ToHidden2;
     static const char *_pathHidden2ToOutput;
 
-    static const int _hiddenSize = 64;
+    static const int _hiddenSize = 16;
 
     int _lastboard[64];
 
-    QGenericMatrix<_hiddenSize,128,float> _inputToHidden1;
+    QGenericMatrix<_hiddenSize,129,float> _inputToHidden1;
     QGenericMatrix<_hiddenSize,_hiddenSize,float> _hidden1ToHidden2;
     QGenericMatrix<64,_hiddenSize,float> _hidden2ToOutput;
 };

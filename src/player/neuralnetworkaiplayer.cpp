@@ -53,7 +53,7 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     QFile ith1(_pathInputToHidden1);
     ith1.open(QIODevice::ReadOnly);
     QTextStream ith1Stream(&ith1);
-    for(int i = 0; i < _hiddenSize*128; ++i)
+    for(int i = 0; i < _hiddenSize*129; ++i)
     {
         ith1Stream >> _inputToHidden1(i/_hiddenSize, i%_hiddenSize);
     }
@@ -87,8 +87,9 @@ bool NeuralNetworkAIPlayer::isHuman()
 
 void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
 {
-    QGenericMatrix<128,1,float> input;
+    QGenericMatrix<129,1,float> input;
 
+    // Current board
     for(int i = 0; i < 64; ++i)
     {
         float value = -1.0;
@@ -103,13 +104,47 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
         input(0,i) = value;
     }
 
+    // Last board
     for(int i = 64; i < 128; ++i)
     {
         input(0,i) = _lastboard[i-64];
         _lastboard[i-64] = input(0,i-64);
     }
 
-    QGenericMatrix<64,1,float> output = ((input * _inputToHidden1) * _hidden1ToHidden2) *_hidden2ToOutput;
+    // Bias
+    input(0,128) = 1;
+
+    // Hidden 1
+    QGenericMatrix<_hiddenSize,1,float> hidden1 = input * _inputToHidden1;
+    for(int i = 0; i < _hiddenSize; ++i)
+    {
+        if(hidden1(0,i) > 0)
+        {
+            hidden1(0,i) = 1;
+        }
+        else
+        {
+            hidden1(0,i) = 0;
+        }
+    }
+
+    // Hidden 2
+    QGenericMatrix<_hiddenSize,1,float> hidden2 = hidden1 * _hidden1ToHidden2;
+    for(int i = 0; i < _hiddenSize; ++i)
+    {
+        if(hidden2(0,i) > 0)
+        {
+            hidden2(0,i) = 1;
+        }
+        else
+        {
+            hidden2(0,i) = 0;
+        }
+    }
+
+    // Output
+
+    QGenericMatrix<64,1,float> output = hidden2 *_hidden2ToOutput;
 
     float max = -1000000000;
     int turn_save = -1;
