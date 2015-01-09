@@ -116,35 +116,39 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
 
     // Hidden 1
     QGenericMatrix<_hiddenSize,1,float> hidden1 = input * _inputToHidden1;
+    QGenericMatrix<_hiddenSize+1,1,float> hidden1_input;
     for(int i = 0; i < _hiddenSize; ++i)
     {
         if(hidden1(0,i) > 0)
         {
-            hidden1(0,i) = 1;
+            hidden1_input(0,i) = 1;
         }
         else
         {
-            hidden1(0,i) = 0;
+            hidden1_input(0,i) = 0;
         }
     }
+    hidden1_input(0,_hiddenSize) = 1;
 
     // Hidden 2
-    QGenericMatrix<_hiddenSize,1,float> hidden2 = hidden1 * _hidden1ToHidden2;
+    QGenericMatrix<_hiddenSize,1,float> hidden2 = hidden1_input * _hidden1ToHidden2;
+    QGenericMatrix<_hiddenSize+1,1,float> hidden2_input;
     for(int i = 0; i < _hiddenSize; ++i)
     {
         if(hidden2(0,i) > 0)
         {
-            hidden2(0,i) = 1;
+            hidden2_input(0,i) = 1;
         }
         else
         {
-            hidden2(0,i) = 0;
+            hidden2_input(0,i) = 0;
         }
     }
+    hidden2_input(0,_hiddenSize) = 1;
 
     // Output
 
-    QGenericMatrix<64,1,float> output = hidden2 *_hidden2ToOutput;
+    QGenericMatrix<64,1,float> output = hidden2_input *_hidden2ToOutput;
 
     float max = -1000000000;
     int turn_save = -1;
