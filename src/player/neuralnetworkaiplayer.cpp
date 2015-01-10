@@ -63,7 +63,7 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     QFile h1th2(_pathHidden1ToHidden2);
     h1th2.open(QIODevice::ReadOnly);
     QTextStream h1th2Stream(&h1th2);
-    for(int i = 0; i < _hiddenSize*_hiddenSize; ++i)
+    for(int i = 0; i < _hiddenSize*(_hiddenSize+1); ++i)
     {
         h1th2Stream >> _hidden1ToHidden2(i/_hiddenSize, i%_hiddenSize);
     }
@@ -73,7 +73,7 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     QFile h2to(_pathHidden2ToOutput);
     h2to.open(QIODevice::ReadOnly);
     QTextStream hto2Stream(&h2to);
-    for(int i = 0; i < _hiddenSize*64; ++i)
+    for(int i = 0; i < 64*(_hiddenSize+1); ++i)
     {
         hto2Stream >> _hidden2ToOutput(i/64, i%64);
     }
