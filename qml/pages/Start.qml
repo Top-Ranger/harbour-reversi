@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2015 Marcus Soll
   Copyright (C) 2013 Jolla Ltd.
   All rights reserved.
 
@@ -57,6 +57,9 @@ Page {
                     break
                 case 2:
                     uiconnection.setColourPrefix("red_")
+                    break
+                case 3:
+                    uiconnection.setColourPrefix("traditional_")
                     break
                 default:
                     uiconnection.setColourPrefix("")
@@ -246,6 +249,7 @@ Page {
                     MenuItem { text: qsTr("Normal") }
                     MenuItem { text: qsTr("Blue") }
                     MenuItem { text: qsTr("Red")}
+                    MenuItem { text: qsTr("Traditional")}
                 }
             }
 

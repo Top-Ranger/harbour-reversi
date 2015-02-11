@@ -144,7 +144,31 @@ OTHER_FILES += qml/harbour-reversi.qml \
     templates-red/red_1changed.svg \
     templates-red/red_1.svg \
     templates-red/red_0changed.svg \
-    templates-red/red_0.svg
+    templates-red/red_0.svg \
+    templates-traditional/0.svg \
+    templates-traditional/0changed.svg \
+    templates-traditional/1.svg \
+    templates-traditional/1changed.svg \
+    templates-traditional/2.svg \
+    templates-traditional/2changed.svg \
+    templates-traditional/clicked0.svg \
+    templates-traditional/clicked0changed.svg \
+    templates-traditional/clicked1.svg \
+    templates-traditional/clicked1changed.svg \
+    templates-traditional/clicked2.svg \
+    templates-traditional/clicked2changed.svg \
+    qml/pages/traditional_0.png \
+    qml/pages/traditional_0changed.png \
+    qml/pages/traditional_1.png \
+    qml/pages/traditional_1changed.png \
+    qml/pages/traditional_2.png \
+    qml/pages/traditional_2changed.png \
+    qml/pages/traditional_clicked0.png \
+    qml/pages/traditional_clicked0changed.png \
+    qml/pages/traditional_clicked1.png \
+    qml/pages/traditional_clicked1changed.png \
+    qml/pages/traditional_clicked2.png \
+    qml/pages/traditional_clicked2changed.png
 
 HEADERS += \
     src/uiconnection.h \
