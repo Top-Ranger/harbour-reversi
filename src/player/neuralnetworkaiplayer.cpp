@@ -32,11 +32,18 @@
 #include <limits>
 #include <QFile>
 #include <QTextStream>
+#include <cmath>
 #include "neuralnetworkaiplayer.h"
 
 const char *NeuralNetworkAIPlayer::_pathInputToHidden1 = ":NeuralNetworkAIPlayer/inputToHidden1.txt";
 const char *NeuralNetworkAIPlayer::_pathHidden1ToHidden2 = ":NeuralNetworkAIPlayer/hidden1ToHidden2.txt";
 const char *NeuralNetworkAIPlayer::_pathHidden2ToOutput = ":NeuralNetworkAIPlayer/hidden2ToOutput.txt";
+
+namespace {
+float sigmoid(float input){
+    return 1 / (1 + exp(-input));
+}
+}
 
 NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     Player(parent),
@@ -123,6 +130,10 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
         {
             hidden1_input(0,i) = 1;
         }
+        else if(hidden1(0,i) < 0)
+        {
+            hidden1_input(0,i) = -1;
+        }
         else
         {
             hidden1_input(0,i) = 0;
@@ -135,14 +146,7 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
     QGenericMatrix<_hiddenSize+1,1,float> hidden2_input;
     for(int i = 0; i < _hiddenSize; ++i)
     {
-        if(hidden2(0,i) > 0)
-        {
-            hidden2_input(0,i) = 1;
-        }
-        else
-        {
-            hidden2_input(0,i) = 0;
-        }
+        hidden2_input(0,i) = sigmoid(hidden2(0,i));
     }
     hidden2_input(0,_hiddenSize) = 1;
 
