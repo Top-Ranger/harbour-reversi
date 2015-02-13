@@ -32,6 +32,7 @@
 #include <limits>
 #include <QFile>
 #include <QTextStream>
+#include <QTime>
 #include <cmath>
 #include "neuralnetworkaiplayer.h"
 
@@ -51,6 +52,9 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     _hidden1ToHidden2(),
     _hidden2ToOutput()
 {
+
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+
     for(int i = 0; i < 64; ++i)
     {
         _lastboard[i] = 0;
@@ -158,9 +162,22 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
     int turn_save = -1;
     for(int i = 0; i < 64; ++i)
     {
-        if(output(0,i) > max && board.play(i%8, i/8,player,true))
+        float value = output(0,i);
+        switch(qrand()%3)
         {
-            max = output(0,i);
+        case 1:
+            value *= random_fachtor;
+            break;
+        case 2:
+            value /= random_fachtor;
+            break;
+        default:
+            break;
+        }
+
+        if(value > max && board.play(i%8, i/8,player,true))
+        {
+            max = value;
             turn_save = i;
         }
     }
