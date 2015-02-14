@@ -1,4 +1,5 @@
 Current development:
+   * Added "Neural Network AI"
 
 Version 1.4:
    * Colour of discs can now be changed
