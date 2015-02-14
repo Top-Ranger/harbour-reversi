@@ -46,7 +46,7 @@ bool CornerRule::applicable(Gameboard board, int player)
 {
     bool returnValue = calculateMove(board, player);
     deleteMove();
-    return returnValue
+    return returnValue;
 }
 
 void CornerRule::doTurn(Gameboard board, int player)

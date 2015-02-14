@@ -53,7 +53,7 @@ bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
 {
     bool returnValue = calculateMove(board, player);
     deleteMove();
-    return returnValue
+    return returnValue;
 }
 
 void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
