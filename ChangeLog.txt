@@ -1,5 +1,6 @@
 Current development:
    * Added new colour scheme for discs
+   * Internal cleanup
 
 Version 1.4:
    * Colour of discs can now be changed
