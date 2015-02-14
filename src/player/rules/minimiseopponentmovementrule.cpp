@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2015 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -35,6 +35,8 @@
 using RuleHelper::canTakeCorner;
 using RuleHelper::canGetZeroDiscs;
 using RuleHelper::opponent;
+using RuleHelper::getPossibleTurn;
+using RuleHelper::possibleMove;
 
 const int MinimiseOpponentMovementRule::_borderMoves;
 
@@ -48,6 +50,41 @@ MinimiseOpponentMovementRule::MinimiseOpponentMovementRule(QObject *parent) :
 }
 
 bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
+{
+    bool returnValue = calculateMove(board, player);
+    deleteMove();
+    return returnValue
+}
+
+void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
+{
+    calculateMove(board, player);
+    if(_asked)
+    {
+        deleteMove();
+        emit turn(_x,_y);
+        return;
+    }
+    else
+    {
+        possibleMove move = getPossibleTurn(board, player);
+        if(move.possible)
+        {
+            emit turn(move.x, move.y);
+        }
+        else
+        {
+            qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move";
+        }
+    }
+}
+
+QString MinimiseOpponentMovementRule::name()
+{
+    return tr("Minimise Opponent Movement Rule");
+}
+
+bool MinimiseOpponentMovementRule::calculateMove(Gameboard board, int player)
 {
     int min = 100;
     int x = qrand()%8;
@@ -109,22 +146,9 @@ bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
     return _asked;
 }
 
-void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
+void MinimiseOpponentMovementRule::deleteMove()
 {
-    if(_asked)
-    {
-        _asked = false;
-        emit turn(_x,_y);
-        _x = -1;
-        _y = -1;
-    }
-    else
-    {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": MinimiseOpponentMovementRule::applicable(Gameboard board, int player) was not called";
-    }
-}
-
-QString MinimiseOpponentMovementRule::name()
-{
-    return tr("Minimise Opponent Movement Rule");
+    _x = -1;
+    _y = -1;
+    _asked = false;
 }

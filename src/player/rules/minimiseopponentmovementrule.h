@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2015 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -42,6 +42,9 @@ public:
     virtual QString name();
 
 private:
+    bool calculateMove(Gameboard board, int player);
+    void deleteMove();
+
     int _x;
     int _y;
     bool _asked;
