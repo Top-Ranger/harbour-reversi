@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2015 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,6 +28,7 @@
 */
 
 #include "rulehelper.h"
+#include <QTime>
 
 bool RuleHelper::isFrontierDisc(Gameboard board, int x, int y)
 {
@@ -96,4 +97,38 @@ bool RuleHelper::canGetZeroDiscs(Gameboard board, int player)
         }
     }
     return false;
+}
+
+RuleHelper::possibleMove RuleHelper::getPossibleTurn(Gameboard board, int player)
+{
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    int x = qrand()%8;
+    int y = qrand()%8;
+    int xstart = x;
+    int ystart = y;
+
+    do
+    {
+        do
+        {
+            if(board.play(x,y,player,true))
+            {
+                possibleMove move;
+                move.x = x;
+                move.y = y;
+                move.possible = true;
+                return move;
+            }
+
+            y = (y+1)%8;
+        }while(y != ystart);
+
+        x = (x+1)%8;
+    }while(x != xstart);
+
+    possibleMove move;
+    move.x = -1;
+    move.y = -1;
+    move.possible = false;
+    return move;
 }

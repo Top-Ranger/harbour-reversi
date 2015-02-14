@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2015 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -33,9 +33,16 @@
 #include "../../core/gameboard.h"
 
 namespace RuleHelper {
+struct possibleMove {
+    int x;
+    int y;
+    bool possible;
+};
+
 bool isFrontierDisc(Gameboard board, int x, int y);
 bool canTakeCorner(Gameboard board, int player);
 bool canGetZeroDiscs(Gameboard board, int player);
+possibleMove getPossibleTurn(Gameboard board, int player);
 int inline opponent(int player){return player==1?2:1;}
 }
 
