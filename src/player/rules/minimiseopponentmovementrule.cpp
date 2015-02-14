@@ -61,8 +61,8 @@ void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
     calculateMove(board, player);
     if(_asked)
     {
-        x = _x;
-        y = _y;
+        int x = _x;
+        int y = _y;
         deleteMove();
         emit turn(x,y);
         return;
