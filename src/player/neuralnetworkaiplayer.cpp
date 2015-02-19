@@ -196,25 +196,21 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
 
         if(value > max && board.play(i%8, i/8,player,true) && !opponentCanPlayCorner(board, i%8, i/8, player))
         {
-            qWarning() << "+";
             max = value;
             turn_save = i;
         }
         else if(value > max_bad && board.play(i%8, i/8,player,true))
         {
-            qWarning() << "-";
             max_bad = value;
             turn_save_bad = i;
         }
     }
     if(turn_save != -1)
     {
-        qWarning() << "good" << turn_save;
          emit turn(turn_save%8, turn_save/8);
     }
     else if(turn_save_bad != -1)
     {
-        qWarning() << "bad" << turn_save_bad;
         emit turn(turn_save_bad%8, turn_save_bad/8);
     }
     else
