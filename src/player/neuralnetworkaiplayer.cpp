@@ -44,6 +44,21 @@ namespace {
 float sigmoid(float input){
     return 1 / (1 + exp(-input));
 }
+
+int opponent(int player)
+{
+    return player==1?2:1;
+}
+
+bool opponentCanPlayCorner(Gameboard board, int x, int y, int player)
+{
+    Gameboard testboard = board;
+    if(!testboard.play(x,y,player))
+    {
+        return false;
+    }
+    return testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true);
+}
 }
 
 NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
@@ -160,6 +175,10 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
 
     float max = -1000000000;
     int turn_save = -1;
+
+    float max_bad = -1000000000;
+    int turn_save_bad = -1;
+
     for(int i = 0; i < 64; ++i)
     {
         float value = output(0,i);
@@ -175,15 +194,28 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
             break;
         }
 
-        if(value > max && board.play(i%8, i/8,player,true))
+        if(value > max && board.play(i%8, i/8,player,true) && !opponentCanPlayCorner(board, i%8, i/8, player))
         {
+            qWarning() << "+";
             max = value;
             turn_save = i;
+        }
+        else if(value > max_bad && board.play(i%8, i/8,player,true))
+        {
+            qWarning() << "-";
+            max_bad = value;
+            turn_save_bad = i;
         }
     }
     if(turn_save != -1)
     {
+        qWarning() << "good" << turn_save;
          emit turn(turn_save%8, turn_save/8);
+    }
+    else if(turn_save_bad != -1)
+    {
+        qWarning() << "bad" << turn_save_bad;
+        emit turn(turn_save_bad%8, turn_save_bad/8);
     }
     else
     {
