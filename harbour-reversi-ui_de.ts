@@ -114,72 +114,77 @@ Das Spiel endet, wenn kein Spieler mehr einen Stein plazieren kann (es können n
 <context>
     <name>Start</name>
     <message>
-        <location filename="qml/pages/Start.qml" line="104"/>
+        <location filename="qml/pages/Start.qml" line="107"/>
         <source>About</source>
         <translation>Über Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="109"/>
+        <location filename="qml/pages/Start.qml" line="112"/>
         <source>Rules</source>
         <translation>Regeln</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="114"/>
+        <location filename="qml/pages/Start.qml" line="117"/>
         <source>Start game</source>
         <translation>Starte das Spiel</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="131"/>
+        <location filename="qml/pages/Start.qml" line="134"/>
         <source>Game Configuration</source>
         <translation>Spieleigenschaften</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="142"/>
+        <location filename="qml/pages/Start.qml" line="145"/>
         <source>Error starting the game</source>
         <translation>Fehler: Kann das Spiel nicht starten</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="165"/>
+        <location filename="qml/pages/Start.qml" line="168"/>
         <source>Player 1</source>
         <translation>Spieler 1</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="204"/>
+        <location filename="qml/pages/Start.qml" line="208"/>
         <source>Player 2</source>
         <translation>Spieler 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="232"/>
+        <location filename="qml/pages/Start.qml" line="237"/>
         <source>Bonus for 2nd player</source>
         <translation>Bonuspunkte Spieler 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="240"/>
+        <location filename="qml/pages/Start.qml" line="245"/>
         <source>Disc Colour</source>
         <translation>Farbe der Spielsteine</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="246"/>
+        <location filename="qml/pages/Start.qml" line="251"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="247"/>
+        <location filename="qml/pages/Start.qml" line="252"/>
         <source>Blue</source>
         <translation>Blau</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="248"/>
+        <location filename="qml/pages/Start.qml" line="253"/>
         <source>Red</source>
         <translation>Rot</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="255"/>
+        <location filename="qml/pages/Start.qml" line="254"/>
+        <source>Traditional</source>
+        <translation>Traditionell</translation>
+    </message>
+    <message>
+        <location filename="qml/pages/Start.qml" line="261"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="258"/>
+        <location filename="qml/pages/Start.qml" line="264"/>
         <source>Select Language</source>
         <translation>Sprache wählen</translation>
     </message>

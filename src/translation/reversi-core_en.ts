@@ -105,7 +105,7 @@ Something went wrong - using emergancy plan.</translation>
 <context>
     <name>CornerRule</name>
     <message>
-        <location filename="../player/rules/cornerrule.cpp" line="97"/>
+        <location filename="../player/rules/cornerrule.cpp" line="79"/>
         <source>Corner Rule</source>
         <translation>Corner Rule</translation>
     </message>
@@ -150,7 +150,7 @@ Something went wrong - using emergancy plan.</translation>
 <context>
     <name>MaximiseOwnMovementRule</name>
     <message>
-        <location filename="../player/rules/maximiseownmovementrule.cpp" line="128"/>
+        <location filename="../player/rules/maximiseownmovementrule.cpp" line="87"/>
         <source>Maximise Own Movement Rule</source>
         <translation>Maximise Own Movement Rule</translation>
     </message>
@@ -158,7 +158,7 @@ Something went wrong - using emergancy plan.</translation>
 <context>
     <name>MinimiseOpponentMovementRule</name>
     <message>
-        <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="129"/>
+        <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="86"/>
         <source>Minimise Opponent Movement Rule</source>
         <translation>Minimise Opponent Movement Rule</translation>
     </message>

@@ -114,72 +114,77 @@ The game ends when both players are unable to capture. (However, there can still
 <context>
     <name>Start</name>
     <message>
-        <location filename="qml/pages/Start.qml" line="104"/>
+        <location filename="qml/pages/Start.qml" line="107"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="109"/>
+        <location filename="qml/pages/Start.qml" line="112"/>
         <source>Rules</source>
         <translation>Rules</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="114"/>
+        <location filename="qml/pages/Start.qml" line="117"/>
         <source>Start game</source>
         <translation>Start game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="131"/>
+        <location filename="qml/pages/Start.qml" line="134"/>
         <source>Game Configuration</source>
         <translation>Game Configuration</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="142"/>
+        <location filename="qml/pages/Start.qml" line="145"/>
         <source>Error starting the game</source>
         <translation>Error starting the game</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="165"/>
+        <location filename="qml/pages/Start.qml" line="168"/>
         <source>Player 1</source>
         <translation>Player 1</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="204"/>
+        <location filename="qml/pages/Start.qml" line="208"/>
         <source>Player 2</source>
         <translation>Player 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="232"/>
+        <location filename="qml/pages/Start.qml" line="237"/>
         <source>Bonus for 2nd player</source>
         <translation>Bonus for 2nd player</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="240"/>
+        <location filename="qml/pages/Start.qml" line="245"/>
         <source>Disc Colour</source>
         <translation>Disc Colour</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="246"/>
+        <location filename="qml/pages/Start.qml" line="251"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="247"/>
+        <location filename="qml/pages/Start.qml" line="252"/>
         <source>Blue</source>
         <translation>Blue</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="248"/>
+        <location filename="qml/pages/Start.qml" line="253"/>
         <source>Red</source>
         <translation>Red</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="255"/>
+        <location filename="qml/pages/Start.qml" line="254"/>
+        <source>Traditional</source>
+        <translation>Traditional</translation>
+    </message>
+    <message>
+        <location filename="qml/pages/Start.qml" line="261"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="258"/>
+        <location filename="qml/pages/Start.qml" line="264"/>
         <source>Select Language</source>
         <translation>Select Language</translation>
     </message>

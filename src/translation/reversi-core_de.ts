@@ -105,7 +105,7 @@ Irgendwas ist schief gelaufen - nutze Notfallplan.</translation>
 <context>
     <name>CornerRule</name>
     <message>
-        <location filename="../player/rules/cornerrule.cpp" line="97"/>
+        <location filename="../player/rules/cornerrule.cpp" line="79"/>
         <source>Corner Rule</source>
         <translation>Eck-Regel</translation>
     </message>
@@ -150,7 +150,7 @@ Irgendwas ist schief gelaufen - nutze Notfallplan.</translation>
 <context>
     <name>MaximiseOwnMovementRule</name>
     <message>
-        <location filename="../player/rules/maximiseownmovementrule.cpp" line="128"/>
+        <location filename="../player/rules/maximiseownmovementrule.cpp" line="87"/>
         <source>Maximise Own Movement Rule</source>
         <translation>Mehr eigene Züge-Regel</translation>
     </message>
@@ -158,7 +158,7 @@ Irgendwas ist schief gelaufen - nutze Notfallplan.</translation>
 <context>
     <name>MinimiseOpponentMovementRule</name>
     <message>
-        <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="129"/>
+        <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="86"/>
         <source>Minimise Opponent Movement Rule</source>
         <translation>Weniger gegnerische Züge-Regel</translation>
     </message>
