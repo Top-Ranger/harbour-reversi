@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/NeuralNetworkAIPlayer">
+        <file>hidden1ToHidden2.txt</file>
+        <file>hidden2ToOutput.txt</file>
+        <file>inputToHidden1.txt</file>
+    </qresource>
+</RCC>

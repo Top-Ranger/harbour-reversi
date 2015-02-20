@@ -1,4 +1,5 @@
 Current development:
+   * Added "Neural Network AI"
    * Added new colour scheme for discs
    * Internal cleanup
 
