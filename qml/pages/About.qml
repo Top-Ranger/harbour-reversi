@@ -60,7 +60,7 @@ Page {
             }
 
             Label {
-                text: "Reversi Version 1.4"
+                text: "Reversi Version 1.5"
             }
 
             Text  {
