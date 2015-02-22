@@ -12,6 +12,7 @@ Currently avaiable are:
    * Adaptive Tree AI: A variant of the Tree AI which tries to guess your next moves
    * Control AI: An AI that tries to control the board by conquering key positions
    * Assembly AI: An AI which uses several small entities to determine the best play
+   * Neural Network AI: An AI using a neural network
 
 ---
 
