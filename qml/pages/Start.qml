@@ -95,7 +95,11 @@ Page {
         }
     }
 
-    onVisibleChanged: uiconnection.configureGame()
+    onStatusChanged: {
+        if(page.status === PageStatus.Active) {
+            uiconnection.configureGame()
+        }
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
