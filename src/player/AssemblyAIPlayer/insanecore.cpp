@@ -41,11 +41,20 @@ InsaneCore::InsaneCore() :
 
 bool InsaneCore::retirement(Gameboard board, int player)
 {
+    // Random things don't need parameter
+    Q_UNUSED(board)
+    Q_UNUSED(player)
+
     return (qrand()%2 == 0);
 }
 
 int InsaneCore::mistrust(float const* const* const vote, Gameboard board, int player)
 {
+    // Random things don't need parameter
+    Q_UNUSED(vote)
+    Q_UNUSED(board)
+    Q_UNUSED(player)
+
     return (qrand()%60 == 0)?Core::_factorSmall:Core::_noMistrust;
 }
 
@@ -68,6 +77,10 @@ void InsaneCore::propose(float ** const vote, Gameboard board, int player)
 
 void InsaneCore::correct(float ** const vote, Gameboard board, int player)
 {
+    // Random things don't need parameter
+    Q_UNUSED(board)
+    Q_UNUSED(player)
+
     for(int x = 0; x < 8; ++x)
     {
         for(int y = 0; y < 8; ++y)

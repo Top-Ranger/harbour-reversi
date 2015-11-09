@@ -157,6 +157,9 @@ void ControlAIPlayer::doTurn(Gameboard board, int player)
 
 void ControlAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }
 
 int inline ControlAIPlayer::opponent(int player)
@@ -552,6 +555,10 @@ void ControlAIPlayer::functionControlArea(Gameboard board, int player)
 
 void ControlAIPlayer::functionEdge(Gameboard board, int player)
 {
+    // Just give all edges high priority
+    Q_UNUSED(board)
+    Q_UNUSED(player)
+
     for(int i = 0; i < 8; ++i)
     {
         _priority[i][0] += 2;

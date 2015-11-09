@@ -301,4 +301,7 @@ void AssemblyAIPlayer::doTurn(Gameboard board, int player)
 
 void AssemblyAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }

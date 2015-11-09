@@ -60,6 +60,9 @@ void BalancedAIPlayer::doTurn(Gameboard board, int player)
 
 void BalancedAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }
 
 void BalancedAIPlayer::getTurn(int x, int y)

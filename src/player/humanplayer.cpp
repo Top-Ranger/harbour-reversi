@@ -41,6 +41,10 @@ bool HumanPlayer::isHuman()
 
 void HumanPlayer::doTurn(Gameboard board, int player)
 {
+    // Just wait for input
+    Q_UNUSED(board)
+    Q_UNUSED(player)
+
     emit awaitsHuman();
 }
 

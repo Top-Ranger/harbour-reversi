@@ -102,6 +102,9 @@ void TreeAIPlayer::doTurn(Gameboard board, int player)
 
 void TreeAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }
 
 float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int opponentOld, int depth)

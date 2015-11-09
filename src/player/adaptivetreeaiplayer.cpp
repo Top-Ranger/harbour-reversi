@@ -129,6 +129,9 @@ void AdaptiveTreeAIPlayer::doTurn(Gameboard board, int player)
 
 void AdaptiveTreeAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }
 
 float AdaptiveTreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int opponentOld, int depth)

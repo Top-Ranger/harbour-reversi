@@ -84,4 +84,7 @@ void RandomAIPlayer::doTurn(Gameboard board, int player)
 
 void RandomAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }

@@ -98,6 +98,9 @@ void StaticRuleAIPlayer::doTurn(Gameboard board, int player)
 
 void StaticRuleAIPlayer::humanInput(int x, int y)
 {
+    // Do nothing on human input
+    Q_UNUSED(x)
+    Q_UNUSED(y)
 }
 
 void StaticRuleAIPlayer::getTurn(int x, int y)
