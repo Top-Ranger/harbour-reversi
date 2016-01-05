@@ -1,5 +1,8 @@
 Current development:
 
+Version 1.6:
+   * Small improvements
+
 Version 1.5:
    * Added "Neural Network AI"
    * Added new colour scheme for discs
