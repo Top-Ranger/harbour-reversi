@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -39,6 +39,7 @@
 #include "../player/controlaiplayer.h"
 #include "../player/assemblyaiplayer.h"
 #include "../player/neuralnetworkaiplayer.h"
+#include "../player/montecarloplayer.h"
 #include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
@@ -105,6 +106,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     {
         _player[0] = new NeuralNetworkAIPlayer(this);
     }
+    else if(player1 == "Monte Carlo AI")
+    {
+        _player[0] = new MonteCatloPlayer(this);
+    }
     else
     {
         return false;
@@ -158,6 +163,10 @@ bool Gamemaster::initialise(QString player1, QString player2, int bonus)
     else if(player2 == "Neural Network AI")
     {
         _player[1] = new NeuralNetworkAIPlayer(this);
+    }
+    else if(player2 == "Monte Carlo AI")
+    {
+        _player[1] = new MonteCatloPlayer(this);
     }
     else
     {

@@ -50,7 +50,8 @@ SOURCES += src/uiconnection.cpp \
     src/player/AssemblyAIPlayer/movementcore.cpp \
     src/player/AssemblyAIPlayer/freemovecore.cpp \
     src/player/AssemblyAIPlayer/areacontrolcore.cpp \
-    src/player/neuralnetworkaiplayer.cpp
+    src/player/neuralnetworkaiplayer.cpp \
+    src/player/montecarloplayer.cpp
 
 OTHER_FILES += qml/harbour-reversi.qml \
     qml/cover/CoverPage.qml \
@@ -210,7 +211,8 @@ HEADERS += \
     src/player/AssemblyAIPlayer/movementcore.h \
     src/player/AssemblyAIPlayer/freemovecore.h \
     src/player/AssemblyAIPlayer/areacontrolcore.h \
-    src/player/neuralnetworkaiplayer.h
+    src/player/neuralnetworkaiplayer.h \
+    src/player/montecarloplayer.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \

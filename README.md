@@ -13,6 +13,7 @@ Currently avaiable are:
    * Control AI: An AI that tries to control the board by conquering key positions
    * Assembly AI: An AI which uses several small entities to determine the best play
    * Neural Network AI: An AI using a neural network
+   * Monte Carlo AI: An AI based on the idea of the "Monte Carlo method"
 
 ---
 

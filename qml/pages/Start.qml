@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   Copyright (C) 2013 Jolla Ltd.
   All rights reserved.
 
@@ -186,6 +186,7 @@ Page {
                         MenuItem { text: "Control AI"}
                         MenuItem { text: "Assembly AI"}
                         MenuItem { text: "Neural Network AI"}
+                        MenuItem { text: "Monte Carlo AI"}
                     }
                 }
             }
@@ -226,6 +227,7 @@ Page {
                         MenuItem { text: "Control AI"}
                         MenuItem { text: "Assembly AI"}
                         MenuItem { text: "Neural Network AI"}
+                        MenuItem { text: "Monte Carlo AI"}
                     }
                 }
             }
