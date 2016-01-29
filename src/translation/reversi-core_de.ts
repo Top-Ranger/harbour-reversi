@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de_DE">
+<TS version="2.1" language="de_DE">
 <context>
     <name>AdaptiveTreeAIPlayer</name>
     <message>
@@ -161,6 +161,14 @@ Irgendwas ist schief gelaufen - nutze Notfallplan.</translation>
         <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="86"/>
         <source>Minimise Opponent Movement Rule</source>
         <translation>Weniger gegnerische Züge-Regel</translation>
+    </message>
+</context>
+<context>
+    <name>MonteCatloPlayer</name>
+    <message>
+        <location filename="../player/montecarloplayer.cpp" line="139"/>
+        <source>Monte Carlo method returns %1</source>
+        <translation>Monte-Carlo-Simulation liefert %1 zurück</translation>
     </message>
 </context>
 <context>

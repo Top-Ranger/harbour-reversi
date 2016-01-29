@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.1" language="en_US">
 <context>
     <name>AdaptiveTreeAIPlayer</name>
     <message>
@@ -161,6 +161,14 @@ Something went wrong - using emergancy plan.</translation>
         <location filename="../player/rules/minimiseopponentmovementrule.cpp" line="86"/>
         <source>Minimise Opponent Movement Rule</source>
         <translation>Minimise Opponent Movement Rule</translation>
+    </message>
+</context>
+<context>
+    <name>MonteCatloPlayer</name>
+    <message>
+        <location filename="../player/montecarloplayer.cpp" line="139"/>
+        <source>Monte Carlo method returns %1</source>
+        <translation>Monte Carlo method returns %1</translation>
     </message>
 </context>
 <context>
