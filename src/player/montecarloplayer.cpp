@@ -37,28 +37,42 @@ static bool singleRunMonteCarlo(Gameboard board, int player, int current_player)
 {
     while(board.isTurnPossible(current_player))
     {
-        bool possible = false;
-        int x = qrand()%8;
-        int y = qrand()%8;
-        int xstart = x;
-        int ystart = y;
-
-        do
+        if(player != current_player && board.play(0,0,current_player))
         {
+        }
+        else if(player != current_player && board.play(0,7,current_player))
+        {
+        }
+        else if(player != current_player && board.play(7,0,current_player))
+        {
+        }
+        else if(player != current_player && board.play(7,7,current_player))
+        {
+        }
+        else
+        {
+            bool possible = false;
+            int x = qrand()%8;
+            int y = qrand()%8;
+            int xstart = x;
+            int ystart = y;
+
             do
             {
-                if(board.play(x,y,current_player))
+                do
                 {
-                    possible = true;
-                }
+                    if(board.play(x,y,current_player))
+                    {
+                        possible = true;
+                    }
 
-                y = (y+1)%8;
-            } while(y != ystart && !possible);
+                    y = (y+1)%8;
+                } while(y != ystart && !possible);
 
-            x = (x+1)%8;
-        } while(x != xstart && !possible);
-
-    current_player = opponent(current_player);
+                x = (x+1)%8;
+            } while(x != xstart && !possible);
+        }
+        current_player = opponent(current_player);
     }
 
     return board.points(player) > board.points(opponent(player));
@@ -122,7 +136,7 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    emit sendMessage(QString(tr("Monte-Carlo returns %1")).arg(max));
+    emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(max));
     emit turn(xmax, ymax);
 }
 
