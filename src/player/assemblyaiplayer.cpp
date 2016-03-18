@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -41,6 +41,7 @@
 #include "AssemblyAIPlayer/freemovecore.h"
 #include "AssemblyAIPlayer/areacontrolcore.h"
 
+#include "../core/randomhelper.h"
 #include <QDebug>
 #include <QTime>
 
@@ -106,7 +107,7 @@ AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     Player(parent),
     _activeCore(NULL)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 
     _vote = new float*[8];
     for(int i = 0; i < 8; ++i)
@@ -126,7 +127,7 @@ AssemblyAIPlayer::AssemblyAIPlayer(QObject *parent) :
     _inactiveCores.append(new FreeMoveCore());
     _inactiveCores.append(new AreaControlCore());
 
-    int activeCoreIndex = qrand()%_inactiveCores.length();
+    int activeCoreIndex = RandomHelper::random(0,_inactiveCores.length()-1);
     _activeCore = _inactiveCores[activeCoreIndex];
     _inactiveCores.removeAt(activeCoreIndex);
 }
@@ -173,7 +174,7 @@ void AssemblyAIPlayer::doTurn(Gameboard board, int player)
             ++changes;
             message.append(QString(tr("%1 retires.\n")).arg(_activeCore->name()));
             Core * temp = _activeCore;
-            int newCore = qrand()%_inactiveCores.length();
+            int newCore = RandomHelper::random(0,_inactiveCores.length()-1);
             _activeCore = _inactiveCores[newCore];
             _inactiveCores[newCore] = temp;
             message.append(QString(tr("Electing a new active core.\n\n")));
@@ -210,7 +211,7 @@ void AssemblyAIPlayer::doTurn(Gameboard board, int player)
                 ++changes;
                 message.append(QString(tr("To many have disagreed. Electing a new active core.\n\n")));
                 Core * temp = _activeCore;
-                int newCore = qrand()%wantChange.length();
+                int newCore = RandomHelper::random(0,wantChange.length()-1);
                 _activeCore = wantChange[newCore];
                 int index = _inactiveCores.indexOf(_activeCore);
                 if(index == -1)
@@ -271,8 +272,8 @@ void AssemblyAIPlayer::doTurn(Gameboard board, int player)
     if(xTurn == -1 || yTurn == -1 || board.play(xTurn, yTurn, player, true) == false)
     {
         message.append(tr("\nSomething went wrong - using emergancy plan."));
-        int x = qrand()%8;
-        int y = qrand()%8;
+        int x = RandomHelper::random_place();
+        int y = RandomHelper::random_place();
         int xstart = x;
         int ystart = y;
 

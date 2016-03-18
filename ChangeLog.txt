@@ -3,6 +3,7 @@ Current development:
 
 Version 1.6:
    * Small improvements
+   * c++11 for random
 
 Version 1.5:
    * Added "Neural Network AI"

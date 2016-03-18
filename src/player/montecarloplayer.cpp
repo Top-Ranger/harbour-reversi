@@ -28,6 +28,7 @@
 */
 
 #include "montecarloplayer.h"
+#include "../core/randomhelper.h"
 
 #include <QTime>
 
@@ -62,8 +63,8 @@ static bool singleRunMonteCarlo(Gameboard board, int player, int current_player)
         {
             // Random play
             bool possible = false;
-            int x = qrand()%8;
-            int y = qrand()%8;
+            int x = RandomHelper::random_place();
+            int y = RandomHelper::random_place();
             int xstart = x;
             int ystart = y;
 
@@ -104,7 +105,7 @@ static int runMonteCarlo(Gameboard board, int player, int current_player)
 MonteCatloPlayer::MonteCatloPlayer(QObject *parent) :
     Player(parent)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 }
 
 bool MonteCatloPlayer::isHuman()
@@ -116,8 +117,8 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
 {
     int max = -1;
     int max_bad = -1;
-    int x = qrand()%8;
-    int y = qrand()%8;
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
     int xmax = -1;
@@ -128,28 +129,28 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
 
     if(board.play(0,0,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
         emit turn(0,0);
         return;
     }
 
     if(board.play(0,7,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
         emit turn(0,7);
         return;
     }
 
     if(board.play(7,0,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
         emit turn(7,0);
         return;
     }
 
     if(board.play(7,7,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
         emit turn(7,7);
         return;
     }

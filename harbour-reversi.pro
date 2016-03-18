@@ -8,7 +8,7 @@
 #         - icon definition filename in desktop file must be changed
 TARGET = harbour-reversi
 
-CONFIG += sailfishapp
+CONFIG += sailfishapp c++11
 
 release {
     DEFINES += QT_NO_DEBUG_OUTPUT
@@ -212,7 +212,8 @@ HEADERS += \
     src/player/AssemblyAIPlayer/freemovecore.h \
     src/player/AssemblyAIPlayer/areacontrolcore.h \
     src/player/neuralnetworkaiplayer.h \
-    src/player/montecarloplayer.h
+    src/player/montecarloplayer.h \
+    src/core/randomhelper.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \

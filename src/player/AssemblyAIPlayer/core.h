@@ -45,8 +45,8 @@ public:
     virtual QString name() const = 0;
 
 protected:
-    static const float _factorSmall = 1.1;
-    static const float _factorLarge = 1.2;
+    static constexpr float _factorSmall = 1.1;
+    static constexpr float _factorLarge = 1.2;
 
     static const int _mistrustSmall = 1;
     static const int _mistrustLarge = 3;

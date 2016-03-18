@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,6 +28,7 @@
 */
 
 #include "rulehelper.h"
+#include "../../core/randomhelper.h"
 #include <QTime>
 
 bool RuleHelper::isFrontierDisc(Gameboard board, int x, int y)
@@ -101,9 +102,9 @@ bool RuleHelper::canGetZeroDiscs(Gameboard board, int player)
 
 RuleHelper::possibleMove RuleHelper::getPossibleTurn(Gameboard board, int player)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    int x = qrand()%8;
-    int y = qrand()%8;
+    RandomHelper::initialise();
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
 

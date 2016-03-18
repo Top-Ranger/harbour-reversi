@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2016 Marcus Soll
+  Copyright (C) 2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -27,66 +27,48 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "randomaiplayer.h"
+#ifndef RANDOMHELPER_H
+#define RANDOMHELPER_H
 
-#include "../core/randomhelper.h"
+#include <random>
+#include <QVector>
+#include <QThread>
 #include <QTime>
+#include <QDate>
 
-RandomAIPlayer::RandomAIPlayer(QObject *parent) :
-    Player(parent)
+namespace RandomHelper {
+static bool random_initialised = false;
+static std::mt19937 rnd;
+static std::uniform_int_distribution<int> place_distribution(0, 7);
+
+inline void initialise()
 {
-    RandomHelper::initialise();
-}
-
-bool RandomAIPlayer::isHuman()
-{
-    return false;
-}
-
-void RandomAIPlayer::doTurn(Gameboard board, int player)
-{
-    int random = RandomHelper::random(0,9);
-
-    if(random == 0)
+    if(!random_initialised)
     {
-        emit sendMessage(tr("What am I doing?"));
+        std::random_device random_device;
+        QVector<int> seed_vector;
+        seed_vector.reserve(4);
+        seed_vector << random_device();
+        seed_vector << QTime(0,0,0).msecsTo(QTime::currentTime());
+        seed_vector << QDate::currentDate().dayOfYear();
+        seed_vector << QDate::currentDate().year();
+        std::seed_seq seed(seed_vector.begin(), seed_vector.end());
+        rnd.seed(seed);
+        random_initialised = true;
     }
-    else
-    {
-        QString s = "";
-        for(int i = 0; i < random; --random)
-        {
-            s = QString("%1%2").arg(s).arg("?");
-        }
-        emit sendMessage(s);
-    }
-
-    int x = RandomHelper::random_place();
-    int y = RandomHelper::random_place();
-    int xstart = x;
-    int ystart = y;
-
-    do
-    {
-        do
-        {
-            if(board.play(x,y,player,true))
-            {
-                emit turn(x,y);
-                return;
-            }
-            y = (y+1)%8;
-        }while(y != ystart);
-
-        x = (x+1)%8;
-    }while(x != xstart);
-
-    emit turn(RandomHelper::random_place(), RandomHelper::random_place());
 }
 
-void RandomAIPlayer::humanInput(int x, int y)
+inline int random(int low, int high)
 {
-    // Do nothing on human input
-    Q_UNUSED(x)
-    Q_UNUSED(y)
+    std::uniform_int_distribution<int> distribution(low, high);
+    return distribution(rnd);
 }
+
+inline int random_place()
+{
+    return place_distribution(rnd);
+}
+}
+
+#endif // RANDOMHELPER_H
+

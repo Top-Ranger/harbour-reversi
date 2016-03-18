@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -29,6 +29,7 @@
 
 #include "fewerfrontierdiscsrule.h"
 #include "rulehelper.h"
+#include "../../core/randomhelper.h"
 #include <QTime>
 
 using RuleHelper::isFrontierDisc;
@@ -39,7 +40,7 @@ using RuleHelper::opponent;
 FewerFrontierDiscsRule::FewerFrontierDiscsRule(QObject *parent) :
     Rule(parent)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 }
 
 bool FewerFrontierDiscsRule::applicable(Gameboard board, int player)
@@ -50,8 +51,8 @@ bool FewerFrontierDiscsRule::applicable(Gameboard board, int player)
 void FewerFrontierDiscsRule::doTurn(Gameboard board, int player)
 {
     int max = 100;
-    int x = qrand()%8;
-    int y = qrand()%8;
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
     int xmax = -1;

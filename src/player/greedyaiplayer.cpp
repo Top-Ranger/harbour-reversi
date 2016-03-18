@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,12 +28,14 @@
 */
 
 #include "greedyaiplayer.h"
+
+#include "../core/randomhelper.h"
 #include <QTime>
 
 GreedyAIPlayer::GreedyAIPlayer(QObject *parent) :
     Player(parent)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 }
 
 bool GreedyAIPlayer::isHuman()
@@ -45,8 +47,8 @@ void GreedyAIPlayer::doTurn(Gameboard board, int player)
 {
     int max = -1;
     int old = board.points(player);
-    int x = qrand()%8;
-    int y = qrand()%8;
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
     int xmax = -1;

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,6 +28,8 @@
 */
 
 #include "controlaiplayer.h"
+
+#include "../core/randomhelper.h"
 #include <QTime>
 #include <limits>
 
@@ -37,7 +39,7 @@ ControlAIPlayer::ControlAIPlayer(QObject *parent) :
     _currentFunctions(),
     _priority()
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 
     // Fill _availableFunctions
     _availableFunctions[0] = &ControlAIPlayer::functionFindSleepers;
@@ -46,9 +48,9 @@ ControlAIPlayer::ControlAIPlayer(QObject *parent) :
     _availableFunctions[3] = &ControlAIPlayer::functionAvoidCluster;
 
     // Fill _currentFunctions
-    _currentFunctions[0] = _availableFunctions[qrand() % _sizeAvailableFunctions];
-    _currentFunctions[1] = _availableFunctions[qrand() % _sizeAvailableFunctions];
-    _currentFunctions[2] = _availableFunctions[qrand() % _sizeAvailableFunctions];
+    _currentFunctions[0] = _availableFunctions[RandomHelper::random(0,_sizeAvailableFunctions-1)];
+    _currentFunctions[1] = _availableFunctions[RandomHelper::random(0,_sizeAvailableFunctions-1)];
+    _currentFunctions[2] = _availableFunctions[RandomHelper::random(0,_sizeAvailableFunctions-1)];
 }
 
 bool ControlAIPlayer::isHuman()
@@ -59,7 +61,7 @@ bool ControlAIPlayer::isHuman()
 void ControlAIPlayer::doTurn(Gameboard board, int player)
 {
     // Change function
-    _currentFunctions[qrand() % _sizeCurrentFunctions] = _availableFunctions[qrand() % _sizeAvailableFunctions];
+    _currentFunctions[RandomHelper::random(0,_sizeAvailableFunctions-1)] = _availableFunctions[RandomHelper::random(0,_sizeAvailableFunctions-1)];
 
     // Initialising _priority
     for(int x = 0; x < 8; ++x)
@@ -84,8 +86,8 @@ void ControlAIPlayer::doTurn(Gameboard board, int player)
     // Do actual turn
 
     int max = std::numeric_limits<int>::min();
-    int x = qrand()%8;
-    int y = qrand()%8;
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
     int xmax = -1;

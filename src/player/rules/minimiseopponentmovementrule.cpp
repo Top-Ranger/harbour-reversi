@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -29,6 +29,7 @@
 
 #include "minimiseopponentmovementrule.h"
 #include "rulehelper.h"
+#include "../../core/randomhelper.h"
 #include <QDebug>
 #include <QTime>
 
@@ -46,7 +47,7 @@ MinimiseOpponentMovementRule::MinimiseOpponentMovementRule(QObject *parent) :
     _y(-1),
     _asked(false)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 }
 
 bool MinimiseOpponentMovementRule::applicable(Gameboard board, int player)
@@ -89,8 +90,8 @@ QString MinimiseOpponentMovementRule::name()
 bool MinimiseOpponentMovementRule::calculateMove(Gameboard board, int player)
 {
     int min = 100;
-    int x = qrand()%8;
-    int y = qrand()%8;
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
     int xmin = -1;

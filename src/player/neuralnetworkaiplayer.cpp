@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -35,6 +35,7 @@
 #include <QTime>
 #include <cmath>
 #include "neuralnetworkaiplayer.h"
+#include "../core/randomhelper.h"
 
 const char *NeuralNetworkAIPlayer::_pathInputToHidden1 = ":NeuralNetworkAIPlayer/inputToHidden1.txt";
 const char *NeuralNetworkAIPlayer::_pathHidden1ToHidden2 = ":NeuralNetworkAIPlayer/hidden1ToHidden2.txt";
@@ -68,7 +69,7 @@ NeuralNetworkAIPlayer::NeuralNetworkAIPlayer(QObject *parent) :
     _hidden2ToOutput()
 {
 
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 
     for(int i = 0; i < 64; ++i)
     {
@@ -182,7 +183,7 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
     for(int i = 0; i < 64; ++i)
     {
         float value = output(0,i);
-        switch(qrand()%3)
+        switch(RandomHelper::random(0,2))
         {
         case 1:
             value *= random_fachtor;

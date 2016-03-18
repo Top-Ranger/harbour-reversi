@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,6 +28,8 @@
 */
 
 #include "insanecore.h"
+
+#include "../../core/randomhelper.h"
 #include <QTime>
 
 int InsaneCore::_counter = 0;
@@ -36,7 +38,7 @@ InsaneCore::InsaneCore() :
     Core(),
     _id(++_counter)
 {
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    RandomHelper::initialise();
 }
 
 bool InsaneCore::retirement(Gameboard board, int player)
@@ -45,7 +47,7 @@ bool InsaneCore::retirement(Gameboard board, int player)
     Q_UNUSED(board)
     Q_UNUSED(player)
 
-    return (qrand()%2 == 0);
+    return (RandomHelper::random(0,1));
 }
 
 int InsaneCore::mistrust(float const* const* const vote, Gameboard board, int player)
@@ -55,7 +57,7 @@ int InsaneCore::mistrust(float const* const* const vote, Gameboard board, int pl
     Q_UNUSED(board)
     Q_UNUSED(player)
 
-    return (qrand()%60 == 0)?Core::_factorSmall:Core::_noMistrust;
+    return RandomHelper::random(0,60)?Core::_factorSmall:Core::_noMistrust;
 }
 
 void InsaneCore::propose(float ** const vote, Gameboard board, int player)
@@ -64,8 +66,8 @@ void InsaneCore::propose(float ** const vote, Gameboard board, int player)
     do{
         for(int i = 0; i < 10 && count < 3; ++i)
         {
-            int x = qrand()%8;
-            int y = qrand()%8;
+            int x = RandomHelper::random_place();
+            int y = RandomHelper::random_place();
             if(board.play(x,y,player,true))
             {
                 vote[x][y] = 1;
@@ -87,7 +89,7 @@ void InsaneCore::correct(float ** const vote, Gameboard board, int player)
         {
             if(vote[x][y] != 0)
             {
-                switch(qrand()%8)
+                switch(RandomHelper::random(0,7))
                 {
                 case 0:
                     vote[x][y] *= Core::_factorSmall;

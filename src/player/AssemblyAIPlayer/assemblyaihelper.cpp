@@ -28,13 +28,15 @@
 */
 
 #include "assemblyaihelper.h"
+#include "../../core/randomhelper.h"
 #include <QDebug>
 
 namespace {
 bool findOneFreePlace(float ** const vote, Gameboard board, int player, bool ignoreOpponentCanGetCorner=true)
 {
-    int x = qrand()%8;
-    int y = qrand()%8;
+    RandomHelper::initialise();
+    int x = RandomHelper::random_place();
+    int y = RandomHelper::random_place();
     int xstart = x;
     int ystart = y;
 
