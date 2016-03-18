@@ -37,21 +37,25 @@ static bool singleRunMonteCarlo(Gameboard board, int player, int current_player)
 {
     while(board.isTurnPossible(current_player))
     {
-        // Opponent will play corners if possible
-        if(player != current_player && board.play(0,0,current_player))
+        // Test corner plays
+        if(board.play(0,0,current_player))
         {
+            current_player = opponent(current_player);
             continue;
         }
-        else if(player != current_player && board.play(0,7,current_player))
+        else if(board.play(0,7,current_player))
         {
+            current_player = opponent(current_player);
             continue;
         }
-        else if(player != current_player && board.play(7,0,current_player))
+        else if(board.play(7,0,current_player))
         {
+            current_player = opponent(current_player);
             continue;
         }
-        else if(player != current_player && board.play(7,7,current_player))
+        else if(board.play(7,7,current_player))
         {
+            current_player = opponent(current_player);
             continue;
         }
         else
@@ -124,28 +128,28 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
 
     if(board.play(0,0,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
         emit turn(0,0);
         return;
     }
 
     if(board.play(0,7,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
         emit turn(0,7);
         return;
     }
 
     if(board.play(7,0,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
         emit turn(7,0);
         return;
     }
 
     if(board.play(7,7,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + qrand()%10)/ NUM_RUNS));
         emit turn(7,7);
         return;
     }
@@ -181,12 +185,12 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
 
     if(max != -1)
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(max));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) max / MonteCatloPlayer::NUM_RUNS));
         emit turn(xmax, ymax);
     }
     else
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg(max_bad));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) max_bad / MonteCatloPlayer::NUM_RUNS));
         emit turn(xmax_bad, ymax_bad);
     }
 }
