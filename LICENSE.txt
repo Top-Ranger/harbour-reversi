@@ -1,4 +1,4 @@
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   Copyright (C) 2014 Johannes Preuß
   Copyright (C) 2013 Jolla Ltd.
   All rights reserved.
