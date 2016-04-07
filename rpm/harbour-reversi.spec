@@ -25,7 +25,6 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
-BuildRequires:  desktop-file-utils
 
 %description
 A reversi implementation for SailfishOS
@@ -56,19 +55,14 @@ rm -rf %{buildroot}
 # >> install post
 # << install post
 
-desktop-file-install --delete-original       \
-  --dir %{buildroot}%{_datadir}/applications             \
-   %{buildroot}%{_datadir}/applications/*.desktop
-
 %files
 %defattr(-,root,root,-)
 %{_bindir}
-%{_datadir}/%{name}/qml
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/hicolor/86x86/apps/%{name}.png
-/usr/bin
-/usr/share/harbour-reversi
-/usr/share/applications
-/usr/share/icons/hicolor/86x86/apps
+%{_datadir}/%{name}/
+%{_datadir}/applications
+%{_datadir}/icons/hicolor/86x86/apps
+%{_datadir}/icons/hicolor/108x108/apps
+%{_datadir}/icons/hicolor/128x128/apps
+%{_datadir}/icons/hicolor/256x256/apps
 # >> files
 # << files

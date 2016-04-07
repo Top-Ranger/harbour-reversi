@@ -20,11 +20,10 @@ Requires:
 - sailfishsilica-qt5 >= 0.10.9
 Files:
 - '%{_bindir}'
-- '%{_datadir}/%{name}/qml'
-- '%{_datadir}/applications/%{name}.desktop'
-- '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
-- /usr/bin
-- /usr/share/harbour-reversi
-- /usr/share/applications
-- /usr/share/icons/hicolor/86x86/apps
+- '%{_datadir}/%{name}/'
+- '%{_datadir}/applications'
+- '%{_datadir}/icons/hicolor/86x86/apps'
+- '%{_datadir}/icons/hicolor/108x108/apps'
+- '%{_datadir}/icons/hicolor/128x128/apps'
+- '%{_datadir}/icons/hicolor/256x256/apps'
 PkgBR: []

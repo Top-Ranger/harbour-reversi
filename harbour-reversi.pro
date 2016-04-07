@@ -14,6 +14,41 @@ release {
     DEFINES += QT_NO_DEBUG_OUTPUT
 }
 
+# Icons + license
+
+!exists(icons/86x86/harbour-reversi.png) {
+    error( "Images not generated - call 'create_icons.sh'" )
+}
+
+!exists(icons/108x108/harbour-reversi.png) {
+    error( "Images not generated - call 'create_icons.sh'" )
+}
+
+!exists(icons/128x128/harbour-reversi.png) {
+    error( "Images not generated - call 'create_icons.sh'" )
+}
+
+!exists(icons/256x256/harbour-reversi.png) {
+    error( "Images not generated - call 'create_icons.sh'" )
+}
+
+icon86.files = icons/86x86/harbour-reversi.png
+icon86.path = /usr/share/icons/hicolor/86x86/apps/
+
+icon108.files = icons/108x108/harbour-reversi.png
+icon108.path = /usr/share/icons/hicolor/108x108/apps/
+
+icon128.files = icons/128x128/harbour-reversi.png
+icon128.path = /usr/share/icons/hicolor/128x128/apps/
+
+icon256.files = icons/256x256/harbour-reversi.png
+icon256.path = /usr/share/icons/hicolor/256x256/apps/
+
+license.files = LICENSE.txt
+license.path = /usr/share/$${TARGET}
+
+INSTALLS += icon86 icon108 icon128 icon256 license
+
 SOURCES += src/uiconnection.cpp \
     src/harbour-reversi.cpp \
     src/core/gamemaster.cpp \
@@ -219,4 +254,3 @@ RESOURCES += \
     src/translation/core-translation.qrc \
     translation-ui.qrc \
     src/player/NeuralNetworkAIPlayer/NNData.qrc
-

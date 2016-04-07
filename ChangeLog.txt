@@ -1,5 +1,6 @@
 Current development:
    * Added "Monte Carlo AI"
+   * Added icons of different sizes
 
 Version 1.6:
    * Small improvements
