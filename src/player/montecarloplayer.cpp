@@ -162,17 +162,17 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
             if(testboard.play(x,y,player))
             {
                 int points = runMonteCarlo(testboard, player, opponent(player));
-                if(points > max)
+                if(points > max_bad)
                 {
                     max_bad = points;
                     xmax_bad = x;
                     ymax_bad = y;
-                    if(!(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true)))
-                    {
-                        max = points;
-                        xmax = x;
-                        ymax = y;
-                    }
+                }
+                if(points > max && !(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true)))
+                {
+                    max = points;
+                    xmax = x;
+                    ymax = y;
                 }
             }
 
