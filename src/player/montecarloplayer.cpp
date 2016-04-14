@@ -31,10 +31,11 @@
 #include "../core/randomhelper.h"
 
 #include <QTime>
+#include <limits>
 
 static int opponent(int player){return player==1?2:1;}
 
-static bool singleRunMonteCarlo(Gameboard board, int player, int current_player)
+static int singleRunMonteCarlo(Gameboard board, int player, int current_player)
 {
     while(board.isTurnPossible(current_player))
     {
@@ -86,7 +87,7 @@ static bool singleRunMonteCarlo(Gameboard board, int player, int current_player)
         current_player = opponent(current_player);
     }
 
-    return board.points(player) > board.points(opponent(player));
+    return board.points(player) - board.points(opponent(player));
 }
 
 static int runMonteCarlo(Gameboard board, int player, int current_player)
@@ -94,10 +95,7 @@ static int runMonteCarlo(Gameboard board, int player, int current_player)
     int points = 0;
     for(int i = 0; i < MonteCatloPlayer::NUM_RUNS; ++i)
     {
-        if(singleRunMonteCarlo(board, player, current_player))
-        {
-            ++points;
-        }
+        points += singleRunMonteCarlo(board, player, current_player);
     }
     return points;
 }
@@ -115,8 +113,8 @@ bool MonteCatloPlayer::isHuman()
 
 void MonteCatloPlayer::doTurn(Gameboard board, int player)
 {
-    int max = -1;
-    int max_bad = -1;
+    int max = std::numeric_limits<int>::min();
+    int max_bad = std::numeric_limits<int>::min();
     int x = RandomHelper::random_place();
     int y = RandomHelper::random_place();
     int xstart = x;
@@ -129,28 +127,28 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
 
     if(board.play(0,0,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (9000000 + RandomHelper::random(0,1000000))/ 10000000));
         emit turn(0,0);
         return;
     }
 
     if(board.play(0,7,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (9000000 + RandomHelper::random(0,1000000))/ 10000000));
         emit turn(0,7);
         return;
     }
 
     if(board.play(7,0,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (9000000 + RandomHelper::random(0,1000000))/ 10000000));
         emit turn(7,0);
         return;
     }
 
     if(board.play(7,7,player,true))
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (90 + RandomHelper::random(0,10))/ NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) (9000000 + RandomHelper::random(0,1000000))/ 10000000));
         emit turn(7,7);
         return;
     }
@@ -169,7 +167,7 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
                     max_bad = points;
                     xmax_bad = x;
                     ymax_bad = y;
-                    if(!(board.play(0,0,opponent(player),true) || board.play(0,7,opponent(player),true) || board.play(7,0,opponent(player),true) || board.play(7,7,opponent(player),true)))
+                    if(!(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true)))
                     {
                         max = points;
                         xmax = x;
@@ -184,14 +182,14 @@ void MonteCatloPlayer::doTurn(Gameboard board, int player)
         x = (x+1)%8;
     }while(x != xstart);
 
-    if(max != -1)
+    if(max != std::numeric_limits<int>::min())
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) max / MonteCatloPlayer::NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) max / MonteCatloPlayer::NUM_RUNS / 64));
         emit turn(xmax, ymax);
     }
     else
     {
-        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) max_bad / MonteCatloPlayer::NUM_RUNS));
+        emit sendMessage(QString(tr("Monte Carlo method returns %1")).arg((float) max_bad / MonteCatloPlayer::NUM_RUNS / 64));
         emit turn(xmax_bad, ymax_bad);
     }
 }
