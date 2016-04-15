@@ -66,6 +66,8 @@ public slots:
     Q_INVOKABLE QString stringPlayer1();
     Q_INVOKABLE QString stringPlayer2();
     Q_INVOKABLE QString colourPrefix();
+    Q_INVOKABLE bool showMessage();
+    Q_INVOKABLE void setShowMessage(bool showMessage);
 
 private:
     QTranslator *_translator;
@@ -79,6 +81,7 @@ private:
     QString _stringPlayer2;
     QString _colourPrefix;
     PersistenceClass _save;
+    bool _showMessage;
 };
 
 #endif // UICONNECTION_H

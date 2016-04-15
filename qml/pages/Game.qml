@@ -48,7 +48,13 @@ Page {
         }
 
         onSendMessage: {
-            functions.getMessage(message)
+            // Save the message in case it is a tutorial message and we need to show it later
+            variable.lastmessage = message
+
+            if(variable.showmessage)
+            {
+                functions.getMessage(message)
+            }
         }
 
         onBoardChanged: {
@@ -67,8 +73,10 @@ Page {
 
         property string input: qsTr("Waiting...")
         property string message: ""
+        property string lastmessage: ""
         property bool gamestarted: false
         property bool gamefinished: false
+        property bool showmessage: uiconnection.showMessage()
 
         property int lastChangedX: -1
         property int lastChangedY: -1
@@ -162,6 +170,11 @@ Page {
                 variable.input = qsTr("Player ") + player + qsTr(" do your turn")
                 variable.currentPlayer = player
                 uiconnection.newPlayerMessage(variable.input)
+
+                // Test if we need to show the tutorial message
+                if((variable.currentPlayer === 1 && uiconnection.stringPlayer1() === "Tutorial") || (variable.currentPlayer === 2 && uiconnection.stringPlayer2() === "Tutorial")) {
+                    variable.message = variable.lastmessage
+                }
             }
         }
 

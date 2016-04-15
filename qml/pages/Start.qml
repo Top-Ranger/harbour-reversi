@@ -72,10 +72,35 @@ Page {
             uiconnection.setBonus(bonusslider.sliderValue)
         }
 
+        function randomai() {
+            var AI = ["Random AI", "Greedy AI", "Tree AI", "Balanced AI", "Static Rule AI", "Adaptive Tree AI", "Control AI", "Assembly AI", "Neural Network AI", "Monte Carlo AI"]
+            var index = Math.floor(Math.random()*AI.length)
+            return AI[index]
+        }
+
         function startgame() {
-            if(gamemaster.initialise(player1.currentItem.text, player2.currentItem.text, bonusslider.sliderValue))
+            saveAll()
+            uiconnection.setShowMessage(true)
+
+            var player1text = player1.currentItem.text
+            var player2text = player2.currentItem.text
+
+            if(player1text === "Select random AI")
             {
-                saveAll()
+                uiconnection.setShowMessage(false)
+                player1text = randomai()
+                uiconnection.setStringPlayer1(player1text)
+            }
+
+            if(player2text === "Select random AI")
+            {
+                uiconnection.setShowMessage(false)
+                player2text = randomai()
+                uiconnection.setStringPlayer2(player2text)
+            }
+
+            if(gamemaster.initialise(player1text, player2text, bonusslider.sliderValue))
+            {
                 showerror = false
                 pageStack.push(Qt.resolvedUrl("Game.qml"))
             }
@@ -187,6 +212,7 @@ Page {
                         MenuItem { text: "Assembly AI"}
                         MenuItem { text: "Neural Network AI"}
                         MenuItem { text: "Monte Carlo AI"}
+                        MenuItem { text: "Select random AI"}
                     }
                 }
             }
@@ -228,6 +254,7 @@ Page {
                         MenuItem { text: "Assembly AI"}
                         MenuItem { text: "Neural Network AI"}
                         MenuItem { text: "Monte Carlo AI"}
+                        MenuItem { text: "Select random AI"}
                     }
                 }
             }

@@ -15,6 +15,8 @@ Currently avaiable are:
    * Neural Network AI: An AI using a neural network
    * Monte Carlo AI: An AI based on the idea of the "Monte Carlo method"
 
+In addition there is an option to select a random AI. In this case, the messages of the AIs are surpressed. Restarting the game from the game bord will result in the same AI so you have an other chance of beat it.
+
 ---
 
 HOWTO implement an own AI/Player:

@@ -42,7 +42,8 @@ UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator,
     _stringPlayer1("Human"),
     _stringPlayer2("Human"),
     _colourPrefix(""),
-    _save()
+    _save(),
+    _showMessage(true)
 {
     if(!(_save.getString("Language") == QString()))
     {
@@ -192,4 +193,14 @@ QString UIConnection::stringPlayer2()
 QString UIConnection::colourPrefix()
 {
     return _colourPrefix;
+}
+
+bool UIConnection::showMessage()
+{
+    return _showMessage;
+}
+
+void UIConnection::setShowMessage(bool showMessage)
+{
+    _showMessage = showMessage;
 }
