@@ -5,7 +5,7 @@
 <defs>
   <linearGradient id="gradient0" gradientTransform="translate(-0.3, -0.3)" gradientUnits="objectBoundingBox" x1="0.00839461358" y1="0.99863114754" x2="0.99863114754" y2="0.00839461358" spreadMethod="pad">
    <stop stop-color="#ffffff" offset="0.00000000000" stop-opacity="1.00000000000"/>
-   <stop stop-color="#25e5da" offset="0.35737493634" stop-opacity="0.90980392157"/>
+   <stop stop-color="#25e5da" offset="0.35737493634" stop-opacity="1.00000000000"/>
   </linearGradient>
   <linearGradient id="gradient1" gradientTransform="" gradientUnits="objectBoundingBox" x1="0.50000000000" y1="0.50000000000" x2="0.50000000000" y2="0.00000000000" spreadMethod="pad">
    <stop stop-color="#000000" offset="0.00000000000" stop-opacity="1.00000000000"/>
