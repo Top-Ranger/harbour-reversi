@@ -166,12 +166,12 @@ Something went wrong - using emergancy plan.</translation>
 <context>
     <name>MonteCatloPlayer</name>
     <message>
-        <location filename="../player/montecarloplayer.cpp" line="132"/>
-        <location filename="../player/montecarloplayer.cpp" line="139"/>
-        <location filename="../player/montecarloplayer.cpp" line="146"/>
-        <location filename="../player/montecarloplayer.cpp" line="153"/>
-        <location filename="../player/montecarloplayer.cpp" line="189"/>
-        <location filename="../player/montecarloplayer.cpp" line="194"/>
+        <location filename="../player/montecarloplayer.cpp" line="130"/>
+        <location filename="../player/montecarloplayer.cpp" line="137"/>
+        <location filename="../player/montecarloplayer.cpp" line="144"/>
+        <location filename="../player/montecarloplayer.cpp" line="151"/>
+        <location filename="../player/montecarloplayer.cpp" line="187"/>
+        <location filename="../player/montecarloplayer.cpp" line="192"/>
         <source>Monte Carlo method returns %1</source>
         <translation>Monte Carlo method returns %1</translation>
     </message>

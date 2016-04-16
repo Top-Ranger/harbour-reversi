@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de_DE">
+<TS version="2.1" language="de_DE">
 <context>
     <name>About</name>
     <message>
@@ -37,50 +37,50 @@
 <context>
     <name>Game</name>
     <message>
-        <location filename="qml/pages/Game.qml" line="68"/>
-        <location filename="qml/pages/Game.qml" line="194"/>
+        <location filename="qml/pages/Game.qml" line="74"/>
+        <location filename="qml/pages/Game.qml" line="207"/>
         <source>Waiting...</source>
         <translation>Bitte warten</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="162"/>
+        <location filename="qml/pages/Game.qml" line="170"/>
         <source>Player </source>
         <translation>Spieler </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="162"/>
+        <location filename="qml/pages/Game.qml" line="170"/>
         <source> do your turn</source>
         <translation> am Zug</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="173"/>
+        <location filename="qml/pages/Game.qml" line="186"/>
         <source>Finished!</source>
         <translation>Spiel beendet</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="174"/>
+        <location filename="qml/pages/Game.qml" line="187"/>
         <source>Points Player2: </source>
         <translation>Punkte Spieler 2: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="174"/>
+        <location filename="qml/pages/Game.qml" line="187"/>
         <source>END OF GAME!
 Points Player1: </source>
         <translation>Spiel beendet!
 Punkte Spieler 1: </translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="313"/>
+        <location filename="qml/pages/Game.qml" line="326"/>
         <source>Reversi</source>
         <translation>Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="323"/>
+        <location filename="qml/pages/Game.qml" line="336"/>
         <source>Starting the Game</source>
         <translation>Starte das Spiel</translation>
     </message>
     <message>
-        <location filename="qml/pages/Game.qml" line="908"/>
+        <location filename="qml/pages/Game.qml" line="921"/>
         <source>Restart game</source>
         <translation>Spiel neu starten</translation>
     </message>
@@ -114,77 +114,85 @@ Das Spiel endet, wenn kein Spieler mehr einen Stein plazieren kann (es können n
 <context>
     <name>Start</name>
     <message>
-        <location filename="qml/pages/Start.qml" line="111"/>
+        <location filename="qml/pages/Start.qml" line="88"/>
+        <location filename="qml/pages/Start.qml" line="95"/>
+        <location filename="qml/pages/Start.qml" line="215"/>
+        <location filename="qml/pages/Start.qml" line="257"/>
+        <source>Select random AI</source>
+        <translation>Wähle zufällige AI aus</translation>
+    </message>
+    <message>
+        <location filename="qml/pages/Start.qml" line="136"/>
         <source>About</source>
         <translation>Über Reversi</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="116"/>
+        <location filename="qml/pages/Start.qml" line="141"/>
         <source>Rules</source>
         <translation>Regeln</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="121"/>
+        <location filename="qml/pages/Start.qml" line="146"/>
         <source>Start game</source>
         <translation>Starte das Spiel</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="138"/>
+        <location filename="qml/pages/Start.qml" line="163"/>
         <source>Game Configuration</source>
         <translation>Spieleigenschaften</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="149"/>
+        <location filename="qml/pages/Start.qml" line="174"/>
         <source>Error starting the game</source>
         <translation>Fehler: Kann das Spiel nicht starten</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="172"/>
+        <location filename="qml/pages/Start.qml" line="197"/>
         <source>Player 1</source>
         <translation>Spieler 1</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="213"/>
+        <location filename="qml/pages/Start.qml" line="239"/>
         <source>Player 2</source>
         <translation>Spieler 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="243"/>
+        <location filename="qml/pages/Start.qml" line="270"/>
         <source>Bonus for 2nd player</source>
         <translation>Bonuspunkte Spieler 2</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="251"/>
+        <location filename="qml/pages/Start.qml" line="278"/>
         <source>Disc Colour</source>
         <translation>Farbe der Spielsteine</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="257"/>
+        <location filename="qml/pages/Start.qml" line="284"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="258"/>
+        <location filename="qml/pages/Start.qml" line="285"/>
         <source>Blue</source>
         <translation>Blau</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="259"/>
+        <location filename="qml/pages/Start.qml" line="286"/>
         <source>Red</source>
         <translation>Rot</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="260"/>
+        <location filename="qml/pages/Start.qml" line="287"/>
         <source>Traditional</source>
         <translation>Traditionell</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="267"/>
+        <location filename="qml/pages/Start.qml" line="294"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="qml/pages/Start.qml" line="270"/>
+        <location filename="qml/pages/Start.qml" line="297"/>
         <source>Select Language</source>
         <translation>Sprache wählen</translation>
     </message>

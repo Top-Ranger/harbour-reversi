@@ -85,14 +85,14 @@ Page {
             var player1text = player1.currentItem.text
             var player2text = player2.currentItem.text
 
-            if(player1text === "Select random AI")
+            if(player1text === qsTr("Select random AI"))
             {
                 uiconnection.setShowMessage(false)
                 player1text = randomai()
                 uiconnection.setStringPlayer1(player1text)
             }
 
-            if(player2text === "Select random AI")
+            if(player2text === qsTr("Select random AI"))
             {
                 uiconnection.setShowMessage(false)
                 player2text = randomai()
@@ -212,7 +212,7 @@ Page {
                         MenuItem { text: "Assembly AI"}
                         MenuItem { text: "Neural Network AI"}
                         MenuItem { text: "Monte Carlo AI"}
-                        MenuItem { text: "Select random AI"}
+                        MenuItem { text: qsTr("Select random AI")}
                     }
                 }
             }
@@ -254,7 +254,7 @@ Page {
                         MenuItem { text: "Assembly AI"}
                         MenuItem { text: "Neural Network AI"}
                         MenuItem { text: "Monte Carlo AI"}
-                        MenuItem { text: "Select random AI"}
+                        MenuItem { text: qsTr("Select random AI")}
                     }
                 }
             }
