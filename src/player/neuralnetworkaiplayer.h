@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -30,9 +30,10 @@
 #ifndef NEURALNETWORKPLAYER_H
 #define NEURALNETWORKPLAYER_H
 
+#include "player.h"
+
 #include <QGenericMatrix>
 #include <QString>
-#include "player.h"
 
 class NeuralNetworkAIPlayer : public Player
 {

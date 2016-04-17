@@ -28,10 +28,10 @@
 */
 
 #include "fewerfrontierdiscsrule.h"
+
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
-#include <QTime>
 
 using RuleHelper::isFrontierDisc;
 using RuleHelper::canTakeCorner;

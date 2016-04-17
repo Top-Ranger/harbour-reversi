@@ -28,6 +28,7 @@
 */
 
 #include "movementcore.h"
+
 #include "assemblyaihelper.h"
 
 namespace {

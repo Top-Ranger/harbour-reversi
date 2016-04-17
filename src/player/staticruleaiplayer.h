@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -30,9 +30,11 @@
 #ifndef STATICRULEAIPLAYER_H
 #define STATICRULEAIPLAYER_H
 
-#include <QList>
 #include "player.h"
+
 #include "../player/rules/rule.h"
+
+#include <QList>
 
 class StaticRuleAIPlayer : public Player
 {

@@ -28,6 +28,7 @@
 */
 
 #include "assemblyaihelper.h"
+
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
 

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -31,7 +31,9 @@
 #define ASSEMBLYAIPLAYER_H
 
 #include "player.h"
+
 #include "AssemblyAIPlayer/core.h"
+
 #include <QList>
 
 class AssemblyAIPlayer : public Player

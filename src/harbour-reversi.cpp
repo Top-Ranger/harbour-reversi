@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   Copyright (C) 2013 Jolla Ltd.
   Contact: Thomas Perl <thomas.perl@jollamobile.com>
   All rights reserved.
@@ -29,10 +29,11 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <sailfishapp.h>
 #include "core/gamemaster.h"
-#include <QtQuick>
 #include "uiconnection.h"
+
+#include <sailfishapp.h>
+#include <QtQuick>
 #include <QTranslator>
 
 int main(int argc, char *argv[])

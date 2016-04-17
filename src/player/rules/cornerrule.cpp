@@ -28,6 +28,7 @@
 */
 
 #include "cornerrule.h"
+
 #include "rulehelper.h"
 #include "../../core/commons.h"
 

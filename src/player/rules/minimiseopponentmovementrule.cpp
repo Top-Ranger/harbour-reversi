@@ -28,10 +28,10 @@
 */
 
 #include "minimiseopponentmovementrule.h"
+
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
-#include <QTime>
 
 using RuleHelper::canTakeCorner;
 using RuleHelper::canGetZeroDiscs;

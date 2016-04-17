@@ -28,6 +28,10 @@
 */
 
 #include "staticruleaiplayer.h"
+
+#include "../core/commons.h"
+
+// Rules
 #include "../player/rules/greedyrule.h"
 #include "../player/rules/openingrule.h"
 #include "../player/rules/endgamerule.h"
@@ -35,7 +39,6 @@
 #include "../player/rules/minimiseopponentmovementrule.h"
 #include "../player/rules/maximiseownmovementrule.h"
 #include "../player/rules/fewerfrontierdiscsrule.h"
-#include "../core/commons.h"
 
 StaticRuleAIPlayer::StaticRuleAIPlayer(QObject *parent) :
     Player(parent)

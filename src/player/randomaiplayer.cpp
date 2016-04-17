@@ -30,7 +30,6 @@
 #include "randomaiplayer.h"
 
 #include "../core/randomhelper.h"
-#include <QTime>
 
 RandomAIPlayer::RandomAIPlayer(QObject *parent) :
     Player(parent)

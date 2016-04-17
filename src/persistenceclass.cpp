@@ -29,6 +29,7 @@
 
 #include "persistenceclass.h"
 #include "core/commons.h"
+
 #include <QXmlStreamReader>
 #include <QStandardPaths>
 #include <QXmlStreamAttributes>

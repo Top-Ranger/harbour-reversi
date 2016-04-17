@@ -27,15 +27,16 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "neuralnetworkaiplayer.h"
+
+#include "../core/randomhelper.h"
+#include "../core/commons.h"
+
 #include <QGenericMatrix>
 #include <limits>
 #include <QFile>
 #include <QTextStream>
-#include <QTime>
 #include <cmath>
-#include "neuralnetworkaiplayer.h"
-#include "../core/randomhelper.h"
-#include "../core/commons.h"
 
 using ReversiCommons::opponent;
 

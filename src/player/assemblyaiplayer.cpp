@@ -28,7 +28,10 @@
 */
 
 #include "assemblyaiplayer.h"
+
 #include "AssemblyAIPlayer/assemblyaihelper.h"
+#include "../core/randomhelper.h"
+#include "../core/commons.h"
 
 //Cores
 #include "AssemblyAIPlayer/insanecore.h"
@@ -40,10 +43,6 @@
 #include "AssemblyAIPlayer/movementcore.h"
 #include "AssemblyAIPlayer/freemovecore.h"
 #include "AssemblyAIPlayer/areacontrolcore.h"
-
-#include "../core/randomhelper.h"
-#include "../core/commons.h"
-#include <QTime>
 
 using ReversiCommons::opponent;
 

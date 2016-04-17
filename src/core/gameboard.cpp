@@ -28,6 +28,7 @@
 */
 
 #include "gameboard.h"
+
 #include "commons.h"
 
 using ReversiCommons::opponent;

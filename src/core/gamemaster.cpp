@@ -28,7 +28,10 @@
 */
 
 #include "gamemaster.h"
+
 #include "commons.h"
+
+// player
 #include "../player/humanplayer.h"
 #include "../player/randomaiplayer.h"
 #include "../player/greedyaiplayer.h"

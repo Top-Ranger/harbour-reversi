@@ -30,7 +30,6 @@
 #include "insanecore.h"
 
 #include "../../core/randomhelper.h"
-#include <QTime>
 
 int InsaneCore::_counter = 0;
 

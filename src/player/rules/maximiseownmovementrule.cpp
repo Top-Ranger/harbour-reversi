@@ -32,7 +32,6 @@
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
 #include "rulehelper.h"
-#include <QTime>
 
 using RuleHelper::canTakeCorner;
 using RuleHelper::canGetZeroDiscs;

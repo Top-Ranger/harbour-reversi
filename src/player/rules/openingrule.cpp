@@ -28,11 +28,12 @@
 */
 
 #include "openingrule.h"
+
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
+
 #include <limits>
-#include <QTime>
 
 using RuleHelper::isFrontierDisc;
 using RuleHelper::canGetZeroDiscs;

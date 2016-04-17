@@ -28,9 +28,10 @@
 */
 
 #include "adaptivetreeaiplayer.h"
+
 #include "../core/randomhelper.h"
 #include "../core/commons.h"
-#include <QTime>
+
 #include <limits>
 
 using ReversiCommons::opponent;

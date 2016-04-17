@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -30,8 +30,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <QObject>
 #include "../core/gameboard.h"
+
+#include <QObject>
 
 class Player : public QObject
 {

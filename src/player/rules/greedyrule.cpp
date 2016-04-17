@@ -30,7 +30,6 @@
 #include "greedyrule.h"
 
 #include "../../core/randomhelper.h"
-#include <QTime>
 
 GreedyRule::GreedyRule(QObject *parent) :
     Rule(parent)

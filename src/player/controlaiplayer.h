@@ -31,6 +31,7 @@
 #define CONTROLAIPLAYER_H
 
 #include "player.h"
+
 #include <QList>
 
 class ControlAIPlayer;

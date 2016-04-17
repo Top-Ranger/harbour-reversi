@@ -28,6 +28,7 @@
 */
 
 #include "edgecore.h"
+
 #include "assemblyaihelper.h"
 #include "../../core/commons.h"
 

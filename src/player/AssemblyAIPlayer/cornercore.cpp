@@ -28,6 +28,7 @@
 */
 
 #include "cornercore.h"
+
 #include "assemblyaihelper.h"
 #include "../../core/commons.h"
 

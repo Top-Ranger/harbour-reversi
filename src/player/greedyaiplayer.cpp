@@ -30,7 +30,6 @@
 #include "greedyaiplayer.h"
 
 #include "../core/randomhelper.h"
-#include <QTime>
 
 GreedyAIPlayer::GreedyAIPlayer(QObject *parent) :
     Player(parent)

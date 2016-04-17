@@ -28,6 +28,7 @@
 */
 
 #include "uiconnection.h"
+
 #include "core/commons.h"
 
 UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator, QObject *parent) :

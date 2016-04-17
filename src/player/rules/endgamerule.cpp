@@ -28,6 +28,7 @@
 */
 
 #include "endgamerule.h"
+
 #include "greedyrule.h"
 #include "rulehelper.h"
 #include "../../core/commons.h"

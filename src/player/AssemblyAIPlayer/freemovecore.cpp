@@ -28,6 +28,7 @@
 */
 
 #include "freemovecore.h"
+
 #include "assemblyaihelper.h"
 #include "../../core/commons.h"
 
