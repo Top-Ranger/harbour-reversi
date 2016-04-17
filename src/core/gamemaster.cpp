@@ -28,6 +28,7 @@
 */
 
 #include "gamemaster.h"
+#include "commons.h"
 #include "../player/humanplayer.h"
 #include "../player/randomaiplayer.h"
 #include "../player/greedyaiplayer.h"
@@ -40,7 +41,6 @@
 #include "../player/assemblyaiplayer.h"
 #include "../player/neuralnetworkaiplayer.h"
 #include "../player/montecarloplayer.h"
-#include <QDebug>
 
 Gamemaster::Gamemaster(QObject *parent) :
     QObject(parent),
@@ -191,7 +191,7 @@ void Gamemaster::getInput(int x, int y)
 {
     if(!_initialised)
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
+        REVERSI_ERROR_MSG("Using Gamemaster without initialising it");
         return;
     }
     emit humanInput(x, y);
@@ -227,7 +227,7 @@ void Gamemaster::turn(int x, int y)
 {
     if(!_initialised)
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
+        REVERSI_ERROR_MSG("Using Gamemaster without initialising it");
         return;
     }
 
@@ -261,7 +261,7 @@ void Gamemaster::startGame()
 {
     if(!_initialised)
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
+        REVERSI_ERROR_MSG("Using Gamemaster without initialising it");
         return;
     }
 
@@ -282,7 +282,7 @@ int Gamemaster::getOwner(int x, int y)
 {
     if(!_initialised)
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
+        REVERSI_ERROR_MSG("Using Gamemaster without initialising it");
         return 0;
     }
     return _board->owner(x, y);
@@ -292,7 +292,7 @@ int Gamemaster::pointsPlayer1()
 {
     if(!_initialised)
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
+        REVERSI_ERROR_MSG("Using Gamemaster without initialising it");
         return 0;
     }
 
@@ -303,7 +303,7 @@ int Gamemaster::pointsPlayer2()
 {
     if(!_initialised)
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Using Gamemaster without initialising it";
+        REVERSI_ERROR_MSG("Using Gamemaster without initialising it");
         return 0;
     }
 

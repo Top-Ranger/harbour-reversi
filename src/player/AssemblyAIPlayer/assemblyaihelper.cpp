@@ -30,7 +30,6 @@
 #include "assemblyaihelper.h"
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
-#include <QDebug>
 
 using ReversiCommons::opponent;
 
@@ -136,7 +135,7 @@ void AssemblyAI::ensureOnePossibleMove(float ** const vote, Gameboard board, int
     {
         return;
     }
-    qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move!";
+    REVERSI_ERROR_MSG("No possible move!");
 }
 
 void AssemblyAI::ensureNoIllegalMove(float ** const vote, Gameboard board, int player)

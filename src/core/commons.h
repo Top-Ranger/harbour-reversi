@@ -31,6 +31,12 @@
 #ifndef COMMONS
 #define COMMONS
 
+#include <QDebug>
+
+#define REVERSI_DEBUG_MSG(x) qDebug() << "DEBUG in" << Q_FUNC_INFO << ":" << x
+#define REVERSI_WARNING_MSG(x) qWarning() << "ERROR in" << Q_FUNC_INFO << ":" << x
+#define REVERSI_ERROR_MSG(x) qCritical() << "FATAL ERROR in" << Q_FUNC_INFO << ":" << x
+
 namespace ReversiCommons {
 inline int opponent(int player)
 {

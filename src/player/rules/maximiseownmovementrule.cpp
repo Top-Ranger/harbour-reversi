@@ -32,7 +32,6 @@
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
 #include "rulehelper.h"
-#include <QDebug>
 #include <QTime>
 
 using RuleHelper::canTakeCorner;
@@ -80,7 +79,7 @@ void MaximiseOwnMovementRule::doTurn(Gameboard board, int player)
         }
         else
         {
-            qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move";
+            REVERSI_ERROR_MSG("No possible move");
         }
     }
 }

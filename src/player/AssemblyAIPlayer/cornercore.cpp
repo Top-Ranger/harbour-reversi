@@ -39,44 +39,44 @@ CornerCore::CornerCore()
 
 bool CornerCore::retirement(Gameboard board, int player)
 {
-        // Do not retrire if you can get a corner
+    // Do not retrire if you can get a corner
 
-        if(board.play(0,0,player,true))
-        {
-            return false;
-        }
-        else if(board.play(0,7,player,true))
-        {
-            return false;
-        }
-        else if(board.play(7,0,player,true))
-        {
-            return false;
-        }
-        else if(board.play(7,7,player,true))
-        {
-            return false;
-        }
+    if(board.play(0,0,player,true))
+    {
+        return false;
+    }
+    else if(board.play(0,7,player,true))
+    {
+        return false;
+    }
+    else if(board.play(7,0,player,true))
+    {
+        return false;
+    }
+    else if(board.play(7,7,player,true))
+    {
+        return false;
+    }
 
 
-        // Do not retrire if there is a play where the opponent could get a corner
-        for(int x = 0; x < 8; ++x)
+    // Do not retrire if there is a play where the opponent could get a corner
+    for(int x = 0; x < 8; ++x)
+    {
+        for(int y = 0; y < 8; ++y)
         {
-            for(int y = 0; y < 8; ++y)
+            if(!((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
             {
-                if(!((x == 0 || x == 7) && (y == 0 || y == 7)) && board.play(x,y,player,true))
+                Gameboard testboard = board;
+                testboard.play(x,y,player,false);
+                if(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true))
                 {
-                    Gameboard testboard = board;
-                    testboard.play(x,y,player,false);
-                    if(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
         }
-        // Else retrire
-        return true;
+    }
+    // Else retrire
+    return true;
 }
 
 int CornerCore::mistrust(float const* const* const vote, Gameboard board, int player)

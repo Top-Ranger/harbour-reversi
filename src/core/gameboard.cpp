@@ -28,7 +28,6 @@
 */
 
 #include "gameboard.h"
-#include <QDebug>
 #include "commons.h"
 
 using ReversiCommons::opponent;
@@ -78,7 +77,7 @@ bool Gameboard::play(int x, int y, int player, bool test)
 {
     if(!checkCoordinates(x,y))
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": x or y value out of range";
+        REVERSI_ERROR_MSG("x or y value out of range");
         return false;
     }
 
@@ -149,7 +148,7 @@ int Gameboard::owner(int x, int y)
 {
     if(!checkCoordinates(x,y))
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << __LINE__ << ": x or y value out of range";
+        REVERSI_ERROR_MSG("x or y value out of range");
         return -1;
     }
 
@@ -160,7 +159,7 @@ bool Gameboard::testLine(int x, int y, int deltax, int deltay, int player, bool 
 {
     if(!checkCoordinates(x,y))
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << __LINE__ << ": x or y value out of range";
+        REVERSI_ERROR_MSG("x or y value out of range");
         return false;
     }
 

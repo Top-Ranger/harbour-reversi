@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,7 +28,7 @@
 */
 
 #include "uiconnection.h"
-#include <QDebug>
+#include "core/commons.h"
 
 UIConnection::UIConnection(QTranslator *translator, QTranslator *coreTranslator, QObject *parent) :
     QObject(parent),
@@ -114,7 +114,7 @@ void UIConnection::changeLanguage(QString language)
     }
     else
     {
-        qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Trying to change language with NULL-Translator";
+        REVERSI_ERROR_MSG("Trying to change language with NULL-Translator");
     }
 }
 

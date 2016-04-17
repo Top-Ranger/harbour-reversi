@@ -43,7 +43,6 @@
 
 #include "../core/randomhelper.h"
 #include "../core/commons.h"
-#include <QDebug>
 #include <QTime>
 
 using ReversiCommons::opponent;
@@ -219,7 +218,7 @@ void AssemblyAIPlayer::doTurn(Gameboard board, int player)
                 int index = _inactiveCores.indexOf(_activeCore);
                 if(index == -1)
                 {
-                    qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": Core not found in _inactiveCores, adding Core to list";
+                    REVERSI_ERROR_MSG("Core not found in _inactiveCores, adding Core to list");
                     _inactiveCores.append(temp);
                 }
                 else

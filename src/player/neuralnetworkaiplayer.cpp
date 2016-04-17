@@ -28,7 +28,6 @@
 */
 
 #include <QGenericMatrix>
-#include <QDebug>
 #include <limits>
 #include <QFile>
 #include <QTextStream>
@@ -206,7 +205,7 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
     }
     if(turn_save != -1)
     {
-         emit turn(turn_save%8, turn_save/8);
+        emit turn(turn_save%8, turn_save/8);
     }
     else if(turn_save_bad != -1)
     {
@@ -214,7 +213,7 @@ void NeuralNetworkAIPlayer::doTurn(Gameboard board, int player)
     }
     else
     {
-        qCritical() << "CRITICAL ERROR in " __FILE__ << " " << __LINE__ << ": Neural Network AI has no play";
+        REVERSI_ERROR_MSG("Neural Network AI has no play");
     }
 }
 

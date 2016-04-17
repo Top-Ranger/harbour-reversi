@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015 Marcus Soll
+  Copyright (C) 2014,2015,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -29,7 +29,7 @@
 
 #include "cornerrule.h"
 #include "rulehelper.h"
-#include <QDebug>
+#include "../../core/commons.h"
 
 using RuleHelper::getPossibleTurn;
 using RuleHelper::possibleMove;
@@ -69,7 +69,7 @@ void CornerRule::doTurn(Gameboard board, int player)
         }
         else
         {
-            qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move";
+            REVERSI_ERROR_MSG(": No possible move");
         }
     }
 }

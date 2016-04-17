@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -28,9 +28,9 @@
 */
 
 #include "persistenceclass.h"
+#include "core/commons.h"
 #include <QXmlStreamReader>
 #include <QStandardPaths>
-#include <QDebug>
 #include <QXmlStreamAttributes>
 #include <QXmlStreamWriter>
 #include <QFile>
@@ -75,12 +75,12 @@ PersistenceClass::PersistenceClass(QObject *parent) :
                     }
                     else
                     {
-                        qWarning() << "WARNING in " __FILE__ << " " << __LINE__ << ": Reading - Can not determine attributes of " << reader.name();
+                        REVERSI_WARNING_MSG("Reading - Can not determine attributes of " << reader.name());
                     }
                 }
                 else
                 {
-                    qWarning() << "WARNING in " __FILE__ << " " << __LINE__ << ": Reading - Unknown Element: " << reader.name();
+                    REVERSI_WARNING_MSG("Reading - Unknown Element: " << reader.name());
                 }
                 break;
 
@@ -97,12 +97,12 @@ PersistenceClass::PersistenceClass(QObject *parent) :
                 break;
 
             case QXmlStreamReader::Invalid:
-                qWarning() << "WARNING in " __FILE__ << " " << __LINE__ << ": Reading -" << reader.errorString();
+                REVERSI_WARNING_MSG("Reading -" << reader.errorString());
                 file.close();
                 return;
 
             default:
-                qWarning() << "WARNING in " __FILE__ << " " << __LINE__ << ": Reading - Unknown token:" << reader.tokenString();
+                REVERSI_WARNING_MSG("Reading - Unknown token:" << reader.tokenString());
             }
         }
         file.close();
@@ -124,7 +124,7 @@ void PersistenceClass::saveNow()
         QDir dir(path);
         if(!dir.exists())
         {
-            qWarning() << "DEBUG in " __FILE__ << " " << __LINE__ << ": Creating directory" << path;
+            REVERSI_DEBUG_MSG("Creating directory" << path);
             dir.mkdir(path);
         }
 
@@ -152,14 +152,14 @@ void PersistenceClass::saveNow()
 
             if(writer.hasError())
             {
-                qWarning() << "WARNING in " __FILE__ << " " << __LINE__ << ": Writing - Error while writing file";
+                REVERSI_WARNING_MSG("Writing - Error while writing file");
             }
 
             file.close();
         }
         else
         {
-            qWarning() << "WARNING in " __FILE__ << " " << __LINE__ << ": Writing - Can not write file \"" + path + "\":" + file.errorString();
+            REVERSI_WARNING_MSG("Writing - Can not write file \"" << path << "\":" << file.errorString());
         }
         _hasChanged = false;
     }

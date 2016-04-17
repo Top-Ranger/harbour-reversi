@@ -31,7 +31,6 @@
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
 #include "../../core/commons.h"
-#include <QDebug>
 #include <QTime>
 
 using RuleHelper::canTakeCorner;
@@ -79,7 +78,7 @@ void MinimiseOpponentMovementRule::doTurn(Gameboard board, int player)
         }
         else
         {
-            qCritical() << "FATAL ERROR in " __FILE__ << " " << __LINE__ << ": No possible move";
+            REVERSI_ERROR_MSG(": No possible move");
         }
     }
 }
