@@ -30,12 +30,14 @@
 #include "openingrule.h"
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
+#include "../../core/commons.h"
 #include <limits>
 #include <QTime>
 
 using RuleHelper::isFrontierDisc;
 using RuleHelper::canGetZeroDiscs;
-using RuleHelper::opponent;
+
+using ReversiCommons::opponent;
 
 const int OpeningRule::_borderDiscs;
 const int OpeningRule::_valueCenter;

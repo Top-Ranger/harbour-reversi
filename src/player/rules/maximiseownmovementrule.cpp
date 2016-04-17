@@ -30,16 +30,17 @@
 #include "maximiseownmovementrule.h"
 
 #include "../../core/randomhelper.h"
+#include "../../core/commons.h"
 #include "rulehelper.h"
 #include <QDebug>
 #include <QTime>
 
 using RuleHelper::canTakeCorner;
 using RuleHelper::canGetZeroDiscs;
-using RuleHelper::opponent;
 using RuleHelper::getPossibleTurn;
 using RuleHelper::possibleMove;
 
+using ReversiCommons::opponent;
 
 const int MaximiseOwnMovementRule::_borderMoves;
 

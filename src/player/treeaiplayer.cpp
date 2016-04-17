@@ -29,8 +29,11 @@
 
 #include "treeaiplayer.h"
 #include "../core/randomhelper.h"
+#include "../core/commons.h"
 #include <QTime>
 #include <limits>
+
+using ReversiCommons::opponent;
 
 TreeAIPlayer::TreeAIPlayer(QObject *parent) :
     Player(parent)
@@ -168,11 +171,6 @@ float TreeAIPlayer::buildTree(Gameboard board, int player, int I, int old, int o
     {
         return advantage / n;
     }
-}
-
-int inline TreeAIPlayer::opponent(int player)
-{
-    return player==1?2:1;
 }
 
 float TreeAIPlayer::calculateScore(Gameboard board, int I, int change, int opponentChange)

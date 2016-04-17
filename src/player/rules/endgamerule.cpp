@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -30,8 +30,9 @@
 #include "endgamerule.h"
 #include "greedyrule.h"
 #include "rulehelper.h"
+#include "../../core/commons.h"
 
-using RuleHelper::opponent;
+using ReversiCommons::opponent;
 
 const int EndgameRule::_borderDiscs;
 

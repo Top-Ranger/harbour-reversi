@@ -36,6 +36,9 @@
 #include <cmath>
 #include "neuralnetworkaiplayer.h"
 #include "../core/randomhelper.h"
+#include "../core/commons.h"
+
+using ReversiCommons::opponent;
 
 const char *NeuralNetworkAIPlayer::_pathInputToHidden1 = ":NeuralNetworkAIPlayer/inputToHidden1.txt";
 const char *NeuralNetworkAIPlayer::_pathHidden1ToHidden2 = ":NeuralNetworkAIPlayer/hidden1ToHidden2.txt";
@@ -44,11 +47,6 @@ const char *NeuralNetworkAIPlayer::_pathHidden2ToOutput = ":NeuralNetworkAIPlaye
 namespace {
 float sigmoid(float input){
     return 1 / (1 + exp(-input));
-}
-
-int opponent(int player)
-{
-    return player==1?2:1;
 }
 
 bool opponentCanPlayCorner(Gameboard board, int x, int y, int player)

@@ -30,12 +30,14 @@
 #include "fewerfrontierdiscsrule.h"
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
+#include "../../core/commons.h"
 #include <QTime>
 
 using RuleHelper::isFrontierDisc;
 using RuleHelper::canTakeCorner;
 using RuleHelper::canGetZeroDiscs;
-using RuleHelper::opponent;
+
+using ReversiCommons::opponent;
 
 FewerFrontierDiscsRule::FewerFrontierDiscsRule(QObject *parent) :
     Rule(parent)

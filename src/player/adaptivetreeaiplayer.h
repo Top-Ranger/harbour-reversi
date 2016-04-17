@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -45,7 +45,6 @@ public slots:
 
 private:
     float buildTree(Gameboard board, int player, int I, int old, int opponentOld, int depth);
-    int inline opponent(int player);
     float calculateScore(Gameboard board, int I, int change, int opponentChange);
 
     bool triesFewerFrontierDiscs(Gameboard board, int x, int y, int opponentValue);

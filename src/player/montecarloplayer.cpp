@@ -29,11 +29,12 @@
 
 #include "montecarloplayer.h"
 #include "../core/randomhelper.h"
+#include "../core/commons.h"
 
 #include <QTime>
 #include <limits>
 
-static int opponent(int player){return player==1?2:1;}
+using ReversiCommons::opponent;
 
 static int singleRunMonteCarlo(Gameboard board, int player, int current_player)
 {

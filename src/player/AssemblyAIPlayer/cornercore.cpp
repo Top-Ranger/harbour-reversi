@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -29,8 +29,9 @@
 
 #include "cornercore.h"
 #include "assemblyaihelper.h"
+#include "../../core/commons.h"
 
-using AssemblyAI::opponent;
+using ReversiCommons::opponent;
 
 CornerCore::CornerCore()
 {

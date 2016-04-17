@@ -53,8 +53,6 @@ private:
     bool testLine(int x, int y, int deltax, int deltay, int player, bool test=false);
     int _board[8][8];
     bool inline checkCoordinates(int x, int y);
-    int inline opponent(int player);
-
 };
 
 #endif // GAMEBOARD_H

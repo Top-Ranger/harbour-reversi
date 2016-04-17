@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014,2015,2016 Marcus Soll
+  Copyright (C) 2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -27,22 +27,15 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef RULEHELPER_H
-#define RULEHELPER_H
 
-#include "../../core/gameboard.h"
+#ifndef COMMONS
+#define COMMONS
 
-namespace RuleHelper {
-struct possibleMove {
-    int x;
-    int y;
-    bool possible;
-};
-
-bool isFrontierDisc(Gameboard board, int x, int y);
-bool canTakeCorner(Gameboard board, int player);
-bool canGetZeroDiscs(Gameboard board, int player);
-possibleMove getPossibleTurn(Gameboard board, int player);
+namespace ReversiCommons {
+inline int opponent(int player)
+{
+    return player==1?2:1;
 }
+}
+#endif // COMMONS
 
-#endif // RULEHELPER_H

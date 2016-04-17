@@ -30,8 +30,11 @@
 #include "controlaiplayer.h"
 
 #include "../core/randomhelper.h"
+#include "../core/commons.h"
 #include <QTime>
 #include <limits>
+
+using ReversiCommons::opponent;
 
 ControlAIPlayer::ControlAIPlayer(QObject *parent) :
     Player(parent),
@@ -162,11 +165,6 @@ void ControlAIPlayer::humanInput(int x, int y)
     // Do nothing on human input
     Q_UNUSED(x)
     Q_UNUSED(y)
-}
-
-int inline ControlAIPlayer::opponent(int player)
-{
-    return player==1?2:1;
 }
 
 bool ControlAIPlayer::filter(int x, int y, Gameboard board, int player)

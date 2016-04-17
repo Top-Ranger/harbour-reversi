@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -29,6 +29,9 @@
 
 #include "freemovecore.h"
 #include "assemblyaihelper.h"
+#include "../../core/commons.h"
+
+using ReversiCommons::opponent;
 
 namespace {
 bool isFreeMovement(Gameboard board, int player, int x, int y)
@@ -36,12 +39,12 @@ bool isFreeMovement(Gameboard board, int player, int x, int y)
     Gameboard testboard = board;
     if(testboard.play(x,y,player))
     {
-        int opponent = AssemblyAI::opponent(player);
+        int opponentPlayer = opponent(player);
         for(int xi = 0; xi < 8; ++xi)
         {
             for(int yi = 0; yi < 8; yi++)
             {
-                if(testboard.play(xi,yi,opponent,true))
+                if(testboard.play(xi,yi,opponentPlayer,true))
                 {
                     return false;
                 }

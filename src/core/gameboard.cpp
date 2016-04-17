@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Marcus Soll
+  Copyright (C) 2014,2016 Marcus Soll
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -29,6 +29,9 @@
 
 #include "gameboard.h"
 #include <QDebug>
+#include "commons.h"
+
+using ReversiCommons::opponent;
 
 Gameboard::Gameboard(QObject *parent) :
     QObject(parent)
@@ -195,9 +198,4 @@ bool Gameboard::testLine(int x, int y, int deltax, int deltay, int player, bool 
 bool inline Gameboard::checkCoordinates(int x, int y)
 {
     return x>=0 && x<8 && y>=0 && y<8;
-}
-
-int inline Gameboard::opponent(int player)
-{
-    return player==1?2:1;
 }

@@ -28,10 +28,12 @@
 */
 
 #include "adaptivetreeaiplayer.h"
-
 #include "../core/randomhelper.h"
+#include "../core/commons.h"
 #include <QTime>
 #include <limits>
+
+using ReversiCommons::opponent;
 
 AdaptiveTreeAIPlayer::AdaptiveTreeAIPlayer(QObject *parent) :
     Player(parent),
@@ -210,11 +212,6 @@ float AdaptiveTreeAIPlayer::buildTree(Gameboard board, int player, int I, int ol
     {
         return advantage / n;
     }
-}
-
-int inline AdaptiveTreeAIPlayer::opponent(int player)
-{
-    return player==1?2:1;
 }
 
 float AdaptiveTreeAIPlayer::calculateScore(Gameboard board, int I, int change, int opponentChange)

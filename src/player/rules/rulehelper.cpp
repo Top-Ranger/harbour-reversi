@@ -29,7 +29,10 @@
 
 #include "rulehelper.h"
 #include "../../core/randomhelper.h"
+#include "../../core/commons.h"
 #include <QTime>
+
+using ReversiCommons::opponent;
 
 bool RuleHelper::isFrontierDisc(Gameboard board, int x, int y)
 {

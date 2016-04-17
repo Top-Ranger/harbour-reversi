@@ -29,7 +29,10 @@
 
 #include "assemblyaihelper.h"
 #include "../../core/randomhelper.h"
+#include "../../core/commons.h"
 #include <QDebug>
+
+using ReversiCommons::opponent;
 
 namespace {
 bool findOneFreePlace(float ** const vote, Gameboard board, int player, bool ignoreOpponentCanGetCorner=true)
@@ -75,7 +78,7 @@ bool findOneFreePlace(float ** const vote, Gameboard board, int player, bool ign
                     }
                     Gameboard testboard = board;
                     board.play(x,y,player,false);
-                    if(!(testboard.play(0,0,AssemblyAI::opponent(player),true) || testboard.play(0,7,AssemblyAI::opponent(player),true) || testboard.play(7,0,AssemblyAI::opponent(player),true) || testboard.play(7,7,AssemblyAI::opponent(player),true)))
+                    if(!(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true)))
                     {
                         vote[x][y] = 1;
                         return true;

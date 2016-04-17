@@ -42,8 +42,11 @@
 #include "AssemblyAIPlayer/areacontrolcore.h"
 
 #include "../core/randomhelper.h"
+#include "../core/commons.h"
 #include <QDebug>
 #include <QTime>
+
+using ReversiCommons::opponent;
 
 namespace {
 void clearVote(float ** const vote)
@@ -93,7 +96,7 @@ void cornerAlert(Gameboard board, int player, float ** const vote)
             {
                 Gameboard testboard = board;
                 testboard.play(x,y,player,false);
-                if(testboard.play(0,0,AssemblyAI::opponent(player),true) || testboard.play(0,7,AssemblyAI::opponent(player),true) || testboard.play(7,0,AssemblyAI::opponent(player),true) || testboard.play(7,7,AssemblyAI::opponent(player),true))
+                if(testboard.play(0,0,opponent(player),true) || testboard.play(0,7,opponent(player),true) || testboard.play(7,0,opponent(player),true) || testboard.play(7,7,opponent(player),true))
                 {
                     vote[x][y] = 0;
                 }

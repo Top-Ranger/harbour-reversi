@@ -3,6 +3,7 @@ Current development:
    * Added icons of different sizes
    * Added option to select random AI
    * Removed opacity from icon
+   * Code cleanup
 
 Version 1.6:
    * Small improvements

@@ -244,7 +244,8 @@ HEADERS += \
     src/player/AssemblyAIPlayer/areacontrolcore.h \
     src/player/neuralnetworkaiplayer.h \
     src/player/montecarloplayer.h \
-    src/core/randomhelper.h
+    src/core/randomhelper.h \
+    src/core/commons.h
 
 RESOURCES += \
     src/translation/core-translation.qrc \
