@@ -10,10 +10,6 @@ TARGET = harbour-reversi
 
 CONFIG += sailfishapp c++11
 
-release {
-    DEFINES += QT_NO_DEBUG_OUTPUT
-}
-
 # Icons + license
 
 !exists(icons/86x86/harbour-reversi.png) {
