@@ -1,4 +1,6 @@
 Current development:
+
+Version 1.7:
    * Added "Monte Carlo AI"
    * Added icons of different sizes
    * Added option to select random AI
